@@ -1,15 +1,105 @@
+import random
+import threading
+import time
 from dataclasses import dataclass, field
 from typing import Optional
 from xml.etree import ElementTree
 
+import diskcache
 import requests
 from bs4 import BeautifulSoup
 from fastapi import HTTPException
 from lxml import etree
 from requests import Response, TooManyRedirects
+from tenacity import (
+    RetryError,
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+    wait_random,
+)
 
+from app.settings import settings
 from app.utils.utils import trim
 from app.utils.xpath import Pagination
+
+
+USER_AGENTS: tuple[str, ...] = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0",
+    "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+)
+
+_RETRYABLE_STATUS = frozenset({408, 425, 429, 500, 502, 503, 504})
+_session = requests.Session()
+_cache = (
+    diskcache.Cache(
+        directory=settings.CACHE_DIR,
+        size_limit=settings.CACHE_SIZE_LIMIT_MB * 1024 * 1024,
+    )
+    if settings.CACHE_ENABLE
+    else None
+)
+
+
+class _TransientUpstreamError(Exception):
+    def __init__(self, status_code: int, reason: str, url: str):
+        self.status_code = status_code
+        self.reason = reason
+        self.url = url
+        super().__init__(f"{status_code} {reason} for url: {url}")
+
+
+class _MinIntervalThrottle:
+    """Process-wide minimum-interval throttle. Politeness > evasion."""
+
+    def __init__(self, min_interval_s: float):
+        self._min_interval = min_interval_s
+        self._last = 0.0
+        self._lock = threading.Lock()
+
+    def acquire(self) -> None:
+        with self._lock:
+            elapsed = time.monotonic() - self._last
+            wait = self._min_interval - elapsed
+            if wait > 0:
+                time.sleep(wait)
+            self._last = time.monotonic()
+
+
+_throttle = _MinIntervalThrottle(settings.OUTBOUND_MIN_INTERVAL_MS / 1000.0)
+
+
+def _response_from_cache(body: bytes, url: str) -> Response:
+    resp = Response()
+    resp.status_code = 200
+    resp._content = body
+    resp.url = url
+    return resp
+
+
+@retry(
+    retry=retry_if_exception_type(_TransientUpstreamError),
+    wait=wait_exponential(multiplier=1, min=1, max=30) + wait_random(0, 1),
+    stop=stop_after_attempt(settings.OUTBOUND_MAX_RETRIES),
+    reraise=True,
+)
+def _fetch_upstream(url: str) -> Response:
+    _throttle.acquire()
+    response: Response = _session.get(
+        url=url,
+        headers={"User-Agent": random.choice(USER_AGENTS)},
+        timeout=30,
+    )
+    if response.status_code in _RETRYABLE_STATUS:
+        raise _TransientUpstreamError(response.status_code, response.reason, url)
+    return response
 
 
 @dataclass
@@ -44,34 +134,42 @@ class TransfermarktBase:
                 server error status code.
         """
         url = self.URL if not url else url
+
+        if _cache is not None:
+            cached = _cache.get(url)
+            if cached is not None:
+                return _response_from_cache(cached, url)
+
         try:
-            response: Response = requests.get(
-                url=url,
-                headers={
-                    "User-Agent": (
-                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                        "Chrome/113.0.0.0 "
-                        "Safari/537.36"
-                    ),
-                },
+            response: Response = _fetch_upstream(url)
+        except _TransientUpstreamError as e:
+            raise HTTPException(
+                status_code=e.status_code,
+                detail=f"Upstream error after retries. {e.reason} for url: {url}",
             )
         except TooManyRedirects:
             raise HTTPException(status_code=404, detail=f"Not found for url: {url}")
         except ConnectionError:
             raise HTTPException(status_code=500, detail=f"Connection error for url: {url}")
+        except RetryError as e:
+            raise HTTPException(status_code=502, detail=f"Retries exhausted for url: {url}. {e}")
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error for url: {url}. {e}")
+
         if 400 <= response.status_code < 500:
             raise HTTPException(
                 status_code=response.status_code,
                 detail=f"Client Error. {response.reason} for url: {url}",
             )
-        elif 500 <= response.status_code < 600:
+        if 500 <= response.status_code < 600:
             raise HTTPException(
                 status_code=response.status_code,
                 detail=f"Server Error. {response.reason} for url: {url}",
             )
+
+        if _cache is not None:
+            _cache.set(url, response.content, expire=settings.CACHE_TTL_SECONDS)
+
         return response
 
     def request_url_bsoup(self) -> BeautifulSoup:

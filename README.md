@@ -54,9 +54,25 @@ $ docker run -d -p 8000:8000 transfermarkt-api
 $ open http://localhost:8000/
 ````
 
+### Upstream Rate-Limit Avoidance
+
+Outbound requests to Transfermarkt go through a shared `requests.Session` with
+connection reuse, a rotating User-Agent pool, a process-wide minimum-interval
+throttle, exponential-backoff retry on 408/425/429/5xx (via `tenacity`), and a
+disk-backed TTL response cache (via `diskcache`). The cache lives at
+`CACHE_DIR` (default `.cache/http/`, gitignored) and is keyed by URL.
+
 ### Environment Variables
 
-| Variable                  | Description                                               | Default      |
-|---------------------------|-----------------------------------------------------------|--------------|
-| `RATE_LIMITING_ENABLE`    | Enable rate limiting feature for API calls                | `false`      |
-| `RATE_LIMITING_FREQUENCY` | Delay allowed between each API call. See [slowapi](https://slowapi.readthedocs.io/en/latest/) for more | `2/3seconds` |
+| Variable                   | Description                                                                                            | Default        |
+|----------------------------|--------------------------------------------------------------------------------------------------------|----------------|
+| `RATE_LIMITING_ENABLE`     | Enable inbound rate limiting for clients calling this API                                              | `false`        |
+| `RATE_LIMITING_FREQUENCY`  | Delay allowed between each inbound API call. See [slowapi](https://slowapi.readthedocs.io/en/latest/) | `2/3seconds`   |
+| `CACHE_ENABLE`             | Enable disk cache of upstream Transfermarkt responses                                                  | `true`         |
+| `CACHE_DIR`                | Directory for the disk cache                                                                           | `.cache/http`  |
+| `CACHE_TTL_SECONDS`        | TTL for cached upstream responses                                                                      | `3600`         |
+| `CACHE_SIZE_LIMIT_MB`      | Maximum cache size on disk                                                                             | `500`          |
+| `OUTBOUND_MIN_INTERVAL_MS` | Minimum gap between outbound requests to Transfermarkt (per process)                                   | `500`          |
+| `OUTBOUND_MAX_RETRIES`     | Retry attempts on transient upstream errors (429, 5xx, etc.)                                           | `4`            |
+
+> **Python version**: this fork requires Python `>=3.10` (bumped from upstream's `^3.9` because `tenacity` dropped 3.9 support).
