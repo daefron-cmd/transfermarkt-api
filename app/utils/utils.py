@@ -192,7 +192,7 @@ def parse_date(value: str | date | None) -> date | None:
 
 def parse_int(value: str | int | None) -> int | None:
     """
-    Parse a Transfermarkt number such as a market value, fee, member count or minutes played.
+    Parse a Transfermarkt number such as a market value, fee or member count.
 
     Currency symbols, "+", "'", whitespace and HTML tags are ignored and a leading "-" is kept. With a
     magnitude suffix (k, m, mio, b, bn, mrd) "." and "," are decimal separators ("€1.20m" -> 1200000);

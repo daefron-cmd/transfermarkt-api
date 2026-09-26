@@ -1,5 +1,78 @@
 [
   {
+    "url": "https://tmapi.transfermarkt.technology/attributes",
+    "file": "25a645861cf2bdee.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:14+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=10831&ids[]=25250&ids[]=3377&ids[]=40468&ids[]=415&ids[]=53860&ids[]=9323&ids[]=9371&ids[]=9372",
+    "file": "1c13f00151e97cb6.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=12395&ids[]=12609&ids[]=131&ids[]=2464&ids[]=3375&ids[]=33775&ids[]=41584&ids[]=70910",
+    "file": "bc6d7a5ff36138b2.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=131&ids[]=3375",
+    "file": "902246ffb36962fc.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=17EU&ids[]=19YL&ids[]=AA17&ids[]=AFT&ids[]=CDR&ids[]=CL&ids[]=E3G2&ids[]=EMQ&ids[]=ES1&ids[]=ES2P&ids[]=EURO&ids[]=FIWC&ids[]=FS&ids[]=SUC&ids[]=U17Q&ids[]=UNFI&ids[]=UNLA&ids[]=WMQ6",
+    "file": "581f756d5641835e.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:14+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=21EU&ids[]=EL&ids[]=F19D&ids[]=F19F&ids[]=FR1&ids[]=FR2&ids[]=FR5L&ids[]=FRC&ids[]=FRCH&ids[]=FRYC&ids[]=FS&ids[]=OLYM&ids[]=U17Q&ids[]=U21Q&ids[]=UNLA",
+    "file": "73ce01f48ae549fa.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=CDR&ids[]=CL&ids[]=ES1&ids[]=SUC&ids[]=UNFI&ids[]=UNLA&ids[]=WMQ6",
+    "file": "8d7ee1bb36476e47.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/player/0/performance-game",
+    "status": 404,
+    "reason": "Client Error. Not Found",
+    "detail": "Client Error. Not Found for url: https://tmapi.transfermarkt.technology/player/0/performance-game",
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/player/912902",
+    "file": "63b09bfc09efd814.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/player/912902/performance-game",
+    "file": "a44189b6f6576477.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/player/937958",
+    "file": "557d96e1d53827aa.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/player/937958/performance-game",
+    "file": "c0ad66f3f34addcb.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
     "url": "https://www.transfermarkt.com/-/erfolge/spieler/28003",
     "file": "2fe16b074573f10e.html",
     "status": 200,
@@ -28,18 +101,6 @@
     "file": "53716ee041aab1e5.html",
     "status": 200,
     "recorded_at": "2026-09-26T11:22:06+00:00"
-  },
-  {
-    "url": "https://www.transfermarkt.com/-/leistungsdatendetails/spieler/5023",
-    "file": "2fac19a5f4610a68.html",
-    "status": 200,
-    "recorded_at": "2026-09-26T11:22:05+00:00"
-  },
-  {
-    "url": "https://www.transfermarkt.com/-/leistungsdatendetails/spieler/8198",
-    "file": "0b37d7dd605e3d61.html",
-    "status": 200,
-    "recorded_at": "2026-09-26T11:22:05+00:00"
   },
   {
     "url": "https://www.transfermarkt.com/-/marktwertverlauf/spieler/28003",

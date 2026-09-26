@@ -1,0 +1,6 @@
+{
+  "body": {
+    "detail": "Client Error. Not Found for url: https://tmapi.transfermarkt.technology/player/0/performance-game"
+  },
+  "status_code": 404
+}

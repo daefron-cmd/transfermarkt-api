@@ -77,6 +77,31 @@ The endpoints are `async` and share one `TransfermarktClient` (`app/http.py`), a
 Upstream failures are returned as `{"detail": "..."}` JSON: upstream 4xx statuses (and 5xx after
 retries) pass through, too many redirects become 404, and connection errors or timeouts become 502.
 
+### Player Stats Data Source
+
+Transfermarkt no longer renders the detailed stats table in the page HTML, so `/players/{player_id}/stats`
+is built from `tmapi.transfermarkt.technology`, the JSON API behind the site's own web components.
+**tmapi is unofficial and undocumented**: it may change or disappear without notice. Its responses are
+validated (`app/tmapi.py`) and an unexpected shape returns 502 instead of wrong numbers. Requests go through
+the same `TransfermarktClient` (throttle, retries, disk cache); the `/attributes` table is fetched once per process.
+
+The endpoint fetches the player's per-game rows (`/player/{id}/performance-game`) and the names of their
+competitions and clubs (`/competitions?ids[]=...`, `/clubs?ids[]=...`, sorted ids, 50 per request), then
+returns one entry per season, competition and club the player was fielded for (a national team for
+international games). `?season_id=2024` limits it to one season. Only games with participation state
+`played` count:
+
+- `appearances`: played games; `minutesPlayed`, `goals`, `assists`, `ownGoals`, `penaltyGoals`: sums over them;
+- `yellowCards`: yellows that did not become a second yellow; `secondYellowCards`, `redCards` (straight red):
+  games with that card;
+- `goalsConceded` / `cleanSheets`: goals conceded while on the pitch / games the team kept a clean sheet
+  (whole-match score), over games played in a goalkeeper position; a game without a recorded position counts
+  when the player's main position (`/player/{id}`) is goalkeeper. `null` when the entry has no such games.
+
+Entries are sorted by season (newest first), then competition name. Season ids are the starting year
+(`2024` = `24/25`); some national-team competitions (qualifiers, Nations League Finals) use calendar-year
+seasons, so season `2024` also holds such games of 2025 (`seasonName` `"2025"`). An unknown player returns 404.
+
 ### Environment Variables
 
 | Variable                   | Description                                                                                            | Default        |

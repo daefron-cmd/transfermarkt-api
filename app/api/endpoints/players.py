@@ -49,9 +49,10 @@ async def get_player_jersey_numbers(player_id: str, client: Client):
     return player_jerseynumbers
 
 
-@router.get("/{player_id}/stats", response_model=schemas.PlayerStats, response_model_exclude_none=True)
-async def get_player_stats(player_id: str, client: Client):
-    tfmkt = await TransfermarktPlayerStats.fetch(client, player_id=player_id)
+# goalsConceded and cleanSheets are null for outfield players, so None values are kept in this response.
+@router.get("/{player_id}/stats", response_model=schemas.PlayerStats)
+async def get_player_stats(player_id: str, client: Client, season_id: str | None = None):
+    tfmkt = await TransfermarktPlayerStats.fetch(client, player_id=player_id, season_id=season_id)
     player_stats = tfmkt.get_player_stats()
     return player_stats
 

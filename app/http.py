@@ -133,6 +133,8 @@ class TransfermarktClient:
             if config.CACHE_ENABLE
             else None
         )
+        # tmapi attribute tables (positions, absences, ...), fetched once per client; see app.tmapi.get_attributes.
+        self.tmapi_attributes: dict[str, Any] | None = None
 
     async def __aenter__(self) -> Self:
         return self

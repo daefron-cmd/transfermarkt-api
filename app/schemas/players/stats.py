@@ -1,19 +1,34 @@
-from app.schemas.base import AuditMixin, TransfermarktBaseModel
+from pydantic import BaseModel, ConfigDict
+from pydantic.alias_generators import to_camel
+
+from app.schemas.base import AuditMixin
 
 
-class PlayerStat(TransfermarktBaseModel):
+class PlayerStat(BaseModel):
+    # Built from tmapi JSON, so the fields are already typed; this skips TransfermarktBaseModel's text parsers.
+    model_config = ConfigDict(alias_generator=to_camel)
+
+    season_id: str
+    season_name: str
     competition_id: str
     competition_name: str
-    season_id: str
     club_id: str
-    appearances: int | None = 0
-    goals: int | None = 0
-    assists: int | None = 0
-    yellow_cards: int | None = 0
-    red_cards: int | None = 0
-    minutes_played: int | None = 0
+    club_name: str
+    appearances: int
+    goals: int
+    assists: int
+    own_goals: int
+    penalty_goals: int
+    yellow_cards: int
+    second_yellow_cards: int
+    red_cards: int
+    minutes_played: int
+    goals_conceded: int | None
+    clean_sheets: int | None
 
 
-class PlayerStats(TransfermarktBaseModel, AuditMixin):
+class PlayerStats(AuditMixin):
+    model_config = ConfigDict(alias_generator=to_camel)
+
     id: str
     stats: list[PlayerStat]
