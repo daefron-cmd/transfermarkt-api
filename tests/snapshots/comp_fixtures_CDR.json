@@ -1,0 +1,550 @@
+{
+  "body": {
+    "games": [
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "89033",
+          "name": "CD Tedeón CF"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-26T16:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "82055",
+          "name": "Anaitasuna FT"
+        },
+        "homeGoals": null,
+        "id": "5049755",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049755"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "77659",
+          "name": "CD Baztán"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-26T16:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "134733",
+          "name": "Atlético Calatayud CF"
+        },
+        "homeGoals": null,
+        "id": "5049758",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049758"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "93727",
+          "name": "Ceuta 6 de Junio"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-26T16:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "50249",
+          "name": "UB Lebrijana"
+        },
+        "homeGoals": null,
+        "id": "5049761",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049761"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "13238",
+          "name": "SD Noja"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-26T17:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "42877",
+          "name": "Ribadesella CF"
+        },
+        "homeGoals": null,
+        "id": "5049757",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049757"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "108867",
+          "name": "Atlético Melilla CF"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-26T18:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "145675",
+          "name": "Atlético Pinatarense"
+        },
+        "homeGoals": null,
+        "id": "5049762",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049762"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "56445",
+          "name": "CD San José"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-27T10:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "112052",
+          "name": "Auriense CA"
+        },
+        "homeGoals": null,
+        "id": "5049756",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049756"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "67734",
+          "name": "Atlético Unión Güímar"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-27T10:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "76620",
+          "name": "Sporting Hortaleza"
+        },
+        "homeGoals": null,
+        "id": "5049763",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049763"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "34549",
+          "name": "AE Prat"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-27T14:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "27689",
+          "name": "CF Sant Rafel"
+        },
+        "homeGoals": null,
+        "id": "5049759",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049759"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "85781",
+          "name": "Sporting de Alcázar CF"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-27T15:30:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "123418",
+          "name": "CP Talayuela"
+        },
+        "homeGoals": null,
+        "id": "5049764",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049764"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "83058",
+          "name": "UE Tavernes"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-09-27T16:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "34119",
+          "name": "UD Maracena"
+        },
+        "homeGoals": null,
+        "id": "5049760",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 1st leg",
+        "url": "/spielbericht/index/spielbericht/5049760"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "82055",
+          "name": "Anaitasuna FT"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "89033",
+          "name": "CD Tedeón CF"
+        },
+        "homeGoals": null,
+        "id": "5049765",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049765"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "112052",
+          "name": "Auriense CA"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "56445",
+          "name": "CD San José"
+        },
+        "homeGoals": null,
+        "id": "5049766",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049766"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "42877",
+          "name": "Ribadesella CF"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "13238",
+          "name": "SD Noja"
+        },
+        "homeGoals": null,
+        "id": "5049767",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049767"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "134733",
+          "name": "Atlético Calatayud CF"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "77659",
+          "name": "CD Baztán"
+        },
+        "homeGoals": null,
+        "id": "5049768",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049768"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "27689",
+          "name": "CF Sant Rafel"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "34549",
+          "name": "AE Prat"
+        },
+        "homeGoals": null,
+        "id": "5049769",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049769"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "34119",
+          "name": "UD Maracena"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "83058",
+          "name": "UE Tavernes"
+        },
+        "homeGoals": null,
+        "id": "5049770",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049770"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "50249",
+          "name": "UB Lebrijana"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "93727",
+          "name": "Ceuta 6 de Junio"
+        },
+        "homeGoals": null,
+        "id": "5049771",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049771"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "145675",
+          "name": "Atlético Pinatarense"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "108867",
+          "name": "Atlético Melilla CF"
+        },
+        "homeGoals": null,
+        "id": "5049772",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049772"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "76620",
+          "name": "Sporting Hortaleza"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "67734",
+          "name": "Atlético Unión Güímar"
+        },
+        "homeGoals": null,
+        "id": "5049773",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049773"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "123418",
+          "name": "CP Talayuela"
+        },
+        "awayGoals": null,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2026-10-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "85781",
+          "name": "Sporting de Alcázar CF"
+        },
+        "homeGoals": null,
+        "id": "5049774",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 2,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Qualifying Round 2nd leg",
+        "url": "/spielbericht/index/spielbericht/5049774"
+      }
+    ],
+    "id": "CDR",
+    "name": "Copa del Rey",
+    "seasonId": "2026"
+  },
+  "status_code": 200
+}

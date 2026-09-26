@@ -1,0 +1,1396 @@
+{
+  "body": {
+    "games": [
+      {
+        "attendance": 65052,
+        "awayClub": {
+          "id": "3380",
+          "name": "Scotland"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-14T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3262",
+          "name": "Germany"
+        },
+        "homeGoals": 5,
+        "id": "4235807",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group A",
+        "url": "/spielbericht/index/spielbericht/4235807"
+      },
+      {
+        "attendance": 41676,
+        "awayClub": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "awayGoals": 3,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-15T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3468",
+          "name": "Hungary"
+        },
+        "homeGoals": 1,
+        "id": "4235808",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group A",
+        "url": "/spielbericht/index/spielbericht/4235808"
+      },
+      {
+        "attendance": 68844,
+        "awayClub": {
+          "id": "3556",
+          "name": "Croatia"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-15T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 3,
+        "id": "4235809",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235809"
+      },
+      {
+        "attendance": 60512,
+        "awayClub": {
+          "id": "3561",
+          "name": "Albania"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-15T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3376",
+          "name": "Italy"
+        },
+        "homeGoals": 2,
+        "id": "4235810",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235810"
+      },
+      {
+        "attendance": 48117,
+        "awayClub": {
+          "id": "3379",
+          "name": "Netherlands"
+        },
+        "awayGoals": 2,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-16T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3442",
+          "name": "Poland"
+        },
+        "homeGoals": 1,
+        "id": "4235813",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group D",
+        "url": "/spielbericht/index/spielbericht/4235813"
+      },
+      {
+        "attendance": 54000,
+        "awayClub": {
+          "id": "3436",
+          "name": "Denmark"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-16T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3588",
+          "name": "Slovenia"
+        },
+        "homeGoals": 1,
+        "id": "4235811",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group C",
+        "url": "/spielbericht/index/spielbericht/4235811"
+      },
+      {
+        "attendance": 48953,
+        "awayClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-16T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3438",
+          "name": "Serbia"
+        },
+        "homeGoals": 0,
+        "id": "4235812",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group C",
+        "url": "/spielbericht/index/spielbericht/4235812"
+      },
+      {
+        "attendance": 61591,
+        "awayClub": {
+          "id": "3699",
+          "name": "Ukraine"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-17T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3447",
+          "name": "Romania"
+        },
+        "homeGoals": 3,
+        "id": "4235816",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group E",
+        "url": "/spielbericht/index/spielbericht/4235816"
+      },
+      {
+        "attendance": 45181,
+        "awayClub": {
+          "id": "3503",
+          "name": "Slovakia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-17T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3382",
+          "name": "Belgium"
+        },
+        "homeGoals": 0,
+        "id": "4235815",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group E",
+        "url": "/spielbericht/index/spielbericht/4235815"
+      },
+      {
+        "attendance": 46425,
+        "awayClub": {
+          "id": "3377",
+          "name": "France"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-17T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3383",
+          "name": "Austria"
+        },
+        "homeGoals": 0,
+        "id": "4235814",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group D",
+        "url": "/spielbericht/index/spielbericht/4235814"
+      },
+      {
+        "attendance": 59127,
+        "awayClub": {
+          "id": "3669",
+          "name": "Georgia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-18T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3381",
+          "name": "Turkiye"
+        },
+        "homeGoals": 3,
+        "id": "4235817",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group F",
+        "url": "/spielbericht/index/spielbericht/4235817"
+      },
+      {
+        "attendance": 38421,
+        "awayClub": {
+          "id": "3445",
+          "name": "Czechia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-18T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3300",
+          "name": "Portugal"
+        },
+        "homeGoals": 2,
+        "id": "4235818",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group F",
+        "url": "/spielbericht/index/spielbericht/4235818"
+      },
+      {
+        "attendance": 46784,
+        "awayClub": {
+          "id": "3561",
+          "name": "Albania"
+        },
+        "awayGoals": 2,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-19T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3556",
+          "name": "Croatia"
+        },
+        "homeGoals": 2,
+        "id": "4235821",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235821"
+      },
+      {
+        "attendance": 54000,
+        "awayClub": {
+          "id": "3468",
+          "name": "Hungary"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-19T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3262",
+          "name": "Germany"
+        },
+        "homeGoals": 2,
+        "id": "4235819",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group A",
+        "url": "/spielbericht/index/spielbericht/4235819"
+      },
+      {
+        "attendance": 42711,
+        "awayClub": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-19T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3380",
+          "name": "Scotland"
+        },
+        "homeGoals": 1,
+        "id": "4235820",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group A",
+        "url": "/spielbericht/index/spielbericht/4235820"
+      },
+      {
+        "attendance": 63028,
+        "awayClub": {
+          "id": "3438",
+          "name": "Serbia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-20T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3588",
+          "name": "Slovenia"
+        },
+        "homeGoals": 1,
+        "id": "4235823",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group C",
+        "url": "/spielbericht/index/spielbericht/4235823"
+      },
+      {
+        "attendance": 46177,
+        "awayClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-20T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3436",
+          "name": "Denmark"
+        },
+        "homeGoals": 1,
+        "id": "4235824",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group C",
+        "url": "/spielbericht/index/spielbericht/4235824"
+      },
+      {
+        "attendance": 49528,
+        "awayClub": {
+          "id": "3376",
+          "name": "Italy"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-20T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 1,
+        "id": "4235822",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235822"
+      },
+      {
+        "attendance": 43910,
+        "awayClub": {
+          "id": "3699",
+          "name": "Ukraine"
+        },
+        "awayGoals": 2,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-21T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3503",
+          "name": "Slovakia"
+        },
+        "homeGoals": 1,
+        "id": "4235827",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group E",
+        "url": "/spielbericht/index/spielbericht/4235827"
+      },
+      {
+        "attendance": 69455,
+        "awayClub": {
+          "id": "3383",
+          "name": "Austria"
+        },
+        "awayGoals": 3,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-21T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3442",
+          "name": "Poland"
+        },
+        "homeGoals": 1,
+        "id": "4235825",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group D",
+        "url": "/spielbericht/index/spielbericht/4235825"
+      },
+      {
+        "attendance": 38531,
+        "awayClub": {
+          "id": "3377",
+          "name": "France"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-21T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3379",
+          "name": "Netherlands"
+        },
+        "homeGoals": 0,
+        "id": "4235826",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group D",
+        "url": "/spielbericht/index/spielbericht/4235826"
+      },
+      {
+        "attendance": 46524,
+        "awayClub": {
+          "id": "3445",
+          "name": "Czechia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-22T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3669",
+          "name": "Georgia"
+        },
+        "homeGoals": 1,
+        "id": "4235830",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group F",
+        "url": "/spielbericht/index/spielbericht/4235830"
+      },
+      {
+        "attendance": 61047,
+        "awayClub": {
+          "id": "3300",
+          "name": "Portugal"
+        },
+        "awayGoals": 3,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-22T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3381",
+          "name": "Turkiye"
+        },
+        "homeGoals": 0,
+        "id": "4235829",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group F",
+        "url": "/spielbericht/index/spielbericht/4235829"
+      },
+      {
+        "attendance": 42535,
+        "awayClub": {
+          "id": "3447",
+          "name": "Romania"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-22T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3382",
+          "name": "Belgium"
+        },
+        "homeGoals": 2,
+        "id": "4235828",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group E",
+        "url": "/spielbericht/index/spielbericht/4235828"
+      },
+      {
+        "attendance": 54000,
+        "awayClub": {
+          "id": "3468",
+          "name": "Hungary"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-23T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3380",
+          "name": "Scotland"
+        },
+        "homeGoals": 0,
+        "id": "4235831",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group A",
+        "url": "/spielbericht/index/spielbericht/4235831"
+      },
+      {
+        "attendance": 46685,
+        "awayClub": {
+          "id": "3262",
+          "name": "Germany"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-23T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "homeGoals": 1,
+        "id": "4235832",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group A",
+        "url": "/spielbericht/index/spielbericht/4235832"
+      },
+      {
+        "attendance": 38322,
+        "awayClub": {
+          "id": "3376",
+          "name": "Italy"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-24T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3556",
+          "name": "Croatia"
+        },
+        "homeGoals": 1,
+        "id": "4235833",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235833"
+      },
+      {
+        "attendance": 46586,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-24T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3561",
+          "name": "Albania"
+        },
+        "homeGoals": 0,
+        "id": "4235834",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235834"
+      },
+      {
+        "attendance": 68363,
+        "awayClub": {
+          "id": "3383",
+          "name": "Austria"
+        },
+        "awayGoals": 3,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-25T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3379",
+          "name": "Netherlands"
+        },
+        "homeGoals": 2,
+        "id": "4235837",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group D",
+        "url": "/spielbericht/index/spielbericht/4235837"
+      },
+      {
+        "attendance": 59728,
+        "awayClub": {
+          "id": "3442",
+          "name": "Poland"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-25T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3377",
+          "name": "France"
+        },
+        "homeGoals": 1,
+        "id": "4235838",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group D",
+        "url": "/spielbericht/index/spielbericht/4235838"
+      },
+      {
+        "attendance": 64288,
+        "awayClub": {
+          "id": "3438",
+          "name": "Serbia"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-25T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3436",
+          "name": "Denmark"
+        },
+        "homeGoals": 0,
+        "id": "4235835",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group C",
+        "url": "/spielbericht/index/spielbericht/4235835"
+      },
+      {
+        "attendance": 41536,
+        "awayClub": {
+          "id": "3588",
+          "name": "Slovenia"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-25T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "homeGoals": 0,
+        "id": "4235836",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group C",
+        "url": "/spielbericht/index/spielbericht/4235836"
+      },
+      {
+        "attendance": 45033,
+        "awayClub": {
+          "id": "3447",
+          "name": "Romania"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-26T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3503",
+          "name": "Slovakia"
+        },
+        "homeGoals": 1,
+        "id": "4235839",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group E",
+        "url": "/spielbericht/index/spielbericht/4235839"
+      },
+      {
+        "attendance": 54000,
+        "awayClub": {
+          "id": "3382",
+          "name": "Belgium"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-26T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3699",
+          "name": "Ukraine"
+        },
+        "homeGoals": 0,
+        "id": "4235840",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group E",
+        "url": "/spielbericht/index/spielbericht/4235840"
+      },
+      {
+        "attendance": 49616,
+        "awayClub": {
+          "id": "3300",
+          "name": "Portugal"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-26T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3669",
+          "name": "Georgia"
+        },
+        "homeGoals": 2,
+        "id": "4235841",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group F",
+        "url": "/spielbericht/index/spielbericht/4235841"
+      },
+      {
+        "attendance": 47683,
+        "awayClub": {
+          "id": "3381",
+          "name": "Turkiye"
+        },
+        "awayGoals": 2,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-26T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3445",
+          "name": "Czechia"
+        },
+        "homeGoals": 1,
+        "id": "4235842",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group F",
+        "url": "/spielbericht/index/spielbericht/4235842"
+      },
+      {
+        "attendance": 68172,
+        "awayClub": {
+          "id": "3376",
+          "name": "Italy"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-29T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "homeGoals": 2,
+        "id": "4365408",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4365408"
+      },
+      {
+        "attendance": 61612,
+        "awayClub": {
+          "id": "3436",
+          "name": "Denmark"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-29T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3262",
+          "name": "Germany"
+        },
+        "homeGoals": 2,
+        "id": "4359329",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359329"
+      },
+      {
+        "attendance": 47244,
+        "awayClub": {
+          "id": "3503",
+          "name": "Slovakia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-30T16:00:00Z",
+        "endedAfter": "extra_time",
+        "homeClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "homeGoals": 2,
+        "id": "4359331",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359331"
+      },
+      {
+        "attendance": 42233,
+        "awayClub": {
+          "id": "3669",
+          "name": "Georgia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-30T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 4,
+        "id": "4359330",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359330"
+      },
+      {
+        "attendance": 46810,
+        "awayClub": {
+          "id": "3382",
+          "name": "Belgium"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-01T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3377",
+          "name": "France"
+        },
+        "homeGoals": 1,
+        "id": "4359333",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359333"
+      },
+      {
+        "attendance": 46576,
+        "awayClub": {
+          "id": "3588",
+          "name": "Slovenia"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-01T19:00:00Z",
+        "endedAfter": "shootout",
+        "homeClub": {
+          "id": "3300",
+          "name": "Portugal"
+        },
+        "homeGoals": 0,
+        "id": "4359332",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": {
+          "away": 0,
+          "home": 3
+        },
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359332"
+      },
+      {
+        "attendance": 65012,
+        "awayClub": {
+          "id": "3379",
+          "name": "Netherlands"
+        },
+        "awayGoals": 3,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-02T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3447",
+          "name": "Romania"
+        },
+        "homeGoals": 0,
+        "id": "4359334",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359334"
+      },
+      {
+        "attendance": 38305,
+        "awayClub": {
+          "id": "3381",
+          "name": "Turkiye"
+        },
+        "awayGoals": 2,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-02T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3383",
+          "name": "Austria"
+        },
+        "homeGoals": 1,
+        "id": "4359335",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359335"
+      },
+      {
+        "attendance": 54000,
+        "awayClub": {
+          "id": "3262",
+          "name": "Germany"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-05T16:00:00Z",
+        "endedAfter": "extra_time",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 2,
+        "id": "4359336",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Quarter-Finals",
+        "url": "/spielbericht/index/spielbericht/4359336"
+      },
+      {
+        "attendance": 47789,
+        "awayClub": {
+          "id": "3377",
+          "name": "France"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-05T19:00:00Z",
+        "endedAfter": "shootout",
+        "homeClub": {
+          "id": "3300",
+          "name": "Portugal"
+        },
+        "homeGoals": 0,
+        "id": "4359337",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": {
+          "away": 5,
+          "home": 3
+        },
+        "stage": "Quarter-Finals",
+        "url": "/spielbericht/index/spielbericht/4359337"
+      },
+      {
+        "attendance": 46907,
+        "awayClub": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-06T16:00:00Z",
+        "endedAfter": "shootout",
+        "homeClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "homeGoals": 1,
+        "id": "4359338",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": {
+          "away": 3,
+          "home": 5
+        },
+        "stage": "Quarter-Finals",
+        "url": "/spielbericht/index/spielbericht/4359338"
+      },
+      {
+        "attendance": 70091,
+        "awayClub": {
+          "id": "3381",
+          "name": "Turkiye"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-06T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3379",
+          "name": "Netherlands"
+        },
+        "homeGoals": 2,
+        "id": "4359339",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Quarter-Finals",
+        "url": "/spielbericht/index/spielbericht/4359339"
+      },
+      {
+        "attendance": 62042,
+        "awayClub": {
+          "id": "3377",
+          "name": "France"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-09T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 2,
+        "id": "4359340",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Semi-Finals",
+        "url": "/spielbericht/index/spielbericht/4359340"
+      },
+      {
+        "attendance": 60926,
+        "awayClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "awayGoals": 2,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-10T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3379",
+          "name": "Netherlands"
+        },
+        "homeGoals": 1,
+        "id": "4359341",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Semi-Finals",
+        "url": "/spielbericht/index/spielbericht/4359341"
+      },
+      {
+        "attendance": 65600,
+        "awayClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-14T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 2,
+        "id": "4359342",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 7,
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Final",
+        "url": "/spielbericht/index/spielbericht/4359342"
+      }
+    ],
+    "id": "EURO",
+    "name": "UEFA Euro",
+    "seasonId": "2023"
+  },
+  "status_code": 200
+}

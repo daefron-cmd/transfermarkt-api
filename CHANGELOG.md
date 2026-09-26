@@ -5,6 +5,22 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `GET /competitions/{competition_id}/table`: a competition's league table, or one table per group (none for knockout
+  cups), in a season (`season_id`, the current season by default). Each row has `clubId`, `clubName`, `position`,
+  `previousPosition`, `played`, `won`, `drawn`, `lost`, `goalsFor`, `goalsAgainst`, `goalDifference`, `points`,
+  `pointsDeducted` and `zone`.
+- `GET /competitions/{competition_id}/fixtures`: a competition's games and results in a season (`season_id`, the
+  current season by default), optionally for one `matchday`. Each game has its season, competition, matchday, `stage`
+  (group or knockout round), UTC `date`, clubs, goals (after regular or extra time, without shootout goals),
+  `endedAfter` (`regular`, `extra_time` or `shootout`; `null` until the game has finished), `shootout` (the penalty
+  shootout result `{home, away}`, or `null`), status, `attendance` and match report `url`.
+- Both are built from Transfermarkt's JSON API (`tmapi.transfermarkt.technology`), keep `null` values and return 404
+  for an unknown competition.
+
 ## [4.0.0] - 2026-09-26
 
 First release of this fork of [felipeall/transfermarkt-api](https://github.com/felipeall/transfermarkt-api) (3.0.0).

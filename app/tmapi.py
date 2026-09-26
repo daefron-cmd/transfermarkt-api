@@ -40,6 +40,37 @@ def tmapi_data(url: str, content: bytes, *, failure_status: int = 502) -> Any:
     return body["data"]
 
 
+def check_fields(url: str, obj: Any, fields: Iterable[tuple[str, type | tuple[type, ...]]], where: str) -> None:
+    """
+    Check that each dotted path in `fields` exists in `obj` and holds a value of the given type(s); a bool does not
+    count as an int.
+
+    Raises:
+        UpstreamError: 502 naming the first offending path and `where` (e.g. "game 4359338").
+    """
+    for path, expected in fields:
+        types = expected if isinstance(expected, tuple) else (expected,)
+        value: Any = obj
+        for key in path.split("."):
+            if not isinstance(value, dict) or key not in value:
+                raise UpstreamError(502, url, f"Unexpected tmapi response: no {path} in {where}")
+            value = value[key]
+        if not isinstance(value, types) or (isinstance(value, bool) and bool not in types):
+            raise UpstreamError(502, url, f"Unexpected tmapi response: {path}={value!r} in {where}")
+
+
+def parse_competition(url: str, content: bytes) -> tuple[str, int]:
+    """
+    Return the name and current season id of a competition from a /competition/{id} response.
+
+    Raises:
+        UpstreamError: 404 if tmapi reports success=false, 502 if the response does not have the expected shape.
+    """
+    data = tmapi_data(url, content, failure_status=404)
+    check_fields(url, data, [("name", str), ("currentSeasonId", int)], "competition")
+    return data["name"].strip(), data["currentSeasonId"]
+
+
 def batch_urls(resource: str, ids: Iterable[str]) -> list[str]:
     """Build batch lookup URLs such as /clubs?ids[]=1&ids[]=2, with ids deduplicated, sorted and chunked."""
     unique = sorted(set(ids))

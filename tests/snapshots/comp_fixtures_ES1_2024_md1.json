@@ -1,0 +1,280 @@
+{
+  "body": {
+    "games": [
+      {
+        "attendance": 47845,
+        "awayClub": {
+          "id": "3709",
+          "name": "Getafe CF"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-15T17:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "621",
+          "name": "Athletic Bilbao"
+        },
+        "homeGoals": 1,
+        "id": "4361545",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361545"
+      },
+      {
+        "attendance": 54084,
+        "awayClub": {
+          "id": "12321",
+          "name": "Girona FC"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-15T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "150",
+          "name": "Real Betis Balompié"
+        },
+        "homeGoals": 1,
+        "id": "4361546",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361546"
+      },
+      {
+        "attendance": 22477,
+        "awayClub": {
+          "id": "1108",
+          "name": "Deportivo Alavés"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-16T17:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "940",
+          "name": "Celta de Vigo"
+        },
+        "homeGoals": 2,
+        "id": "4361552",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361552"
+      },
+      {
+        "attendance": 24843,
+        "awayClub": {
+          "id": "368",
+          "name": "Sevilla FC"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-16T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "472",
+          "name": "UD Las Palmas"
+        },
+        "homeGoals": 2,
+        "id": "4361548",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361548"
+      },
+      {
+        "attendance": 19561,
+        "awayClub": {
+          "id": "1244",
+          "name": "CD Leganés"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-17T17:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "331",
+          "name": "CA Osasuna"
+        },
+        "homeGoals": 1,
+        "id": "4361553",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361553"
+      },
+      {
+        "attendance": 46673,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-17T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1049",
+          "name": "Valencia CF"
+        },
+        "homeGoals": 1,
+        "id": "4361550",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361550"
+      },
+      {
+        "attendance": 31763,
+        "awayClub": {
+          "id": "367",
+          "name": "Rayo Vallecano"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-18T17:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "681",
+          "name": "Real Sociedad"
+        },
+        "homeGoals": 1,
+        "id": "4361551",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361551"
+      },
+      {
+        "attendance": 23010,
+        "awayClub": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-18T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "237",
+          "name": "RCD Mallorca"
+        },
+        "homeGoals": 1,
+        "id": "4361547",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361547"
+      },
+      {
+        "attendance": 22027,
+        "awayClub": {
+          "id": "714",
+          "name": "RCD Espanyol Barcelona"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-19T17:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "366",
+          "name": "Real Valladolid CF"
+        },
+        "homeGoals": 1,
+        "id": "4364902",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4364902"
+      },
+      {
+        "attendance": 21566,
+        "awayClub": {
+          "id": "13",
+          "name": "Atlético de Madrid"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-19T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1050",
+          "name": "Villarreal CF"
+        },
+        "homeGoals": 2,
+        "id": "4361549",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361549"
+      }
+    ],
+    "id": "ES1",
+    "name": "LaLiga",
+    "seasonId": "2024"
+  },
+  "status_code": 200
+}

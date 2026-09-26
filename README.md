@@ -57,6 +57,32 @@ response cache in a named volume across restarts:
 $ docker compose up -d --build
 ````
 
+### Endpoints
+
+Every route is a `GET`; `/docs` has the full request and response schemas.
+
+| Route                                     | Returns                                                                          |
+|-------------------------------------------|----------------------------------------------------------------------------------|
+| `/players/search/{player_name}`           | One page of players matching a name (`page_number`)                              |
+| `/players/{player_id}/profile`            | A player's profile: personal details, position, club, contract, value            |
+| `/players/{player_id}/market_value`       | A player's current market value, its history and rankings                        |
+| `/players/{player_id}/transfers`          | A player's transfer history with clubs, dates and fees                           |
+| `/players/{player_id}/jersey_numbers`     | The jersey numbers a player has worn per season and club                         |
+| `/players/{player_id}/stats`              | A player's stats per season, competition and club (`season_id`); tmapi           |
+| `/players/{player_id}/injuries`           | One page of a player's injury history (`page_number`)                            |
+| `/players/{player_id}/achievements`       | The titles and awards a player has won                                           |
+| `/clubs/search/{club_name}`               | One page of clubs matching a name (`page_number`)                                |
+| `/clubs/{club_id}/profile`                | A club's profile: stadium, league, squad summary, market value                   |
+| `/clubs/{club_id}/players`                | A club's squad in a season (`season_id`)                                         |
+| `/competitions/search/{competition_name}` | One page of competitions matching a name (`page_number`)                         |
+| `/competitions/{competition_id}/clubs`    | The clubs in a competition in a season (`season_id`)                             |
+| `/competitions/{competition_id}/table`    | A competition's league table, or one per group, in a season (`season_id`); tmapi |
+| `/competitions/{competition_id}/fixtures` | A competition's games and results in a season (`season_id`, `matchday`); tmapi   |
+| `/health`                                 | Service status and version                                                       |
+
+Routes marked tmapi are built from Transfermarkt's JSON API (see [tmapi Data Source](#tmapi-data-source)); the
+others parse the site's HTML pages.
+
 ### Health, Errors and Validation
 
 `GET /health` returns `{"status": "ok", "version": "<app version>"}` and is not rate limited.
@@ -72,6 +98,7 @@ Inputs are validated before anything is requested from Transfermarkt (bad input 
 - `season_id` (query parameter): four digits, the season's starting year (`2024` = `24/25`); omitted = current season
   (for `/players/{player_id}/stats`: all seasons);
 - `page_number`: an integer, at least 1;
+- `matchday` (query parameter of `/competitions/{competition_id}/fixtures`): an integer, at least 1;
 - search terms: any text; it is URL-encoded when it is sent to Transfermarkt.
 
 ### Logging
@@ -110,18 +137,22 @@ The endpoints are `async` and share one `TransfermarktClient` (`app/http.py`), a
 Upstream failures are returned as `{"detail": "..."}` JSON: upstream 4xx statuses (and 5xx after
 retries) pass through, too many redirects become 404, and connection errors or timeouts become 502.
 
-### Player Stats Data Source
+### tmapi Data Source
 
-Transfermarkt no longer renders the detailed stats table in the page HTML, so `/players/{player_id}/stats`
-is built from `tmapi.transfermarkt.technology`, the JSON API behind the site's own web components.
+`/players/{player_id}/stats`, `/competitions/{competition_id}/table` and `/competitions/{competition_id}/fixtures`
+are built from `tmapi.transfermarkt.technology`, the JSON API behind the site's own web components (Transfermarkt no
+longer renders the detailed stats table in the page HTML).
 **tmapi is unofficial and undocumented**: it may change or disappear without notice. Its responses are
-validated (`app/tmapi.py`) and an unexpected shape returns 502 instead of wrong numbers. Requests go through
+validated (`app/tmapi.py`) and an unexpected shape returns 502 instead of wrong data. Requests go through
 the same `TransfermarktClient` (throttle, retries, disk cache); the `/attributes` table is fetched once per process.
+Club names (and the player stats' competition names) come from its batch lookups (`/clubs?ids[]=...`,
+`/competitions?ids[]=...`, sorted ids, 50 per request).
+
+#### Player stats
 
 The endpoint fetches the player's per-game rows (`/player/{id}/performance-game`) and the names of their
-competitions and clubs (`/competitions?ids[]=...`, `/clubs?ids[]=...`, sorted ids, 50 per request), then
-returns one entry per season, competition and club the player was fielded for (a national team for
-international games). `?season_id=2024` limits it to one season. Only games with participation state
+competitions and clubs, then returns one entry per season, competition and club the player was fielded for (a
+national team for international games). `?season_id=2024` limits it to one season. Only games with participation state
 `played` count:
 
 - `appearances`: played games; `minutesPlayed`, `goals`, `assists`, `ownGoals`, `penaltyGoals`: sums over them;
@@ -134,6 +165,30 @@ international games). `?season_id=2024` limits it to one season. Only games with
 Entries are sorted by season (newest first), then competition name. Season ids are the starting year
 (`2024` = `24/25`); some national-team competitions (qualifiers, Nations League Finals) use calendar-year
 seasons, so season `2024` also holds such games of 2025 (`seasonName` `"2025"`). An unknown player returns 404.
+
+#### Competition table and fixtures
+
+Both fetch the competition (`/competition/{id}`; an unknown competition returns 404), whose name and current season
+are used for `name` and, when `season_id` is omitted, `seasonId`.
+
+- `/table` (`/competition/{id}/table`) returns `tables`: one for a league, one per group for a competition with a
+  group stage (`Group A`, ...), none (`[]`) for a knockout cup. Each has a `name` and `rows` sorted by `position`
+  (`clubId`, `clubName`, `position`, `previousPosition`, `played`, `won`, `drawn`, `lost`, `goalsFor`,
+  `goalsAgainst`, `goalDifference`, `points`, `pointsDeducted`, `zone`: the table zone such as `Relegated`, or
+  `null`).
+- `/fixtures` (`/competition/{id}/fixtures`) returns `games` sorted by matchday, date and id; `?matchday=N` keeps one
+  matchday (no games is an empty list). A game has `id`, `seasonId`, `seasonName`, `competitionId`,
+  `competitionName`, `matchday`, `stage` (`Group A`, `Round of 16`, ...; `null` for plain league rounds), `date`
+  (UTC), `isTimeDefined` (tmapi's flag for whether the kick-off time is set), `homeClub` / `awayClub`
+  (`{id, name}`), `homeGoals` / `awayGoals` (`null` before kick-off; the score after regular or extra time, without
+  shootout goals), `endedAfter` (`regular`, `extra_time` or `shootout`, `null` until the game has finished; any other
+  upstream value is passed through), `shootout` (`{home, away}`, the penalty shootout result, `null` unless
+  `endedAfter` is `shootout`), `isFinished`, `isLive`, `attendance` and `url` (the Transfermarkt match report path).
+  tmapi's fixtures score of a shootout game includes the shootout goals (1-1 and 5-3 on penalties is 6-4), so for
+  each finished shootout game the game report (`/game/{id}`, one extra request per game) is fetched and the score
+  after regular or extra time is taken from its last goal.
+
+`null` values are kept in these responses.
 
 ### Environment Variables
 

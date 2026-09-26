@@ -1,0 +1,9 @@
+{
+  "body": {
+    "id": "CDR",
+    "name": "Copa del Rey",
+    "seasonId": "2026",
+    "tables": []
+  },
+  "status_code": 200
+}
