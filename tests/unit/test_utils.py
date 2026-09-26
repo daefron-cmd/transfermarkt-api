@@ -7,9 +7,11 @@ from app.utils.utils import (
     parse_date,
     parse_int,
     remove_str,
+    safe_regex,
     safe_split,
     to_camel_case,
     trim,
+    zip_lists_into_dict,
 )
 
 
@@ -30,6 +32,9 @@ def test_trim_joins_list():
         ("/fc-barcelona/startseite/verein/131/saison_id/2023", "season_id", "2023"),
         ("/lionel-messi/profil/spieler/28003/transfer_id/12345", "id", "28003"),
         ("/lionel-messi/profil/spieler/28003/transfer_id/12345", "transfer_id", "12345"),
+        ("/fc-barcelona/startseite/verein/131", "code", "fc-barcelona"),
+        ("/fc-barcelona/startseite/verein/131", "category", "startseite"),
+        ("/fc-barcelona/startseite/verein/131", "type", "verein"),
         (None, "id", None),
         ("", "id", None),
     ],
@@ -51,6 +56,24 @@ def test_extract_from_url(url, element, expected):
 )
 def test_extract_from_url_absolute_url(url, element, expected):
     assert extract_from_url(url, element) == expected
+
+
+def test_zip_lists_into_dict_pairs_in_order():
+    assert zip_lists_into_dict(["a", "b"], [1, 2]) == {"a": 1, "b": 2}
+
+
+def test_zip_lists_into_dict_truncates_to_the_shorter_list():
+    assert zip_lists_into_dict(["a", "b", "c"], [1, 2]) == {"a": 1, "b": 2}
+    assert zip_lists_into_dict(["a"], [1, 2]) == {"a": 1}
+
+
+@pytest.mark.parametrize("text", ["", []])
+def test_safe_regex_empty_input_is_none_even_if_the_regex_matches_empty(text):
+    assert safe_regex(text, r"(?P<digits>\d*)", "digits") is None
+
+
+def test_safe_regex_non_text_is_none():
+    assert safe_regex(None, r"(?P<digits>\d*)", "digits") is None
 
 
 def test_to_camel_case():
@@ -141,6 +164,8 @@ def test_parse_date(value, expected):
         ("<span>€1.20m</span>", 1_200_000),
         ('<i class="normaler-text">Loan fee:</i><br/>€1.20m', 1_200_000),
         ("<span>free transfer</span>", None),
+        # a tag between the currency and the amount
+        ("€<b>1.20m</b>", 1_200_000),
         # empty and placeholder values
         ("-", None),
         ("", None),

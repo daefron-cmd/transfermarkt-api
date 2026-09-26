@@ -95,7 +95,15 @@ markers = [
 source_paths = ["app"]
 # Burndown ratchet: push CI mutates only the modules whose survivors are classified in MUTANTS.md.
 # Grow it per burned-down module; delete it when it covers app/. See DEVIATIONS.md.
-only_mutate = ["app/http.py"]
+only_mutate = [
+    "app/api/api.py",
+    "app/api/deps.py",
+    "app/http.py",
+    "app/main.py",
+    "app/utils/regex.py",
+    "app/utils/utils.py",
+    "app/utils/xpath.py",
+]
 pytest_add_cli_args_test_selection = ["tests/"]
 # Push CI treats dependency/config changes as full mutation inputs, so stale cached verdicts must be discarded.
 on_dependency_change = "rerun"

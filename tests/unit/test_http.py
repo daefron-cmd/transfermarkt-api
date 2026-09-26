@@ -57,6 +57,23 @@ def test_cache_hit_avoids_second_request(tmp_path):
     assert requests == [URL]
 
 
+def test_cache_disabled_sends_every_request_upstream(tmp_path):
+    requests: list[str] = []
+
+    def handler(request: httpx2.Request) -> httpx2.Response:
+        requests.append(str(request.url))
+        return httpx2.Response(200, content=b"<html>ok</html>")
+
+    async def run() -> None:
+        async with make_client(tmp_path, handler, CACHE_ENABLE=False) as client:
+            assert client._cache is None
+            await client.get(URL)
+            await client.get(URL)
+
+    asyncio.run(run())
+    assert requests == [URL, URL]
+
+
 def test_cached_body_expires_after_ttl(tmp_path):
     def handler(request: httpx2.Request) -> httpx2.Response:
         return httpx2.Response(200, content=b"body")
