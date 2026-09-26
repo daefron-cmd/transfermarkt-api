@@ -195,6 +195,7 @@ def test_player_stats_unknown_player_is_404(body):
     with pytest.raises(HTTPException) as e:
         TransfermarktPlayerStats.parse_performance(body, player_id="0")
     assert e.value.status_code == 404
+    assert e.value.detail == f"Invalid request (url: {TMAPI_URL}/player/0/performance-game)"
 
 
 def test_player_stats_rejects_changed_row_shape():

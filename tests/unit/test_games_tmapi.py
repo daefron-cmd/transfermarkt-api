@@ -7,30 +7,12 @@ from collections.abc import Callable
 
 import pytest
 
-from app.http import UpstreamError, UpstreamResponse
+from app.http import UpstreamError
 from app.schemas.games import GameReport
 from app.services.games import URL_GAME
 from app.services.games_report import TransfermarktGame
 from app.tmapi import TMAPI_URL, batch_urls
-from tests.unit.tmapi_helpers import RecordingClient, envelope, fixture_bytes
-
-
-class DoctoredClient(RecordingClient):
-    """A RecordingClient that serves `overrides` (url to body, or an UpstreamError to raise) instead of the recorded
-    responses."""
-
-    def __init__(self, overrides: dict[str, bytes | UpstreamError]):
-        super().__init__()
-        self.overrides = overrides
-
-    async def get(self, url: str) -> UpstreamResponse:
-        if url in self.overrides:
-            self.urls.append(url)
-            override = self.overrides[url]
-            if isinstance(override, UpstreamError):
-                raise override
-            return UpstreamResponse(url=url, status_code=200, content=override)
-        return await super().get(url)
+from tests.unit.tmapi_helpers import DoctoredClient, RecordingClient, envelope, fixture_bytes
 
 
 def report_data(game_id: str) -> dict:

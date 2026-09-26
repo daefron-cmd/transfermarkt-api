@@ -39,3 +39,21 @@ class RecordingClient:
         if "file" not in entry:
             raise UpstreamError(entry["status"], url, entry["reason"])
         return UpstreamResponse(url=url, status_code=200, content=(FIXTURES_DIR / entry["file"]).read_bytes())
+
+
+class DoctoredClient(RecordingClient):
+    """A RecordingClient that serves `overrides` (url to body, or an UpstreamError to raise) instead of the recorded
+    responses."""
+
+    def __init__(self, overrides: dict[str, bytes | UpstreamError]):
+        super().__init__()
+        self.overrides = overrides
+
+    async def get(self, url: str) -> UpstreamResponse:
+        if url in self.overrides:
+            self.urls.append(url)
+            override = self.overrides[url]
+            if isinstance(override, UpstreamError):
+                raise override
+            return UpstreamResponse(url=url, status_code=200, content=override)
+        return await super().get(url)

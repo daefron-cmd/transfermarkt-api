@@ -56,7 +56,6 @@ class TransfermarktPlayerStats:
         club_names (dict): Club id to name.
         position_categories (dict): Position id to category ("Goalkeeper", "Defender", ...).
         main_position_id (int, optional): The player's main position id.
-        season_id (str, optional): Only aggregate games of this season.
     """
 
     player_id: str
@@ -65,7 +64,6 @@ class TransfermarktPlayerStats:
     club_names: dict[str, str]
     position_categories: dict[int, str]
     main_position_id: int | None
-    season_id: str | None = None
     response: dict = field(default_factory=dict, init=False)
     URL_TEMPLATE: ClassVar[str] = TMAPI_URL + "/player/{player_id}/performance-game"
     URL_PLAYER: ClassVar[str] = TMAPI_URL + "/player/{player_id}"
@@ -200,7 +198,6 @@ class TransfermarktPlayerStats:
             club_names={k: v for url, body in clubs for k, v in names_by_id(url, body).items()},
             position_categories=cls.parse_position_categories(attributes),
             main_position_id=cls.parse_main_position(player, player_id=player_id),
-            season_id=season_id,
         )
 
     @classmethod
@@ -220,7 +217,6 @@ class TransfermarktPlayerStats:
             club_names=await lookup_names(client, "clubs", cls.club_ids(rows)),
             position_categories=cls._position_categories(cls.URL_ATTRIBUTES, attributes),
             main_position_id=cls.parse_main_position(player.content, player_id=player_id),
-            season_id=season_id,
         )
 
     def __parse_player_stats(self) -> list[dict]:
