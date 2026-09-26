@@ -1,0 +1,1130 @@
+{
+  "body": {
+    "attendance": 46907,
+    "away": {
+      "club": {
+        "id": "3384",
+        "name": "Switzerland"
+      },
+      "coach": {
+        "id": "3240",
+        "name": "Murat Yakin"
+      },
+      "formation": "3-4-2-1",
+      "lineup": [
+        {
+          "age": 35,
+          "id": "42205",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Yann Sommer",
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "age": 31,
+          "id": "86784",
+          "isCaptain": false,
+          "marketValue": 3500000,
+          "name": "Ricardo Rodríguez",
+          "position": "Centre-Back",
+          "shirtNumber": 13
+        },
+        {
+          "age": 28,
+          "id": "284730",
+          "isCaptain": false,
+          "marketValue": 45000000,
+          "name": "Manuel Akanji",
+          "position": "Centre-Back",
+          "shirtNumber": 5
+        },
+        {
+          "age": 32,
+          "id": "135343",
+          "isCaptain": false,
+          "marketValue": 10000000,
+          "name": "Fabian Schär",
+          "position": "Centre-Back",
+          "shirtNumber": 22
+        },
+        {
+          "age": 31,
+          "id": "111455",
+          "isCaptain": true,
+          "marketValue": 20000000,
+          "name": "Granit Xhaka",
+          "position": "Defensive Midfield",
+          "shirtNumber": 10
+        },
+        {
+          "age": 32,
+          "id": "148252",
+          "isCaptain": false,
+          "marketValue": 6500000,
+          "name": "Remo Freuler",
+          "position": "Central Midfield",
+          "shirtNumber": 8
+        },
+        {
+          "age": 23,
+          "id": "365108",
+          "isCaptain": false,
+          "marketValue": 14000000,
+          "name": "Dan Ndoye",
+          "position": "Right Midfield",
+          "shirtNumber": 19
+        },
+        {
+          "age": 27,
+          "id": "237658",
+          "isCaptain": false,
+          "marketValue": 9000000,
+          "name": "Michel Aebischer",
+          "position": "Left Midfield",
+          "shirtNumber": 20
+        },
+        {
+          "age": 25,
+          "id": "345886",
+          "isCaptain": false,
+          "marketValue": 7500000,
+          "name": "Rubén Vargas",
+          "position": "Attacking Midfield",
+          "shirtNumber": 17
+        },
+        {
+          "age": 22,
+          "id": "507341",
+          "isCaptain": false,
+          "marketValue": 8000000,
+          "name": "Fabian Rieder",
+          "position": "Attacking Midfield",
+          "shirtNumber": 26
+        },
+        {
+          "age": 27,
+          "id": "237662",
+          "isCaptain": false,
+          "marketValue": 12000000,
+          "name": "Breel Embolo",
+          "position": "Centre-Forward",
+          "shirtNumber": 7
+        }
+      ],
+      "statistics": {
+        "clubId": "3384",
+        "defensiveStatistics": {
+          "cleanSheets": 0,
+          "clearances": 30,
+          "offsides": 0,
+          "saves": 2,
+          "successfulTackles": 12,
+          "totalTackles": 19
+        },
+        "gameStatistics": {
+          "formation": "3421",
+          "playersSubstitutedOn": 0,
+          "possessionPercentage": 48.2,
+          "redCards": 0,
+          "rescindedRedCards": 0,
+          "secondYellowCards": 0,
+          "substitutionsMade": 6,
+          "yellowCards": 2
+        },
+        "goalStatistics": {
+          "assists": 0,
+          "blockedShotAttempts": 2,
+          "goals": 1,
+          "midfielderGoals": 0,
+          "offTargetShotAttempts": 6,
+          "onTargetShotAttempts": 3,
+          "totalShotAttempts": 11
+        },
+        "passingStatistics": {
+          "accuratePasses": 571,
+          "totalPasses": 623
+        },
+        "penaltyStatistics": {
+          "freeKicksConcededFromFouls": 13,
+          "freeKicksWonFromFouls": 8,
+          "goalsConceded": 1,
+          "ownGoals": 0,
+          "penaltiesConceded": 0,
+          "penaltiesFaced": 0,
+          "penaltiesSaved": 0,
+          "penaltiesWon": 0,
+          "penaltyGoalsConceded": 0
+        },
+        "setPieceStatistics": {
+          "cornersConceded": 4,
+          "cornersTaken": 3,
+          "cornersWon": 3,
+          "goalKicks": 6,
+          "throwIns": 16
+        }
+      },
+      "substitutes": [
+        {
+          "age": 32,
+          "id": "68033",
+          "isCaptain": false,
+          "marketValue": 2000000,
+          "name": "Steven Zuber",
+          "position": "Left Winger",
+          "shirtNumber": 14
+        },
+        {
+          "age": 23,
+          "id": "548729",
+          "isCaptain": false,
+          "marketValue": 12000000,
+          "name": "Zeki Amdouni",
+          "position": "Centre-Forward",
+          "shirtNumber": 25
+        },
+        {
+          "age": 27,
+          "id": "254955",
+          "isCaptain": false,
+          "marketValue": 3000000,
+          "name": "Kwadwo Duah",
+          "position": null,
+          "shirtNumber": 18
+        },
+        {
+          "age": 27,
+          "id": "192635",
+          "isCaptain": false,
+          "marketValue": 10000000,
+          "name": "Nico Elvedi",
+          "position": null,
+          "shirtNumber": 4
+        },
+        {
+          "age": 21,
+          "id": "608172",
+          "isCaptain": false,
+          "marketValue": 6000000,
+          "name": "Ardon Jashari",
+          "position": null,
+          "shirtNumber": 24
+        },
+        {
+          "age": 26,
+          "id": "257814",
+          "isCaptain": false,
+          "marketValue": 40000000,
+          "name": "Gregor Kobel",
+          "position": null,
+          "shirtNumber": 21
+        },
+        {
+          "age": 30,
+          "id": "147051",
+          "isCaptain": false,
+          "marketValue": 3000000,
+          "name": "Yvon Mvogo",
+          "position": null,
+          "shirtNumber": 12
+        },
+        {
+          "age": 24,
+          "id": "346890",
+          "isCaptain": false,
+          "marketValue": 20000000,
+          "name": "Noah Okafor",
+          "position": null,
+          "shirtNumber": 9
+        },
+        {
+          "age": 32,
+          "id": "86792",
+          "isCaptain": false,
+          "marketValue": 2000000,
+          "name": "Xherdan Shaqiri",
+          "position": "Attacking Midfield",
+          "shirtNumber": 23
+        },
+        {
+          "age": 28,
+          "id": "280387",
+          "isCaptain": false,
+          "marketValue": 4000000,
+          "name": "Vincent Sierro",
+          "position": "Central Midfield",
+          "shirtNumber": 16
+        },
+        {
+          "age": 32,
+          "id": "194638",
+          "isCaptain": false,
+          "marketValue": 1000000,
+          "name": "Renato Steffen",
+          "position": null,
+          "shirtNumber": 11
+        },
+        {
+          "age": 22,
+          "id": "507345",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Leonidas Stergiou",
+          "position": null,
+          "shirtNumber": 2
+        },
+        {
+          "age": 31,
+          "id": "168989",
+          "isCaptain": false,
+          "marketValue": 3000000,
+          "name": "Silvan Widmer",
+          "position": "Right Midfield",
+          "shirtNumber": 3
+        },
+        {
+          "age": 27,
+          "id": "334526",
+          "isCaptain": false,
+          "marketValue": 25000000,
+          "name": "Denis Zakaria",
+          "position": "Defensive Midfield",
+          "shirtNumber": 6
+        },
+        {
+          "age": 26,
+          "id": "382478",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Cédric Zesiger",
+          "position": null,
+          "shirtNumber": 15
+        }
+      ]
+    },
+    "awayClub": {
+      "id": "3384",
+      "name": "Switzerland"
+    },
+    "awayGoals": 1,
+    "competitionId": "EURO",
+    "competitionName": "UEFA Euro",
+    "date": "2024-07-06T16:00:00Z",
+    "duration": 120,
+    "endedAfter": "shootout",
+    "events": [
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 32,
+        "player": {
+          "id": "135343",
+          "name": "Fabian Schär"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 64,
+        "player": {
+          "id": "507341",
+          "name": "Fabian Rieder"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "68033",
+          "name": "Steven Zuber"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 64,
+        "player": {
+          "id": "345886",
+          "name": "Rubén Vargas"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "168989",
+          "name": "Silvan Widmer"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 67,
+        "player": {
+          "id": "132098",
+          "name": "Harry Kane"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Left-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 75,
+        "player": {
+          "id": "237662",
+          "name": "Breel Embolo"
+        },
+        "reason": "Without assist",
+        "relatedPlayer": null,
+        "score": {
+          "away": 1,
+          "home": 0
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 78,
+        "player": {
+          "id": "95810",
+          "name": "Kieran Trippier"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "479999",
+          "name": "Eberechi Eze"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 78,
+        "player": {
+          "id": "820374",
+          "name": "Kobbie Mainoo"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "183288",
+          "name": "Luke Shaw"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 78,
+        "player": {
+          "id": "413403",
+          "name": "Ezri Konsa"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "568177",
+          "name": "Cole Palmer"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Left-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 80,
+        "player": {
+          "id": "433177",
+          "name": "Bukayo Saka"
+        },
+        "reason": "Pass",
+        "relatedPlayer": {
+          "id": "357662",
+          "name": "Declan Rice"
+        },
+        "score": {
+          "away": 1,
+          "home": 1
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 85,
+        "player": {
+          "id": "168989",
+          "name": "Silvan Widmer"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 98,
+        "player": {
+          "id": "365108",
+          "name": "Dan Ndoye"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "334526",
+          "name": "Denis Zakaria"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 109,
+        "player": {
+          "id": "132098",
+          "name": "Harry Kane"
+        },
+        "reason": "Injury",
+        "relatedPlayer": {
+          "id": "251664",
+          "name": "Ivan Toney"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 109,
+        "player": {
+          "id": "237662",
+          "name": "Breel Embolo"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "86792",
+          "name": "Xherdan Shaqiri"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 115,
+        "player": {
+          "id": "406635",
+          "name": "Phil Foden"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "314353",
+          "name": "Trent Alexander-Arnold"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 118,
+        "player": {
+          "id": "237658",
+          "name": "Michel Aebischer"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "280387",
+          "name": "Vincent Sierro"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 118,
+        "player": {
+          "id": "148252",
+          "name": "Remo Freuler"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "548729",
+          "name": "Zeki Amdouni"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 120,
+        "player": {
+          "id": "568177",
+          "name": "Cole Palmer"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 0,
+          "home": 1
+        },
+        "type": "shootout"
+      },
+      {
+        "action": "Saved",
+        "addedTime": 30,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 120,
+        "player": {
+          "id": "284730",
+          "name": "Manuel Akanji"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": null,
+        "type": "shootout"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 120,
+        "player": {
+          "id": "581678",
+          "name": "Jude Bellingham"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 0,
+          "home": 2
+        },
+        "type": "shootout"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 120,
+        "player": {
+          "id": "135343",
+          "name": "Fabian Schär"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 1,
+          "home": 2
+        },
+        "type": "shootout"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 120,
+        "player": {
+          "id": "433177",
+          "name": "Bukayo Saka"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 1,
+          "home": 3
+        },
+        "type": "shootout"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 120,
+        "player": {
+          "id": "86792",
+          "name": "Xherdan Shaqiri"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 2,
+          "home": 3
+        },
+        "type": "shootout"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 120,
+        "player": {
+          "id": "251664",
+          "name": "Ivan Toney"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 2,
+          "home": 4
+        },
+        "type": "shootout"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "minute": 120,
+        "player": {
+          "id": "548729",
+          "name": "Zeki Amdouni"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 3,
+          "home": 4
+        },
+        "type": "shootout"
+      },
+      {
+        "action": "Scored",
+        "addedTime": 30,
+        "club": {
+          "id": "3299",
+          "name": "England"
+        },
+        "minute": 120,
+        "player": {
+          "id": "314353",
+          "name": "Trent Alexander-Arnold"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 3,
+          "home": 5
+        },
+        "type": "shootout"
+      }
+    ],
+    "home": {
+      "club": {
+        "id": "3299",
+        "name": "England"
+      },
+      "coach": {
+        "id": "3358",
+        "name": "Gareth Southgate"
+      },
+      "formation": "3-4-2-1",
+      "lineup": [
+        {
+          "age": 30,
+          "id": "130164",
+          "isCaptain": false,
+          "marketValue": 22000000,
+          "name": "Jordan Pickford",
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "age": 26,
+          "id": "413403",
+          "isCaptain": false,
+          "marketValue": 35000000,
+          "name": "Ezri Konsa",
+          "position": "Centre-Back",
+          "shirtNumber": 14
+        },
+        {
+          "age": 30,
+          "id": "186590",
+          "isCaptain": false,
+          "marketValue": 38000000,
+          "name": "John Stones",
+          "position": "Centre-Back",
+          "shirtNumber": 5
+        },
+        {
+          "age": 34,
+          "id": "95424",
+          "isCaptain": false,
+          "marketValue": 13000000,
+          "name": "Kyle Walker",
+          "position": "Centre-Back",
+          "shirtNumber": 2
+        },
+        {
+          "age": 25,
+          "id": "357662",
+          "isCaptain": false,
+          "marketValue": 120000000,
+          "name": "Declan Rice",
+          "position": "Defensive Midfield",
+          "shirtNumber": 4
+        },
+        {
+          "age": 19,
+          "id": "820374",
+          "isCaptain": false,
+          "marketValue": 50000000,
+          "name": "Kobbie Mainoo",
+          "position": "Defensive Midfield",
+          "shirtNumber": 26
+        },
+        {
+          "age": 22,
+          "id": "433177",
+          "isCaptain": false,
+          "marketValue": 140000000,
+          "name": "Bukayo Saka",
+          "position": "Right Midfield",
+          "shirtNumber": 7
+        },
+        {
+          "age": 33,
+          "id": "95810",
+          "isCaptain": false,
+          "marketValue": 10000000,
+          "name": "Kieran Trippier",
+          "position": "Left Midfield",
+          "shirtNumber": 12
+        },
+        {
+          "age": 21,
+          "id": "581678",
+          "isCaptain": false,
+          "marketValue": 180000000,
+          "name": "Jude Bellingham",
+          "position": "Attacking Midfield",
+          "shirtNumber": 10
+        },
+        {
+          "age": 24,
+          "id": "406635",
+          "isCaptain": false,
+          "marketValue": 150000000,
+          "name": "Phil Foden",
+          "position": "Attacking Midfield",
+          "shirtNumber": 11
+        },
+        {
+          "age": 30,
+          "id": "132098",
+          "isCaptain": true,
+          "marketValue": 100000000,
+          "name": "Harry Kane",
+          "position": "Centre-Forward",
+          "shirtNumber": 9
+        }
+      ],
+      "statistics": {
+        "clubId": "3299",
+        "defensiveStatistics": {
+          "cleanSheets": 0,
+          "clearances": 21,
+          "offsides": 3,
+          "saves": 2,
+          "successfulTackles": 16,
+          "totalTackles": 23
+        },
+        "gameStatistics": {
+          "formation": "3421",
+          "playersSubstitutedOn": 0,
+          "possessionPercentage": 51.8,
+          "redCards": 0,
+          "rescindedRedCards": 0,
+          "secondYellowCards": 0,
+          "substitutionsMade": 5,
+          "yellowCards": 1
+        },
+        "goalStatistics": {
+          "assists": 1,
+          "blockedShotAttempts": 8,
+          "goals": 1,
+          "midfielderGoals": 0,
+          "offTargetShotAttempts": 2,
+          "onTargetShotAttempts": 3,
+          "totalShotAttempts": 13
+        },
+        "passingStatistics": {
+          "accuratePasses": 615,
+          "totalPasses": 670
+        },
+        "penaltyStatistics": {
+          "freeKicksConcededFromFouls": 8,
+          "freeKicksWonFromFouls": 13,
+          "goalsConceded": 1,
+          "ownGoals": 0,
+          "penaltiesConceded": 0,
+          "penaltiesFaced": 0,
+          "penaltiesSaved": 0,
+          "penaltiesWon": 0,
+          "penaltyGoalsConceded": 0
+        },
+        "setPieceStatistics": {
+          "cornersConceded": 3,
+          "cornersTaken": 4,
+          "cornersWon": 4,
+          "goalKicks": 9,
+          "throwIns": 22
+        }
+      },
+      "substitutes": [
+        {
+          "age": 20,
+          "id": "744149",
+          "isCaptain": false,
+          "marketValue": 30000000,
+          "name": "Adam Wharton",
+          "position": null,
+          "shirtNumber": 25
+        },
+        {
+          "age": 24,
+          "id": "488362",
+          "isCaptain": false,
+          "marketValue": 50000000,
+          "name": "Conor Gallagher",
+          "position": null,
+          "shirtNumber": 16
+        },
+        {
+          "age": 27,
+          "id": "256178",
+          "isCaptain": false,
+          "marketValue": 28000000,
+          "name": "Joe Gomez",
+          "position": null,
+          "shirtNumber": 22
+        },
+        {
+          "age": 23,
+          "id": "503733",
+          "isCaptain": false,
+          "marketValue": 60000000,
+          "name": "Anthony Gordon",
+          "position": null,
+          "shirtNumber": 18
+        },
+        {
+          "age": 27,
+          "id": "258919",
+          "isCaptain": false,
+          "marketValue": 12000000,
+          "name": "Dean Henderson",
+          "position": null,
+          "shirtNumber": 23
+        },
+        {
+          "age": 26,
+          "id": "479999",
+          "isCaptain": false,
+          "marketValue": 55000000,
+          "name": "Eberechi Eze",
+          "position": "Left Midfield",
+          "shirtNumber": 21
+        },
+        {
+          "age": 22,
+          "id": "568177",
+          "isCaptain": false,
+          "marketValue": 80000000,
+          "name": "Cole Palmer",
+          "position": "Attacking Midfield",
+          "shirtNumber": 24
+        },
+        {
+          "age": 26,
+          "id": "427568",
+          "isCaptain": false,
+          "marketValue": 25000000,
+          "name": "Aaron Ramsdale",
+          "position": null,
+          "shirtNumber": 13
+        },
+        {
+          "age": 28,
+          "id": "183288",
+          "isCaptain": false,
+          "marketValue": 32000000,
+          "name": "Luke Shaw",
+          "position": "Centre-Back",
+          "shirtNumber": 3
+        },
+        {
+          "age": 28,
+          "id": "251664",
+          "isCaptain": false,
+          "marketValue": 50000000,
+          "name": "Ivan Toney",
+          "position": "Centre-Forward",
+          "shirtNumber": 17
+        },
+        {
+          "age": 28,
+          "id": "324358",
+          "isCaptain": false,
+          "marketValue": 65000000,
+          "name": "Ollie Watkins",
+          "position": null,
+          "shirtNumber": 19
+        },
+        {
+          "age": 25,
+          "id": "314353",
+          "isCaptain": false,
+          "marketValue": 70000000,
+          "name": "Trent Alexander-Arnold",
+          "position": "Central Midfield",
+          "shirtNumber": 8
+        },
+        {
+          "age": 27,
+          "id": "314875",
+          "isCaptain": false,
+          "marketValue": 50000000,
+          "name": "Jarrod Bowen",
+          "position": null,
+          "shirtNumber": 20
+        },
+        {
+          "age": 32,
+          "id": "148153",
+          "isCaptain": false,
+          "marketValue": 12000000,
+          "name": "Lewis Dunk",
+          "position": null,
+          "shirtNumber": 15
+        }
+      ]
+    },
+    "homeClub": {
+      "id": "3299",
+      "name": "England"
+    },
+    "homeGoals": 1,
+    "id": "4359338",
+    "isFinished": true,
+    "isLive": false,
+    "isTimeDefined": true,
+    "matchday": 5,
+    "referee": {
+      "id": "906",
+      "name": "Daniele Orsato"
+    },
+    "seasonId": "2023",
+    "seasonName": "2024",
+    "shootout": {
+      "away": 3,
+      "home": 5
+    },
+    "stadium": {
+      "city": "Düsseldorf",
+      "id": "35",
+      "name": "MERKUR SPIEL-ARENA"
+    },
+    "stage": "Quarter-Finals",
+    "stageLabel": "QF 3",
+    "url": "/spielbericht/index/spielbericht/4359338"
+  },
+  "status_code": 200
+}

@@ -224,6 +224,17 @@ def check_competition_search_euro(body: dict) -> None:
     assert any(r["id"] == "EURO" for r in body["results"])
 
 
+def check_game_report(body: dict) -> None:
+    assert (body["homeClub"]["name"], body["awayClub"]["name"]) == ("England", "Switzerland")
+    assert (body["homeGoals"], body["awayGoals"]) == (1, 1)
+    assert body["shootout"] == {"home": 5, "away": 3}
+    assert len(body["home"]["lineup"]) == 11
+    assert len(body["away"]["lineup"]) == 11
+    goals = [e for e in body["events"] if e["type"] == "goal" and e["player"]["id"] == "433177"]
+    assert [(e["minute"], e["relatedPlayer"]["id"]) for e in goals] == [(80, "357662")]
+    assert body["referee"] is not None
+
+
 CASES: dict[str, tuple[str, Callable[[dict], None]]] = {
     "player_search": ("/players/search/messi", check_player_search),
     "player_profile": ("/players/28003/profile", check_player_profile),
@@ -249,6 +260,7 @@ CASES: dict[str, tuple[str, Callable[[dict], None]]] = {
     "national_squad": ("/clubs/3375/squad", check_national_squad),
     "national_players": ("/clubs/3375/players", check_national_players),
     "competition_search_euro": ("/competitions/search/euro", check_competition_search_euro),
+    "game_report": ("/games/4359338", check_game_report),
 }
 
 

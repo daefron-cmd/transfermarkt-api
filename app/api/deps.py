@@ -18,6 +18,9 @@ PlayerId = Annotated[
 ClubId = Annotated[
     str, Path(pattern=r"^[0-9]+$", max_length=12, description="Transfermarkt club id.", examples=["131"])
 ]
+GameId = Annotated[
+    str, Path(pattern=r"^[0-9]+$", max_length=12, description="Transfermarkt game (match) id.", examples=["4359338"])
+]
 CompetitionId = Annotated[
     str, Path(pattern=r"^[A-Za-z0-9]{1,12}$", description="Transfermarkt competition id.", examples=["GB1"])
 ]

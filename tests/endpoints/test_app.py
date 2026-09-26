@@ -39,7 +39,7 @@ def cors_client(request) -> Iterator[TestClient]:
 
 
 def test_version():
-    assert __version__ == "4.0.0"
+    assert __version__ == "4.0.1"
     assert main.app.version == __version__
 
 

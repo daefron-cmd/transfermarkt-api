@@ -76,4 +76,10 @@ CASES: dict[str, str] = {
     "comp_fixtures_EURO_2023": "/competitions/EURO/fixtures?season_id=2023",
     "comp_fixtures_CDR": "/competitions/CDR/fixtures",
     "comp_fixtures_XX": "/competitions/XX/fixtures",
+    # Games
+    "game_4359338": "/games/4359338",
+    "game_4909471": "/games/4909471",
+    "game_4588078": "/games/4588078",
+    "game_4918697": "/games/4918697",
+    "game_0": "/games/0",
 }

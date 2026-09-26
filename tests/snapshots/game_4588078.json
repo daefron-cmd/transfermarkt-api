@@ -1,0 +1,975 @@
+{
+  "body": {
+    "attendance": 65080,
+    "away": {
+      "club": {
+        "id": "418",
+        "name": "Real Madrid"
+      },
+      "coach": {
+        "id": "523",
+        "name": "Carlo Ancelotti"
+      },
+      "formation": "4-2-3-1",
+      "lineup": [
+        {
+          "age": 32,
+          "id": "108390",
+          "isCaptain": false,
+          "marketValue": 25000000,
+          "name": "Thibaut Courtois",
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "age": 32,
+          "id": "86202",
+          "isCaptain": false,
+          "marketValue": 24000000,
+          "name": "Antonio Rüdiger",
+          "position": "Centre-Back",
+          "shirtNumber": 22
+        },
+        {
+          "age": 22,
+          "id": "935245",
+          "isCaptain": false,
+          "marketValue": 30000000,
+          "name": "Raúl Asencio",
+          "position": "Centre-Back",
+          "shirtNumber": 35
+        },
+        {
+          "age": 29,
+          "id": "291417",
+          "isCaptain": false,
+          "marketValue": 18000000,
+          "name": "Ferland Mendy",
+          "position": "Left-Back",
+          "shirtNumber": 23
+        },
+        {
+          "age": 33,
+          "id": "221316",
+          "isCaptain": true,
+          "marketValue": 3500000,
+          "name": "Lucas Vázquez",
+          "position": "Right-Back",
+          "shirtNumber": 17
+        },
+        {
+          "age": 26,
+          "id": "369081",
+          "isCaptain": false,
+          "marketValue": 130000000,
+          "name": "Federico Valverde",
+          "position": "Central Midfield",
+          "shirtNumber": 8
+        },
+        {
+          "age": 25,
+          "id": "413112",
+          "isCaptain": false,
+          "marketValue": 80000000,
+          "name": "Aurélien Tchouaméni",
+          "position": "Defensive Midfield",
+          "shirtNumber": 14
+        },
+        {
+          "age": 24,
+          "id": "412363",
+          "isCaptain": false,
+          "marketValue": 100000000,
+          "name": "Rodrygo",
+          "position": "Right Winger",
+          "shirtNumber": 11
+        },
+        {
+          "age": 28,
+          "id": "319745",
+          "isCaptain": false,
+          "marketValue": 10000000,
+          "name": "Dani Ceballos",
+          "position": "Left Midfield",
+          "shirtNumber": 19
+        },
+        {
+          "age": 21,
+          "id": "581678",
+          "isCaptain": false,
+          "marketValue": 180000000,
+          "name": "Jude Bellingham",
+          "position": "Attacking Midfield",
+          "shirtNumber": 5
+        },
+        {
+          "age": 24,
+          "id": "371998",
+          "isCaptain": false,
+          "marketValue": 200000000,
+          "name": "Vinicius Junior",
+          "position": "Centre-Forward",
+          "shirtNumber": 7
+        }
+      ],
+      "statistics": null,
+      "substitutes": [
+        {
+          "age": 18,
+          "id": "971570",
+          "isCaptain": false,
+          "marketValue": 40000000,
+          "name": "Endrick",
+          "position": "Centre-Forward",
+          "shirtNumber": 16
+        },
+        {
+          "age": 26,
+          "id": "404839",
+          "isCaptain": false,
+          "marketValue": 20000000,
+          "name": "Andriy Lunin",
+          "position": null,
+          "shirtNumber": 13
+        },
+        {
+          "age": 25,
+          "id": "341264",
+          "isCaptain": false,
+          "marketValue": 15000000,
+          "name": "Fran García",
+          "position": "Left-Back",
+          "shirtNumber": 20
+        },
+        {
+          "age": 20,
+          "id": "861410",
+          "isCaptain": false,
+          "marketValue": 45000000,
+          "name": "Arda Güler",
+          "position": "Central Midfield",
+          "shirtNumber": 15
+        },
+        {
+          "age": 25,
+          "id": "314678",
+          "isCaptain": false,
+          "marketValue": 45000000,
+          "name": "Brahim Díaz",
+          "position": "Second Striker",
+          "shirtNumber": 21
+        },
+        {
+          "age": 19,
+          "id": "1055220",
+          "isCaptain": false,
+          "marketValue": 400000,
+          "name": "Fran González",
+          "position": null,
+          "shirtNumber": 26
+        },
+        {
+          "age": 26,
+          "id": "342229",
+          "isCaptain": false,
+          "marketValue": 170000000,
+          "name": "Kylian Mbappé",
+          "position": "Centre-Forward",
+          "shirtNumber": 9
+        },
+        {
+          "age": 32,
+          "id": "59016",
+          "isCaptain": false,
+          "marketValue": 10000000,
+          "name": "David Alaba",
+          "position": null,
+          "shirtNumber": 4
+        },
+        {
+          "age": 39,
+          "id": "27992",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Luka Modrić",
+          "position": "Central Midfield",
+          "shirtNumber": 10
+        },
+        {
+          "age": 28,
+          "id": "251896",
+          "isCaptain": false,
+          "marketValue": 1000000,
+          "name": "Jesús Vallejo",
+          "position": null,
+          "shirtNumber": 18
+        }
+      ]
+    },
+    "awayClub": {
+      "id": "418",
+      "name": "Real Madrid"
+    },
+    "awayGoals": 2,
+    "competitionId": "CDR",
+    "competitionName": "Copa del Rey",
+    "date": "2025-04-26T20:00:00Z",
+    "duration": 120,
+    "endedAfter": "extra_time",
+    "events": [
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 11,
+        "player": {
+          "id": "291417",
+          "name": "Ferland Mendy"
+        },
+        "reason": "Injury",
+        "relatedPlayer": {
+          "id": "341264",
+          "name": "Fran García"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 25,
+        "player": null,
+        "reason": "Dissent",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "coach_sanction"
+      },
+      {
+        "action": "Right-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 28,
+        "player": {
+          "id": "683840",
+          "name": "Pedri"
+        },
+        "reason": "Pass",
+        "relatedPlayer": {
+          "id": "937958",
+          "name": "Lamine Yamal"
+        },
+        "score": {
+          "away": 0,
+          "home": 1
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 31,
+        "player": {
+          "id": "413112",
+          "name": "Aurélien Tchouaméni"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 37,
+        "player": {
+          "id": "705395",
+          "name": "Gerard Martín"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 46,
+        "player": {
+          "id": "412363",
+          "name": "Rodrygo"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "342229",
+          "name": "Kylian Mbappé"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 55,
+        "player": {
+          "id": "319745",
+          "name": "Dani Ceballos"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "861410",
+          "name": "Arda Güler"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 55,
+        "player": {
+          "id": "221316",
+          "name": "Lucas Vázquez"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "27992",
+          "name": "Luka Modrić"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 65,
+        "player": {
+          "id": "293385",
+          "name": "Dani Olmo"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "636703",
+          "name": "Fermín López"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 68,
+        "player": {
+          "id": "326330",
+          "name": "Frenkie de Jong"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Direct free kick",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 70,
+        "player": {
+          "id": "342229",
+          "name": "Kylian Mbappé"
+        },
+        "reason": null,
+        "relatedPlayer": null,
+        "score": {
+          "away": 1,
+          "home": 1
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Header",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 77,
+        "player": {
+          "id": "413112",
+          "name": "Aurélien Tchouaméni"
+        },
+        "reason": "Corner",
+        "relatedPlayer": {
+          "id": "861410",
+          "name": "Arda Güler"
+        },
+        "score": {
+          "away": 2,
+          "home": 1
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Right-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 84,
+        "player": {
+          "id": "398184",
+          "name": "Ferran Torres"
+        },
+        "reason": "Pass",
+        "relatedPlayer": {
+          "id": "937958",
+          "name": "Lamine Yamal"
+        },
+        "score": {
+          "away": 2,
+          "home": 2
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 85,
+        "player": {
+          "id": "326330",
+          "name": "Frenkie de Jong"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "646740",
+          "name": "Gavi"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 85,
+        "player": {
+          "id": "705395",
+          "name": "Gerard Martín"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "480267",
+          "name": "Ronald Araujo"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 89,
+        "player": {
+          "id": "371998",
+          "name": "Vinicius Junior"
+        },
+        "reason": "Injury",
+        "relatedPlayer": {
+          "id": "314678",
+          "name": "Brahim Díaz"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 1,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 90,
+        "player": {
+          "id": "27992",
+          "name": "Luka Modrić"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 4,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 90,
+        "player": {
+          "id": "636703",
+          "name": "Fermín López"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 10,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 90,
+        "player": {
+          "id": "411295",
+          "name": "Raphinha"
+        },
+        "reason": "Diving",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 98,
+        "player": {
+          "id": "683840",
+          "name": "Pedri"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "466794",
+          "name": "Eric García"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 107,
+        "player": {
+          "id": "581678",
+          "name": "Jude Bellingham"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 111,
+        "player": {
+          "id": "86202",
+          "name": "Antonio Rüdiger"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "971570",
+          "name": "Endrick"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 115,
+        "player": {
+          "id": "398184",
+          "name": "Ferran Torres"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "707572",
+          "name": "Pau Víctor"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Right-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 116,
+        "player": {
+          "id": "411975",
+          "name": "Jules Koundé"
+        },
+        "reason": "Without assist",
+        "relatedPlayer": null,
+        "score": {
+          "away": 2,
+          "home": 3
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Red card",
+        "addedTime": 3,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 120,
+        "player": {
+          "id": "86202",
+          "name": "Antonio Rüdiger"
+        },
+        "reason": "Unsporting behaviour",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Red card",
+        "addedTime": 3,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 120,
+        "player": {
+          "id": "221316",
+          "name": "Lucas Vázquez"
+        },
+        "reason": "Abuse",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Red card",
+        "addedTime": 4,
+        "club": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "minute": 120,
+        "player": {
+          "id": "581678",
+          "name": "Jude Bellingham"
+        },
+        "reason": "Abuse",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      }
+    ],
+    "home": {
+      "club": {
+        "id": "131",
+        "name": "FC Barcelona"
+      },
+      "coach": {
+        "id": "67",
+        "name": "Hansi Flick"
+      },
+      "formation": "4-2-3-1",
+      "lineup": [
+        {
+          "age": 35,
+          "id": "44058",
+          "isCaptain": false,
+          "marketValue": 1000000,
+          "name": "Wojciech Szczesny",
+          "position": "Goalkeeper",
+          "shirtNumber": 25
+        },
+        {
+          "age": 18,
+          "id": "962110",
+          "isCaptain": false,
+          "marketValue": 70000000,
+          "name": "Pau Cubarsí",
+          "position": "Centre-Back",
+          "shirtNumber": 2
+        },
+        {
+          "age": 33,
+          "id": "158863",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Iñigo Martínez",
+          "position": "Centre-Back",
+          "shirtNumber": 5
+        },
+        {
+          "age": 23,
+          "id": "705395",
+          "isCaptain": false,
+          "marketValue": 7500000,
+          "name": "Gerard Martín",
+          "position": "Left-Back",
+          "shirtNumber": 35
+        },
+        {
+          "age": 26,
+          "id": "411975",
+          "isCaptain": false,
+          "marketValue": 60000000,
+          "name": "Jules Koundé",
+          "position": "Right-Back",
+          "shirtNumber": 23
+        },
+        {
+          "age": 22,
+          "id": "683840",
+          "isCaptain": false,
+          "marketValue": 120000000,
+          "name": "Pedri",
+          "position": "Central Midfield",
+          "shirtNumber": 8
+        },
+        {
+          "age": 27,
+          "id": "326330",
+          "isCaptain": true,
+          "marketValue": 45000000,
+          "name": "Frenkie de Jong",
+          "position": "Defensive Midfield",
+          "shirtNumber": 21
+        },
+        {
+          "age": 17,
+          "id": "937958",
+          "isCaptain": false,
+          "marketValue": 180000000,
+          "name": "Lamine Yamal",
+          "position": "Right Winger",
+          "shirtNumber": 19
+        },
+        {
+          "age": 28,
+          "id": "411295",
+          "isCaptain": false,
+          "marketValue": 80000000,
+          "name": "Raphinha",
+          "position": "Left Winger",
+          "shirtNumber": 11
+        },
+        {
+          "age": 26,
+          "id": "293385",
+          "isCaptain": false,
+          "marketValue": 60000000,
+          "name": "Dani Olmo",
+          "position": "Attacking Midfield",
+          "shirtNumber": 20
+        },
+        {
+          "age": 25,
+          "id": "398184",
+          "isCaptain": false,
+          "marketValue": 28000000,
+          "name": "Ferran Torres",
+          "position": "Centre-Forward",
+          "shirtNumber": 7
+        }
+      ],
+      "statistics": null,
+      "substitutes": [
+        {
+          "age": 29,
+          "id": "196948",
+          "isCaptain": false,
+          "marketValue": 15000000,
+          "name": "Andreas Christensen",
+          "position": null,
+          "shirtNumber": 15
+        },
+        {
+          "age": 32,
+          "id": "74857",
+          "isCaptain": false,
+          "marketValue": 15000000,
+          "name": "Marc ter Stegen",
+          "position": null,
+          "shirtNumber": 1
+        },
+        {
+          "age": 22,
+          "id": "466810",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Ansu Fati",
+          "position": null,
+          "shirtNumber": 10
+        },
+        {
+          "age": 24,
+          "id": "466794",
+          "isCaptain": false,
+          "marketValue": 15000000,
+          "name": "Eric García",
+          "position": "Centre-Back",
+          "shirtNumber": 24
+        },
+        {
+          "age": 26,
+          "id": "283170",
+          "isCaptain": false,
+          "marketValue": 10000000,
+          "name": "Iñaki Peña",
+          "position": null,
+          "shirtNumber": 13
+        },
+        {
+          "age": 22,
+          "id": "720038",
+          "isCaptain": false,
+          "marketValue": 7500000,
+          "name": "Pablo Torre",
+          "position": null,
+          "shirtNumber": 14
+        },
+        {
+          "age": 18,
+          "id": "937955",
+          "isCaptain": false,
+          "marketValue": 10000000,
+          "name": "Héctor Fort",
+          "position": null,
+          "shirtNumber": 32
+        },
+        {
+          "age": 23,
+          "id": "707572",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Pau Víctor",
+          "position": "Centre-Forward",
+          "shirtNumber": 18
+        },
+        {
+          "age": 26,
+          "id": "480267",
+          "isCaptain": false,
+          "marketValue": 50000000,
+          "name": "Ronald Araujo",
+          "position": "Centre-Back",
+          "shirtNumber": 4
+        },
+        {
+          "age": 21,
+          "id": "636703",
+          "isCaptain": false,
+          "marketValue": 50000000,
+          "name": "Fermín López",
+          "position": "Attacking Midfield",
+          "shirtNumber": 16
+        },
+        {
+          "age": 20,
+          "id": "646740",
+          "isCaptain": false,
+          "marketValue": 70000000,
+          "name": "Gavi",
+          "position": "Central Midfield",
+          "shirtNumber": 6
+        }
+      ]
+    },
+    "homeClub": {
+      "id": "131",
+      "name": "FC Barcelona"
+    },
+    "homeGoals": 3,
+    "id": "4588078",
+    "isFinished": true,
+    "isLive": false,
+    "isTimeDefined": true,
+    "matchday": 9,
+    "referee": {
+      "id": "5102",
+      "name": "De Burgos Bengoetxea"
+    },
+    "seasonId": "2024",
+    "seasonName": "24/25",
+    "shootout": null,
+    "stadium": {
+      "city": "Sevilla",
+      "id": "3805",
+      "name": "La Cartuja"
+    },
+    "stage": "Final",
+    "stageLabel": null,
+    "url": "/spielbericht/index/spielbericht/4588078"
+  },
+  "status_code": 200
+}

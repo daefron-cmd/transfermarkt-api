@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [4.0.1] - 2026-09-26
 
 ### Added
 
@@ -31,6 +31,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `GET /clubs/{club_id}/players` for a national team: players have `internationalMatches`, `internationalGoals` (0
   where the page shows `-`), `debut` and `status` (e.g. `Team captain` or an injury), and `currentClub` is the
   player's club; `seasonId` is set as for clubs.
+- `GET /games/{game_id}`: a game's report, built from Transfermarkt's JSON API, with the fields of a fixtures game
+  plus `stageLabel` (e.g. `QF 3`), `duration` (90 or 120 once finished), `stadium` (`{id, name, city}`), `referee`,
+  `home` / `away` (`club`, `coach`, `formation`, `lineup` and `substitutes` with each player's `shirtNumber`,
+  `isCaptain`, `position`, `marketValue` and `age` at the game, and tmapi's raw per-club `statistics`) and `events`
+  in chronological order (goals, cards, substitutions, penalty shootout kicks, missed penalties and coach sanctions,
+  each with its `club`, `action`, `reason`, `player`, `relatedPlayer` and `score`: the running score, or for a
+  shootout kick the shootout tally). `isLive` and `isFinished` are derived from the report's score. It keeps `null`
+  values and returns 404 for an unknown game.
 
 ### Fixed
 

@@ -1,0 +1,923 @@
+{
+  "body": {
+    "attendance": 30704,
+    "away": {
+      "club": {
+        "id": "131",
+        "name": "FC Barcelona"
+      },
+      "coach": {
+        "id": "67",
+        "name": "Hansi Flick"
+      },
+      "formation": "4-2-3-1",
+      "lineup": [
+        {
+          "age": 25,
+          "id": "561613",
+          "isCaptain": false,
+          "marketValue": 45000000,
+          "name": "Joan García",
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "age": 30,
+          "id": "196948",
+          "isCaptain": false,
+          "marketValue": 8000000,
+          "name": "Andreas Christensen",
+          "position": "Centre-Back",
+          "shirtNumber": 15
+        },
+        {
+          "age": 24,
+          "id": "705395",
+          "isCaptain": false,
+          "marketValue": 35000000,
+          "name": "Gerard Martín",
+          "position": "Centre-Back",
+          "shirtNumber": 18
+        },
+        {
+          "age": 19,
+          "id": "1018912",
+          "isCaptain": false,
+          "marketValue": 5000000,
+          "name": "Xavi Espart",
+          "position": "Left-Back",
+          "shirtNumber": 36
+        },
+        {
+          "age": 25,
+          "id": "466794",
+          "isCaptain": false,
+          "marketValue": 40000000,
+          "name": "Eric García",
+          "position": "Right-Back",
+          "shirtNumber": 24
+        },
+        {
+          "age": 19,
+          "id": "1018920",
+          "isCaptain": false,
+          "marketValue": 30000000,
+          "name": "Marc Bernal",
+          "position": "Defensive Midfield",
+          "shirtNumber": 22
+        },
+        {
+          "age": 22,
+          "id": "646740",
+          "isCaptain": false,
+          "marketValue": 30000000,
+          "name": "Gavi",
+          "position": "Central Midfield",
+          "shirtNumber": 6
+        },
+        {
+          "age": 19,
+          "id": "937958",
+          "isCaptain": false,
+          "marketValue": 220000000,
+          "name": "Lamine Yamal",
+          "position": "Right Winger",
+          "shirtNumber": 10
+        },
+        {
+          "age": 24,
+          "id": "496094",
+          "isCaptain": false,
+          "marketValue": 40000000,
+          "name": "Karim Adeyemi",
+          "position": "Left Winger",
+          "shirtNumber": 14
+        },
+        {
+          "age": 23,
+          "id": "636703",
+          "isCaptain": false,
+          "marketValue": 100000000,
+          "name": "Fermín López",
+          "position": "Attacking Midfield",
+          "shirtNumber": 7
+        },
+        {
+          "age": 29,
+          "id": "411295",
+          "isCaptain": true,
+          "marketValue": 70000000,
+          "name": "Raphinha",
+          "position": "Centre-Forward",
+          "shirtNumber": 11
+        }
+      ],
+      "statistics": {
+        "clubId": "131",
+        "defensiveStatistics": {
+          "cleanSheets": 1,
+          "clearances": 37,
+          "offsides": 3,
+          "saves": 2,
+          "successfulTackles": 9,
+          "totalTackles": 24
+        },
+        "gameStatistics": {
+          "formation": "4231",
+          "playersSubstitutedOn": 0,
+          "possessionPercentage": 54.4,
+          "redCards": 0,
+          "rescindedRedCards": 0,
+          "secondYellowCards": 0,
+          "substitutionsMade": 5,
+          "yellowCards": 0
+        },
+        "goalStatistics": {
+          "assists": 4,
+          "blockedShotAttempts": 0,
+          "goals": 5,
+          "midfielderGoals": 0,
+          "offTargetShotAttempts": 4,
+          "onTargetShotAttempts": 7,
+          "totalShotAttempts": 11
+        },
+        "passingStatistics": {
+          "accuratePasses": 463,
+          "totalPasses": 533
+        },
+        "penaltyStatistics": {
+          "freeKicksConcededFromFouls": 12,
+          "freeKicksWonFromFouls": 12,
+          "goalsConceded": 0,
+          "ownGoals": 0,
+          "penaltiesConceded": 0,
+          "penaltiesFaced": 0,
+          "penaltiesSaved": 0,
+          "penaltiesWon": 1,
+          "penaltyGoalsConceded": 0
+        },
+        "setPieceStatistics": {
+          "cornersConceded": 3,
+          "cornersTaken": 1,
+          "cornersWon": 1,
+          "goalKicks": 5,
+          "throwIns": 18
+        }
+      },
+      "substitutes": [
+        {
+          "age": 18,
+          "id": "1259085",
+          "isCaptain": false,
+          "marketValue": 1500000,
+          "name": "Hamza Abdelkarim",
+          "position": null,
+          "shirtNumber": 29
+        },
+        {
+          "age": 32,
+          "id": "182712",
+          "isCaptain": false,
+          "marketValue": 8000000,
+          "name": "João Cancelo",
+          "position": "Right Winger",
+          "shirtNumber": 2
+        },
+        {
+          "age": 17,
+          "id": "1242149",
+          "isCaptain": false,
+          "marketValue": null,
+          "name": "Jordi Pesquer",
+          "position": null,
+          "shirtNumber": 33
+        },
+        {
+          "age": 23,
+          "id": "683840",
+          "isCaptain": false,
+          "marketValue": 150000000,
+          "name": "Pedri",
+          "position": "Central Midfield",
+          "shirtNumber": 8
+        },
+        {
+          "age": 28,
+          "id": "293385",
+          "isCaptain": false,
+          "marketValue": 60000000,
+          "name": "Dani Olmo",
+          "position": "Attacking Midfield",
+          "shirtNumber": 20
+        },
+        {
+          "age": 36,
+          "id": "44058",
+          "isCaptain": false,
+          "marketValue": 800000,
+          "name": "Wojciech Szczesny",
+          "position": null,
+          "shirtNumber": 13
+        },
+        {
+          "age": 19,
+          "id": "1066202",
+          "isCaptain": false,
+          "marketValue": 50000,
+          "name": "Eder Aller",
+          "position": null,
+          "shirtNumber": 31
+        },
+        {
+          "age": 21,
+          "id": "924610",
+          "isCaptain": false,
+          "marketValue": 4000000,
+          "name": "Álvaro Cortés",
+          "position": null,
+          "shirtNumber": 26
+        },
+        {
+          "age": 25,
+          "id": "503733",
+          "isCaptain": false,
+          "marketValue": 80000000,
+          "name": "Anthony Gordon",
+          "position": "Left Winger",
+          "shirtNumber": 17
+        },
+        {
+          "age": 19,
+          "id": "962110",
+          "isCaptain": false,
+          "marketValue": 100000000,
+          "name": "Pau Cubarsí",
+          "position": null,
+          "shirtNumber": 5
+        },
+        {
+          "age": 20,
+          "id": "938154",
+          "isCaptain": false,
+          "marketValue": 2500000,
+          "name": "Brian Fariñas",
+          "position": null,
+          "shirtNumber": 28
+        },
+        {
+          "age": 27,
+          "id": "411975",
+          "isCaptain": false,
+          "marketValue": 60000000,
+          "name": "Jules Koundé",
+          "position": "Right-Back",
+          "shirtNumber": 23
+        }
+      ]
+    },
+    "awayClub": {
+      "id": "131",
+      "name": "FC Barcelona"
+    },
+    "awayGoals": 5,
+    "competitionId": "ES1",
+    "competitionName": "LaLiga",
+    "date": "2026-08-23T19:30:00Z",
+    "duration": 90,
+    "endedAfter": "regular",
+    "events": [
+      {
+        "action": "Penalty",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 14,
+        "player": {
+          "id": "411295",
+          "name": "Raphinha"
+        },
+        "reason": "Penalty: Fouled player",
+        "relatedPlayer": {
+          "id": "411295",
+          "name": "Raphinha"
+        },
+        "score": {
+          "away": 1,
+          "home": 0
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Yellow card",
+        "addedTime": 0,
+        "club": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "minute": 33,
+        "player": {
+          "id": "1064538",
+          "name": "Ali Houary"
+        },
+        "reason": "Foul",
+        "relatedPlayer": null,
+        "score": null,
+        "type": "card"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 45,
+        "player": {
+          "id": "646740",
+          "name": "Gavi"
+        },
+        "reason": "Injury",
+        "relatedPlayer": {
+          "id": "683840",
+          "name": "Pedri"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Counter attack goal",
+        "addedTime": 3,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 45,
+        "player": {
+          "id": "496094",
+          "name": "Karim Adeyemi"
+        },
+        "reason": "Pass",
+        "relatedPlayer": {
+          "id": "411295",
+          "name": "Raphinha"
+        },
+        "score": {
+          "away": 2,
+          "home": 0
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "minute": 64,
+        "player": {
+          "id": "339816",
+          "name": "Tete Morente"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "912392",
+          "name": "Lucas Cepeda"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "minute": 64,
+        "player": {
+          "id": "1064538",
+          "name": "Ali Houary"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "983989",
+          "name": "Facundo Buonanotte"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "minute": 64,
+        "player": {
+          "id": "531404",
+          "name": "Marc Aguado"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "549027",
+          "name": "Martim Neto"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 65,
+        "player": {
+          "id": "937958",
+          "name": "Lamine Yamal"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "503733",
+          "name": "Anthony Gordon"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 65,
+        "player": {
+          "id": "496094",
+          "name": "Karim Adeyemi"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "293385",
+          "name": "Dani Olmo"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Left-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 67,
+        "player": {
+          "id": "411295",
+          "name": "Raphinha"
+        },
+        "reason": "Pass",
+        "relatedPlayer": {
+          "id": "503733",
+          "name": "Anthony Gordon"
+        },
+        "score": {
+          "away": 3,
+          "home": 0
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "minute": 69,
+        "player": {
+          "id": "627294",
+          "name": "Fer Niño"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "296783",
+          "name": "Ezequiel Ponce"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Right-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 71,
+        "player": {
+          "id": "636703",
+          "name": "Fermín López"
+        },
+        "reason": "Pass",
+        "relatedPlayer": {
+          "id": "503733",
+          "name": "Anthony Gordon"
+        },
+        "score": {
+          "away": 4,
+          "home": 0
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Left-footed shot",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 79,
+        "player": {
+          "id": "636703",
+          "name": "Fermín López"
+        },
+        "reason": "Pass",
+        "relatedPlayer": {
+          "id": "1018912",
+          "name": "Xavi Espart"
+        },
+        "score": {
+          "away": 5,
+          "home": 0
+        },
+        "type": "goal"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 80,
+        "player": {
+          "id": "1018920",
+          "name": "Marc Bernal"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "411975",
+          "name": "Jules Koundé"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "minute": 80,
+        "player": {
+          "id": "411295",
+          "name": "Raphinha"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "182712",
+          "name": "João Cancelo"
+        },
+        "score": null,
+        "type": "substitution"
+      },
+      {
+        "action": "Not reported",
+        "addedTime": 0,
+        "club": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "minute": 81,
+        "player": {
+          "id": "909758",
+          "name": "Federico Redondo"
+        },
+        "reason": "Tactical",
+        "relatedPlayer": {
+          "id": "203043",
+          "name": "Pedro Bigas"
+        },
+        "score": null,
+        "type": "substitution"
+      }
+    ],
+    "home": {
+      "club": {
+        "id": "1531",
+        "name": "Elche CF"
+      },
+      "coach": {
+        "id": "99471",
+        "name": "Martín Anselmi"
+      },
+      "formation": "5-4-1",
+      "lineup": [
+        {
+          "age": 39,
+          "id": "144128",
+          "isCaptain": true,
+          "marketValue": 100000,
+          "name": "Matías Dituro",
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "age": 25,
+          "id": "452483",
+          "isCaptain": false,
+          "marketValue": 20000000,
+          "name": "David Affengruber",
+          "position": "Centre-Back",
+          "shirtNumber": 22
+        },
+        {
+          "age": 26,
+          "id": "495625",
+          "isCaptain": false,
+          "marketValue": 3500000,
+          "name": "Víctor Chust",
+          "position": "Centre-Back",
+          "shirtNumber": 23
+        },
+        {
+          "age": 23,
+          "id": "909758",
+          "isCaptain": false,
+          "marketValue": 2500000,
+          "name": "Federico Redondo",
+          "position": "Centre-Back",
+          "shirtNumber": 5
+        },
+        {
+          "age": 24,
+          "id": "548188",
+          "isCaptain": false,
+          "marketValue": 6000000,
+          "name": "Germán Valera",
+          "position": "Left-Back",
+          "shirtNumber": 11
+        },
+        {
+          "age": 19,
+          "id": "962125",
+          "isCaptain": false,
+          "marketValue": 4500000,
+          "name": "Buba Sangaré",
+          "position": "Right-Back",
+          "shirtNumber": 2
+        },
+        {
+          "age": 28,
+          "id": "398163",
+          "isCaptain": false,
+          "marketValue": 1800000,
+          "name": "Gonzalo Villar",
+          "position": "Central Midfield",
+          "shirtNumber": 12
+        },
+        {
+          "age": 26,
+          "id": "531404",
+          "isCaptain": false,
+          "marketValue": 3500000,
+          "name": "Marc Aguado",
+          "position": "Defensive Midfield",
+          "shirtNumber": 8
+        },
+        {
+          "age": 29,
+          "id": "339816",
+          "isCaptain": false,
+          "marketValue": 1800000,
+          "name": "Tete Morente",
+          "position": "Right Winger",
+          "shirtNumber": 20
+        },
+        {
+          "age": 21,
+          "id": "1064538",
+          "isCaptain": false,
+          "marketValue": 300000,
+          "name": "Ali Houary",
+          "position": "Left Winger",
+          "shirtNumber": 29
+        },
+        {
+          "age": 25,
+          "id": "627294",
+          "isCaptain": false,
+          "marketValue": 2000000,
+          "name": "Fer Niño",
+          "position": "Centre-Forward",
+          "shirtNumber": 14
+        }
+      ],
+      "statistics": {
+        "clubId": "1531",
+        "defensiveStatistics": {
+          "cleanSheets": 0,
+          "clearances": 6,
+          "offsides": 3,
+          "saves": 2,
+          "successfulTackles": 8,
+          "totalTackles": 10
+        },
+        "gameStatistics": {
+          "formation": "541",
+          "playersSubstitutedOn": 0,
+          "possessionPercentage": 45.6,
+          "redCards": 0,
+          "rescindedRedCards": 0,
+          "secondYellowCards": 0,
+          "substitutionsMade": 5,
+          "yellowCards": 1
+        },
+        "goalStatistics": {
+          "assists": 0,
+          "blockedShotAttempts": 0,
+          "goals": 0,
+          "midfielderGoals": 0,
+          "offTargetShotAttempts": 5,
+          "onTargetShotAttempts": 2,
+          "totalShotAttempts": 7
+        },
+        "passingStatistics": {
+          "accuratePasses": 349,
+          "totalPasses": 436
+        },
+        "penaltyStatistics": {
+          "freeKicksConcededFromFouls": 13,
+          "freeKicksWonFromFouls": 11,
+          "goalsConceded": 5,
+          "ownGoals": 0,
+          "penaltiesConceded": 1,
+          "penaltiesFaced": 1,
+          "penaltiesSaved": 0,
+          "penaltiesWon": 0,
+          "penaltyGoalsConceded": 1
+        },
+        "setPieceStatistics": {
+          "cornersConceded": 1,
+          "cornersTaken": 3,
+          "cornersWon": 3,
+          "goalKicks": 4,
+          "throwIns": 24
+        }
+      },
+      "substitutes": [
+        {
+          "age": 22,
+          "id": "618801",
+          "isCaptain": false,
+          "marketValue": 1400000,
+          "name": "Alejandro Iturbe",
+          "position": null,
+          "shirtNumber": 43
+        },
+        {
+          "age": 36,
+          "id": "203043",
+          "isCaptain": false,
+          "marketValue": 300000,
+          "name": "Pedro Bigas",
+          "position": "Centre-Back",
+          "shirtNumber": 6
+        },
+        {
+          "age": 22,
+          "id": "1226602",
+          "isCaptain": false,
+          "marketValue": 100000,
+          "name": "Umaru Konaré",
+          "position": null,
+          "shirtNumber": 36
+        },
+        {
+          "age": 20,
+          "id": "1466272",
+          "isCaptain": false,
+          "marketValue": 25000,
+          "name": "Álvaro Padilla",
+          "position": null,
+          "shirtNumber": 30
+        },
+        {
+          "age": 20,
+          "id": "1250522",
+          "isCaptain": false,
+          "marketValue": 500000,
+          "name": "Javi Morcillo",
+          "position": null,
+          "shirtNumber": 47
+        },
+        {
+          "age": 22,
+          "id": "1060456",
+          "isCaptain": false,
+          "marketValue": 1000000,
+          "name": "Matia Barzic",
+          "position": null,
+          "shirtNumber": 26
+        },
+        {
+          "age": 21,
+          "id": "983989",
+          "isCaptain": false,
+          "marketValue": 12000000,
+          "name": "Facundo Buonanotte",
+          "position": "Attacking Midfield",
+          "shirtNumber": 10
+        },
+        {
+          "age": 29,
+          "id": "296783",
+          "isCaptain": false,
+          "marketValue": 4000000,
+          "name": "Ezequiel Ponce",
+          "position": "Centre-Forward",
+          "shirtNumber": 9
+        },
+        {
+          "age": 36,
+          "id": "277533",
+          "isCaptain": false,
+          "marketValue": 100000,
+          "name": "Josan",
+          "position": null,
+          "shirtNumber": 17
+        },
+        {
+          "age": 23,
+          "id": "912392",
+          "isCaptain": false,
+          "marketValue": 2500000,
+          "name": "Lucas Cepeda",
+          "position": "Right Winger",
+          "shirtNumber": 21
+        },
+        {
+          "age": 28,
+          "id": "342048",
+          "isCaptain": false,
+          "marketValue": 2000000,
+          "name": "Grady Diangana",
+          "position": null,
+          "shirtNumber": 19
+        },
+        {
+          "age": 23,
+          "id": "549027",
+          "isCaptain": false,
+          "marketValue": 4000000,
+          "name": "Martim Neto",
+          "position": "Defensive Midfield",
+          "shirtNumber": 16
+        }
+      ]
+    },
+    "homeClub": {
+      "id": "1531",
+      "name": "Elche CF"
+    },
+    "homeGoals": 0,
+    "id": "4909471",
+    "isFinished": true,
+    "isLive": false,
+    "isTimeDefined": true,
+    "matchday": 2,
+    "referee": {
+      "id": "42652",
+      "name": "Alejandro Quintero González"
+    },
+    "seasonId": "2026",
+    "seasonName": "26/27",
+    "shootout": null,
+    "stadium": {
+      "city": "Elche",
+      "id": "1272",
+      "name": "Manuel Martínez Valero"
+    },
+    "stage": null,
+    "stageLabel": null,
+    "url": "/spielbericht/index/spielbericht/4909471"
+  },
+  "status_code": 200
+}

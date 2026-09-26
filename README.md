@@ -80,6 +80,7 @@ Every route is a `GET`; `/docs` has the full request and response schemas.
 | `/competitions/{competition_id}/clubs`    | The clubs in a competition in a season (`season_id`)                             |
 | `/competitions/{competition_id}/table`    | A competition's league table, or one per group, in a season (`season_id`); tmapi |
 | `/competitions/{competition_id}/fixtures` | A competition's games and results in a season (`season_id`, `matchday`); tmapi   |
+| `/games/{game_id}`                        | A game's report: result, lineups, events, statistics, stadium, referee; tmapi    |
 | `/health`                                 | Service status and version                                                       |
 
 Routes marked tmapi are built from Transfermarkt's JSON API (see [tmapi Data Source](#tmapi-data-source)); the
@@ -157,14 +158,15 @@ retries) pass through, too many redirects become 404, and connection errors or t
 ### tmapi Data Source
 
 `/players/{player_id}/stats`, `/clubs/{club_id}/fixtures`, `/clubs/{club_id}/squad`,
-`/competitions/{competition_id}/table` and `/competitions/{competition_id}/fixtures` are built from
-`tmapi.transfermarkt.technology`, the JSON API behind the site's own web components (Transfermarkt no longer renders
-the detailed stats table in the page HTML).
+`/competitions/{competition_id}/table`, `/competitions/{competition_id}/fixtures` and `/games/{game_id}` are built
+from `tmapi.transfermarkt.technology`, the JSON API behind the site's own web components (Transfermarkt no longer
+renders the detailed stats table in the page HTML).
 **tmapi is unofficial and undocumented**: it may change or disappear without notice. Its responses are
 validated (`app/tmapi.py`) and an unexpected shape returns 502 instead of wrong data. Requests go through
 the same `TransfermarktClient` (throttle, retries, disk cache); the `/attributes` table is fetched once per process.
-Club names (and the player stats' and club fixtures' competition names, and the club squad's players) come from its
-batch lookups (`/clubs?ids[]=...`, `/competitions?ids[]=...`, `/players?ids[]=...`, sorted ids, 50 per request).
+Club names (and the player stats' and club fixtures' competition names, the club squad's players and the game
+report's players, coaches and referee) come from its batch lookups (`/clubs?ids[]=...`, `/competitions?ids[]=...`,
+`/players?ids[]=...`, `/coaches?ids[]=...`, `/referees?ids[]=...`, sorted ids, 50 per request).
 
 #### Player stats
 
@@ -229,6 +231,38 @@ Both fetch the club (`/club/{id}`; an unknown club returns 404), whose name is u
   `/clubs/{club_id}/players` HTML route shows a past squad's ages and market values at the time).
 
 `null` values are kept in these responses.
+
+#### Game report
+
+`/games/{game_id}` fetches the game report (`/game/{id}`; an unknown game returns 404), then the `/attributes`
+tables, the names of its clubs, players and coaches, and, when the report has them, its referee's name and its stadium
+(`/stadium/{id}`). Game ids are in the fixtures' `id` and `url`. The response has the fields of a fixtures game (see
+above; `competitionName` is the report's) plus:
+
+- `stageLabel`: tmapi's tournament stage label such as `QF 3`, `null` for other games;
+- `duration`: the minutes played (90, or 120 after extra time) once the game has finished, else `null`;
+- `stadium` (`{id, name, city}`) and `referee` (`{id, name}`), `null` when the report has none (e.g. before
+  kick-off); `stadium` is also `null` when tmapi has no stadium for the report's stadium id;
+- `home` / `away`: `club` (`{id, name}`), `coach` (`{id, name}`: the game's coach, or before kick-off the club's
+  head coach; `null` when there is none), `formation` (e.g. `3-4-2-1`), `lineup` and `substitutes` (each player's
+  `id`, `name`, `shirtNumber`, `isCaptain`, `position` (`null` when tmapi has none, as for many substitutes),
+  `marketValue` and `age` at the time of the game) and `statistics`, tmapi's raw per-club statistics (passing, goals,
+  defence, set pieces, ...) passed through unchanged, `null` when the report has none. Before kick-off the lists are
+  empty and `formation` is `null`.
+- `events` in chronological order (by minute and added time): `type` (`goal`, `card`, `substitution`, `shootout`,
+  `missed_penalty`, `coach_sanction`; any other upstream type is passed through in lower case), `minute`,
+  `addedTime`, `club`, `action` (e.g. `Left-footed shot`, `Yellow card`, `Saved`) and `reason` (e.g. `Pass`, `Foul`,
+  `Tactical`) from the `/attributes` tables (`null` when unknown or not given), `player`, `relatedPlayer` and `score`
+  (the running score after a goal or scored shootout kick, else `null`). `player` is the scorer, the carded player,
+  the shootout taker or, in a substitution, the player going off; `relatedPlayer` is the assist (the fouled player
+  for a won penalty) or, in a substitution, the player coming on. A coach sanction has no player. A shootout kick's
+  `score` is the shootout tally, like `shootout` (tmapi's includes the goals of the game, which are subtracted: in a
+  1-1 game won 5-3 on penalties the first scored kick is `{home: 1, away: 0}` and the last `{home: 5, away: 3}`).
+
+The report does not state whether the game is live or finished, so `isLive` is derived from its score
+(`score.details.gameEndType` is `Playing`) and `isFinished` is set when the game has a score and is not live; this
+matched the fixture lists' flags on every game checked, but a live game has only been seen in its second half.
+`null` values are kept in this response.
 
 ### Environment Variables
 

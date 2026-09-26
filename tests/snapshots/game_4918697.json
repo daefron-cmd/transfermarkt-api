@@ -1,0 +1,63 @@
+{
+  "body": {
+    "attendance": null,
+    "away": {
+      "club": {
+        "id": "131",
+        "name": "FC Barcelona"
+      },
+      "coach": {
+        "id": "67",
+        "name": "Hansi Flick"
+      },
+      "formation": null,
+      "lineup": [],
+      "statistics": null,
+      "substitutes": []
+    },
+    "awayClub": {
+      "id": "131",
+      "name": "FC Barcelona"
+    },
+    "awayGoals": null,
+    "competitionId": "ES1",
+    "competitionName": "LaLiga",
+    "date": "2027-05-30T12:00:00Z",
+    "duration": null,
+    "endedAfter": null,
+    "events": [],
+    "home": {
+      "club": {
+        "id": "3709",
+        "name": "Getafe CF"
+      },
+      "coach": {
+        "id": "6440",
+        "name": "José Bordalás"
+      },
+      "formation": null,
+      "lineup": [],
+      "statistics": null,
+      "substitutes": []
+    },
+    "homeClub": {
+      "id": "3709",
+      "name": "Getafe CF"
+    },
+    "homeGoals": null,
+    "id": "4918697",
+    "isFinished": false,
+    "isLive": false,
+    "isTimeDefined": false,
+    "matchday": 38,
+    "referee": null,
+    "seasonId": "2026",
+    "seasonName": "26/27",
+    "shootout": null,
+    "stadium": null,
+    "stage": null,
+    "stageLabel": null,
+    "url": "/spielbericht/index/spielbericht/4918697"
+  },
+  "status_code": 200
+}
