@@ -1,0 +1,9 @@
+{
+  "body": {
+    "lastPageNumber": 1,
+    "pageNumber": 1,
+    "query": "a&b",
+    "results": []
+  },
+  "status_code": 200
+}

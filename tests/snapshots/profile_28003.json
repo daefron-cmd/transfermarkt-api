@@ -1,0 +1,61 @@
+{
+  "body": {
+    "agent": {
+      "name": "Relatives"
+    },
+    "citizenship": [
+      "Argentina",
+      "Spain"
+    ],
+    "club": {
+      "contractExpires": "2028-12-31",
+      "id": "69261",
+      "joined": "2023-07-15",
+      "name": "Miami"
+    },
+    "description": "Lionel Messi, 39, from Argentina ➤ Inter Miami CF, since 2023 ➤ Right Winger ➤ Market value: €15.00m ➤ * 24/06/1987 in Rosario, Argentina",
+    "foot": "left",
+    "height": 170,
+    "id": "28003",
+    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/28003-1771694720.jpg?lm=4711",
+    "isRetired": false,
+    "marketValue": 15000000,
+    "name": "Lionel Messi",
+    "nameInHomeCountry": "Lionel Andrés Messi Cuccitini",
+    "outfitter": "adidas",
+    "placeOfBirth": {
+      "city": "Rosario",
+      "country": "Argentina"
+    },
+    "position": {
+      "main": "Right Winger",
+      "other": [
+        "Centre-Forward",
+        "Second Striker"
+      ]
+    },
+    "relatives": [
+      {
+        "id": "55306",
+        "name": "Maximiliano Biancucchi",
+        "profileType": "player",
+        "url": "/maximiliano-biancucchi/profil/spieler/55306"
+      },
+      {
+        "id": "82727",
+        "name": "Emanuel Biancucchi",
+        "profileType": "player",
+        "url": "/emanuel-biancucchi/profil/spieler/82727"
+      }
+    ],
+    "shirtNumber": "#10",
+    "socialMedia": [
+      "http://www.facebook.com/LeoMessi",
+      "http://instagram.com/leomessi",
+      "http://www.leomessi.com"
+    ],
+    "trainerProfile": {},
+    "url": "https://www.transfermarkt.com/lionel-messi/profil/spieler/28003"
+  },
+  "status_code": 200
+}

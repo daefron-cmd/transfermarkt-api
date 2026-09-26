@@ -1,0 +1,110 @@
+{
+  "body": {
+    "lastPageNumber": 12,
+    "pageNumber": 1,
+    "query": "premier",
+    "results": [
+      {
+        "clubs": 20,
+        "continent": "UEFA",
+        "country": "England",
+        "id": "GB1",
+        "meanMarketValue": 657910000,
+        "name": "Premier League",
+        "players": 542,
+        "totalMarketValue": 13160000000
+      },
+      {
+        "clubs": 18,
+        "continent": "UEFA",
+        "country": "France",
+        "id": "FR1",
+        "meanMarketValue": 234220000,
+        "name": "Ligue 1",
+        "players": 474,
+        "totalMarketValue": 4219999999
+      },
+      {
+        "clubs": 16,
+        "continent": "UEFA",
+        "country": "Russia",
+        "id": "RU1",
+        "meanMarketValue": 64280000,
+        "name": "Premier Liga",
+        "players": 437,
+        "totalMarketValue": 1030000000
+      },
+      {
+        "clubs": 16,
+        "continent": "UEFA",
+        "country": "Ukraine",
+        "id": "UKR1",
+        "meanMarketValue": 30280000,
+        "name": "Premier Liga",
+        "players": 443,
+        "totalMarketValue": 484550000
+      },
+      {
+        "clubs": 12,
+        "continent": "UEFA",
+        "country": "Scotland",
+        "id": "SC1",
+        "meanMarketValue": 32170000,
+        "name": "Scottish Premiership",
+        "players": 327,
+        "totalMarketValue": 386080000
+      },
+      {
+        "clubs": 20,
+        "continent": "CAF",
+        "country": "Egypt",
+        "id": "EGY1",
+        "meanMarketValue": 8300000,
+        "name": "Egyptian Premier League",
+        "players": 685,
+        "totalMarketValue": 165930000
+      },
+      {
+        "clubs": 32,
+        "continent": "UEFA",
+        "country": "England",
+        "id": "PLIC",
+        "meanMarketValue": 4930000,
+        "name": "Premier League International Cup U21",
+        "players": 727,
+        "totalMarketValue": 157690000
+      },
+      {
+        "clubs": 16,
+        "continent": "CAF",
+        "country": "South Africa",
+        "id": "SFA1",
+        "meanMarketValue": 9420000,
+        "name": "Betway Premiership",
+        "players": 621,
+        "totalMarketValue": 150780000
+      },
+      {
+        "clubs": 12,
+        "continent": "UEFA",
+        "country": "Azerbaijan",
+        "id": "AZ1",
+        "meanMarketValue": 10080000,
+        "name": "Premyer Liqa",
+        "players": 303,
+        "totalMarketValue": 120950000
+      },
+      {
+        "clubs": 8,
+        "continent": "CAF",
+        "country": "South Africa",
+        "id": "SFAL",
+        "meanMarketValue": 14600000,
+        "name": "MTN8",
+        "players": 313,
+        "totalMarketValue": 116780000
+      }
+    ]
+  },
+  "status_code": 200
+}

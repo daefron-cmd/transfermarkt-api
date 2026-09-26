@@ -1,0 +1,66 @@
+{
+  "body": {
+    "addressLine1": "Avinguda Arístides Maillol",
+    "addressLine2": "08028 Barcelona",
+    "addressLine3": "Spain",
+    "colors": [
+      "#004C99",
+      "#A60042",
+      "#FFEE00"
+    ],
+    "currentMarketValue": 1260000000,
+    "currentTransferRecord": -94500000,
+    "fax": "+34 934 112219",
+    "foundedOn": "1899-11-29",
+    "historicalCrests": [
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792132.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792150.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792174.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792189.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792227.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792246.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792264.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792283.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/131_1400792355.png"
+    ],
+    "id": "131",
+    "image": "https://img.a.transfermarkt.technology/wappen/big/131.png",
+    "league": {
+      "countryId": "1",
+      "countryName": "Spain",
+      "id": "ES1",
+      "name": "LaLiga",
+      "tier": "First Tier"
+    },
+    "members": 170,
+    "membersDate": "2022-01-01",
+    "name": "FC Barcelona",
+    "officialName": "Futbol Club Barcelona",
+    "otherSports": [
+      "Baseball",
+      "Basketball",
+      "Eishockey",
+      "Eiskunstlauf",
+      "Feldhockey",
+      "Futsal",
+      "Handball",
+      "Leichtathletik",
+      "Rollhockey",
+      "Rollstuhlbasketball",
+      "Rugby",
+      "Volleyball"
+    ],
+    "squad": {
+      "averageAge": 25.2,
+      "foreigners": 13,
+      "nationalTeamPlayers": 20,
+      "size": 27
+    },
+    "stadiumName": "Spotify Camp Nou",
+    "stadiumSeats": 62657,
+    "tel": "+34 902 189900",
+    "url": "/fc-barcelona/startseite/verein/131",
+    "website": "fcbarcelona.com"
+  },
+  "status_code": 200
+}

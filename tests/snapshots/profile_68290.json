@@ -1,0 +1,57 @@
+{
+  "body": {
+    "agent": {
+      "name": "Relatives"
+    },
+    "citizenship": [
+      "Brazil"
+    ],
+    "club": {
+      "contractExpires": "2026-12-31",
+      "id": "221",
+      "joined": "2025-01-31",
+      "name": "Santos"
+    },
+    "description": "Neymar, 34, from Brazil ➤ Santos FC, since 2024 ➤ Attacking Midfield ➤ Market value: €8.00m ➤ * 05/02/1992 in Mogi das Cruzes, Brazil",
+    "foot": "right",
+    "fullName": "Neymar da Silva Santos Júnior",
+    "height": 175,
+    "id": "68290",
+    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/68290-1692601435.jpg?lm=4711",
+    "isRetired": false,
+    "marketValue": 8000000,
+    "name": "Neymar",
+    "outfitter": "Puma",
+    "placeOfBirth": {
+      "city": "Mogi das Cruzes",
+      "country": "Brazil"
+    },
+    "position": {
+      "main": "Attacking Midfield",
+      "other": [
+        "Left Winger",
+        "Second Striker"
+      ]
+    },
+    "relatives": [
+      {
+        "id": "964582",
+        "name": "Jhon Jhon",
+        "profileType": "player",
+        "url": "/jhon-jhon/profil/spieler/964582"
+      }
+    ],
+    "shirtNumber": "#10",
+    "socialMedia": [
+      "http://www.twitch.tv/Neymarjr",
+      "http://twitter.com/neymarjr",
+      "http://www.facebook.com/neymarjr",
+      "http://instagram.com/neymarjr",
+      "http://www.neymaroficial.com/",
+      "http://www.tiktok.com/@neymarjr"
+    ],
+    "trainerProfile": {},
+    "url": "https://www.transfermarkt.com/neymar/profil/spieler/68290"
+  },
+  "status_code": 200
+}

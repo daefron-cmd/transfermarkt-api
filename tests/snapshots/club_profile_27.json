@@ -1,0 +1,61 @@
+{
+  "body": {
+    "addressLine1": "Säbener Straße 51-57",
+    "addressLine2": "81547 München",
+    "addressLine3": "Germany",
+    "colors": [
+      "#DB072D",
+      "#FFFFFF"
+    ],
+    "currentMarketValue": 1040000000,
+    "currentTransferRecord": -55200000,
+    "fax": "+49 89 644165",
+    "foundedOn": "1900-02-27",
+    "historicalCrests": [
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1400571755.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1400571770.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1400571796.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1400571805.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1400571817.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1400571838.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1400571853.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1498251266.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/27_1729503630.png"
+    ],
+    "id": "27",
+    "image": "https://img.a.transfermarkt.technology/wappen/big/27.png",
+    "league": {
+      "countryId": "4",
+      "countryName": "Germany",
+      "id": "L1",
+      "name": "Bundesliga",
+      "tier": "First Tier"
+    },
+    "legalForm": "AG",
+    "members": 432,
+    "membersDate": "2025-11-02",
+    "name": "Bayern Munich",
+    "officialName": "FC Bayern München",
+    "otherSports": [
+      "Basketball",
+      "Handball",
+      "Kegeln",
+      "Schach",
+      "Schiedsrichter",
+      "Tischtennis",
+      "Turnen (Abteilung Turnen im Januar 2014 aufgelöst)"
+    ],
+    "squad": {
+      "averageAge": 27.4,
+      "foreigners": 12,
+      "nationalTeamPlayers": 21,
+      "size": 23
+    },
+    "stadiumName": "Allianz Arena",
+    "stadiumSeats": 75000,
+    "tel": "+49 89 69931-0",
+    "url": "/fc-bayern-munchen/startseite/verein/27",
+    "website": "fcbayern.com"
+  },
+  "status_code": 200
+}

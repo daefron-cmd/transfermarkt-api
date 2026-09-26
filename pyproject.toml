@@ -27,8 +27,8 @@ dev = [
     "pip-audit>=2.10.1",
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
+    "pytest-socket>=0.8.1",
     "ruff>=0.16.9",
-    "schema>=0.7.8",
     "types-lxml>=2026.2.16",
     "types-python-dateutil>=2.9.0.20260807",
     "types-requests>=2.33.0.20260906",
@@ -90,6 +90,9 @@ disable_error_code = ["arg-type"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# Offline by default: any TCP/DNS use fails loudly. Unix sockets stay allowed for the asyncio
+# self-pipe that the TestClient event loop needs. tests/live must opt in with --force-enable-socket.
+addopts = ["--disable-socket", "--allow-unix-socket"]
 pythonpath = ["."]
 markers = [
     "live: hits the live Transfermarkt site over the network",

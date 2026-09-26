@@ -1,0 +1,90 @@
+{
+  "body": {
+    "clubs": [
+      {
+        "id": "418",
+        "name": "Real Madrid"
+      },
+      {
+        "id": "131",
+        "name": "FC Barcelona"
+      },
+      {
+        "id": "13",
+        "name": "Atlético de Madrid"
+      },
+      {
+        "id": "1050",
+        "name": "Villarreal CF"
+      },
+      {
+        "id": "681",
+        "name": "Real Sociedad"
+      },
+      {
+        "id": "150",
+        "name": "Real Betis Balompié"
+      },
+      {
+        "id": "621",
+        "name": "Athletic Bilbao"
+      },
+      {
+        "id": "940",
+        "name": "Celta de Vigo"
+      },
+      {
+        "id": "368",
+        "name": "Sevilla FC"
+      },
+      {
+        "id": "1049",
+        "name": "Valencia CF"
+      },
+      {
+        "id": "714",
+        "name": "RCD Espanyol Barcelona"
+      },
+      {
+        "id": "897",
+        "name": "Deportivo A Coruña"
+      },
+      {
+        "id": "630",
+        "name": "Racing Santander"
+      },
+      {
+        "id": "3709",
+        "name": "Getafe CF"
+      },
+      {
+        "id": "3368",
+        "name": "Levante UD"
+      },
+      {
+        "id": "367",
+        "name": "Rayo Vallecano"
+      },
+      {
+        "id": "331",
+        "name": "CA Osasuna"
+      },
+      {
+        "id": "1531",
+        "name": "Elche CF"
+      },
+      {
+        "id": "1108",
+        "name": "Deportivo Alavés"
+      },
+      {
+        "id": "1084",
+        "name": "Málaga CF"
+      }
+    ],
+    "id": "ES1",
+    "name": "LaLiga",
+    "seasonId": "2026"
+  },
+  "status_code": 200
+}

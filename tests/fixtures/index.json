@@ -1,0 +1,212 @@
+[
+  {
+    "url": "https://www.transfermarkt.com/-/erfolge/spieler/28003",
+    "file": "2fe16b074573f10e.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:05+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/erfolge/spieler/3373",
+    "file": "89f505e68883b3b1.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:05+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/kader/verein/131/saison_id/2014/plus/1",
+    "file": "022f332f61d42831.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/kader/verein/131/saison_id/None/plus/1",
+    "file": "45277634c437d3b2.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/kader/verein/210/saison_id/2017/plus/1",
+    "file": "53716ee041aab1e5.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/leistungsdatendetails/spieler/5023",
+    "file": "2fac19a5f4610a68.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:05+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/leistungsdatendetails/spieler/8198",
+    "file": "0b37d7dd605e3d61.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:05+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/marktwertverlauf/spieler/28003",
+    "file": "8001b1ec8d9d2e9f.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/marktwertverlauf/spieler/3373",
+    "file": "32e386b9b39844d1.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/profil/spieler/0",
+    "file": "de6dd6ad1b778896.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/profil/spieler/28003",
+    "file": "278ca631391b0845.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/profil/spieler/3373",
+    "file": "0714e288332519f9.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/profil/spieler/68290",
+    "file": "f2d57a54b4b568fb.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/profil/spieler/8198",
+    "file": "ac86551a249dd03d.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/rueckennummern/spieler/28003",
+    "file": "b5f2244a182ea1db.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:05+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/ES1/plus/?saison_id=2023",
+    "file": "ba671f7f3747500d.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:07+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/ES1/plus/?saison_id=None",
+    "file": "89d8ce165070c0a0.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:07+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/GB1/plus/?saison_id=None",
+    "file": "f797b1fc5be2996a.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:08+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/transfers/spieler/28003",
+    "file": "dc7c02131cf9484e.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/transfers/spieler/3373",
+    "file": "f5c358566460b8a8.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/28003",
+    "file": "2eae6aa30d006a89.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/3373",
+    "file": "3c30eeeb2cac8c4c.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/ceapi/transferHistory/list/28003",
+    "file": "b7ec070a1dceea02.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/ceapi/transferHistory/list/3373",
+    "file": "865c1b96e528764b.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/player/verletzungen/spieler/28003/plus/1/page/1",
+    "file": "6412ae9bbe91f93d.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:05+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/player/verletzungen/spieler/8198/plus/1/page/1",
+    "file": "86b7bad719eeb3da.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:05+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=a&b&Verein_page=1",
+    "file": "e51ca4270c5223fb.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=barcelona&Verein_page=1",
+    "file": "93e584eea830860c.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=messi&Spieler_page=1",
+    "file": "f7486f597f97dc52.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=messi&Spieler_page=2",
+    "file": "7cdaf21ff21f95ac.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:04+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=premier&Wettbewerb_page=1",
+    "file": "fddd77059b793123.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:07+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.us/-/datenfakten/verein/0",
+    "file": "251c7236780d8f95.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.us/-/datenfakten/verein/131",
+    "file": "c974ac69bb7c5c85.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.us/-/datenfakten/verein/27",
+    "file": "c623083673dca9b1.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.us/-/datenfakten/verein/3437",
+    "file": "fec6baed769b399e.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T11:22:06+00:00"
+  }
+]

@@ -1,0 +1,175 @@
+{
+  "body": {
+    "id": "28003",
+    "injuries": [
+      {
+        "days": 12,
+        "fromDate": "2026-05-26",
+        "gamesMissedClubs": [],
+        "injury": "muscular problems",
+        "season": "25/26",
+        "untilDate": "2026-06-06"
+      },
+      {
+        "days": 4,
+        "fromDate": "2026-03-13",
+        "gamesMissed": 1,
+        "gamesMissedClubs": [
+          "69261"
+        ],
+        "injury": "Rest",
+        "season": "25/26",
+        "untilDate": "2026-03-16"
+      },
+      {
+        "days": 9,
+        "fromDate": "2025-08-18",
+        "gamesMissed": 2,
+        "gamesMissedClubs": [
+          "69261"
+        ],
+        "injury": "muscular problems",
+        "season": "25/26",
+        "untilDate": "2025-08-26"
+      },
+      {
+        "days": 11,
+        "fromDate": "2025-04-08",
+        "gamesMissed": 2,
+        "gamesMissedClubs": [
+          "69261"
+        ],
+        "injury": "muscular problems",
+        "season": "25/26",
+        "untilDate": "2025-08-14"
+      },
+      {
+        "days": 10,
+        "fromDate": "2025-03-18",
+        "gamesMissed": 2,
+        "gamesMissedClubs": [
+          "3437"
+        ],
+        "injury": "Adductor pain",
+        "season": "24/25",
+        "untilDate": "2025-03-27"
+      },
+      {
+        "days": 59,
+        "fromDate": "2024-07-16",
+        "gamesMissed": 10,
+        "gamesMissedClubs": [
+          "69261",
+          "3437"
+        ],
+        "injury": "Ligament injury",
+        "season": "24/25",
+        "untilDate": "2024-12-09"
+      },
+      {
+        "days": 5,
+        "fromDate": "2024-05-14",
+        "gamesMissed": 1,
+        "gamesMissedClubs": [
+          "69261"
+        ],
+        "injury": "Leg injury",
+        "season": "23/24",
+        "untilDate": "2024-05-18"
+      },
+      {
+        "days": 22,
+        "fromDate": "2024-03-15",
+        "gamesMissed": 6,
+        "gamesMissedClubs": [
+          "69261",
+          "3437"
+        ],
+        "injury": "muscular problems",
+        "season": "23/24",
+        "untilDate": "2024-05-04"
+      },
+      {
+        "days": 15,
+        "fromDate": "2023-09-22",
+        "gamesMissed": 4,
+        "gamesMissedClubs": [
+          "69261"
+        ],
+        "injury": "Muscle injury",
+        "season": "23/24",
+        "untilDate": "2023-06-10"
+      },
+      {
+        "days": 13,
+        "fromDate": "2023-06-09",
+        "gamesMissed": 3,
+        "gamesMissedClubs": [
+          "69261",
+          "3437"
+        ],
+        "injury": "Muscle injury",
+        "season": "23/24",
+        "untilDate": "2023-09-18"
+      },
+      {
+        "days": 6,
+        "fromDate": "2023-08-02",
+        "gamesMissed": 1,
+        "gamesMissedClubs": [
+          "583"
+        ],
+        "injury": "Knee problems",
+        "season": "22/23",
+        "untilDate": "2023-02-13"
+      },
+      {
+        "days": 3,
+        "fromDate": "2022-05-11",
+        "gamesMissed": 1,
+        "gamesMissedClubs": [
+          "583"
+        ],
+        "injury": "Achilles heel problems",
+        "season": "22/23",
+        "untilDate": "2022-07-11"
+      },
+      {
+        "days": 9,
+        "fromDate": "2022-05-10",
+        "gamesMissed": 2,
+        "gamesMissedClubs": [
+          "583"
+        ],
+        "injury": "Calf problems",
+        "season": "22/23",
+        "untilDate": "2022-10-13"
+      },
+      {
+        "days": 8,
+        "fromDate": "2022-03-17",
+        "gamesMissed": 1,
+        "gamesMissedClubs": [
+          "583"
+        ],
+        "injury": "flu",
+        "season": "21/22",
+        "untilDate": "2022-03-24"
+      },
+      {
+        "days": 15,
+        "fromDate": "2022-06-01",
+        "gamesMissed": 2,
+        "gamesMissedClubs": [
+          "583"
+        ],
+        "injury": "Quarantine",
+        "season": "21/22",
+        "untilDate": "2022-01-20"
+      }
+    ],
+    "lastPageNumber": 4,
+    "pageNumber": 1
+  },
+  "status_code": 200
+}

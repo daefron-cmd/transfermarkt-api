@@ -89,5 +89,23 @@ disk-backed TTL response cache (via `diskcache`). The cache lives at
 ````bash
 $ uv run ruff check . && uv run ruff format --check .
 $ uv run mypy app
-$ uv run pytest -m "not live"   # offline unit tests; drop the marker filter to also hit the live site
+$ uv run pytest -q               # offline suite: unit tests + fixture-backed endpoint snapshots
 ````
+
+#### Tests and fixtures
+
+`uv run pytest` is fully offline: network sockets are disabled via `pytest-socket` in the pytest
+`addopts`. `tests/endpoints/` calls every case in `tests/endpoints/cases.py` through the FastAPI
+`TestClient`, serves upstream requests from `tests/fixtures/` (raw responses listed in
+`tests/fixtures/index.json`) and compares the status code and JSON body (without `updatedAt`) to
+`tests/snapshots/<case>.json`. A test that needs an unrecorded upstream URL fails and names it.
+Tests that must hit the live site go in `tests/live/` (marked `live`; run them with `--force-enable-socket`).
+
+````bash
+$ uv run python scripts/record_fixtures.py               # re-record all cases from the live site (throttled)
+$ uv run python scripts/record_fixtures.py --case NAME   # re-record selected cases only
+$ uv run pytest tests/endpoints --snapshot-update        # rewrite snapshots from the current output
+````
+
+The recorder goes through the normal request path, so responses still in the disk cache
+(`CACHE_DIR`) are recorded from the cache; set `CACHE_ENABLE=false` to force fresh fetches.

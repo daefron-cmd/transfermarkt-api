@@ -1,0 +1,81 @@
+{
+  "body": {
+    "agent": {},
+    "citizenship": [
+      "Brazil",
+      "Spain"
+    ],
+    "club": {
+      "id": "1105",
+      "joined": "2026-01-07",
+      "name": "Ravenna"
+    },
+    "description": "Ronaldinho, 46, from Brazil ➤ Ravenna FC, since 2026 ➤ Attacking Midfield ➤ Market value: - ➤ * 21/03/1980 in Porto Alegre, Brazil",
+    "foot": "right",
+    "fullName": "Ronaldo de Assis Moreira",
+    "height": 182,
+    "id": "3373",
+    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3373-1515762355.jpg?lm=4711",
+    "isRetired": false,
+    "name": "Ronaldinho",
+    "outfitter": "Nike",
+    "placeOfBirth": {
+      "city": "Porto Alegre",
+      "country": "Brazil"
+    },
+    "position": {
+      "main": "Attacking Midfield",
+      "other": [
+        "Left Winger",
+        "Second Striker"
+      ]
+    },
+    "relatives": [
+      {
+        "id": "155735",
+        "name": "Assis",
+        "profileType": "player",
+        "url": "/assis/profil/spieler/155735"
+      },
+      {
+        "id": "664840",
+        "name": "João Mendes",
+        "profileType": "player",
+        "url": "/joao-mendes/profil/spieler/664840"
+      },
+      {
+        "id": "70409",
+        "name": "Edmilson Neves",
+        "profileType": "trainer",
+        "url": "/edmilson-neves/profil/trainer/70409"
+      },
+      {
+        "id": "1270472",
+        "name": "Diego Assis",
+        "profileType": "player",
+        "url": "/diego-assis/profil/spieler/1270472"
+      },
+      {
+        "id": "380233",
+        "name": "Hilton",
+        "profileType": "player",
+        "url": "/hilton/profil/spieler/380233"
+      }
+    ],
+    "shirtNumber": "#10",
+    "socialMedia": [
+      "http://twitter.com/10Ronaldinho",
+      "http://facebook.com/ronaldinho/",
+      "http://instagram.com/ronaldinho/",
+      "http://www.ronaldinho.com/",
+      "http://www.tiktok.com/@ronaldinho"
+    ],
+    "trainerProfile": {
+      "id": "135400",
+      "position": "Owner",
+      "url": "/ronaldinho/profil/trainer/135400"
+    },
+    "url": "https://www.transfermarkt.com/ronaldinho/profil/spieler/3373"
+  },
+  "status_code": 200
+}

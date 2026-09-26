@@ -1,0 +1,144 @@
+{
+  "body": {
+    "lastPageNumber": 26,
+    "pageNumber": 2,
+    "query": "messi",
+    "results": [
+      {
+        "age": 64,
+        "club": {
+          "id": "123",
+          "name": "Retired"
+        },
+        "id": "885368",
+        "name": "Haim Mesika",
+        "nationalities": [
+          "Israel"
+        ],
+        "position": "Midfield"
+      },
+      {
+        "age": 48,
+        "club": {
+          "id": "123",
+          "name": "Retired"
+        },
+        "id": "7854",
+        "name": "Messias Conceicao",
+        "nationalities": [
+          "Brazil"
+        ],
+        "position": "DM"
+      },
+      {
+        "age": 45,
+        "club": {
+          "id": "123",
+          "name": "Retired"
+        },
+        "id": "45240",
+        "name": "Georges Messi",
+        "nationalities": [
+          "Cameroon"
+        ],
+        "position": "AM"
+      },
+      {
+        "age": 36,
+        "club": {
+          "id": "123",
+          "name": "Retired"
+        },
+        "id": "52872",
+        "name": "Tiko Messina",
+        "nationalities": [
+          "Cameroon"
+        ],
+        "position": "RW"
+      },
+      {
+        "age": 37,
+        "club": {
+          "id": "31134",
+          "name": "Hapoel Ramat haSharon"
+        },
+        "id": "129844",
+        "name": "Reef Messika",
+        "nationalities": [
+          "Israel"
+        ],
+        "position": "AM"
+      },
+      {
+        "age": 35,
+        "club": {
+          "id": "36162",
+          "name": "Birzebbuga St. Peter’s FC"
+        },
+        "id": "288017",
+        "marketValue": 200000,
+        "name": "Yuri",
+        "nationalities": [
+          "Brazil"
+        ],
+        "position": "CF"
+      },
+      {
+        "age": 41,
+        "club": {
+          "id": "123",
+          "name": "Retired"
+        },
+        "id": "339841",
+        "name": "Petros Messiou",
+        "nationalities": [
+          "Cyprus"
+        ],
+        "position": "Defender"
+      },
+      {
+        "age": 31,
+        "club": {
+          "id": "10492",
+          "name": "Esporte Clube Juventude"
+        },
+        "id": "401539",
+        "marketValue": 500000,
+        "name": "Messias",
+        "nationalities": [
+          "Brazil"
+        ],
+        "position": "CB"
+      },
+      {
+        "age": 28,
+        "club": {
+          "id": "17149",
+          "name": "Hamrun Spartans"
+        },
+        "id": "593442",
+        "marketValue": 100000,
+        "name": "Messie Biatoumoussoka",
+        "nationalities": [
+          "Congo",
+          "France"
+        ],
+        "position": "CB"
+      },
+      {
+        "age": 52,
+        "club": {
+          "id": "123",
+          "name": "Retired"
+        },
+        "id": "658917",
+        "name": "Serginho",
+        "nationalities": [
+          "Brazil"
+        ],
+        "position": "CF"
+      }
+    ]
+  },
+  "status_code": 200
+}

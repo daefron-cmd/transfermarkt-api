@@ -1,0 +1,452 @@
+{
+  "body": {
+    "id": "131",
+    "players": [
+      {
+        "age": 25,
+        "contract": "2031-06-30",
+        "dateOfBirth": "2001-04-05",
+        "foot": "right",
+        "height": 193,
+        "id": "561613",
+        "joinedOn": "2025-01-07",
+        "marketValue": 45000000,
+        "name": "Joan García",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Goalkeeper",
+        "signedFrom": "RCD Espanyol Barcelona",
+        "status": "Knee problems - Return expected on 11/10/2026"
+      },
+      {
+        "age": 31,
+        "contract": "2030-06-30",
+        "dateOfBirth": "1995-09-01",
+        "foot": "right",
+        "height": 188,
+        "id": "205927",
+        "joinedOn": "2026-08-27",
+        "marketValue": 4000000,
+        "name": "Dominik Livakovic",
+        "nationality": [
+          "Croatia"
+        ],
+        "position": "Goalkeeper",
+        "signedFrom": "Fenerbahce"
+      },
+      {
+        "age": 36,
+        "contract": "2027-06-30",
+        "dateOfBirth": "1990-04-18",
+        "foot": "right",
+        "height": 195,
+        "id": "44058",
+        "joinedOn": "2024-02-10",
+        "marketValue": 800000,
+        "name": "Wojciech Szczesny",
+        "nationality": [
+          "Poland"
+        ],
+        "position": "Goalkeeper",
+        "signedFrom": ""
+      },
+      {
+        "age": 19,
+        "contract": "2029-06-30",
+        "dateOfBirth": "2007-01-22",
+        "foot": "right",
+        "height": 184,
+        "id": "962110",
+        "joinedOn": "2024-01-01",
+        "marketValue": 100000000,
+        "name": "Pau Cubarsí",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "signedFrom": "FC Barcelona Atlètic"
+      },
+      {
+        "age": 25,
+        "contract": "2031-06-30",
+        "dateOfBirth": "2001-09-01",
+        "foot": "right",
+        "height": 180,
+        "id": "466794",
+        "joinedOn": "2021-01-07",
+        "marketValue": 40000000,
+        "name": "Eric García",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "signedFrom": "Manchester City"
+      },
+      {
+        "age": 24,
+        "contract": "2028-06-30",
+        "dateOfBirth": "2002-02-26",
+        "foot": "left",
+        "height": 186,
+        "id": "705395",
+        "joinedOn": "2024-01-07",
+        "marketValue": 35000000,
+        "name": "Gerard Martín",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "signedFrom": "FC Barcelona Atlètic"
+      },
+      {
+        "age": 30,
+        "contract": "2028-06-30",
+        "dateOfBirth": "1996-10-04",
+        "foot": "right",
+        "height": 189,
+        "id": "196948",
+        "joinedOn": "2022-04-07",
+        "marketValue": 8000000,
+        "name": "Andreas Christensen",
+        "nationality": [
+          "Denmark"
+        ],
+        "position": "Centre-Back",
+        "signedFrom": ": Ablöse free transfer",
+        "status": "Muscle injury - Return unknown"
+      },
+      {
+        "age": 22,
+        "contract": "2028-06-30",
+        "dateOfBirth": "2003-10-18",
+        "foot": "left",
+        "height": 177,
+        "id": "636688",
+        "joinedOn": "2022-01-07",
+        "marketValue": 50000000,
+        "name": "Alejandro Balde",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Left-Back",
+        "signedFrom": "FC Barcelona Atlètic"
+      },
+      {
+        "age": 27,
+        "contract": "2030-06-30",
+        "dateOfBirth": "1998-12-11",
+        "foot": "right",
+        "height": 181,
+        "id": "411975",
+        "joinedOn": "2022-07-28",
+        "marketValue": 60000000,
+        "name": "Jules Koundé",
+        "nationality": [
+          "France",
+          "Benin"
+        ],
+        "position": "Right-Back",
+        "signedFrom": "Sevilla FC"
+      },
+      {
+        "age": 32,
+        "contract": "2029-06-30",
+        "dateOfBirth": "1994-05-27",
+        "foot": "right",
+        "height": 182,
+        "id": "182712",
+        "joinedOn": "2026-08-20",
+        "marketValue": 8000000,
+        "name": "João Cancelo",
+        "nationality": [
+          "Portugal"
+        ],
+        "position": "Right-Back",
+        "signedFrom": "Al-Hilal SFC"
+      },
+      {
+        "age": 19,
+        "contract": "2028-06-30",
+        "dateOfBirth": "2007-05-21",
+        "foot": "right",
+        "height": 175,
+        "id": "1018912",
+        "joinedOn": "2026-01-07",
+        "marketValue": 5000000,
+        "name": "Xavi Espart",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Right-Back",
+        "signedFrom": "FC Barcelona Atlètic"
+      },
+      {
+        "age": 30,
+        "contract": "2030-06-30",
+        "dateOfBirth": "1996-06-22",
+        "foot": "right",
+        "height": 190,
+        "id": "357565",
+        "joinedOn": "2026-08-18",
+        "marketValue": 55000000,
+        "name": "Rodri",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Defensive Midfield",
+        "signedFrom": "Manchester City"
+      },
+      {
+        "age": 23,
+        "contract": "2030-06-30",
+        "dateOfBirth": "2002-11-25",
+        "foot": "right",
+        "height": 174,
+        "id": "683840",
+        "joinedOn": "2019-02-09",
+        "marketValue": 150000000,
+        "name": "Pedri",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "signedFrom": "UD Las Palmas"
+      },
+      {
+        "age": 29,
+        "contract": "2029-06-30",
+        "dateOfBirth": "1997-12-05",
+        "foot": "right",
+        "height": 181,
+        "id": "326330",
+        "joinedOn": "2019-01-07",
+        "marketValue": 35000000,
+        "name": "Frenkie de Jong",
+        "nationality": [
+          "Netherlands"
+        ],
+        "position": "Central Midfield",
+        "signedFrom": ": Ablöse €86.00m",
+        "status": "Knee medial ligament tear - Return expected on 30/11/2026"
+      },
+      {
+        "age": 22,
+        "contract": "2030-06-30",
+        "dateOfBirth": "2004-05-08",
+        "foot": "right",
+        "height": 173,
+        "id": "646740",
+        "joinedOn": "2021-01-07",
+        "marketValue": 30000000,
+        "name": "Gavi",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "signedFrom": "FC Barcelona U19"
+      },
+      {
+        "age": 19,
+        "contract": "2029-06-30",
+        "dateOfBirth": "2007-05-26",
+        "foot": "left",
+        "height": 193,
+        "id": "1018920",
+        "joinedOn": "2024-01-07",
+        "marketValue": 30000000,
+        "name": "Marc Bernal",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "signedFrom": "FC Barcelona Atlètic"
+      },
+      {
+        "age": 20,
+        "contract": "2028-06-30",
+        "dateOfBirth": "2006-09-02",
+        "foot": "right",
+        "height": 180,
+        "id": "938154",
+        "joinedOn": "2026-01-07",
+        "marketValue": 2500000,
+        "name": "Brian Fariñas",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "signedFrom": "FC Barcelona Atlètic"
+      },
+      {
+        "age": 23,
+        "contract": "2031-06-30",
+        "dateOfBirth": "2003-11-05",
+        "foot": "right",
+        "height": 176,
+        "id": "636703",
+        "joinedOn": "2023-01-07",
+        "marketValue": 100000000,
+        "name": "Fermín López",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Attacking Midfield",
+        "signedFrom": "FC Barcelona Atlètic"
+      },
+      {
+        "age": 28,
+        "contract": "2030-06-30",
+        "dateOfBirth": "1998-07-05",
+        "foot": "right",
+        "height": 179,
+        "id": "293385",
+        "joinedOn": "2024-09-08",
+        "marketValue": 60000000,
+        "name": "Dani Olmo",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Attacking Midfield",
+        "signedFrom": "RB Leipzig"
+      },
+      {
+        "age": 25,
+        "contract": "2031-06-30",
+        "dateOfBirth": "2001-02-24",
+        "foot": "right",
+        "height": 183,
+        "id": "503733",
+        "joinedOn": "2026-01-07",
+        "marketValue": 80000000,
+        "name": "Anthony Gordon",
+        "nationality": [
+          "England",
+          "Scotland"
+        ],
+        "position": "Left Winger",
+        "signedFrom": "Newcastle United"
+      },
+      {
+        "age": 18,
+        "contract": "2031-06-30",
+        "dateOfBirth": "2008-01-22",
+        "foot": "right",
+        "height": 185,
+        "id": "1105549",
+        "joinedOn": "2026-07-31",
+        "marketValue": 800000,
+        "name": "Jesse Bisiwu",
+        "nationality": [
+          "Belgium",
+          "Ghana"
+        ],
+        "position": "Left Winger",
+        "signedFrom": "Club NXT",
+        "status": "Called up to national team – Segunda Federación - Grupo II – until 07/10/2026"
+      },
+      {
+        "age": 19,
+        "contract": "2031-06-30",
+        "dateOfBirth": "2007-07-13",
+        "foot": "left",
+        "height": 183,
+        "id": "937958",
+        "joinedOn": "2023-01-07",
+        "marketValue": 220000000,
+        "name": "Lamine Yamal",
+        "nationality": [
+          "Spain"
+        ],
+        "position": "Right Winger",
+        "signedFrom": "FC Barcelona U19"
+      },
+      {
+        "age": 24,
+        "contract": "2031-06-30",
+        "dateOfBirth": "2002-01-18",
+        "foot": "left",
+        "height": 180,
+        "id": "496094",
+        "joinedOn": "2026-07-23",
+        "marketValue": 40000000,
+        "name": "Karim Adeyemi",
+        "nationality": [
+          "Germany",
+          "Nigeria"
+        ],
+        "position": "Right Winger",
+        "signedFrom": "Borussia Dortmund"
+      },
+      {
+        "age": 20,
+        "contract": "2029-06-30",
+        "dateOfBirth": "2005-11-15",
+        "foot": "left",
+        "height": 173,
+        "id": "792331",
+        "joinedOn": "2025-07-14",
+        "marketValue": 15000000,
+        "name": "Roony Bardghji",
+        "nationality": [
+          "Sweden",
+          "Syria"
+        ],
+        "position": "Right Winger",
+        "signedFrom": "FC Copenhagen",
+        "status": "No eligibility – UEFA Champions League – until 28/01/2027; Cruciate ligament tear - Return expected on 10/05/2027"
+      },
+      {
+        "age": 29,
+        "contract": "2028-06-30",
+        "dateOfBirth": "1996-12-14",
+        "foot": "left",
+        "height": 176,
+        "id": "411295",
+        "joinedOn": "2022-07-13",
+        "marketValue": 70000000,
+        "name": "Raphinha",
+        "nationality": [
+          "Brazil",
+          "Italy"
+        ],
+        "position": "Centre-Forward",
+        "signedFrom": "Leeds United",
+        "status": "Team captain"
+      },
+      {
+        "age": 29,
+        "contract": "2029-06-30",
+        "dateOfBirth": "1997-03-04",
+        "foot": "right",
+        "height": 175,
+        "id": "363205",
+        "joinedOn": "2026-01-09",
+        "marketValue": 17000000,
+        "name": "Gabriel Jesus",
+        "nationality": [
+          "Brazil"
+        ],
+        "position": "Centre-Forward",
+        "signedFrom": "Arsenal FC"
+      },
+      {
+        "age": 18,
+        "contract": "2030-06-30",
+        "dateOfBirth": "2008-01-01",
+        "foot": "both",
+        "height": 182,
+        "id": "1259085",
+        "joinedOn": "2026-01-07",
+        "marketValue": 1500000,
+        "name": "Hamza Abdelkarim",
+        "nationality": [
+          "Egypt"
+        ],
+        "position": "Centre-Forward",
+        "signedFrom": "Al Ahly FC"
+      }
+    ]
+  },
+  "status_code": 200
+}
