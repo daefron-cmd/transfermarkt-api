@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import types
 from collections.abc import Callable
 
@@ -111,3 +112,46 @@ def test_throttle_spaces_requests(tmp_path, monkeypatch, sleeps):
 
     asyncio.run(run())
     assert sleeps == [0.5, 0.5]
+
+
+def test_fetches_are_logged(tmp_path, sleeps, caplog):
+    statuses = iter([503, 200])
+
+    def handler(request: httpx2.Request) -> httpx2.Response:
+        return httpx2.Response(next(statuses), content=b"body")
+
+    async def run() -> None:
+        async with make_client(tmp_path, handler, CACHE_ENABLE=True) as client:
+            await client.get(URL)
+            await client.get(URL)
+
+    with caplog.at_level(logging.DEBUG, logger="app.http"):
+        asyncio.run(run())
+
+    records = [(r.levelno, r.getMessage()) for r in caplog.records if r.name == "app.http"]
+    assert records == [
+        (logging.DEBUG, f"GET {URL} cache=miss status=503 attempt=1"),
+        (logging.WARNING, f"Retrying GET {URL} after attempt 1 (503 Service Unavailable) in {sleeps[0]:.1f}s"),
+        (logging.DEBUG, f"GET {URL} cache=miss status=200 attempt=2"),
+        (logging.DEBUG, f"GET {URL} cache=hit"),
+    ]
+
+
+def test_transport_error_retry_is_logged(tmp_path, sleeps, caplog):
+    calls = iter([httpx2.ConnectError("refused"), None])
+
+    def handler(request: httpx2.Request) -> httpx2.Response:
+        error = next(calls)
+        if error is not None:
+            raise error
+        return httpx2.Response(200, content=b"body")
+
+    async def run() -> None:
+        async with make_client(tmp_path, handler) as client:
+            await client.get(URL)
+
+    with caplog.at_level(logging.DEBUG, logger="app.http"):
+        asyncio.run(run())
+
+    warnings = [r.getMessage() for r in caplog.records if r.name == "app.http" and r.levelno == logging.WARNING]
+    assert warnings == [f"Retrying GET {URL} after attempt 1 (ConnectError: refused) in {sleeps[0]:.1f}s"]

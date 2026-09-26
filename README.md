@@ -58,6 +58,40 @@ response cache in a named volume across restarts:
 $ docker compose up -d --build
 ````
 
+### Health, Errors and Validation
+
+`GET /health` returns `{"status": "ok", "version": "<app version>"}` and is not rate limited.
+
+Every error response is JSON of the form `{"detail": "<message>"}`, except input validation errors (422), which keep
+FastAPI's format (`{"detail": [{"loc": ..., "msg": ..., "type": ...}]}`). An unexpected error is logged with its
+traceback and returned as 500 `{"detail": "Internal server error"}`; exceeding the inbound rate limit is a 429.
+
+Inputs are validated before anything is requested from Transfermarkt (bad input is a 422, documented in `/docs`):
+
+- `player_id`, `club_id`: digits only, at most 12;
+- `competition_id`: 1 to 12 letters or digits (e.g. `GB1`);
+- `season_id` (query parameter): four digits, the season's starting year (`2024` = `24/25`); omitted = current season
+  (for `/players/{player_id}/stats`: all seasons);
+- `page_number`: an integer, at least 1;
+- search terms: any text; it is URL-encoded when it is sent to Transfermarkt.
+
+### Logging
+
+The app logs to stderr through the standard `logging` module, one line per record
+(`<timestamp> <level> <logger> <message>`), at `LOG_LEVEL`. Every handled request is logged at `INFO`
+(`GET /players/28003/profile 200 412.3ms`, logger `app.requests`); every upstream fetch at `DEBUG`
+(URL, cache hit/miss, status, attempt; logger `app.http`) and every upstream retry at `WARNING` with its reason.
+Uvicorn's own access log is disabled at startup so requests are not logged twice.
+
+### Behind a Reverse Proxy
+
+The inbound rate limiter keys on the client address. Behind a reverse proxy that is the proxy's address unless
+uvicorn trusts the proxy's `X-Forwarded-For` header. The Docker image runs uvicorn with `--proxy-headers`, and
+`python -m app.main` enables proxy headers too; both trust only the addresses in `FORWARDED_ALLOW_IPS`
+(default `127.0.0.1`). Set it to the proxy's IP address (comma-separated for several), or to `*` if only the proxy can
+reach the app, e.g. in `.env` or under `environment:` in `docker-compose.yml`. Do not use `*` when clients can reach the
+app directly: they could then choose their own rate-limit key.
+
 ### Upstream Rate-Limit Avoidance
 
 The endpoints are `async` and share one `TransfermarktClient` (`app/http.py`), an async
@@ -109,6 +143,9 @@ seasons, so season `2024` also holds such games of 2025 (`seasonName` `"2025"`).
 | `HOST`                     | Bind address used by `python -m app.main`                                                              | `0.0.0.0`      |
 | `PORT`                     | Port used by `python -m app.main`                                                                      | `8000`         |
 | `RELOAD`                   | Enable uvicorn auto-reload when running `python -m app.main`                                           | `false`        |
+| `LOG_LEVEL`                | Log level of the app's logs (`DEBUG`, `INFO`, `WARNING`, ...)                                          | `INFO`         |
+| `CORS_ORIGINS`             | Comma-separated browser origins allowed to call the API (CORS); empty disables CORS                    | *(empty)*      |
+| `FORWARDED_ALLOW_IPS`      | Proxy addresses trusted to set `X-Forwarded-For` (`*` = any); read by uvicorn, see above               | `127.0.0.1`    |
 | `RATE_LIMITING_ENABLE`     | Enable inbound rate limiting for clients calling this API                                              | `false`        |
 | `RATE_LIMITING_FREQUENCY`  | Delay allowed between each inbound API call. See [slowapi](https://slowapi.readthedocs.io/en/latest/) | `2/3seconds`   |
 | `CACHE_ENABLE`             | Enable disk cache of upstream Transfermarkt responses                                                  | `true`         |

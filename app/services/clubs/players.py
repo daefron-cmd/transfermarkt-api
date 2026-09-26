@@ -27,7 +27,8 @@ class TransfermarktClubPlayers(TransfermarktBase):
     club_id: str
     season_id: str | None = None
     past: bool = field(default=False, init=False)
-    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/kader/verein/{club_id}/saison_id/{season_id}/plus/1"
+    # {season} is "/saison_id/<id>", or empty for the current season.
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/kader/verein/{club_id}{season}/plus/1"
 
     def __post_init__(self) -> None:
         """Validate that the page is a club squad page, then resolve the season and the past-season flag."""
@@ -38,8 +39,9 @@ class TransfermarktClubPlayers(TransfermarktBase):
     @classmethod
     def from_bytes(cls, html: bytes, *, club_id: str, season_id: str | None = None) -> Self:
         """Build the service from an already fetched squad page."""
+        season = f"/saison_id/{season_id}" if season_id else ""
         return cls(
-            URL=cls.URL_TEMPLATE.format(club_id=club_id, season_id=season_id),
+            URL=cls.URL_TEMPLATE.format(club_id=club_id, season=season),
             page=lxml.html.document_fromstring(html),
             club_id=club_id,
             season_id=season_id,
@@ -48,7 +50,8 @@ class TransfermarktClubPlayers(TransfermarktBase):
     @classmethod
     async def fetch(cls, client: TransfermarktClient, *, club_id: str, season_id: str | None = None) -> Self:
         """Fetch and parse the club's squad page for a season (the current one if not given)."""
-        response = await client.get(cls.URL_TEMPLATE.format(club_id=club_id, season_id=season_id))
+        season = f"/saison_id/{season_id}" if season_id else ""
+        response = await client.get(cls.URL_TEMPLATE.format(club_id=club_id, season=season))
         return cls.from_bytes(response.content, club_id=club_id, season_id=season_id)
 
     def __update_season_id(self):

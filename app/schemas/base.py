@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from pydantic.alias_generators import to_camel
@@ -7,7 +7,7 @@ from app.utils.utils import parse_date, parse_int
 
 
 class AuditMixin(BaseModel):
-    updated_at: datetime = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
 
 class TransfermarktBaseModel(BaseModel):

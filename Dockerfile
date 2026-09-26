@@ -30,4 +30,7 @@ USER app
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# --proxy-headers takes the client address from X-Forwarded-For, but only from the proxies listed in the
+# FORWARDED_ALLOW_IPS environment variable (uvicorn's default: 127.0.0.1). Uvicorn's access log is disabled at startup
+# (app.main.configure_logging), which logs one line per request itself.
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]

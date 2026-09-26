@@ -1,5 +1,6 @@
-from datetime import date
+from datetime import date, timedelta
 
+from app.schemas.base import AuditMixin
 from app.schemas.clubs.profile import ClubProfile
 from app.schemas.players.injuries import Injury
 from app.schemas.players.market_value import PlayerRanking
@@ -67,3 +68,10 @@ def test_injury_dates_are_day_first():
 
 def test_player_ranking_thousands():
     assert PlayerRanking.model_validate({"Worldwide": "1.234", "Spain": "7"}).root == {"Worldwide": 1234, "Spain": 7}
+
+
+def test_updated_at_is_timezone_aware_utc():
+    audit = AuditMixin()
+
+    assert audit.updated_at.utcoffset() == timedelta(0)
+    assert audit.model_dump_json().endswith('Z"}')

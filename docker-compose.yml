@@ -6,6 +6,10 @@ services:
     env_file:
       - path: .env
         required: false
+    # Behind a reverse proxy, set FORWARDED_ALLOW_IPS (here or in .env) to the proxy's address, or "*" when only the
+    # proxy can reach the container, so rate limiting sees the client address instead of the proxy's.
+    # environment:
+    #   FORWARDED_ALLOW_IPS: "172.18.0.1"
     volumes:
       - cache:/app/.cache
     restart: unless-stopped

@@ -24,9 +24,8 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
 
     competition_id: str
     season_id: str | None = None
-    URL_TEMPLATE: ClassVar[str] = (
-        "https://www.transfermarkt.com/-/startseite/wettbewerb/{competition_id}/plus/?saison_id={season_id}"
-    )
+    # {season} is "?saison_id=<id>", or empty for the current season.
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/startseite/wettbewerb/{competition_id}/plus/{season}"
 
     def __post_init__(self) -> None:
         """Validate that the page is a competition page."""
@@ -35,8 +34,9 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
     @classmethod
     def from_bytes(cls, html: bytes, *, competition_id: str, season_id: str | None = None) -> Self:
         """Build the service from an already fetched competition page."""
+        season = f"?saison_id={season_id}" if season_id else ""
         return cls(
-            URL=cls.URL_TEMPLATE.format(competition_id=competition_id, season_id=season_id),
+            URL=cls.URL_TEMPLATE.format(competition_id=competition_id, season=season),
             page=lxml.html.document_fromstring(html),
             competition_id=competition_id,
             season_id=season_id,
@@ -45,7 +45,8 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
     @classmethod
     async def fetch(cls, client: TransfermarktClient, *, competition_id: str, season_id: str | None = None) -> Self:
         """Fetch and parse the competition's page for a season (the current one if not given)."""
-        response = await client.get(cls.URL_TEMPLATE.format(competition_id=competition_id, season_id=season_id))
+        season = f"?saison_id={season_id}" if season_id else ""
+        response = await client.get(cls.URL_TEMPLATE.format(competition_id=competition_id, season=season))
         return cls.from_bytes(response.content, competition_id=competition_id, season_id=season_id)
 
     def __parse_competition_clubs(self) -> list:

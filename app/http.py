@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 import random
 import time
 from dataclasses import dataclass
@@ -30,6 +31,8 @@ _RETRYABLE_STATUS = frozenset({408, 425, 429})
 _RETRY_AFTER_CAP_S = 60.0
 _TRANSIENT_TRANSPORT_ERRORS = (httpx2.TimeoutException, httpx2.NetworkError, httpx2.RemoteProtocolError)
 _backoff = wait_exponential(multiplier=1, min=1, max=30) + wait_random(0, 1)
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -91,6 +94,13 @@ def _wait(retry_state: RetryCallState) -> float:
     if isinstance(error, _TransientStatusError) and error.retry_after is not None:
         return error.retry_after
     return _backoff(retry_state)
+
+
+def _log_retry(url: str, retry_state: RetryCallState) -> None:
+    error = retry_state.outcome.exception() if retry_state.outcome else None
+    reason = str(error) if isinstance(error, _TransientStatusError) else f"{type(error).__name__}: {error}"
+    delay = retry_state.next_action.sleep if retry_state.next_action else 0.0
+    logger.warning("Retrying GET %s after attempt %d (%s) in %.1fs", url, retry_state.attempt_number, reason, delay)
 
 
 class _MinIntervalThrottle:
@@ -160,17 +170,19 @@ class TransfermarktClient:
         if self._cache is not None:
             cached = self._cache.get(url)
             if cached is not None:
+                logger.debug("GET %s cache=hit", url)
                 return UpstreamResponse(url=url, status_code=200, content=cached)
 
         try:
             async for attempt in AsyncRetrying(
                 retry=retry_if_exception_type((_TransientStatusError, *_TRANSIENT_TRANSPORT_ERRORS)),
                 wait=_wait,
+                before_sleep=lambda retry_state: _log_retry(url, retry_state),
                 stop=stop_after_attempt(self._config.OUTBOUND_MAX_RETRIES),
                 reraise=True,
             ):
                 with attempt:
-                    response = await self._send(url)
+                    response = await self._send(url, attempt.retry_state.attempt_number)
         except _TransientStatusError as e:
             raise UpstreamError(e.status_code, url, f"Upstream error after retries. {e.reason}") from e
         except httpx2.TooManyRedirects as e:
@@ -191,10 +203,11 @@ class TransfermarktClient:
 
         return UpstreamResponse(url=url, status_code=response.status_code, content=response.content)
 
-    async def _send(self, url: str) -> httpx2.Response:
+    async def _send(self, url: str, attempt_number: int) -> httpx2.Response:
         async with self._semaphore:
             await self._throttle.wait()
             response = await self._http.get(url, headers={"User-Agent": random.choice(USER_AGENTS)})
+        logger.debug("GET %s cache=miss status=%d attempt=%d", url, response.status_code, attempt_number)
         if _is_retryable_status(response.status_code):
             raise _TransientStatusError(
                 response.status_code,

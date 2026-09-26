@@ -7,9 +7,11 @@ import pytest
 from fastapi import HTTPException
 
 from app.http import UpstreamError
+from app.schemas.clubs.players import ClubPlayers
 from app.schemas.clubs.profile import ClubProfile
 from app.schemas.players.injuries import PlayerInjuries
 from app.schemas.players.stats import PlayerStats
+from app.services.clubs.players import TransfermarktClubPlayers
 from app.services.clubs.profile import TransfermarktClubProfile
 from app.services.players.injuries import TransfermarktPlayerInjuries
 from app.services.players.profile import TransfermarktPlayerProfile
@@ -217,3 +219,25 @@ def test_batch_urls_are_sorted_deduplicated_and_chunked():
 def test_names_by_id_strips_whitespace():
     body = b'{"success": true, "data": [{"id": "ES2P", "name": "Promoci\\u00f3n de ascenso a LaLiga2 "}]}'
     assert names_by_id("https://tmapi.example/competitions", body) == {"ES2P": "Promoción de ascenso a LaLiga2"}
+
+
+@pytest.mark.parametrize(
+    "club_id,season_id,url",
+    [
+        ("131", None, "https://www.transfermarkt.com/-/kader/verein/131/plus/1"),
+        ("210", "2017", "https://www.transfermarkt.com/-/kader/verein/210/saison_id/2017/plus/1"),
+    ],
+)
+def test_club_players_blank_strings_are_omitted(club_id, season_id, url):
+    service = TransfermarktClubPlayers.from_bytes(fixture_bytes(url), club_id=club_id, season_id=season_id)
+    raw = service.get_club_players()
+    players = ClubPlayers.model_validate(raw).model_dump(mode="json", by_alias=True, exclude_none=True)["players"]
+
+    no_status = [i for i, p in enumerate(raw["players"]) if not p["status"].strip()]
+    assert no_status
+    for i in no_status:
+        assert "status" not in players[i]
+    for player in players:
+        for key in ("joined", "joinedOn", "signedFrom", "status"):
+            assert player.get(key) != "", (player["id"], key)
+    assert any("status" in p for p in players)

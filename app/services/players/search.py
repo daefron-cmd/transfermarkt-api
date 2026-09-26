@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import Any, ClassVar, Self
+from urllib.parse import quote
 
 import lxml.html
 
@@ -37,7 +38,7 @@ class TransfermarktPlayerSearch(TransfermarktBase):
     def from_bytes(cls, html: bytes, *, query: str, page_number: int | None = 1) -> Self:
         """Build the service from an already fetched search results page."""
         return cls(
-            URL=cls.URL_TEMPLATE.format(query=query, page_number=page_number),
+            URL=cls.URL_TEMPLATE.format(query=quote(query, safe=""), page_number=page_number),
             page=lxml.html.document_fromstring(html),
             query=query,
             page_number=page_number,
@@ -46,7 +47,7 @@ class TransfermarktPlayerSearch(TransfermarktBase):
     @classmethod
     async def fetch(cls, client: TransfermarktClient, *, query: str, page_number: int | None = 1) -> Self:
         """Fetch and parse a page of player search results."""
-        response = await client.get(cls.URL_TEMPLATE.format(query=query, page_number=page_number))
+        response = await client.get(cls.URL_TEMPLATE.format(query=quote(query, safe=""), page_number=page_number))
         return cls.from_bytes(response.content, query=query, page_number=page_number)
 
     def __parse_search_results(self) -> list:

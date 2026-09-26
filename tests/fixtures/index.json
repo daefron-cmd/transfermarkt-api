@@ -85,14 +85,14 @@
     "recorded_at": "2026-09-26T11:22:05+00:00"
   },
   {
-    "url": "https://www.transfermarkt.com/-/kader/verein/131/saison_id/2014/plus/1",
-    "file": "022f332f61d42831.html",
+    "url": "https://www.transfermarkt.com/-/kader/verein/131/plus/1",
+    "file": "1fdf27312926a03d.html",
     "status": 200,
-    "recorded_at": "2026-09-26T11:22:06+00:00"
+    "recorded_at": "2026-09-26T12:05:43+00:00"
   },
   {
-    "url": "https://www.transfermarkt.com/-/kader/verein/131/saison_id/None/plus/1",
-    "file": "45277634c437d3b2.html",
+    "url": "https://www.transfermarkt.com/-/kader/verein/131/saison_id/2014/plus/1",
+    "file": "022f332f61d42831.html",
     "status": 200,
     "recorded_at": "2026-09-26T11:22:06+00:00"
   },
@@ -151,22 +151,22 @@
     "recorded_at": "2026-09-26T11:22:05+00:00"
   },
   {
+    "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/ES1/plus/",
+    "file": "678f0a28b0e78aaf.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T12:05:44+00:00"
+  },
+  {
     "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/ES1/plus/?saison_id=2023",
     "file": "ba671f7f3747500d.html",
     "status": 200,
     "recorded_at": "2026-09-26T11:22:07+00:00"
   },
   {
-    "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/ES1/plus/?saison_id=None",
-    "file": "89d8ce165070c0a0.html",
+    "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/GB1/plus/",
+    "file": "3c6cc39e97350bb3.html",
     "status": 200,
-    "recorded_at": "2026-09-26T11:22:07+00:00"
-  },
-  {
-    "url": "https://www.transfermarkt.com/-/startseite/wettbewerb/GB1/plus/?saison_id=None",
-    "file": "f797b1fc5be2996a.html",
-    "status": 200,
-    "recorded_at": "2026-09-26T11:22:08+00:00"
+    "recorded_at": "2026-09-26T12:05:44+00:00"
   },
   {
     "url": "https://www.transfermarkt.com/-/transfers/spieler/28003",
@@ -217,10 +217,10 @@
     "recorded_at": "2026-09-26T11:22:05+00:00"
   },
   {
-    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=a&b&Verein_page=1",
-    "file": "e51ca4270c5223fb.html",
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=a%26b&Verein_page=1",
+    "file": "b4a7ef18150d3ebf.html",
     "status": 200,
-    "recorded_at": "2026-09-26T11:22:06+00:00"
+    "recorded_at": "2026-09-26T12:05:38+00:00"
   },
   {
     "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=barcelona&Verein_page=1",

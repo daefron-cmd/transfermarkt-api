@@ -6,6 +6,12 @@ class Settings(BaseSettings):
     HOST: str = "0.0.0.0"
     PORT: int = 8000
     RELOAD: bool = False
+    # Proxy addresses whose X-Forwarded-For header uvicorn trusts ("*" = any). The uvicorn CLI (Docker) reads the
+    # FORWARDED_ALLOW_IPS environment variable itself; this setting passes it on for `python -m app.main`.
+    FORWARDED_ALLOW_IPS: str = "127.0.0.1"
+    LOG_LEVEL: str = "INFO"
+    # Comma-separated origins allowed to call the API from a browser; empty disables CORS.
+    CORS_ORIGINS: str = ""
 
     RATE_LIMITING_ENABLE: bool = False
     RATE_LIMITING_FREQUENCY: str = "2/3seconds"
