@@ -34,7 +34,8 @@ jobs:
             echo
             rm -f /tmp/tm.html
           done
-      - name: Live smoke tests
+      # Only the tmapi-backed cases: transfermarkt.com answers GitHub-hosted runners with HTTP 202 and an empty body.
+      - name: Live smoke tests (tmapi-backed cases)
         env:
           LOG_LEVEL: DEBUG
-        run: uv run pytest tests/live -m live --force-enable-socket -q -rA --tb=short
+        run: uv run pytest tests/live -m "live and tmapi" --force-enable-socket -q -rA --tb=short

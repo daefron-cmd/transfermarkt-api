@@ -74,6 +74,7 @@ addopts = ["--disable-socket", "--allow-unix-socket", "-m", "not live"]
 pythonpath = ["."]
 markers = [
     "live: hits the live Transfermarkt site over the network",
+    "tmapi: backed only by tmapi.transfermarkt.technology, which answers GitHub-hosted runners",
 ]
 
 [tool.coverage.run]

@@ -326,11 +326,19 @@ numeric ids, integer fees and heights, season ids), never volatile values such a
 $ uv run pytest tests/live -m live --force-enable-socket -q
 ````
 
-The nightly GitHub Actions workflow `.github/workflows/live.yml` (`Live smoke`) runs it every day at 04:00 UTC and
-can be started by hand (`workflow_dispatch`). GitHub-hosted runners may be answered by transfermarkt.com with empty
-pages (the HTML-backed cases then fail with 502 while the tmapi-backed ones pass), so the workflow first prints an
-upstream reachability check (status, size, content type and the first bytes of a player page and a tmapi response)
-and runs the suite with `LOG_LEVEL=DEBUG` and `-rA`, which puts every upstream fetch and its status in the log.
+The full suite is a local run. The nightly GitHub Actions workflow `.github/workflows/live.yml` (`Live smoke`) runs
+only the cases marked `tmapi`, whose endpoints fetch nothing from www.transfermarkt.com, only from
+`tmapi.transfermarkt.technology`: transfermarkt.com answers GitHub-hosted runners with HTTP 202 and an empty body for
+every page (verified 2026-09-26), so the HTML-backed cases fail there with 502. To run the same selection locally:
+
+````bash
+$ uv run pytest tests/live -m "live and tmapi" --force-enable-socket -q
+````
+
+The workflow runs every day at 04:00 UTC and can be started by hand (`workflow_dispatch`). It first prints an upstream
+reachability check (status, size, content type and the first bytes of a player page and a tmapi response), which shows
+whether transfermarkt.com still blocks the runners, and runs the tests with `LOG_LEVEL=DEBUG` and `-rA`, which puts
+every upstream fetch and its status in the log.
 
 ### Changelog
 

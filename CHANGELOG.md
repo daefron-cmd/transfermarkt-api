@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- The nightly `Live smoke` workflow runs only the live smoke cases backed by `tmapi.transfermarkt.technology` (new
+  pytest marker `tmapi`), since transfermarkt.com answers GitHub-hosted runners with HTTP 202 and an empty body. The
+  full live suite remains a local run.
+
 ### Fixed
 
 - An empty (or unparseable) upstream HTML page returns 502 naming the upstream URL instead of a 500

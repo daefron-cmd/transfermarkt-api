@@ -4,6 +4,8 @@ Live smoke tests: detect Transfermarkt HTML/JSON drift that the recorded fixture
 Only stable facts (ids, names, birth dates, past transfers and squads, taken from tests/snapshots) and structural
 invariants are asserted; volatile values (market values, ages, current club, injuries, current-season counts) are not.
 Run with: uv run pytest tests/live -m live --force-enable-socket -q
+The cases marked `tmapi` fetch only from tmapi.transfermarkt.technology; the nightly workflow runs just those with
+-m "live and tmapi", since transfermarkt.com answers GitHub-hosted runners with empty pages.
 """
 
 import re
@@ -264,7 +266,26 @@ CASES: dict[str, tuple[str, Callable[[dict], None]]] = {
 }
 
 
-@pytest.mark.parametrize("path,check", CASES.values(), ids=CASES.keys())
+# Cases whose endpoint fetches nothing from www.transfermarkt.com, only from tmapi.transfermarkt.technology.
+TMAPI_CASES = {
+    "stats",
+    "stats_season",
+    "stats_goalkeeper",
+    "competition_table_2024",
+    "competition_fixtures_euro",
+    "club_fixtures_2024",
+    "club_squad",
+    "national_squad",
+    "game_report",
+}
+
+PARAMS = [
+    pytest.param(path, check, id=name, marks=pytest.mark.tmapi if name in TMAPI_CASES else ())
+    for name, (path, check) in CASES.items()
+]
+
+
+@pytest.mark.parametrize("path,check", PARAMS)
 def test_endpoint(client, path: str, check: Callable[[dict], None]):
     response = client.get(path)
 
