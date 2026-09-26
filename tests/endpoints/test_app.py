@@ -52,7 +52,7 @@ def cors_client(request) -> Iterator[TestClient]:
 
 
 def test_version():
-    assert __version__ == "4.0.1"
+    assert __version__ == "4.1.0"
     assert main.app.version == __version__
 
 
