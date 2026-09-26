@@ -1,5 +1,9 @@
 from dataclasses import dataclass
+from typing import ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.utils import extract_from_url, trim
 from app.utils.xpath import Players
@@ -14,17 +18,30 @@ class TransfermarktPlayerAchievements(TransfermarktBase):
         player_id (str): The unique identifier of the player.
 
     Attributes:
-        URL (str): The URL to fetch the player's achievements data.
+        URL_TEMPLATE (str): The URL template to fetch the player's achievements data.
     """
 
-    player_id: str = None
-    URL: str = "https://www.transfermarkt.com/-/erfolge/spieler/{player_id}"
+    player_id: str
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/erfolge/spieler/{player_id}"
 
-    def __post_init__(self):
-        """Initialize the TransfermarktPlayerAchievements class."""
-        self.URL = self.URL.format(player_id=self.player_id)
-        self.page = self.request_url_page()
+    def __post_init__(self) -> None:
+        """Validate that the page is a player achievements page."""
         self.raise_exception_if_not_found(xpath=Players.Profile.URL)
+
+    @classmethod
+    def from_bytes(cls, html: bytes, *, player_id: str) -> Self:
+        """Build the service from an already fetched achievements page."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(player_id=player_id),
+            page=lxml.html.document_fromstring(html),
+            player_id=player_id,
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, player_id: str) -> Self:
+        """Fetch and parse the player's achievements page."""
+        response = await client.get(cls.URL_TEMPLATE.format(player_id=player_id))
+        return cls.from_bytes(response.content, player_id=player_id)
 
     def __parse_player_achievements(self) -> list:
         """

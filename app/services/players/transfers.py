@@ -1,5 +1,10 @@
-from dataclasses import dataclass
+import json
+from dataclasses import dataclass, field
+from typing import ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.utils import extract_from_url, safe_split
 from app.utils.xpath import Players
@@ -12,19 +17,40 @@ class TransfermarktPlayerTransfers(TransfermarktBase):
 
     Args:
         player_id (str): The unique identifier of the player.
-        URL (str): The URL template for the player's transfers page on Transfermarkt.
+        transfer_history (dict): The player's transfer history (JSON).
+
+    Attributes:
+        URL_TEMPLATE (str): The URL template for the player's transfers page on Transfermarkt.
+        URL_TRANSFERS (str): The URL template for the player's transfer history JSON.
     """
 
-    player_id: str = None
-    URL: str = "https://www.transfermarkt.com/-/transfers/spieler/{player_id}"
-    URL_TRANSFERS: str = "https://www.transfermarkt.com/ceapi/transferHistory/list/{player_id}"
+    player_id: str
+    transfer_history: dict = field(default_factory=dict)
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/transfers/spieler/{player_id}"
+    URL_TRANSFERS: ClassVar[str] = "https://www.transfermarkt.com/ceapi/transferHistory/list/{player_id}"
 
     def __post_init__(self) -> None:
-        """Initialize the TransfermarktPlayerTransfers class."""
-        self.URL = self.URL.format(player_id=self.player_id)
-        self.page = self.request_url_page()
+        """Validate that the page is a player transfers page."""
         self.raise_exception_if_not_found(xpath=Players.Profile.NAME)
-        self.transfer_history = self.make_request(url=self.URL_TRANSFERS.format(player_id=self.player_id))
+
+    @classmethod
+    def from_bytes(cls, html: bytes, transfer_history: bytes | None = None, *, player_id: str) -> Self:
+        """Build the service from an already fetched transfers page and, optionally, its transfer history JSON."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(player_id=player_id),
+            page=lxml.html.document_fromstring(html),
+            player_id=player_id,
+            transfer_history=json.loads(transfer_history) if transfer_history is not None else {},
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, player_id: str) -> Self:
+        """Fetch and parse the transfers page, then (for a valid player) its transfer history."""
+        response = await client.get(cls.URL_TEMPLATE.format(player_id=player_id))
+        tfmkt = cls.from_bytes(response.content, player_id=player_id)
+        history = await client.get(cls.URL_TRANSFERS.format(player_id=player_id))
+        tfmkt.transfer_history = history.json()
+        return tfmkt
 
     def __parse_player_transfer_history(self) -> list:
         """
@@ -36,7 +62,7 @@ class TransfermarktPlayerTransfers(TransfermarktBase):
         Returns:
             list: A list of dictionaries, each containing details of the player's transfer history,
         """
-        transfers = self.transfer_history.json().get("transfers")
+        transfers = self.transfer_history["transfers"]
 
         return [
             {

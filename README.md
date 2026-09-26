@@ -60,11 +60,22 @@ $ docker compose up -d --build
 
 ### Upstream Rate-Limit Avoidance
 
-Outbound requests to Transfermarkt go through a shared `requests.Session` with
-connection reuse, a rotating User-Agent pool, a process-wide minimum-interval
-throttle, exponential-backoff retry on 408/425/429/5xx (via `tenacity`), and a
-disk-backed TTL response cache (via `diskcache`). The cache lives at
-`CACHE_DIR` (default `.cache/http/`, gitignored) and is keyed by URL.
+The endpoints are `async` and share one `TransfermarktClient` (`app/http.py`), an async
+`httpx2` client created at startup and closed at shutdown. Every outbound request to Transfermarkt:
+
+- reuses pooled connections, follows redirects and sends a User-Agent picked at random per request;
+- is spaced by a process-wide minimum interval (`OUTBOUND_MIN_INTERVAL_MS`, enforced with an
+  `asyncio.Lock`, never blocking the event loop) and capped at `OUTBOUND_MAX_CONCURRENCY` in flight;
+- times out after `OUTBOUND_TIMEOUT_S` seconds;
+- is retried (via `tenacity`) on 408/425/429/5xx and on connection errors, timeouts and protocol errors,
+  up to `OUTBOUND_MAX_RETRIES` attempts, with exponential backoff and jitter; a numeric `Retry-After`
+  header is honoured instead of the backoff (capped at 60 seconds);
+- is served from a disk-backed TTL cache (via `diskcache`) when possible. Only successful (2xx)
+  bodies are stored, for `CACHE_TTL_SECONDS`, keyed by the normalised URL; errors are never cached.
+  The cache lives at `CACHE_DIR` (default `.cache/http/`, gitignored).
+
+Upstream failures are returned as `{"detail": "..."}` JSON: upstream 4xx statuses (and 5xx after
+retries) pass through, too many redirects become 404, and connection errors or timeouts become 502.
 
 ### Environment Variables
 
@@ -81,6 +92,8 @@ disk-backed TTL response cache (via `diskcache`). The cache lives at
 | `CACHE_SIZE_LIMIT_MB`      | Maximum cache size on disk                                                                             | `500`          |
 | `OUTBOUND_MIN_INTERVAL_MS` | Minimum gap between outbound requests to Transfermarkt (per process)                                   | `500`          |
 | `OUTBOUND_MAX_RETRIES`     | Retry attempts on transient upstream errors (429, 5xx, etc.)                                           | `4`            |
+| `OUTBOUND_MAX_CONCURRENCY` | Maximum concurrent outbound requests to Transfermarkt (per process)                                    | `4`            |
+| `OUTBOUND_TIMEOUT_S`       | Timeout in seconds for each outbound request                                                           | `30`           |
 
 > **Python version**: this fork requires Python `3.12+` (`.python-version` pins 3.13 for development and Docker).
 
@@ -97,8 +110,8 @@ $ uv run pytest -q               # offline suite: unit tests + fixture-backed en
 `uv run pytest` is fully offline: network sockets are disabled via `pytest-socket` in the pytest
 `addopts`. `tests/endpoints/` calls every case in `tests/endpoints/cases.py` through the FastAPI
 `TestClient`, serves upstream requests from `tests/fixtures/` (raw responses listed in
-`tests/fixtures/index.json`) and compares the status code and JSON body (without `updatedAt`) to
-`tests/snapshots/<case>.json`. A test that needs an unrecorded upstream URL fails and names it.
+`tests/fixtures/index.json`) through the real `TransfermarktClient` with an `httpx2.MockTransport`
+and compares the status code and JSON body (without `updatedAt`) to `tests/snapshots/<case>.json`. A test that needs an unrecorded upstream URL fails and names it.
 Tests that must hit the live site go in `tests/live/` (marked `live`; run them with `--force-enable-socket`).
 
 ````bash
@@ -107,5 +120,6 @@ $ uv run python scripts/record_fixtures.py --case NAME   # re-record selected ca
 $ uv run pytest tests/endpoints --snapshot-update        # rewrite snapshots from the current output
 ````
 
-The recorder goes through the normal request path, so responses still in the disk cache
-(`CACHE_DIR`) are recorded from the cache; set `CACHE_ENABLE=false` to force fresh fetches.
+The recorder wraps `TransfermarktClient.get`, so it goes through the normal request path and
+responses still in the disk cache (`CACHE_DIR`) are recorded from the cache; set
+`CACHE_ENABLE=false` to force fresh fetches.

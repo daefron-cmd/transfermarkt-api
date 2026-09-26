@@ -1,5 +1,9 @@
 from dataclasses import dataclass
+from typing import ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.regex import REGEX_DOB_AGE
 from app.utils.utils import extract_from_url, safe_regex, trim
@@ -15,17 +19,30 @@ class TransfermarktPlayerProfile(TransfermarktBase):
         player_id (str): The unique identifier of the player.
 
     Attributes:
-        URL (str): The URL to fetch the player's profile data.
+        URL_TEMPLATE (str): The URL template to fetch the player's profile data.
     """
 
-    player_id: str = None
-    URL: str = "https://www.transfermarkt.com/-/profil/spieler/{player_id}"
+    player_id: str
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/profil/spieler/{player_id}"
 
     def __post_init__(self) -> None:
-        """Initialize the TransfermarktPlayerProfile class."""
-        self.URL = self.URL.format(player_id=self.player_id)
-        self.page = self.request_url_page()
+        """Validate that the page is a player profile."""
         self.raise_exception_if_not_found(xpath=Players.Profile.URL)
+
+    @classmethod
+    def from_bytes(cls, html: bytes, *, player_id: str) -> Self:
+        """Build the service from an already fetched profile page."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(player_id=player_id),
+            page=lxml.html.document_fromstring(html),
+            player_id=player_id,
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, player_id: str) -> Self:
+        """Fetch and parse the player's profile page."""
+        response = await client.get(cls.URL_TEMPLATE.format(player_id=player_id))
+        return cls.from_bytes(response.content, player_id=player_id)
 
     def __parse_player_relatives(self) -> list:
         """

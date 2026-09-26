@@ -1,43 +1,45 @@
+import functools
 import json
+from collections.abc import Iterator
 from typing import Any
 
+import httpx2
 import pytest
-from fastapi import HTTPException
 from fastapi.testclient import TestClient
 
-from app.main import app
-from app.services import base
-from app.services.base import TransfermarktBase, _response_from_cache
+from app import main
+from app.http import TransfermarktClient, UpstreamError
+from app.settings import settings
 from tests.endpoints.cases import FIXTURES_DIR, FIXTURES_INDEX, RECORD_COMMAND
 
 
 @pytest.fixture(scope="session")
 def fixture_index() -> dict[str, dict[str, Any]]:
-    return {entry["url"]: entry for entry in json.loads(FIXTURES_INDEX.read_text())}
+    return {str(httpx2.URL(entry["url"])): entry for entry in json.loads(FIXTURES_INDEX.read_text())}
 
 
 @pytest.fixture
 def unrecorded_urls(monkeypatch, fixture_index) -> list[str]:
-    """Serve upstream requests from tests/fixtures; collect URLs that have no recording."""
+    """Serve upstream requests from tests/fixtures through the real client; collect URLs that have no recording."""
     missing: list[str] = []
 
-    def replay_make_request(self: TransfermarktBase, url: str | None = None):
-        target = url if url else self.URL
-        entry = fixture_index.get(target)
+    def replay(request: httpx2.Request) -> httpx2.Response:
+        url = str(request.url)
+        entry = fixture_index.get(url)
         if entry is None:
-            missing.append(target)
-            raise AssertionError(f"No recorded fixture for {target}. Record it with: {RECORD_COMMAND} --case NAME")
+            missing.append(url)
+            raise AssertionError(f"No recorded fixture for {url}. Record it with: {RECORD_COMMAND} --case NAME")
         if "file" not in entry:
-            raise HTTPException(status_code=entry["status"], detail=entry["detail"])
-        response = _response_from_cache((FIXTURES_DIR / entry["file"]).read_bytes(), target)
-        response.status_code = entry["status"]
-        return response
+            raise UpstreamError(entry["status"], url, entry["reason"])
+        return httpx2.Response(entry["status"], content=(FIXTURES_DIR / entry["file"]).read_bytes(), request=request)
 
-    monkeypatch.setattr(base, "_cache", None)
-    monkeypatch.setattr(TransfermarktBase, "make_request", replay_make_request)
+    config = settings.model_copy(update={"CACHE_ENABLE": False, "OUTBOUND_MIN_INTERVAL_MS": 0})
+    transport = httpx2.MockTransport(replay)
+    monkeypatch.setattr(main, "TransfermarktClient", functools.partial(TransfermarktClient, config, transport))
     return missing
 
 
 @pytest.fixture
-def client(unrecorded_urls) -> TestClient:
-    return TestClient(app, raise_server_exceptions=False)
+def client(unrecorded_urls) -> Iterator[TestClient]:
+    with TestClient(main.app, raise_server_exceptions=False) as test_client:
+        yield test_client

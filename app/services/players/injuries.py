@@ -1,6 +1,9 @@
 from dataclasses import dataclass
-from xml.etree import ElementTree
+from typing import Any, ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.utils import extract_from_url, trim
 from app.utils.xpath import Players
@@ -16,18 +19,34 @@ class TransfermarktPlayerInjuries(TransfermarktBase):
         page_number (int): The page number of the player's injury history.
 
     Attributes:
-        URL (str): The URL to fetch the player's injury history data.
+        URL_TEMPLATE (str): The URL template to fetch the player's injury history data.
     """
 
-    player_id: str = None
-    URL: str = "https://www.transfermarkt.com/player/verletzungen/spieler/{player_id}/plus/1/page/{page_number}"
-    page_number: int = 1
+    player_id: str
+    page_number: int | None = 1
+    URL_TEMPLATE: ClassVar[str] = (
+        "https://www.transfermarkt.com/player/verletzungen/spieler/{player_id}/plus/1/page/{page_number}"
+    )
 
-    def __post_init__(self):
-        """Initialize the TransfermarktPlayerInjuries class."""
-        self.URL = self.URL.format(player_id=self.player_id, page_number=self.page_number)
-        self.page = self.request_url_page()
+    def __post_init__(self) -> None:
+        """Validate that the page is a player injuries page."""
         self.raise_exception_if_not_found(xpath=Players.Profile.URL)
+
+    @classmethod
+    def from_bytes(cls, html: bytes, *, player_id: str, page_number: int | None = 1) -> Self:
+        """Build the service from an already fetched injuries page."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(player_id=player_id, page_number=page_number),
+            page=lxml.html.document_fromstring(html),
+            player_id=player_id,
+            page_number=page_number,
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, player_id: str, page_number: int | None = 1) -> Self:
+        """Fetch and parse a page of the player's injury history."""
+        response = await client.get(cls.URL_TEMPLATE.format(player_id=player_id, page_number=page_number))
+        return cls.from_bytes(response.content, player_id=player_id, page_number=page_number)
 
     def __parse_player_injuries(self) -> list[dict] | None:
         """
@@ -39,7 +58,7 @@ class TransfermarktPlayerInjuries(TransfermarktBase):
                 'until', 'days', 'gamesMissed', and 'gamesMissedClubs' with their respective values.
 
         """
-        injuries: ElementTree = self.page.xpath(Players.Injuries.RESULTS)
+        injuries: Any = self.page.xpath(Players.Injuries.RESULTS)
         player_injuries = []
 
         for injury in injuries:

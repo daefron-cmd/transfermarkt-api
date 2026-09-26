@@ -1,221 +1,30 @@
-import random
-import threading
-import time
 from dataclasses import dataclass, field
-from xml.etree import ElementTree
+from typing import Any
 
-import diskcache
-import requests
-from bs4 import BeautifulSoup
+import lxml.html
 from fastapi import HTTPException
-from lxml import etree
-from requests import Response, TooManyRedirects
-from tenacity import (
-    RetryError,
-    retry,
-    retry_if_exception_type,
-    stop_after_attempt,
-    wait_exponential,
-    wait_random,
-)
 
-from app.settings import settings
 from app.utils.utils import trim
 from app.utils.xpath import Pagination
-
-USER_AGENTS: tuple[str, ...] = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0",
-    "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
-)
-
-_RETRYABLE_STATUS = frozenset({408, 425, 429, 500, 502, 503, 504})
-_session = requests.Session()
-_cache = (
-    diskcache.Cache(
-        directory=settings.CACHE_DIR,
-        size_limit=settings.CACHE_SIZE_LIMIT_MB * 1024 * 1024,
-    )
-    if settings.CACHE_ENABLE
-    else None
-)
-
-
-class _TransientUpstreamError(Exception):
-    def __init__(self, status_code: int, reason: str, url: str):
-        self.status_code = status_code
-        self.reason = reason
-        self.url = url
-        super().__init__(f"{status_code} {reason} for url: {url}")
-
-
-class _MinIntervalThrottle:
-    """Process-wide minimum-interval throttle. Politeness > evasion."""
-
-    def __init__(self, min_interval_s: float):
-        self._min_interval = min_interval_s
-        self._last = 0.0
-        self._lock = threading.Lock()
-
-    def acquire(self) -> None:
-        with self._lock:
-            elapsed = time.monotonic() - self._last
-            wait = self._min_interval - elapsed
-            if wait > 0:
-                time.sleep(wait)
-            self._last = time.monotonic()
-
-
-_throttle = _MinIntervalThrottle(settings.OUTBOUND_MIN_INTERVAL_MS / 1000.0)
-
-
-def _response_from_cache(body: bytes, url: str) -> Response:
-    resp = Response()
-    resp.status_code = 200
-    resp._content = body
-    resp.url = url
-    return resp
-
-
-@retry(
-    retry=retry_if_exception_type(_TransientUpstreamError),
-    wait=wait_exponential(multiplier=1, min=1, max=30) + wait_random(0, 1),
-    stop=stop_after_attempt(settings.OUTBOUND_MAX_RETRIES),
-    reraise=True,
-)
-def _fetch_upstream(url: str) -> Response:
-    _throttle.acquire()
-    response: Response = _session.get(
-        url=url,
-        headers={"User-Agent": random.choice(USER_AGENTS)},
-        timeout=30,
-    )
-    if response.status_code in _RETRYABLE_STATUS:
-        raise _TransientUpstreamError(response.status_code, response.reason, url)
-    return response
 
 
 @dataclass
 class TransfermarktBase:
     """
-    Base class for making HTTP requests to Transfermarkt and extracting data from the web pages.
+    Base class for parsing Transfermarkt web pages. Fetching happens in each service's `fetch` classmethod.
 
     Args:
-        URL (str): The URL for the web page to be fetched.
+        URL (str): The URL the page was fetched from (used in error details).
+        page (HtmlElement): The parsed web page content.
     Attributes:
-        page (ElementTree): The parsed web page content.
         response (dict): A dictionary to store the response data.
     """
 
     URL: str
-    page: ElementTree = field(default_factory=lambda: None, init=False)
-    response: dict = field(default_factory=lambda: {}, init=False)
+    page: lxml.html.HtmlElement
+    response: dict = field(default_factory=dict, init=False)
 
-    def make_request(self, url: str | None = None) -> Response:
-        """
-        Make an HTTP GET request to the specified URL.
-
-        Args:
-            url (str, optional): The URL to make the request to. If not provided, the class's URL
-                attribute will be used.
-
-        Returns:
-            Response: An HTTP Response object containing the server's response to the request.
-
-        Raises:
-            HTTPException: If there are too many redirects, or if the server returns a client or
-                server error status code.
-        """
-        url = url if url else self.URL
-
-        if _cache is not None:
-            cached = _cache.get(url)
-            if cached is not None:
-                return _response_from_cache(cached, url)
-
-        try:
-            response: Response = _fetch_upstream(url)
-        except _TransientUpstreamError as e:
-            raise HTTPException(
-                status_code=e.status_code,
-                detail=f"Upstream error after retries. {e.reason} for url: {url}",
-            ) from e
-        except TooManyRedirects as e:
-            raise HTTPException(status_code=404, detail=f"Not found for url: {url}") from e
-        except ConnectionError as e:
-            raise HTTPException(status_code=500, detail=f"Connection error for url: {url}") from e
-        except RetryError as e:
-            raise HTTPException(status_code=502, detail=f"Retries exhausted for url: {url}. {e}") from e
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Error for url: {url}. {e}") from e
-
-        if 400 <= response.status_code < 500:
-            raise HTTPException(
-                status_code=response.status_code,
-                detail=f"Client Error. {response.reason} for url: {url}",
-            )
-        if 500 <= response.status_code < 600:
-            raise HTTPException(
-                status_code=response.status_code,
-                detail=f"Server Error. {response.reason} for url: {url}",
-            )
-
-        if _cache is not None:
-            _cache.set(url, response.content, expire=settings.CACHE_TTL_SECONDS)
-
-        return response
-
-    def request_url_bsoup(self) -> BeautifulSoup:
-        """
-        Fetch the web page content and parse it using BeautifulSoup.
-
-        Returns:
-            BeautifulSoup: A BeautifulSoup object representing the parsed web page content.
-
-        Raises:
-            HTTPException: If there are too many redirects, or if the server returns a client or
-                server error status code.
-        """
-        response: Response = self.make_request()
-        return BeautifulSoup(markup=response.content, features="html.parser")
-
-    @staticmethod
-    def convert_bsoup_to_page(bsoup: BeautifulSoup) -> ElementTree:
-        """
-        Convert a BeautifulSoup object to an ElementTree.
-
-        Args:
-            bsoup (BeautifulSoup): The BeautifulSoup object representing the parsed web page content.
-
-        Returns:
-            ElementTree: An ElementTree representing the parsed web page content for further processing.
-        """
-        return etree.HTML(str(bsoup))
-
-    def request_url_page(self) -> ElementTree:
-        """
-        Fetch the web page content, parse it using BeautifulSoup, and convert it to an ElementTree.
-
-        Returns:
-            ElementTree: An ElementTree representing the parsed web page content for further
-                processing.
-
-        Raises:
-            HTTPException: If there are too many redirects, or if the server returns a client or
-                server error status code.
-        """
-        bsoup: BeautifulSoup = self.request_url_bsoup()
-        return self.convert_bsoup_to_page(bsoup=bsoup)
-
-    def raise_exception_if_not_found(self, xpath: str):
+    def raise_exception_if_not_found(self, xpath: str) -> None:
         """
         Raise an exception if the specified XPath does not yield any results on the web page.
 
@@ -228,7 +37,7 @@ class TransfermarktBase:
         if not self.get_text_by_xpath(xpath):
             raise HTTPException(status_code=404, detail=f"Invalid request (url: {self.URL})")
 
-    def get_list_by_xpath(self, xpath: str, remove_empty: bool | None = True) -> list | None:
+    def get_list_by_xpath(self, xpath: str, remove_empty: bool | None = True) -> list:
         """
         Extract a list of elements from the web page using the specified XPath expression.
 
@@ -238,15 +47,13 @@ class TransfermarktBase:
                 the list. Default is True.
 
         Returns:
-            Optional[list]: A list of elements extracted from the web page based on the XPath query.
+            list: A list of elements extracted from the web page based on the XPath query.
                 If remove_empty is True, empty or whitespace-only elements are filtered out.
         """
-        elements: list = self.page.xpath(xpath)
+        elements: Any = self.page.xpath(xpath)
         if remove_empty:
-            elements_valid: list = [trim(e) for e in elements if trim(e)]
-        else:
-            elements_valid: list = [trim(e) for e in elements]
-        return elements_valid or []
+            return [trim(e) for e in elements if trim(e)]
+        return [trim(e) for e in elements]
 
     def get_text_by_xpath(
         self,
@@ -276,7 +83,7 @@ class TransfermarktBase:
             Optional[str]: The extracted text content from the web page based on the XPath query and
                 optional parameters. If no matching element is found, None is returned.
         """
-        element = self.page.xpath(xpath)
+        element: Any = self.page.xpath(xpath)
 
         if not element:
             return None

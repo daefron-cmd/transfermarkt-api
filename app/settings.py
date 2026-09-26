@@ -17,6 +17,8 @@ class Settings(BaseSettings):
 
     OUTBOUND_MIN_INTERVAL_MS: int = 500
     OUTBOUND_MAX_RETRIES: int = 4
+    OUTBOUND_MAX_CONCURRENCY: int = 4
+    OUTBOUND_TIMEOUT_S: float = 30
 
 
 settings = Settings()

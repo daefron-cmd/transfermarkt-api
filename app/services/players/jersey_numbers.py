@@ -1,5 +1,9 @@
 from dataclasses import dataclass
+from typing import ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.utils import extract_from_url, to_camel_case, zip_lists_into_dict
 from app.utils.xpath import Players
@@ -12,17 +16,32 @@ class TransfermarktPlayerJerseyNumbers(TransfermarktBase):
 
     Args:
         player_id (str): The unique identifier of the player.
-        URL (str): The URL template for the player's stats page on Transfermarkt.
+
+    Attributes:
+        URL_TEMPLATE (str): The URL template for the player's jersey numbers page on Transfermarkt.
     """
 
-    player_id: str = None
-    URL: str = "https://www.transfermarkt.com/-/rueckennummern/spieler/{player_id}"
+    player_id: str
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/rueckennummern/spieler/{player_id}"
 
     def __post_init__(self) -> None:
-        """Initialize the TransfermarktJerseyNumbers class."""
-        self.URL = self.URL.format(player_id=self.player_id)
-        self.page = self.request_url_page()
+        """Validate that the page is a player jersey numbers page."""
         self.raise_exception_if_not_found(xpath=Players.Profile.URL)
+
+    @classmethod
+    def from_bytes(cls, html: bytes, *, player_id: str) -> Self:
+        """Build the service from an already fetched jersey numbers page."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(player_id=player_id),
+            page=lxml.html.document_fromstring(html),
+            player_id=player_id,
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, player_id: str) -> Self:
+        """Fetch and parse the player's jersey numbers page."""
+        response = await client.get(cls.URL_TEMPLATE.format(player_id=player_id))
+        return cls.from_bytes(response.content, player_id=player_id)
 
     def __parse_player_jersey_numbers(self) -> list:
         """

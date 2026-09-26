@@ -1,5 +1,9 @@
 from dataclasses import dataclass
+from typing import ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.utils import extract_from_url
 from app.utils.xpath import Clubs
@@ -12,20 +16,33 @@ class TransfermarktClubSearch(TransfermarktBase):
 
     Args:
         query (str): The search query for finding football clubs.
-        URL (str): The URL template for the search query.
         page_number (int): The page number of search results (default is 1).
+
+    Attributes:
+        URL_TEMPLATE (str): The URL template for the search query.
     """
 
-    query: str = None
-    URL: str = (
+    query: str
+    page_number: int | None = 1
+    URL_TEMPLATE: ClassVar[str] = (
         "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query={query}&Verein_page={page_number}"
     )
-    page_number: int = 1
 
-    def __post_init__(self) -> None:
-        """Initialize the TransfermarktClubSearch class."""
-        self.URL = self.URL.format(query=self.query, page_number=self.page_number)
-        self.page = self.request_url_page()
+    @classmethod
+    def from_bytes(cls, html: bytes, *, query: str, page_number: int | None = 1) -> Self:
+        """Build the service from an already fetched search results page."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(query=query, page_number=page_number),
+            page=lxml.html.document_fromstring(html),
+            query=query,
+            page_number=page_number,
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, query: str, page_number: int | None = 1) -> Self:
+        """Fetch and parse a page of club search results."""
+        response = await client.get(cls.URL_TEMPLATE.format(query=query, page_number=page_number))
+        return cls.from_bytes(response.content, query=query, page_number=page_number)
 
     def __parse_search_results(self) -> list:
         """

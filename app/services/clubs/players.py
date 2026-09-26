@@ -1,5 +1,9 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.regex import REGEX_DOB
 from app.utils.utils import extract_from_url, safe_regex
@@ -14,20 +18,38 @@ class TransfermarktClubPlayers(TransfermarktBase):
     Args:
         club_id (str): The unique identifier of the football club.
         season_id (str): The unique identifier of the season.
-        URL (str): The URL template for the club's players page on Transfermarkt.
+
+    Attributes:
+        URL_TEMPLATE (str): The URL template for the club's players page on Transfermarkt.
+        past (bool): Whether the page lists a past season's squad.
     """
 
-    club_id: str = None
-    season_id: str = None
-    URL: str = "https://www.transfermarkt.com/-/kader/verein/{club_id}/saison_id/{season_id}/plus/1"
+    club_id: str
+    season_id: str | None = None
+    past: bool = field(default=False, init=False)
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/kader/verein/{club_id}/saison_id/{season_id}/plus/1"
 
     def __post_init__(self) -> None:
-        """Initialize the TransfermarktClubPlayers class."""
-        self.URL = self.URL.format(club_id=self.club_id, season_id=self.season_id)
-        self.page = self.request_url_page()
+        """Validate that the page is a club squad page, then resolve the season and the past-season flag."""
         self.raise_exception_if_not_found(xpath=Clubs.Players.CLUB_NAME)
         self.__update_season_id()
         self.__update_past_flag()
+
+    @classmethod
+    def from_bytes(cls, html: bytes, *, club_id: str, season_id: str | None = None) -> Self:
+        """Build the service from an already fetched squad page."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(club_id=club_id, season_id=season_id),
+            page=lxml.html.document_fromstring(html),
+            club_id=club_id,
+            season_id=season_id,
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, club_id: str, season_id: str | None = None) -> Self:
+        """Fetch and parse the club's squad page for a season (the current one if not given)."""
+        response = await client.get(cls.URL_TEMPLATE.format(club_id=club_id, season_id=season_id))
+        return cls.from_bytes(response.content, club_id=club_id, season_id=season_id)
 
     def __update_season_id(self):
         """Update the season ID if it's not provided by extracting it from the website."""

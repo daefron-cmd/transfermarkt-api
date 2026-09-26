@@ -1,6 +1,10 @@
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import ClassVar, Self
 
+import lxml.html
+
+from app.http import TransfermarktClient
 from app.services.base import TransfermarktBase
 from app.utils.regex import REGEX_CHART_CLUB_ID
 from app.utils.utils import safe_regex, zip_lists_into_dict
@@ -14,22 +18,40 @@ class TransfermarktPlayerMarketValue(TransfermarktBase):
 
     Args:
         player_id (str): The unique identifier of the player.
+        market_value_chart (dict): The player's market value history chart data (JSON).
 
     Attributes:
-        URL (str): The URL to fetch the player's market value data.
-        URL_MARKET_VALUE (str): The URL to fetch the player's market value history chart data.
+        URL_TEMPLATE (str): The URL template to fetch the player's market value data.
+        URL_MARKET_VALUE (str): The URL template to fetch the player's market value history chart data.
     """
 
-    player_id: str = None
-    URL: str = "https://www.transfermarkt.com/-/marktwertverlauf/spieler/{player_id}"
-    URL_MARKET_VALUE: str = "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/{player_id}"
+    player_id: str
+    market_value_chart: dict = field(default_factory=dict)
+    URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/marktwertverlauf/spieler/{player_id}"
+    URL_MARKET_VALUE: ClassVar[str] = "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/{player_id}"
 
     def __post_init__(self) -> None:
-        """Initialize the TransfermarktPlayerMarketValue class."""
-        self.URL = self.URL.format(player_id=self.player_id)
-        self.page = self.request_url_page()
+        """Validate that the page is a player market value page."""
         self.raise_exception_if_not_found(xpath=Players.Profile.NAME)
-        self.market_value_chart = self.make_request(url=self.URL_MARKET_VALUE.format(player_id=self.player_id))
+
+    @classmethod
+    def from_bytes(cls, html: bytes, market_value_chart: bytes | None = None, *, player_id: str) -> Self:
+        """Build the service from an already fetched market value page and, optionally, its chart JSON."""
+        return cls(
+            URL=cls.URL_TEMPLATE.format(player_id=player_id),
+            page=lxml.html.document_fromstring(html),
+            player_id=player_id,
+            market_value_chart=json.loads(market_value_chart) if market_value_chart is not None else {},
+        )
+
+    @classmethod
+    async def fetch(cls, client: TransfermarktClient, *, player_id: str) -> Self:
+        """Fetch and parse the market value page, then (for a valid player) its chart data."""
+        response = await client.get(cls.URL_TEMPLATE.format(player_id=player_id))
+        tfmkt = cls.from_bytes(response.content, player_id=player_id)
+        chart = await client.get(cls.URL_MARKET_VALUE.format(player_id=player_id))
+        tfmkt.market_value_chart = chart.json()
+        return tfmkt
 
     def __parse_market_value_history(self) -> list:
         """
@@ -40,7 +62,7 @@ class TransfermarktPlayerMarketValue(TransfermarktBase):
                 player's market value history. Each dictionary contains keys 'date', 'age',
                 'clubID', 'clubName', and 'value' with their respective values.
         """
-        data = json.loads(self.market_value_chart.content).get("list")
+        data = self.market_value_chart["list"]
 
         club_image = None
         for entry in data:

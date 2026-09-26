@@ -1491,14 +1491,13 @@ name = "transfermarkt-api"
 version = "3.0.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "beautifulsoup4" },
     { name = "diskcache" },
     { name = "fastapi" },
+    { name = "httpx2" },
     { name = "lxml" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "python-dateutil" },
-    { name = "requests" },
     { name = "slowapi" },
     { name = "tenacity" },
     { name = "uvicorn", extra = ["standard"] },
@@ -1506,7 +1505,6 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "httpx2" },
     { name = "mypy" },
     { name = "pip-audit" },
     { name = "pytest" },
@@ -1515,19 +1513,17 @@ dev = [
     { name = "ruff" },
     { name = "types-lxml" },
     { name = "types-python-dateutil" },
-    { name = "types-requests" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "beautifulsoup4", specifier = ">=4.15.0" },
     { name = "diskcache", specifier = ">=5.6.3" },
     { name = "fastapi", specifier = ">=0.141.1" },
+    { name = "httpx2", specifier = ">=2.13.1" },
     { name = "lxml", specifier = ">=6.1.3" },
     { name = "pydantic", specifier = ">=2.13.5" },
     { name = "pydantic-settings", specifier = ">=2.15.0" },
     { name = "python-dateutil", specifier = ">=2.9.0.post0" },
-    { name = "requests", specifier = ">=2.34.2" },
     { name = "slowapi", specifier = ">=0.1.10" },
     { name = "tenacity", specifier = ">=9.1.4" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.54.0" },
@@ -1535,7 +1531,6 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "httpx2", specifier = ">=2.13.1" },
     { name = "mypy", specifier = ">=2.3.1" },
     { name = "pip-audit", specifier = ">=2.10.1" },
     { name = "pytest", specifier = ">=9.1.1" },
@@ -1544,7 +1539,6 @@ dev = [
     { name = "ruff", specifier = ">=0.16.9" },
     { name = "types-lxml", specifier = ">=2026.2.16" },
     { name = "types-python-dateutil", specifier = ">=2.9.0.20260807" },
-    { name = "types-requests", specifier = ">=2.33.0.20260906" },
 ]
 
 [[package]]
@@ -1590,18 +1584,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/c8/4e/b3fa538f9cb38dfece0d6ccf6d3d0d925bdedb144fb9c8129dfc007cd003/types_python_dateutil-2.9.0.20260807.tar.gz", hash = "sha256:e0b8a90d464c8684c66b7b8e4556d9074afdddcc56ca45323f0987134f9e7034", size = 17618, upload-time = "2026-08-07T04:17:13.491Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e4/5e/3715867caea2f4cea56ccb04c851cde23ed063449c3b004c7a047f20dd48/types_python_dateutil-2.9.0.20260807-py3-none-any.whl", hash = "sha256:54aa3707350ed7a9cc0776fd2f6739679d6967d11b40150985e81edcb86df4db", size = 18486, upload-time = "2026-08-07T04:17:12.504Z" },
-]
-
-[[package]]
-name = "types-requests"
-version = "2.33.0.20260906"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "urllib3" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/c0/18/4c2c0290953f8b3b9612adfcb07b57f144ade3ad32a76764fca42b77c5f3/types_requests-2.33.0.20260906.tar.gz", hash = "sha256:76ab8a0fb736744a0c3deee7aa57b2927e301f078d9e61f5391b3e92002416b9", size = 25263, upload-time = "2026-09-06T06:35:47.707Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/60/4c/51ec821d22a45b4162fa3f3e9e94ea4c0f8c49e82363b10955baa5438391/types_requests-2.33.0.20260906-py3-none-any.whl", hash = "sha256:9f53622652bd921ead7a54d665be1b8d518165c8b51cc9d68d944cd6b6bfa8fb", size = 21461, upload-time = "2026-09-06T06:35:45.856Z" },
 ]
 
 [[package]]
