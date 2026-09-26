@@ -1,6 +1,6 @@
 [project]
 name = "transfermarkt-api"
-version = "3.0.0"
+version = "4.0.0"
 description = "API service to get data from Transfermarkt"
 authors = [{ name = "Felipe Allegretti", email = "felipe@allegretti.me" }]
 license = "MIT"
@@ -68,8 +68,9 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 # Offline by default: any TCP/DNS use fails loudly. Unix sockets stay allowed for the asyncio
-# self-pipe that the TestClient event loop needs. tests/live must opt in with --force-enable-socket.
-addopts = ["--disable-socket", "--allow-unix-socket"]
+# self-pipe that the TestClient event loop needs. tests/live is deselected ("not live"); run it with
+# `-m live --force-enable-socket` (the last -m wins).
+addopts = ["--disable-socket", "--allow-unix-socket", "-m", "not live"]
 pythonpath = ["."]
 markers = [
     "live: hits the live Transfermarkt site over the network",

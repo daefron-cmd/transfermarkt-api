@@ -4,17 +4,16 @@ This project provides a lightweight and easy-to-use interface for extracting dat
 by applying web scraping processes and offering a RESTful API service via FastAPI. With this service, developers can 
 seamlessly integrate Transfermarkt data into their applications, websites, or data analysis pipelines.
 
-Please note that the deployed application is used only for testing purposes and has a rate limiting 
-feature enabled. If you'd like to customize it, consider hosting in your own cloud service. 
+This is a maintained fork of [felipeall/transfermarkt-api](https://github.com/felipeall/transfermarkt-api) with a
+rebuilt HTTP layer, parsers and tests.
 
-### API Swagger
-https://transfermarkt-api.fly.dev/
+Interactive API docs are served at http://localhost:8000/ (redirects to `/docs`) once the server runs.
 
 ### Running Locally
 
 ````bash
 # Clone the repository
-$ git clone https://github.com/felipeall/transfermarkt-api.git
+$ git clone https://github.com/daefron-cmd/transfermarkt-api.git
 
 # Go to the project's root folder
 $ cd transfermarkt-api
@@ -36,7 +35,7 @@ $ open http://localhost:8000/
 
 ````bash
 # Clone the repository
-$ git clone https://github.com/felipeall/transfermarkt-api.git
+$ git clone https://github.com/daefron-cmd/transfermarkt-api.git
 
 # Go to the project's root folder
 $ cd transfermarkt-api
@@ -185,3 +184,20 @@ $ uv run pytest tests/endpoints --snapshot-update        # rewrite snapshots fro
 The recorder wraps `TransfermarktClient.get`, so it goes through the normal request path and
 responses still in the disk cache (`CACHE_DIR`) are recorded from the cache; set
 `CACHE_ENABLE=false` to force fresh fetches.
+
+**Live smoke tests.** `tests/live/` calls every endpoint against the live Transfermarkt site, with the disk
+cache off and the normal outbound throttle, to catch HTML and JSON changes the recorded fixtures cannot show. It
+asserts only stable facts (ids, names, birth dates, past transfers and squads) and structural invariants (ISO dates,
+numeric ids, integer fees and heights, season ids), never volatile values such as market values. The pytest
+`addopts` deselect it (`-m "not live"`), so `uv run pytest` never runs it; the last `-m` wins, so run it with:
+
+````bash
+$ uv run pytest tests/live -m live --force-enable-socket -q
+````
+
+The nightly GitHub Actions workflow `.github/workflows/live.yml` (`Live smoke`) runs it every day at 04:00 UTC and
+can be started by hand (`workflow_dispatch`).
+
+### Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for the changes in each release.
