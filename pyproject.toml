@@ -93,6 +93,9 @@ markers = [
 [tool.mutmut]
 # The product source only, never "mech": Pawl's own survivors are judged upstream and that baseline does not travel.
 source_paths = ["app"]
+# Burndown ratchet: push CI mutates only the modules whose survivors are classified in MUTANTS.md.
+# Grow it per burned-down module; delete it when it covers app/. See DEVIATIONS.md.
+only_mutate = ["app/http.py"]
 pytest_add_cli_args_test_selection = ["tests/"]
 # Push CI treats dependency/config changes as full mutation inputs, so stale cached verdicts must be discarded.
 on_dependency_change = "rerun"

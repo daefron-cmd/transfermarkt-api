@@ -59,7 +59,9 @@ mutmut's statistics and exit-state classification.
 
 Mutation testing is enforced on push, not commit. `MUTANTS.md` is the accepted
 survivor baseline; a header-only file accepts none. `[tool.mutmut]
-source_paths` is `["app"]`; `mech` stays out of it.
+source_paths` is `["app"]`; `mech` stays out of it. `[tool.mutmut] only_mutate`
+is the burndown ratchet (see DEVIATIONS.md): extend it in the same commit that
+burns a module down and classifies its survivors in `MUTANTS.md`.
 
 Running mutation locally on macOS: set `OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES`.
 Mutants that make httpx build its default transport read the system proxy
