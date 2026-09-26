@@ -4,10 +4,22 @@ from urllib.parse import quote
 
 import lxml.html
 
-from app.http import TransfermarktClient
+from app.http import TransfermarktClient, UpstreamError
 from app.services.base import TransfermarktBase
-from app.utils.utils import extract_from_url
+from app.utils.utils import extract_from_url, trim
 from app.utils.xpath import Competitions
+
+# Crest, competition, country, clubs, players, total market value, mean market value, continent.
+RESULT_CELLS = 8
+RESULT_FIELDS = {
+    "name": Competitions.Search.NAMES,
+    "country": Competitions.Search.COUNTRIES,
+    "clubs": Competitions.Search.CLUBS,
+    "players": Competitions.Search.PLAYERS,
+    "totalMarketValue": Competitions.Search.TOTAL_MARKET_VALUES,
+    "meanMarketValue": Competitions.Search.MEAN_MARKET_VALUES,
+    "continent": Competitions.Search.CONTINENTS,
+}
 
 
 @dataclass
@@ -47,45 +59,30 @@ class TransfermarktCompetitionSearch(TransfermarktBase):
 
     def __parse_search_results(self) -> list:
         """
-        Parse and retrieve the search results for football competitions from Transfermarkt.
+        Parse and retrieve the search results for football competitions from Transfermarkt, row by row.
 
         Returns:
             list: A list of dictionaries, each containing details of a football competition,
-                including its unique identifier, name, country, associated clubs, number of players,
-                total market value, mean market value, and continent.
-        """
-        idx = [extract_from_url(url) for url in self.get_list_by_xpath(Competitions.Search.URLS)]
-        name = self.get_list_by_xpath(Competitions.Search.NAMES)
-        country = self.get_list_by_xpath(Competitions.Search.COUNTRIES)
-        clubs = self.get_list_by_xpath(Competitions.Search.CLUBS)
-        players = self.get_list_by_xpath(Competitions.Search.PLAYERS)
-        total_market_value = self.get_list_by_xpath(Competitions.Search.TOTAL_MARKET_VALUES)
-        mean_market_value = self.get_list_by_xpath(Competitions.Search.MEAN_MARKET_VALUES)
-        continent = self.get_list_by_xpath(Competitions.Search.CONTINENTS)
+                including its unique identifier, name, country (None for an international competition),
+                associated clubs, number of players, total market value, mean market value, and continent.
 
-        return [
-            {
-                "id": idx,
-                "name": name,
-                "country": country,
-                "clubs": clubs,
-                "players": players,
-                "totalMarketValue": total_market_value,
-                "meanMarketValue": mean_market_value,
-                "continent": continent,
-            }
-            for idx, name, country, clubs, players, total_market_value, mean_market_value, continent in zip(
-                idx,
-                name,
-                country,
-                clubs,
-                players,
-                total_market_value,
-                mean_market_value,
-                continent,
-                strict=False,
-            )
-        ]
+        Raises:
+            UpstreamError: If a result row does not have the expected cells or one competition link.
+        """
+        results = []
+        for number, row in enumerate(self.page.xpath(Competitions.Search.ROWS), start=1):
+            cells = row.xpath(Competitions.Search.CELLS)
+            urls = row.xpath(Competitions.Search.URLS)
+            if len(cells) != RESULT_CELLS or len(urls) != 1:
+                raise UpstreamError(
+                    502,
+                    self.URL,
+                    f"Competition search row {number} has {len(cells)} cells for {RESULT_CELLS} columns"
+                    f" and {len(urls)} competition links",
+                )
+            fields = {key: trim(row.xpath(xpath)) or None for key, xpath in RESULT_FIELDS.items()}
+            results.append({"id": extract_from_url(urls[0]), **fields})
+        return results
 
     def search_competitions(self) -> dict:
         """

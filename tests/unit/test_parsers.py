@@ -10,10 +10,12 @@ from fastapi import HTTPException
 from app.http import UpstreamError
 from app.schemas.clubs.players import ClubPlayers
 from app.schemas.clubs.profile import ClubProfile
+from app.schemas.competitions.search import CompetitionSearch
 from app.schemas.players.injuries import PlayerInjuries
 from app.schemas.players.stats import PlayerStats
 from app.services.clubs.players import TransfermarktClubPlayers
 from app.services.clubs.profile import TransfermarktClubProfile
+from app.services.competitions.search import TransfermarktCompetitionSearch
 from app.services.players.injuries import TransfermarktPlayerInjuries
 from app.services.players.profile import TransfermarktPlayerProfile
 from app.services.players.stats import TransfermarktPlayerStats
@@ -342,3 +344,131 @@ def test_club_players_height_na_link_keeps_rows_aligned():
     assert len(players) == 66
     heights = [players[name].height for name in ("Cícero", "Maicon", "Luan", "Maicosuel", "Jael")]
     assert heights == [None, None, 180, None, 186]
+
+
+def test_club_players_national_team():
+    raw = club_players("3375", None)
+    assert raw["seasonId"] == "2026"
+    players = ClubPlayers.model_validate(raw).model_dump(mode="json", by_alias=True, exclude_none=True)["players"]
+    assert len(players) == 26
+    assert players[0] == {
+        "id": "262749",
+        "name": "David Raya",
+        "position": "Goalkeeper",
+        "dateOfBirth": "1995-09-15",
+        "age": 31,
+        "currentClub": "Arsenal FC",
+        "height": 186,
+        "foot": "right",
+        "internationalMatches": 13,
+        "internationalGoals": 0,
+        "debut": "2022-03-26",
+        "marketValue": 30_000_000,
+    }
+    by_name = {p["name"]: p for p in players}
+    # Uncapped: "-" in both columns and an empty debut cell.
+    fresneda = by_name["Iván Fresneda"]
+    assert (fresneda["internationalMatches"], fresneda["internationalGoals"], "debut" in fresneda) == (0, 0, False)
+    assert (by_name["Mikel Oyarzabal"]["internationalMatches"], by_name["Mikel Oyarzabal"]["internationalGoals"]) == (
+        61,
+        30,
+    )
+
+
+def test_club_players_national_team_past_season():
+    raw = club_players("3375", "2024", season_id="2024")
+    players = {p.name: p for p in ClubPlayers.model_validate(raw).players}
+    assert len(players) == 46
+    assert players["Jesús Navas"].current_club == "Retired"
+    assert players["Jesús Navas"].market_value is None
+    assert players["Daniel Carvajal"].current_club == "Without Club"
+    assert players["Álvaro Morata"].international_matches == 87
+    assert players["Álvaro Morata"].debut == date(2014, 11, 15)
+
+
+def test_club_players_unknown_layout_raises():
+    url = CLUB_PLAYERS_URL.format(club_id="3375", season="")
+    page = lxml.html.document_fromstring(fixture_bytes(url))
+    (link,) = page.xpath("//div[@id='yw1']//thead//th/a[text()='Debut']")
+    link.text = "First game"
+    with pytest.raises(UpstreamError, match="First game") as e:
+        club_players("3375", None, html=lxml.html.tostring(page))
+    assert e.value.status_code == 502
+
+
+def test_club_players_national_team_missing_cell_raises():
+    url = CLUB_PLAYERS_URL.format(club_id="3375", season="")
+    page = lxml.html.document_fromstring(fixture_bytes(url))
+    (td,) = page.xpath("(//div[@id='yw1']//table[@class='items']/tbody/tr)[3]/td[7]")
+    td.getparent().remove(td)
+    with pytest.raises(UpstreamError, match="9 cells") as e:
+        club_players("3375", None, html=lxml.html.tostring(page))
+    assert e.value.status_code == 502
+
+
+def competition_search(query: str, html: bytes | None = None) -> list[dict]:
+    """Parse the recorded first results page of query (or the given html) as the endpoint returns it."""
+    service_url = TransfermarktCompetitionSearch.URL_TEMPLATE.format(query=query.replace(" ", "%20"), page_number=1)
+    html = html if html is not None else fixture_bytes(service_url)
+    raw = TransfermarktCompetitionSearch.from_bytes(html, query=query).search_competitions()
+    return CompetitionSearch.model_validate(raw).model_dump(mode="json", by_alias=True, exclude_none=True)["results"]
+
+
+def test_competition_search_international_competitions():
+    results = competition_search("euro")
+    assert len(results) == 10
+    assert results[0] == {
+        "id": "EURO",
+        "name": "UEFA Euro",
+        "clubs": 24,
+        "players": 668,
+        "totalMarketValue": 12_650_000_000,
+        "meanMarketValue": 527_280_000,
+        "continent": "UEFA",
+    }
+    assert all("country" not in r for r in results)
+    assert competition_search("world cup")[0]["id"] == "FIWC"
+    assert competition_search("world cup")[0]["name"] == "World Cup"
+    assert [r["id"] for r in competition_search("nations")][:2] == ["UNLA", "UNFI"]
+
+
+def test_competition_search_row_without_flag_keeps_other_countries():
+    url = TransfermarktCompetitionSearch.URL_TEMPLATE.format(query="premier", page_number=1)
+    page = lxml.html.document_fromstring(fixture_bytes(url))
+    (img,) = page.xpath("//a[contains(@href, '/wettbewerb/RU1')]/ancestor::tr[1]/td[@class='zentriert'][1]//img")
+    img.getparent().remove(img)
+    results = {r["id"]: r for r in competition_search("premier", html=lxml.html.tostring(page))}
+    assert "country" not in results["RU1"]
+    assert (results["FR1"]["country"], results["UKR1"]["country"]) == ("France", "Ukraine")
+
+
+def test_competition_search_missing_cell_raises():
+    url = TransfermarktCompetitionSearch.URL_TEMPLATE.format(query="premier", page_number=1)
+    page = lxml.html.document_fromstring(fixture_bytes(url))
+    (td,) = page.xpath("//a[contains(@href, '/wettbewerb/RU1')]/ancestor::tr[1]/td[@class='rechts']")
+    td.getparent().remove(td)
+    with pytest.raises(UpstreamError, match="row 3") as e:
+        competition_search("premier", html=lxml.html.tostring(page))
+    assert e.value.status_code == 502
+
+
+def test_club_players_national_team_status():
+    players = players_by_name(club_players("3375", "2024", season_id="2024"))
+    assert players["Rodri"].status == "Team captain"
+    assert players["Dani Vivian"].status == "Hamstring injury - Return expected on 05/10/2026"
+    assert players["Pedri"].status is None
+
+
+def test_club_players_unknown_club_is_404():
+    # The unknown club's redirect target ("Most valuable clubs") has no h1 today; with one it must still be a 404.
+    page = lxml.html.document_fromstring(fixture_bytes(CLUB_PLAYERS_URL.format(club_id="0", season="")))
+    page.body.insert(0, lxml.html.fragment_fromstring("<header><h1>Most valuable clubs</h1></header>"))
+    with pytest.raises(HTTPException) as e:
+        club_players("0", None, html=lxml.html.tostring(page))
+    assert e.value.status_code == 404
+
+
+def test_club_players_page_of_another_club_is_404():
+    with pytest.raises(HTTPException) as e:
+        club_players("13", None, html=fixture_bytes(CLUB_PLAYERS_URL.format(club_id="131", season="")))
+    assert e.value.status_code == 404

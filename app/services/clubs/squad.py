@@ -32,13 +32,14 @@ class TransfermarktClubSquad:
 
     - id: playerId; shirtNumber, isCaptain, type: the squad entry's ("current", "nationalTeam", "historical", ...)
     - name; age: lifeDates.age (the age at death for a deceased player); dateOfBirth: lifeDates.dateOfBirth
-    - position: attributes.position.name; foot: attributes.preferredFoot.name (None when tmapi omits them)
+    - position: attributes.position.name; foot: attributes.preferredFoot.name (None when tmapi omits them or they are
+      null)
     - nationalities: the /attributes country names of nationalityDetails.nationalities.nationalityId and
       secondNationalityId, each only when non-zero
     - height: attributes.height (metres) in centimetres, None when null or 0
     - contractUntil: attributes.contractUntil
-    - marketValue: marketValueDetails.current.value, None when tmapi omits marketValueDetails or the value is 0 (tmapi's
-      value for retired players)
+    - marketValue: marketValueDetails.current.value, None when marketValueDetails or its current is omitted or null, or
+      the value is 0 (tmapi's value for retired players)
 
     Args:
         club_id (str): The unique identifier of the club.
@@ -103,10 +104,14 @@ class TransfermarktClubSquad:
             for player in data:
                 where = f"player {player.get('id') if isinstance(player, dict) else None}"
                 check_fields(url, player, PLAYER_FIELDS, where)
+                # A null position, preferredFoot, marketValueDetails or marketValueDetails.current counts as absent.
                 for key in ("position", "preferredFoot"):
-                    if key in player["attributes"]:
+                    if player["attributes"].get(key) is not None:
                         check_fields(url, player, [(f"attributes.{key}.name", str)], where)
-                if "marketValueDetails" in player:
+                market_value = player.get("marketValueDetails")
+                if market_value is not None and (
+                    not isinstance(market_value, dict) or market_value.get("current") is not None
+                ):
                     check_fields(url, player, [("marketValueDetails.current.value", int)], where)
                 for path, value in [
                     ("lifeDates.dateOfBirth", player["lifeDates"]["dateOfBirth"]),
@@ -202,18 +207,21 @@ class TransfermarktClubSquad:
                 )
             nationalities.append(self.countries[country_id])
         height = attributes["height"]
-        market_value = player["marketValueDetails"]["current"]["value"] if "marketValueDetails" in player else None
+        position = attributes.get("position")
+        foot = attributes.get("preferredFoot")
+        current_value = (player.get("marketValueDetails") or {}).get("current")
+        market_value = current_value["value"] if current_value is not None else None
         return {
             "id": entry["playerId"],
             "name": player["name"].strip(),
             "shirtNumber": entry["shirtNumber"],
             "isCaptain": entry["isCaptain"],
-            "position": attributes["position"]["name"] if "position" in attributes else None,
+            "position": position["name"] if position is not None else None,
             "dateOfBirth": player["lifeDates"]["dateOfBirth"],
             "age": player["lifeDates"]["age"],
             "nationalities": nationalities,
             "height": round(height * 100) if height else None,
-            "foot": attributes["preferredFoot"]["name"] if "preferredFoot" in attributes else None,
+            "foot": foot["name"] if foot is not None else None,
             "contractUntil": attributes["contractUntil"],
             "marketValue": market_value or None,
             "type": entry["type"],

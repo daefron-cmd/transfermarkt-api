@@ -1,0 +1,6 @@
+{
+  "body": {
+    "detail": "Invalid request (url: https://www.transfermarkt.com/-/kader/verein/0/plus/1)"
+  },
+  "status_code": 404
+}

@@ -1,0 +1,100 @@
+{
+  "body": {
+    "lastPageNumber": 4,
+    "pageNumber": 1,
+    "query": "euro",
+    "results": [
+      {
+        "clubs": 24,
+        "continent": "UEFA",
+        "id": "EURO",
+        "meanMarketValue": 527280000,
+        "name": "UEFA Euro",
+        "players": 668,
+        "totalMarketValue": 12650000000
+      },
+      {
+        "clubs": 36,
+        "continent": "UEFA",
+        "id": "CL",
+        "meanMarketValue": 520990000,
+        "name": "UEFA Champions League",
+        "players": 994,
+        "totalMarketValue": 18760000000
+      },
+      {
+        "clubs": 54,
+        "continent": "FIFA",
+        "id": "WMQ6",
+        "meanMarketValue": 285980000,
+        "name": "World Cup Qualifiers (Europe)",
+        "players": 1460,
+        "totalMarketValue": 15440000000
+      },
+      {
+        "clubs": 53,
+        "continent": "UEFA",
+        "id": "EMQ",
+        "meanMarketValue": 266840000,
+        "name": "European Qualifiers",
+        "players": 1417,
+        "totalMarketValue": 14140000000
+      },
+      {
+        "clubs": 88,
+        "continent": "UEFA",
+        "id": "UEFA",
+        "meanMarketValue": 145090000,
+        "name": "UEFA-Cup (- 2009)",
+        "players": 2298,
+        "totalMarketValue": 12770000000
+      },
+      {
+        "clubs": 36,
+        "continent": "UEFA",
+        "id": "EL",
+        "meanMarketValue": 184500000,
+        "name": "UEFA Europa League",
+        "players": 1036,
+        "totalMarketValue": 6640000000
+      },
+      {
+        "clubs": 33,
+        "continent": "UEFA",
+        "id": "EPL",
+        "meanMarketValue": 141520000,
+        "name": "European Champion Clubs' Cup",
+        "players": 900,
+        "totalMarketValue": 4670000000
+      },
+      {
+        "clubs": 153,
+        "continent": "UEFA",
+        "id": "ECLQ",
+        "meanMarketValue": 29440000,
+        "name": "UEFA Conference League Qualifying",
+        "players": 4204,
+        "totalMarketValue": 4500000000
+      },
+      {
+        "clubs": 49,
+        "continent": "UEFA",
+        "id": "EPP",
+        "meanMarketValue": 90120000,
+        "name": "UEFA Cup Winners' Cup (-1999)",
+        "players": 1090,
+        "totalMarketValue": 4420000000
+      },
+      {
+        "clubs": 36,
+        "continent": "UEFA",
+        "id": "UCOL",
+        "meanMarketValue": 91060000,
+        "name": "UEFA Conference League",
+        "players": 1027,
+        "totalMarketValue": 3280000000
+      }
+    ]
+  },
+  "status_code": 200
+}

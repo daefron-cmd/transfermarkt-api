@@ -139,7 +139,7 @@ class Clubs:
         SQUADS = BASE + "//td[@class='zentriert']//text()"
 
     class Players:
-        PAST_FLAG = "//div[@id='yw1']//thead//text()"
+        HEADERS = "//div[@id='yw1']//thead//text()"
         CLUB_NAME = "//header//h1//text()"
         # The active "Detailed" squad tab links to the page's own season: .../kader/verein/<id>/saison_id/<year>/plus/1
         SEASON_URL = "//a[contains(@class, 'tm-tab__active--parent')]/@href"
@@ -173,6 +173,15 @@ class Clubs:
             HEIGHTS = "//div[@id='yw1']//td[6]//text()"
             FOOTS = "//div[@id='yw1']//td[7]//text()"
 
+        # Relative to a row of ROWS: a national team's squad has one cell per header and no "posrela" name cell.
+        class National:
+            CELLS = "./td"
+            URL = ".//td[@class='hauptlink']/a/@href"
+            NAME = ".//td[@class='hauptlink']/a//text()"
+            POSITION = ".//tr[2]//text()"
+            CLUB = ".//img/@title"
+            TEXT = ".//text()"
+
 
 class Competitions:
     class Profile:
@@ -181,14 +190,17 @@ class Competitions:
 
     class Search:
         BASE = "//div[@class='box'][h2[contains(text(), 'competitions')]]"
-        URLS = BASE + "//td//a//@href"
-        NAMES = BASE + "//td//a//@title"
-        COUNTRIES = BASE + "//td[@class='zentriert'][1]//@title"
-        CLUBS = BASE + "//td[@class='zentriert'][2]//text()"
-        PLAYERS = BASE + "//td[@class='rechts']//text()"
-        TOTAL_MARKET_VALUES = BASE + "//td[@class='zentriert'][3]//text()"
-        MEAN_MARKET_VALUES = BASE + "//td[@class='zentriert'][4]//text()"
-        CONTINENTS = BASE + "//td[@class='zentriert'][5]//text()"
+        ROWS = BASE + "//table[@class='items']/tbody/tr"
+        # Relative to a row of ROWS. International competitions have no flag (no country).
+        CELLS = "./td"
+        URLS = ".//td//a//@href"
+        NAMES = ".//td//a//@title"
+        COUNTRIES = "./td[@class='zentriert'][1]//@title"
+        CLUBS = "./td[@class='zentriert'][2]//text()"
+        PLAYERS = "./td[@class='rechts']//text()"
+        TOTAL_MARKET_VALUES = "./td[@class='zentriert'][3]//text()"
+        MEAN_MARKET_VALUES = "./td[@class='zentriert'][4]//text()"
+        CONTINENTS = "./td[@class='zentriert'][5]//text()"
 
     class Clubs:
         URLS = "//td[@class='hauptlink no-border-links']//a[1]//@href"

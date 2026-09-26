@@ -28,6 +28,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   `nationalities`, `height`, `foot`, `contractUntil`, `marketValue` and the squad entry `type`. Player details are
   the player's current ones, also in a past season's squad.
 - Both club routes are built from Transfermarkt's JSON API, keep `null` values and return 404 for an unknown club.
+- `GET /clubs/{club_id}/players` for a national team: players have `internationalMatches`, `internationalGoals` (0
+  where the page shows `-`), `debut` and `status` (e.g. `Team captain` or an injury), and `currentClub` is the
+  player's club; `seasonId` is set as for clubs.
+
+### Fixed
+
+- `GET /clubs/{club_id}/players` returned 502 ("Squad column 'name' has 0 values") for national teams, whose squad
+  page has a different table. The table layout is now detected from its column headers; an unknown layout is a 502
+  naming the headers. A page that is not the requested club's squad page (an unknown club redirects to "Most
+  valuable clubs") is a 404.
+- `GET /competitions/search/{competition_name}` returned no results for searches whose results page has only
+  international competitions (e.g. `euro`, `world cup`, `nations`), and could give a result the next row's country
+  when only some rows had one. International competitions have no country, so the country column had fewer values
+  than the others; results are now read row by row and `country` is omitted for competitions without one.
+- `GET /clubs/{club_id}/squad` returned 502 when tmapi sent `null` for a player's `position`, `preferredFoot`,
+  `marketValueDetails` or `marketValueDetails.current`; `null` is now treated like a missing value.
 
 ## [4.0.0] - 2026-09-26
 

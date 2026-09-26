@@ -313,6 +313,24 @@ def test_squad_player_missing_details():
     assert player["height"] == 200
 
 
+@pytest.mark.parametrize(
+    ("doctor", "key"),
+    [
+        (lambda p: p["attributes"].update(position=None), "position"),
+        (lambda p: p["attributes"].update(preferredFoot=None), "foot"),
+        (lambda p: p.update(marketValueDetails=None), "marketValue"),
+        (lambda p: p["marketValueDetails"].update(current=None), "marketValue"),
+    ],
+)
+def test_squad_player_null_details_are_none(doctor, key):
+    response = club_squad("131", players=doctored_players("131", lambda data: doctor(raw_player(data, "937958"))))
+    yamal = player_by_name(response, "Lamine Yamal")
+    assert yamal[key] is None
+    assert {k: v for k, v in yamal.items() if k != key} == {
+        k: v for k, v in player_by_name(club_squad("131"), "Lamine Yamal").items() if k != key
+    }
+
+
 def test_squad_country_missing_from_attributes_is_502():
     def doctor(data: list) -> None:
         raw_player(data, "411295")["nationalityDetails"]["nationalities"]["secondNationalityId"] = 99999
@@ -336,8 +354,8 @@ def test_squad_player_missing_from_lookup_is_502():
         (lambda d: raw_player(d, "937958")["lifeDates"].update(dateOfBirth="13/07/2007"), "dateOfBirth='13/07/2007'"),
         (lambda d: raw_player(d, "937958")["attributes"].update(contractUntil=2031), "contractUntil=2031"),
         (lambda d: raw_player(d, "937958")["attributes"].update(height="1,83"), "height='1,83' in player 937958"),
-        (lambda d: raw_player(d, "937958")["attributes"].update(position=None), "no attributes.position.name"),
-        (lambda d: raw_player(d, "937958")["marketValueDetails"].update(current=None), "no marketValueDetails"),
+        (lambda d: raw_player(d, "937958")["attributes"].update(position={}), "no attributes.position.name"),
+        (lambda d: raw_player(d, "937958")["marketValueDetails"].update(current={}), "no marketValueDetails"),
         (
             lambda d: raw_player(d, "937958")["nationalityDetails"]["nationalities"].update(secondNationalityId=None),
             "secondNationalityId=None in player 937958",

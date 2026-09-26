@@ -168,6 +168,62 @@ def check_competition_clubs_2023(body: dict) -> None:
     assert any(club["id"] == "131" for club in body["clubs"])
 
 
+def check_competition_table_2024(body: dict) -> None:
+    (table,) = body["tables"]
+    assert len(table["rows"]) == 20
+    first = table["rows"][0]
+    assert (first["position"], first["clubId"], first["points"]) == (1, "131", 88)
+
+
+def check_competition_fixtures_euro(body: dict) -> None:
+    games = body["games"]
+    assert len(games) == 51
+    (final,) = [game for game in games if game["stage"] == "Final"]
+    assert (final["homeClub"]["id"], final["awayClub"]["id"]) == ("3375", "3299")
+    assert (final["homeGoals"], final["awayGoals"]) == (2, 1)
+    assert sum(game["shootout"] is not None for game in games) == 3
+
+
+def check_club_fixtures_2024(body: dict) -> None:
+    assert body["seasonId"] == "2024"
+    games = body["games"]
+    assert len(games) == 60
+    assert all(game["venue"] in {"home", "away"} for game in games)
+    (final,) = [game for game in games if game["competitionId"] == "CDR" and game["stage"] == "Final"]
+    assert final["result"] == "W"
+
+
+def check_club_squad(body: dict) -> None:
+    players = body["players"]
+    assert 15 < len(players) < 60
+    for player in players:
+        assert_numeric_id(player["id"])
+        assert player["name"], player
+        assert player["type"] == "current", player
+        assert player["nationalities"], player
+    assert any(player["isCaptain"] for player in players)
+
+
+def check_national_squad(body: dict) -> None:
+    assert body["isNationalTeam"] is True
+    players = body["players"]
+    assert 15 < len(players) < 60
+    assert all(player["type"] == "nationalTeam" for player in players)
+
+
+def check_national_players(body: dict) -> None:
+    assert SEASON_ID.match(body["seasonId"])
+    players = body["players"]
+    assert 15 < len(players) < 60
+    for player in players:
+        assert_iso_date(player["dateOfBirth"])
+        assert isinstance(player["internationalMatches"], int), player
+
+
+def check_competition_search_euro(body: dict) -> None:
+    assert any(r["id"] == "EURO" for r in body["results"])
+
+
 CASES: dict[str, tuple[str, Callable[[dict], None]]] = {
     "player_search": ("/players/search/messi", check_player_search),
     "player_profile": ("/players/28003/profile", check_player_profile),
@@ -186,6 +242,13 @@ CASES: dict[str, tuple[str, Callable[[dict], None]]] = {
     "competition_search": ("/competitions/search/premier", check_competition_search),
     "competition_clubs": ("/competitions/ES1/clubs", check_competition_clubs),
     "competition_clubs_2023": ("/competitions/ES1/clubs?season_id=2023", check_competition_clubs_2023),
+    "competition_table_2024": ("/competitions/ES1/table?season_id=2024", check_competition_table_2024),
+    "competition_fixtures_euro": ("/competitions/EURO/fixtures?season_id=2023", check_competition_fixtures_euro),
+    "club_fixtures_2024": ("/clubs/131/fixtures?season_id=2024", check_club_fixtures_2024),
+    "club_squad": ("/clubs/131/squad", check_club_squad),
+    "national_squad": ("/clubs/3375/squad", check_national_squad),
+    "national_players": ("/clubs/3375/players", check_national_players),
+    "competition_search_euro": ("/competitions/search/euro", check_competition_search_euro),
 }
 
 

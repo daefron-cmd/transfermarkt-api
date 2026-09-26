@@ -387,6 +387,12 @@
     "recorded_at": "2026-09-26T11:22:05+00:00"
   },
   {
+    "url": "https://www.transfermarkt.com/-/kader/verein/0/plus/1",
+    "file": "640841be35af867b.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:26:14+00:00"
+  },
+  {
     "url": "https://www.transfermarkt.com/-/kader/verein/131/plus/1",
     "file": "1fdf27312926a03d.html",
     "status": 200,
@@ -403,6 +409,18 @@
     "file": "53716ee041aab1e5.html",
     "status": 200,
     "recorded_at": "2026-09-26T11:22:06+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/kader/verein/3375/plus/1",
+    "file": "41d8814ad19aa90e.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:17:36+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/-/kader/verein/3375/saison_id/2024/plus/1",
+    "file": "cc7d3559677d506b.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:17:36+00:00"
   },
   {
     "url": "https://www.transfermarkt.com/-/marktwertverlauf/spieler/28003",
@@ -531,6 +549,12 @@
     "recorded_at": "2026-09-26T11:22:06+00:00"
   },
   {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=euro&Wettbewerb_page=1",
+    "file": "8e4221ade795359e.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:17:37+00:00"
+  },
+  {
     "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=messi&Spieler_page=1",
     "file": "f7486f597f97dc52.html",
     "status": 200,
@@ -543,10 +567,22 @@
     "recorded_at": "2026-09-26T11:22:04+00:00"
   },
   {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=nations&Wettbewerb_page=1",
+    "file": "37acbcfeb79ca8bc.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:17:37+00:00"
+  },
+  {
     "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=premier&Wettbewerb_page=1",
     "file": "fddd77059b793123.html",
     "status": 200,
     "recorded_at": "2026-09-26T11:22:07+00:00"
+  },
+  {
+    "url": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=world%20cup&Wettbewerb_page=1",
+    "file": "209b59bc1ba4896b.html",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:17:37+00:00"
   },
   {
     "url": "https://www.transfermarkt.us/-/datenfakten/verein/0",

@@ -1,0 +1,100 @@
+{
+  "body": {
+    "lastPageNumber": 2,
+    "pageNumber": 1,
+    "query": "world cup",
+    "results": [
+      {
+        "clubs": 48,
+        "continent": "FIFA",
+        "id": "FIWC",
+        "meanMarketValue": 357500000,
+        "name": "World Cup",
+        "players": 1263,
+        "totalMarketValue": 17160000000
+      },
+      {
+        "clubs": 54,
+        "continent": "FIFA",
+        "id": "WMQ6",
+        "meanMarketValue": 285980000,
+        "name": "World Cup Qualifiers (Europe)",
+        "players": 1460,
+        "totalMarketValue": 15440000000
+      },
+      {
+        "clubs": 33,
+        "continent": "FIFA",
+        "id": "KLUB",
+        "meanMarketValue": 352910000,
+        "name": "FIFA Club World Cup",
+        "players": 968,
+        "totalMarketValue": 11650000000
+      },
+      {
+        "clubs": 22,
+        "continent": "FIFA",
+        "id": "POWM",
+        "meanMarketValue": 188760000,
+        "name": "World Cup Qualification Playoffs",
+        "players": 580,
+        "totalMarketValue": 4150000000
+      },
+      {
+        "clubs": 54,
+        "continent": "FIFA",
+        "id": "WMQ2",
+        "meanMarketValue": 65370000,
+        "name": "World Cup Qualification Africa",
+        "players": 1366,
+        "totalMarketValue": 3530000000
+      },
+      {
+        "clubs": 10,
+        "continent": "FIFA",
+        "id": "WMQ4",
+        "meanMarketValue": 291110000,
+        "name": "World Cup qualification South America",
+        "players": 270,
+        "totalMarketValue": 2910000000
+      },
+      {
+        "clubs": 24,
+        "continent": "FIFA",
+        "id": "20WC",
+        "meanMarketValue": 12930000,
+        "name": "U20 World Cup",
+        "players": 471,
+        "totalMarketValue": 310240000
+      },
+      {
+        "clubs": 33,
+        "continent": "FIFA",
+        "id": "WMQ3",
+        "meanMarketValue": 8390000,
+        "name": "World Cup qualification CONCACAF",
+        "players": 771,
+        "totalMarketValue": 276860000
+      },
+      {
+        "clubs": 2,
+        "continent": "FIFA",
+        "id": "CWCQ",
+        "meanMarketValue": 93650000,
+        "name": "FIFA Club World Cup Qualifier",
+        "players": 58,
+        "totalMarketValue": 187310000
+      },
+      {
+        "clubs": 6,
+        "continent": "FIFA",
+        "id": "WMQ1",
+        "meanMarketValue": 21690000,
+        "name": "World Cup qualification Asia",
+        "players": 151,
+        "totalMarketValue": 130140000
+      }
+    ]
+  },
+  "status_code": 200
+}

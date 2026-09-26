@@ -1,0 +1,100 @@
+{
+  "body": {
+    "lastPageNumber": 3,
+    "pageNumber": 1,
+    "query": "nations",
+    "results": [
+      {
+        "clubs": 16,
+        "continent": "UEFA",
+        "id": "UNLA",
+        "meanMarketValue": 728290000,
+        "name": "UEFA Nations League A",
+        "players": 444,
+        "totalMarketValue": 11650000000
+      },
+      {
+        "clubs": 8,
+        "continent": "UEFA",
+        "id": "UNFI",
+        "meanMarketValue": 957340000,
+        "name": "UEFA Nations League Finals",
+        "players": 228,
+        "totalMarketValue": 7660000000
+      },
+      {
+        "clubs": 54,
+        "continent": "CAF",
+        "id": "AFCQ",
+        "meanMarketValue": 65370000,
+        "name": "Africa Cup of Nations Qualification",
+        "players": 1366,
+        "totalMarketValue": 3530000000
+      },
+      {
+        "clubs": 16,
+        "continent": "UEFA",
+        "id": "UNLB",
+        "meanMarketValue": 194370000,
+        "name": "UEFA Nations League B",
+        "players": 427,
+        "totalMarketValue": 3110000000
+      },
+      {
+        "clubs": 24,
+        "continent": "CAF",
+        "id": "AFCN",
+        "meanMarketValue": 118190000,
+        "name": "Africa Cup of Nations",
+        "players": 603,
+        "totalMarketValue": 2840000000
+      },
+      {
+        "clubs": 19,
+        "continent": "CAF",
+        "id": "CHAN",
+        "meanMarketValue": 98050000,
+        "name": "African Nations Championship",
+        "players": 490,
+        "totalMarketValue": 1860000000
+      },
+      {
+        "clubs": 4,
+        "continent": "CONCACAF",
+        "id": "CNNF",
+        "meanMarketValue": 161010000,
+        "name": "CONCACAF Nations League Finals",
+        "players": 108,
+        "totalMarketValue": 644050000
+      },
+      {
+        "clubs": 16,
+        "continent": "UEFA",
+        "id": "UNLC",
+        "meanMarketValue": 38830000,
+        "name": "UEFA Nations League C",
+        "players": 424,
+        "totalMarketValue": 621230000
+      },
+      {
+        "clubs": 34,
+        "continent": "CONCACAF",
+        "id": "CNLQ",
+        "meanMarketValue": 9780000,
+        "name": "CONCACAF Nations League Qualifikation",
+        "players": 779,
+        "totalMarketValue": 332610000
+      },
+      {
+        "clubs": 12,
+        "continent": "CONCACAF",
+        "id": "CNLA",
+        "meanMarketValue": 20960000,
+        "name": "CONCACAF Nations League A",
+        "players": 299,
+        "totalMarketValue": 251460000
+      }
+    ]
+  },
+  "status_code": 200
+}

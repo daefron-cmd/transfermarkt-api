@@ -73,7 +73,7 @@ Every route is a `GET`; `/docs` has the full request and response schemas.
 | `/players/{player_id}/achievements`       | The titles and awards a player has won                                           |
 | `/clubs/search/{club_name}`               | One page of clubs matching a name (`page_number`)                                |
 | `/clubs/{club_id}/profile`                | A club's profile: stadium, league, squad summary, market value                   |
-| `/clubs/{club_id}/players`                | A club's squad in a season (`season_id`)                                         |
+| `/clubs/{club_id}/players`                | A club's or national team's squad in a season (`season_id`)                      |
 | `/clubs/{club_id}/fixtures`               | A club's games and results in all competitions in a season (`season_id`); tmapi  |
 | `/clubs/{club_id}/squad`                  | A club's or national team's squad in a season (`season_id`); tmapi               |
 | `/competitions/search/{competition_name}` | One page of competitions matching a name (`page_number`)                         |
@@ -84,6 +84,21 @@ Every route is a `GET`; `/docs` has the full request and response schemas.
 
 Routes marked tmapi are built from Transfermarkt's JSON API (see [tmapi Data Source](#tmapi-data-source)); the
 others parse the site's HTML pages.
+
+National teams are clubs on Transfermarkt: find their ids with `/clubs/search/{club_name}` (e.g. Spain is `3375`)
+and use them with every `/clubs/{club_id}/...` route. Their competitions are competitions like any other (e.g. `EURO`,
+`UNLA`); international competitions have no `country` in `/competitions/search/{competition_name}` results.
+
+`/clubs/{club_id}/players` returns the squad table of the club's squad page, so its player fields depend on the page:
+
+- a club, current season: `id`, `name`, `position`, `dateOfBirth`, `age`, `nationality`, `height`, `foot`,
+  `joinedOn`, `signedFrom`, `signedFromFee`, `contract`, `marketValue`, `status`;
+- a club, past season: the same without `contract`, plus `currentClub` (the player's club today);
+- a national team: `id`, `name`, `position`, `dateOfBirth`, `age`, `currentClub` (the player's club, or e.g.
+  `Retired`), `height`, `foot`, `internationalMatches` and `internationalGoals` (0 where the page shows `-`), `debut`
+  (date of the first international match), `marketValue` and `status`.
+
+A squad table with other columns returns 502 naming its headers.
 
 ### Health, Errors and Validation
 
