@@ -53,8 +53,8 @@ class TransfermarktPlayerInjuries(TransfermarktBase):
 
         Returns:
             list: A list of dictionaries, where each dictionary represents an injury in the
-                player's injury history. Each dictionary contains keys 'season', 'injury', 'from',
-                'until', 'days', 'gamesMissed', and 'gamesMissedClubs' with their respective values.
+                player's injury history. Each dictionary contains keys 'season', 'injury', 'fromDate',
+                'untilDate', 'days', 'gamesMissed', and 'gamesMissedClubs' with their respective values.
 
         """
         injuries: Any = self.page.xpath(Players.Injuries.RESULTS)

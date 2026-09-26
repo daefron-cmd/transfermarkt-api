@@ -4,7 +4,7 @@
 This is a solo fork of a Transfermarkt scraper: no customers, no SLA, and the only
 person downstream of a bad commit is the maintainer next week. The quality stack
 below (pawl, copied into `mech/`) is here because it is cheap, not because the
-stakes are high: the offline suite runs in about 2 s (403 tests) and the whole
+stakes are high: the offline suite runs in about 2 s (631 tests) and the whole
 fail-closed commit gate in about 5 s, so blocking every commit on it costs
 nothing worth arguing about. Mutation testing lives in push CI, where its minutes
 do not land on each commit.
@@ -65,7 +65,7 @@ survivor baseline; a header-only file accepts none. `[tool.mutmut]
 source_paths` is `["app"]`; `mech` stays out of it.
 
 Running mutation locally on macOS: set `OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES`.
-Mutants that make httpx build its default transport read the system proxy
+Mutants that make httpx2 build its default transport read the system proxy
 settings inside mutmut's forked worker, which aborts under ObjC fork safety.
 mutmut reports that as `suspicious`, and Pawl fails closed on it. Linux (push
 CI) is unaffected.
@@ -79,7 +79,7 @@ That file is tracked on purpose.
 
 ## Ruff is the only linter/formatter
 Do not reach for black, flake8, isort, or pylint — `select` already covers them
-(E/W, F, I, UP, plus this repo's B, C4, SIM, RUF, FAST). Invoke ruff as
+(E/W, F, I, UP, S, plus this repo's B, C4, SIM, RUF, FAST). Invoke ruff as
 `uv run ruff ...` or `.venv/bin/ruff`; a bare `ruff` may resolve outside the venv
 to a version the gates do not run, so it can pass here and fail at the commit
 gate.

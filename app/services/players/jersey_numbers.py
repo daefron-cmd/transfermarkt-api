@@ -44,7 +44,7 @@ class TransfermarktPlayerJerseyNumbers(TransfermarktBase):
 
     def __parse_player_jersey_numbers(self) -> list:
         """
-        Parse and extract player jersey numbers data from the Transfermarkt player stats page.
+        Parse and extract player jersey numbers data from the Transfermarkt jersey numbers page.
 
         Returns:
             list: A list of dictionaries where each dictionary represents the jersey number for a specific season/club.
@@ -80,8 +80,7 @@ class TransfermarktPlayerJerseyNumbers(TransfermarktBase):
         Retrieve and parse player jersey numbers data for the specified player from Transfermarkt.
 
         Returns:
-            dict: A dictionary containing the player's unique identifier, parsed player jersey numbers, and
-            the timestamp of when the data was last updated.
+            dict: A dictionary containing the player's unique identifier and parsed player jersey numbers.
         """
         self.response["id"] = self.player_id
         self.response["jerseyNumbers"] = self.__parse_player_jersey_numbers()

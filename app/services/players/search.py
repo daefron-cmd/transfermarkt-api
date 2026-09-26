@@ -15,7 +15,7 @@ class TransfermarktPlayerSearch(TransfermarktBase):
     A class for searching football players on Transfermarkt and retrieving search results.
 
     Args:
-        query (str): The search query for finding football clubs.
+        query (str): The search query for finding football players.
         page_number (int): The page number of search results (default is 1).
 
     Attributes:
@@ -93,8 +93,8 @@ class TransfermarktPlayerSearch(TransfermarktBase):
             include player information such as their name, position, club, age, nationality, and market value.
 
         Returns:
-            dict: A dictionary containing the search query, page number, last page number, search
-                results, and the timestamp of when the data was last updated.
+            dict: A dictionary containing the search query, page number, last page number and search
+                results.
         """
         self.response["query"] = self.query
         self.response["pageNumber"] = self.page_number

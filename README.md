@@ -18,7 +18,8 @@ $ git clone https://github.com/daefron-cmd/transfermarkt-api.git
 # Go to the project's root folder
 $ cd transfermarkt-api
 
-# Install Python and the dependencies (requires uv: https://docs.astral.sh/uv/)
+# Install Python and the dependencies (requires uv 0.12.7 exactly, pinned by [tool.uv] required-version in
+# pyproject.toml: https://docs.astral.sh/uv/)
 $ uv sync
 
 # Start the API server with auto-reload
@@ -113,7 +114,7 @@ for url: ...`); an empty body is never cached.
 
 Inputs are validated before anything is requested from Transfermarkt (bad input is a 422, documented in `/docs`):
 
-- `player_id`, `club_id`: digits only, at most 12;
+- `player_id`, `club_id`, `game_id`: digits only, at most 12;
 - `competition_id`: 1 to 12 letters or digits (e.g. `GB1`);
 - `season_id` (query parameter): four digits, the season's starting year (`2024` = `24/25`); omitted = current season
   (for `/players/{player_id}/stats`: all seasons);
@@ -184,7 +185,7 @@ national team for international games). `?season_id=2024` limits it to one seaso
   (whole-match score), over games played in a goalkeeper position; a game without a recorded position counts
   when the player's main position (`/player/{id}`) is goalkeeper. `null` when the entry has no such games.
 
-Entries are sorted by season (newest first), then competition name. Season ids are the starting year
+Entries are sorted by season (newest first), then competition name and club name. Season ids are the starting year
 (`2024` = `24/25`); some national-team competitions (qualifiers, Nations League Finals) use calendar-year
 seasons, so season `2024` also holds such games of 2025 (`seasonName` `"2025"`). An unknown player returns 404.
 
@@ -283,7 +284,7 @@ matched the fixture lists' flags on every game checked, but a live game has only
 | `CACHE_TTL_SECONDS`        | TTL for cached upstream responses                                                                      | `3600`         |
 | `CACHE_SIZE_LIMIT_MB`      | Maximum cache size on disk                                                                             | `500`          |
 | `OUTBOUND_MIN_INTERVAL_MS` | Minimum gap between outbound requests to Transfermarkt (per process)                                   | `500`          |
-| `OUTBOUND_MAX_RETRIES`     | Retry attempts on transient upstream errors (429, 5xx, etc.)                                           | `4`            |
+| `OUTBOUND_MAX_RETRIES`     | Attempts per upstream request, the first included, on transient errors (429, 5xx, etc.)                | `4`            |
 | `OUTBOUND_MAX_CONCURRENCY` | Maximum concurrent outbound requests to Transfermarkt (per process)                                    | `4`            |
 | `OUTBOUND_TIMEOUT_S`       | Timeout in seconds for each outbound request                                                           | `30`           |
 
@@ -361,11 +362,12 @@ every upstream fetch and its status in the log.
 The full suite, HTML-backed cases included, runs every night at 03:00 local time on the maintainer's always-on Mac,
 whose connection transfermarkt.com does not block. It lives outside this repository: a launchd agent
 (`~/Library/LaunchAgents/com.vegar.transfermarkt-live-smoke.plist`) runs `~/.local/bin/transfermarkt-live-smoke`,
-which resets a separate clone (`~/.local/share/transfermarkt-live/`) to `origin/main`, runs
-`uv sync --locked` and the command above, and logs to `~/Library/Logs/transfermarkt-live/` (kept 30 days). A failed
-run opens the issue `Local live smoke failing` on this repository, or comments on it if it is already open, and the
-next passing run closes it. It depends on the Mac logging in automatically after a reboot (a launchd user agent needs
-a login session; a locked screen is fine). Start a run by hand with
+which resets a separate clone (`~/.local/share/transfermarkt-live/transfermarkt-api/`) to `origin/main`, runs
+`uv sync --locked` and the full-suite command (`uv run pytest tests/live -m live --force-enable-socket`), and logs
+to `~/Library/Logs/transfermarkt-live/` (kept 30 days). A failed run opens the issue `Local live smoke failing` on
+this repository, or comments on it if it is already open, and the next passing run closes it. It depends on the Mac
+logging in automatically after a reboot (a launchd user agent needs a login session; a locked screen is fine). Start a
+run by hand with
 `launchctl kickstart gui/$(id -u)/com.vegar.transfermarkt-live-smoke`.
 
 ### Changelog

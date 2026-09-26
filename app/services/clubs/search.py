@@ -98,8 +98,8 @@ class TransfermarktClubSearch(TransfermarktBase):
         Perform a search for football clubs on Transfermarkt and retrieve search results.
 
         Returns:
-            dict: A dictionary containing the search query, current page number, last page number,
-                search results, and the timestamp of when the search was conducted.
+            dict: A dictionary containing the search query, current page number, last page number and
+                search results.
         """
         self.response["query"] = self.query
         self.response["pageNumber"] = self.page_number

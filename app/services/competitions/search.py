@@ -63,7 +63,7 @@ class TransfermarktCompetitionSearch(TransfermarktBase):
         Returns:
             list: A list of dictionaries, each containing details of a football competition,
                 including its unique identifier, name, country (None for an international competition),
-                associated clubs, number of players, total market value, mean market value, and continent.
+                number of clubs, number of players, total market value, mean market value, and continent.
 
         Raises:
             UpstreamError: If a result row does not have the expected cells or one competition link.

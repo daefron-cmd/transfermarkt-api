@@ -245,8 +245,7 @@ class TransfermarktClubPlayers(TransfermarktBase):
         Retrieve and parse player information for the specified football club.
 
         Returns:
-            dict: A dictionary containing the club's unique identifier, player information, and the timestamp of when
-                  the data was last updated.
+            dict: A dictionary containing the club's unique identifier, the season identifier and player information.
         """
         self.response["id"] = self.club_id
         self.response["seasonId"] = self.season_id

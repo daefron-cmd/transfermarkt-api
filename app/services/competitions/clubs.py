@@ -70,8 +70,8 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
         Retrieve and parse the list of football clubs participating in a specific competition.
 
         Returns:
-            dict: A dictionary containing the competition's unique identifier, name, season identifier, list of clubs
-                  participating in the competition, and the timestamp of when the data was last updated.
+            dict: A dictionary containing the competition's unique identifier, name, season identifier and list of
+                  clubs participating in the competition.
         """
         self.response["id"] = self.competition_id
         self.response["name"] = self.get_text_by_xpath(Competitions.Profile.NAME)

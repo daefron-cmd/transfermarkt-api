@@ -72,8 +72,7 @@ class TransfermarktPlayerProfile(TransfermarktBase):
         club affiliations, market value, agent information, social media links, and more.
 
         Returns:
-            dict: A dictionary containing the player's unique identifier, profile information, and the timestamp of when
-                the data was last updated.
+            dict: A dictionary containing the player's unique identifier and profile information.
         """
         self.response["id"] = self.get_text_by_xpath(Players.Profile.ID)
         self.response["url"] = self.get_text_by_xpath(Players.Profile.URL)

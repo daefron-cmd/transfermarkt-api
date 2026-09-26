@@ -59,7 +59,7 @@ class TransfermarktPlayerMarketValue(TransfermarktBase):
         Returns:
             list: A list of dictionaries, where each dictionary represents a data point in the
                 player's market value history. Each dictionary contains keys 'date', 'age',
-                'clubID', 'clubName', and 'value' with their respective values.
+                'clubId', 'clubName', and 'marketValue' with their respective values.
         """
         data = self.market_value_chart["list"]
 
@@ -85,7 +85,7 @@ class TransfermarktPlayerMarketValue(TransfermarktBase):
 
         Returns:
             dict: A dictionary containing the player's unique identifier, current market value,
-                market value history, ranking, and the timestamp of when the data was last updated.
+                market value history, and ranking.
         """
         self.response["id"] = self.player_id
         self.response["marketValue"] = self.get_text_by_xpath(Players.MarketValue.CURRENT, join_str="")

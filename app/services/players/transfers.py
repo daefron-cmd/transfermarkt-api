@@ -88,8 +88,7 @@ class TransfermarktPlayerTransfers(TransfermarktBase):
         Retrieve and parse the transfer history and youth clubs of the specified player from Transfermarkt.
 
         Returns:
-            dict: A dictionary containing the player's unique identifier, parsed transfer history, youth clubs,
-                  and the timestamp of when the data was last updated.
+            dict: A dictionary containing the player's unique identifier, parsed transfer history and youth clubs.
         """
         self.response["id"] = self.player_id
         self.response["transfers"] = self.__parse_player_transfer_history()

@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   pytest marker `tmapi`), since transfermarkt.com answers GitHub-hosted runners with HTTP 202 and an empty body. The
   full live suite remains a local run.
 - pyright (standard mode) replaces mypy as the type checker.
+- Development requires uv 0.12.7 exactly (`[tool.uv] required-version` in `pyproject.toml`); the Docker image copies
+  the same uv version.
 - The pawl quality stack (`mech/`): a fail-closed commit gate (`.githooks/pre-commit`, `.githooks/pre-merge-commit`;
   ruff, pyright, a Pawl compatibility-record check and the offline suite), armed per clone with
   `git config core.hooksPath .githooks`; a push workflow (`push.yml`: the same checks on every pushed branch tip plus

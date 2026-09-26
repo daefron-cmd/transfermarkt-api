@@ -145,7 +145,7 @@ def to_camel_case(headers: list) -> list:
     Convert a list of headers to camelCase format.
 
     Args:
-        headers (list): A list of headers in snake_case or space-separated format.
+        headers (list): A list of space-separated headers.
 
     Returns:
         list: A list of headers in camelCase format.

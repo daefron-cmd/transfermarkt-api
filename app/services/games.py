@@ -1,5 +1,6 @@
 """
-Games (matches) from tmapi fixture lists (an unofficial JSON API; see app.tmapi), shared by the fixtures endpoints.
+Games (matches) from tmapi fixture lists (an unofficial JSON API; see app.tmapi), shared by the fixtures endpoints
+and the game report.
 
 A tmapi game is mapped to the Game schema (app.schemas.games) as follows:
 
