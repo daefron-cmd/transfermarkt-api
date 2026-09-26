@@ -3,6 +3,8 @@
 import asyncio
 import copy
 import json
+import time
+from datetime import UTC, timedelta
 
 import pytest
 
@@ -368,6 +370,30 @@ def test_game_ended_after_passes_unknown_addition_type_through():
     )
     assert parsed["endedAfter"] == "after_golden_goal"
     assert parsed["shootout"] is None
+
+
+@pytest.fixture
+def new_york_time(monkeypatch):
+    """Run the test with the process time zone set to America/New_York (the runners' zone is UTC)."""
+    monkeypatch.setenv("TZ", "America/New_York")
+    time.tzset()
+    yield
+    monkeypatch.undo()
+    time.tzset()
+
+
+@pytest.mark.usefixtures("new_york_time")
+def test_game_date_is_utc_in_any_local_time_zone():
+    game = raw_game(fixtures_data("EURO", "2023"), "4359338")
+    parsed = parse_game(
+        game,
+        competition_names={"EURO": "UEFA Euro"},
+        club_names={"3299": "England", "3384": "Switzerland"},
+        group_names={},
+        shootout_scores={"4359338": (5, 3)},
+    )
+    assert parsed["date"].utcoffset() == timedelta(0)
+    assert parsed["date"].tzinfo is UTC
 
 
 def test_game_without_kick_off_time_and_score():

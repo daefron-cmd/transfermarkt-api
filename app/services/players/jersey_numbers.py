@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import ClassVar, Self
 
-from app.http import TransfermarktClient
+from app.http import TransfermarktClient, UpstreamError
 from app.services.base import TransfermarktBase, parse_html
 from app.utils.utils import extract_from_url, to_camel_case, zip_lists_into_dict
 from app.utils.xpath import Players
@@ -49,6 +49,9 @@ class TransfermarktPlayerJerseyNumbers(TransfermarktBase):
         Returns:
             list: A list of dictionaries where each dictionary represents the jersey number for a specific season/club.
             Each dictionary includes keys for seasons, clubs and jersey numbers for the player.
+
+        Raises:
+            UpstreamError: If the season, club and number columns do not have the same length (the page layout changed).
         """
         headers = to_camel_case(
             ["Season", "Club", "Jersey number", *self.get_list_by_xpath(Players.JerseyNumbers.HEADERS)],
@@ -58,9 +61,16 @@ class TransfermarktPlayerJerseyNumbers(TransfermarktBase):
         clubs_urls = self.get_list_by_xpath(Players.JerseyNumbers.CLUBS_URLS)
         clubs_ids = [extract_from_url(url) for url in clubs_urls]
         jerseynumbers = self.get_list_by_xpath(Players.JerseyNumbers.DATA)
+        if not len(seasons) == len(clubs_ids) == len(jerseynumbers):
+            raise UpstreamError(
+                502,
+                self.URL,
+                f"Unexpected jersey numbers page: {len(seasons)} seasons, {len(clubs_ids)} clubs, "
+                f"{len(jerseynumbers)} numbers",
+            )
         data = [
             [season, club_id, number]
-            for season, club_id, number in list(zip(seasons, clubs_ids, jerseynumbers, strict=False))
+            for season, club_id, number in list(zip(seasons, clubs_ids, jerseynumbers, strict=True))
         ]
 
         return [zip_lists_into_dict(headers, stat) for stat in data]

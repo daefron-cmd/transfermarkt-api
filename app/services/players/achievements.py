@@ -56,7 +56,7 @@ class TransfermarktPlayerAchievements(TransfermarktBase):
 
         player_achievements = []
         for achievement in achievements:
-            title = trim(achievement.xpath(Players.Achievements.TITLE)).split(" ", 1)[-1]
+            title = trim(achievement.xpath(Players.Achievements.TITLE)).split(None, 1)[-1]
             details = achievement.xpath(Players.Achievements.DETAILS)
 
             achievement_details = []
