@@ -358,6 +358,16 @@ reachability check (status, size, content type and the first bytes of a player p
 whether transfermarkt.com still blocks the runners, and runs the tests with `LOG_LEVEL=DEBUG` and `-rA`, which puts
 every upstream fetch and its status in the log.
 
+The full suite, HTML-backed cases included, runs every night at 03:00 local time on the maintainer's always-on Mac,
+whose connection transfermarkt.com does not block. It lives outside this repository: a launchd agent
+(`~/Library/LaunchAgents/com.vegar.transfermarkt-live-smoke.plist`) runs `~/.local/bin/transfermarkt-live-smoke`,
+which resets a separate clone (`~/.local/share/transfermarkt-live/`) to `origin/main`, runs
+`uv sync --locked` and the command above, and logs to `~/Library/Logs/transfermarkt-live/` (kept 30 days). A failed
+run opens the issue `Local live smoke failing` on this repository, or comments on it if it is already open, and the
+next passing run closes it. It depends on the Mac logging in automatically after a reboot (a launchd user agent needs
+a login session; a locked screen is fine). Start a run by hand with
+`launchctl kickstart gui/$(id -u)/com.vegar.transfermarkt-live-smoke`.
+
 ### Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for the changes in each release.

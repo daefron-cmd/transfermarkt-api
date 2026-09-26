@@ -24,6 +24,9 @@ do not land on each commit.
 - The nightly `live.yml` workflow runs only the `tmapi`-marked live cases:
   transfermarkt.com answers GitHub-hosted runners with an empty 202, while
   tmapi.transfermarkt.technology does not.
+- The full live suite runs nightly on the maintainer's Mac via a launchd agent
+  outside this repo (`~/.local/bin/transfermarkt-live-smoke`); failures open the
+  GitHub issue `Local live smoke failing`. See README "Live smoke tests".
 
 ## Gates
 - Tier 1 (PostToolUse): ruff check --fix, then format, then residuals on the
