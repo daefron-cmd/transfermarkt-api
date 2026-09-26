@@ -59,6 +59,7 @@ class TransfermarktClubSearch(TransfermarktBase):
                 clubs_countries,
                 clubs_squads,
                 clubs_market_values,
+                strict=False,
             )
         ]
 

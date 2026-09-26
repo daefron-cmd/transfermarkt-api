@@ -1,6 +1,5 @@
 from datetime import date
 from enum import Enum
-from typing import Optional
 
 from pydantic import HttpUrl
 
@@ -8,39 +7,39 @@ from app.schemas.base import AuditMixin, TransfermarktBaseModel
 
 
 class PlayerPlaceOfBirth(TransfermarktBaseModel):
-    city: Optional[str]
-    country: Optional[str]
+    city: str | None
+    country: str | None
 
 
 class PlayerPosition(TransfermarktBaseModel):
-    main: Optional[str]
-    other: Optional[list[str]]
+    main: str | None
+    other: list[str] | None
 
 
 class PlayerClub(TransfermarktBaseModel):
-    id: Optional[str]
+    id: str | None
     name: str
-    joined: Optional[date]
-    contract_expires: Optional[date]
-    contract_option: Optional[str]
+    joined: date | None
+    contract_expires: date | None
+    contract_option: str | None
     # Retired player
-    last_club_id: Optional[str]
-    last_club_name: Optional[str]
-    most_games_for: Optional[str]
+    last_club_id: str | None
+    last_club_name: str | None
+    most_games_for: str | None
 
 
 class PlayerAgent(TransfermarktBaseModel):
-    name: Optional[str]
-    url: Optional[str]
+    name: str | None
+    url: str | None
 
 
 class TrainerProfile(TransfermarktBaseModel):
-    id: Optional[str]
-    url: Optional[str]
-    position: Optional[str]
+    id: str | None
+    url: str | None
+    position: str | None
 
 
-class RelativeProfileTypeEnum(str, Enum):
+class RelativeProfileTypeEnum(str, Enum):  # noqa: UP042 - StrEnum changes str() output
     PLAYER = "player"
     TRAINER = "trainer"
 
@@ -57,23 +56,23 @@ class PlayerProfile(TransfermarktBaseModel, AuditMixin):
     url: HttpUrl
     name: str
     description: str
-    full_name: Optional[str]
-    name_in_home_country: Optional[str]
-    image_url: Optional[HttpUrl]
-    date_of_birth: Optional[date]
+    full_name: str | None
+    name_in_home_country: str | None
+    image_url: HttpUrl | None
+    date_of_birth: date | None
     place_of_birth: PlayerPlaceOfBirth
-    age: Optional[int]
-    height: Optional[int]
+    age: int | None
+    height: int | None
     citizenship: list[str]
     is_retired: bool
-    retired_since: Optional[date]
+    retired_since: date | None
     position: PlayerPosition
-    foot: Optional[str]
-    shirt_number: Optional[str]
+    foot: str | None
+    shirt_number: str | None
     club: PlayerClub
-    market_value: Optional[int]
-    agent: Optional[PlayerAgent]
-    outfitter: Optional[str]
-    socialMedia: Optional[list[str]]
-    trainer_profile: Optional[TrainerProfile]
-    relatives: Optional[list[Relatives]]
+    market_value: int | None
+    agent: PlayerAgent | None
+    outfitter: str | None
+    socialMedia: list[str] | None
+    trainer_profile: TrainerProfile | None
+    relatives: list[Relatives] | None

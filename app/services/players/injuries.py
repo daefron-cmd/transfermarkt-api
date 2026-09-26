@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import List, Optional
 from xml.etree import ElementTree
 
 from app.services.base import TransfermarktBase
@@ -30,7 +29,7 @@ class TransfermarktPlayerInjuries(TransfermarktBase):
         self.page = self.request_url_page()
         self.raise_exception_if_not_found(xpath=Players.Profile.URL)
 
-    def __parse_player_injuries(self) -> Optional[List[dict]]:
+    def __parse_player_injuries(self) -> list[dict] | None:
         """
         Parse the injury history of a football player from the retrieved data.
 

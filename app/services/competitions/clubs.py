@@ -39,7 +39,7 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
         names = self.get_list_by_xpath(Competitions.Clubs.NAMES)
         ids = [extract_from_url(url) for url in urls]
 
-        return [{"id": idx, "name": name} for idx, name in zip(ids, names)]
+        return [{"id": idx, "name": name} for idx, name in zip(ids, names, strict=False)]
 
     def get_competition_clubs(self) -> dict:
         """

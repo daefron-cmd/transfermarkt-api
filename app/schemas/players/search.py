@@ -1,5 +1,3 @@
-from typing import Optional
-
 from app.schemas.base import AuditMixin, TransfermarktBaseModel
 
 
@@ -13,9 +11,9 @@ class PlayerSearchResult(TransfermarktBaseModel):
     name: str
     position: str
     club: PlayerSearchClub
-    age: Optional[int]
+    age: int | None
     nationalities: list[str]
-    market_value: Optional[int]
+    market_value: int | None
 
 
 class PlayerSearch(TransfermarktBaseModel, AuditMixin):

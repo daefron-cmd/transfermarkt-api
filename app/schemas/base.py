@@ -1,6 +1,5 @@
 import re
 from datetime import datetime
-from typing import Optional
 
 from dateutil import parser
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -54,7 +53,7 @@ class TransfermarktBaseModel(BaseModel):
         mode="before",
         check_fields=False,
     )
-    def parse_str_to_int(cls, v: str) -> Optional[int]:
+    def parse_str_to_int(cls, v: str) -> int | None:
         if not v or not any(char.isdigit() for char in v):
             return None
 
@@ -79,12 +78,12 @@ class TransfermarktBaseModel(BaseModel):
             return int(float(value_str))
 
     @field_validator("height", mode="before", check_fields=False)
-    def parse_height(cls, v: str) -> Optional[int]:
+    def parse_height(cls, v: str) -> int | None:
         if not v or not any(char.isdigit() for char in v):
             return None
         return int(v.replace(",", "").replace("m", "").replace("،", ""))
 
     @field_validator("days", mode="before", check_fields=False)
-    def parse_days(cls, v: str) -> Optional[int]:
+    def parse_days(cls, v: str) -> int | None:
         days = "".join(filter(str.isdigit, v))
         return int(days) if days else None

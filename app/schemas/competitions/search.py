@@ -1,5 +1,3 @@
-from typing import Optional
-
 from app.schemas.base import AuditMixin, TransfermarktBaseModel
 
 
@@ -9,9 +7,9 @@ class CompetitionSearchResult(TransfermarktBaseModel):
     country: str
     clubs: int
     players: int
-    total_market_value: Optional[int] = None
-    mean_market_value: Optional[int] = None
-    continent: Optional[str] = None
+    total_market_value: int | None = None
+    mean_market_value: int | None = None
+    continent: str | None = None
 
 
 class CompetitionSearch(TransfermarktBaseModel, AuditMixin):

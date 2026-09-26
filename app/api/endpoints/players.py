@@ -1,5 +1,3 @@
-from typing import Optional
-
 from fastapi import APIRouter
 
 from app.schemas import players as schemas
@@ -16,7 +14,7 @@ router = APIRouter()
 
 
 @router.get("/search/{player_name}", response_model=schemas.PlayerSearch, response_model_exclude_none=True)
-def search_players(player_name: str, page_number: Optional[int] = 1):
+def search_players(player_name: str, page_number: int | None = 1):
     tfmkt = TransfermarktPlayerSearch(query=player_name, page_number=page_number)
     found_players = tfmkt.search_players()
     return found_players
@@ -58,7 +56,7 @@ def get_player_stats(player_id: str):
 
 
 @router.get("/{player_id}/injuries", response_model=schemas.PlayerInjuries, response_model_exclude_none=True)
-def get_player_injuries(player_id: str, page_number: Optional[int] = 1):
+def get_player_injuries(player_id: str, page_number: int | None = 1):
     tfmkt = TransfermarktPlayerInjuries(player_id=player_id, page_number=page_number)
     players_injuries = tfmkt.get_player_injuries()
     return players_injuries

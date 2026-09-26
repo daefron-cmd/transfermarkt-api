@@ -33,14 +33,17 @@ class TransfermarktPlayerJerseyNumbers(TransfermarktBase):
             Each dictionary includes keys for seasons, clubs and jersey numbers for the player.
         """
         headers = to_camel_case(
-            ["Season", "Club", "Jersey number"] + self.get_list_by_xpath(Players.JerseyNumbers.HEADERS),
+            ["Season", "Club", "Jersey number", *self.get_list_by_xpath(Players.JerseyNumbers.HEADERS)],
         )
 
         seasons = self.get_list_by_xpath(Players.JerseyNumbers.SEASONS)
         clubs_urls = self.get_list_by_xpath(Players.JerseyNumbers.CLUBS_URLS)
         clubs_ids = [extract_from_url(url) for url in clubs_urls]
         jerseynumbers = self.get_list_by_xpath(Players.JerseyNumbers.DATA)
-        data = [[season, club_id, number] for season, club_id, number in list(zip(seasons, clubs_ids, jerseynumbers))]
+        data = [
+            [season, club_id, number]
+            for season, club_id, number in list(zip(seasons, clubs_ids, jerseynumbers, strict=False))
+        ]
 
         return [zip_lists_into_dict(headers, stat) for stat in data]
 

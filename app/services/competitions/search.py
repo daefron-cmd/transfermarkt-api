@@ -65,6 +65,7 @@ class TransfermarktCompetitionSearch(TransfermarktBase):
                 total_market_value,
                 mean_market_value,
                 continent,
+                strict=False,
             )
         ]
 

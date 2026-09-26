@@ -19,17 +19,14 @@ $ git clone https://github.com/felipeall/transfermarkt-api.git
 # Go to the project's root folder
 $ cd transfermarkt-api
 
-# Instantiate a Poetry virtual env
-$ poetry shell
+# Install Python and the dependencies (requires uv: https://docs.astral.sh/uv/)
+$ uv sync
 
-# Install the dependencies
-$ poetry install --no-root
+# Start the API server with auto-reload
+$ uv run uvicorn app.main:app --reload
 
-# (optional) Append the current directory to PYTHONPATH
-$ export PYTHONPATH=$PYTHONPATH:$(pwd)
-
-# Start the API server
-$ python app/main.py
+# ...or start it using HOST / PORT / RELOAD from the environment or .env
+$ uv run python -m app.main
 
 # Access the API local page
 $ open http://localhost:8000/
@@ -54,6 +51,13 @@ $ docker run -d -p 8000:8000 transfermarkt-api
 $ open http://localhost:8000/
 ````
 
+Or with Docker Compose, which builds the image, loads `.env` if present and keeps the upstream
+response cache in a named volume across restarts:
+
+````bash
+$ docker compose up -d --build
+````
+
 ### Upstream Rate-Limit Avoidance
 
 Outbound requests to Transfermarkt go through a shared `requests.Session` with
@@ -66,6 +70,9 @@ disk-backed TTL response cache (via `diskcache`). The cache lives at
 
 | Variable                   | Description                                                                                            | Default        |
 |----------------------------|--------------------------------------------------------------------------------------------------------|----------------|
+| `HOST`                     | Bind address used by `python -m app.main`                                                              | `0.0.0.0`      |
+| `PORT`                     | Port used by `python -m app.main`                                                                      | `8000`         |
+| `RELOAD`                   | Enable uvicorn auto-reload when running `python -m app.main`                                           | `false`        |
 | `RATE_LIMITING_ENABLE`     | Enable inbound rate limiting for clients calling this API                                              | `false`        |
 | `RATE_LIMITING_FREQUENCY`  | Delay allowed between each inbound API call. See [slowapi](https://slowapi.readthedocs.io/en/latest/) | `2/3seconds`   |
 | `CACHE_ENABLE`             | Enable disk cache of upstream Transfermarkt responses                                                  | `true`         |
@@ -75,4 +82,12 @@ disk-backed TTL response cache (via `diskcache`). The cache lives at
 | `OUTBOUND_MIN_INTERVAL_MS` | Minimum gap between outbound requests to Transfermarkt (per process)                                   | `500`          |
 | `OUTBOUND_MAX_RETRIES`     | Retry attempts on transient upstream errors (429, 5xx, etc.)                                           | `4`            |
 
-> **Python version**: this fork requires Python `>=3.10` (bumped from upstream's `^3.9` because `tenacity` dropped 3.9 support).
+> **Python version**: this fork requires Python `3.12+` (`.python-version` pins 3.13 for development and Docker).
+
+### Development
+
+````bash
+$ uv run ruff check . && uv run ruff format --check .
+$ uv run mypy app
+$ uv run pytest -m "not live"   # offline unit tests; drop the marker filter to also hit the live site
+````

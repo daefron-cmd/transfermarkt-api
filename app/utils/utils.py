@@ -1,5 +1,4 @@
 import re
-from typing import Optional, Union
 
 
 def zip_lists_into_dict(list_keys: list, list_values: list) -> dict:
@@ -13,10 +12,10 @@ def zip_lists_into_dict(list_keys: list, list_values: list) -> dict:
     Returns:
         dict: A dictionary created by pairing elements from the input lists.
     """
-    return {k: v for k, v in zip(list_keys, list_values)}
+    return dict(zip(list_keys, list_values, strict=False))
 
 
-def extract_from_url(tfmkt_url: Optional[str], element: str = "id") -> Optional[str]:
+def extract_from_url(tfmkt_url: str | None, element: str = "id") -> str | None:
     """
     Extract a specific element from a Transfermarkt URL using regular expressions.
 
@@ -40,13 +39,13 @@ def extract_from_url(tfmkt_url: Optional[str], element: str = "id") -> Optional[
     )
 
     try:
-        groups: dict = re.match(regex, trim(tfmkt_url)).groupdict()
+        groups: dict = re.match(regex, trim(tfmkt_url)).groupdict()  # type: ignore[union-attr]
     except TypeError:
         return None
     return groups.get(element)
 
 
-def trim(text: Union[list, str]) -> str:
+def trim(text: list | str) -> str:
     """
     Trim and clean up text by removing leading and trailing whitespace and special characters.
 
@@ -62,7 +61,7 @@ def trim(text: Union[list, str]) -> str:
     return text.strip().replace("\xa0", "")
 
 
-def safe_regex(text: Optional[Union[str, list]], regex, group: str) -> Optional[str]:
+def safe_regex(text: str | list | None, regex, group: str) -> str | None:
     """
     Safely apply a regular expression and extract a specific group from the matched text.
 
@@ -78,13 +77,13 @@ def safe_regex(text: Optional[Union[str, list]], regex, group: str) -> Optional[
         return None
 
     try:
-        groups = re.search(regex, trim(text)).groupdict()
+        groups = re.search(regex, trim(text)).groupdict()  # type: ignore[union-attr]
         return groups.get(group)
     except AttributeError:
         return None
 
 
-def remove_str(text: Optional[str], strings_to_remove: Union[str, list]) -> Optional[str]:
+def remove_str(text: str | None, strings_to_remove: str | list) -> str | None:
     """
     Remove specified strings from a text and return the cleaned text.
 
@@ -107,7 +106,7 @@ def remove_str(text: Optional[str], strings_to_remove: Union[str, list]) -> Opti
     return trim(text)
 
 
-def safe_split(text: Optional[str], delimiter: str) -> Optional[list]:
+def safe_split(text: str | None, delimiter: str) -> list | None:
     """
     Split a text using a delimiter and return a list of cleaned, trimmed values.
 
@@ -137,4 +136,4 @@ def to_camel_case(headers: list) -> list:
     camel_case_headers = ["".join(word.capitalize() for word in header.split()) for header in headers]
     camel_case_headers = [header[0].lower() + header[1:] for header in camel_case_headers]
 
-    return [header for header in camel_case_headers]
+    return list(camel_case_headers)

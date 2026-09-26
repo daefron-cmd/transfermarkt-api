@@ -1,5 +1,4 @@
 from datetime import date
-from typing import Dict, Optional
 
 from pydantic import RootModel, model_validator
 
@@ -11,14 +10,14 @@ class MarketValueHistory(TransfermarktBaseModel):
     date: date
     club_id: str
     club_name: str
-    market_value: Optional[int] = None
+    market_value: int | None = None
 
 
 class PlayerRanking(RootModel):
-    root: Dict[str, int]
+    root: dict[str, int]
 
     @model_validator(mode="before")
-    def parse_ranking_values(cls, v: Dict[str, str]) -> Dict[str, int]:
+    def parse_ranking_values(cls, v: dict[str, str]) -> dict[str, int]:
         """Parse the ranking values from string to int.
 
         E.g.: {"Worldwide": "1.234"} -> {"Worldwide": 1234}
@@ -28,6 +27,6 @@ class PlayerRanking(RootModel):
 
 class PlayerMarketValue(TransfermarktBaseModel, AuditMixin):
     id: str
-    market_value: Optional[int]
+    market_value: int | None
     marketValueHistory: list[MarketValueHistory]
     ranking: PlayerRanking

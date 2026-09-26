@@ -2,7 +2,6 @@ import random
 import threading
 import time
 from dataclasses import dataclass, field
-from typing import Optional
 from xml.etree import ElementTree
 
 import diskcache
@@ -24,15 +23,17 @@ from app.settings import settings
 from app.utils.utils import trim
 from app.utils.xpath import Pagination
 
-
 USER_AGENTS: tuple[str, ...] = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0",
     "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
 )
 
@@ -118,7 +119,7 @@ class TransfermarktBase:
     page: ElementTree = field(default_factory=lambda: None, init=False)
     response: dict = field(default_factory=lambda: {}, init=False)
 
-    def make_request(self, url: Optional[str] = None) -> Response:
+    def make_request(self, url: str | None = None) -> Response:
         """
         Make an HTTP GET request to the specified URL.
 
@@ -133,7 +134,7 @@ class TransfermarktBase:
             HTTPException: If there are too many redirects, or if the server returns a client or
                 server error status code.
         """
-        url = self.URL if not url else url
+        url = url if url else self.URL
 
         if _cache is not None:
             cached = _cache.get(url)
@@ -146,15 +147,15 @@ class TransfermarktBase:
             raise HTTPException(
                 status_code=e.status_code,
                 detail=f"Upstream error after retries. {e.reason} for url: {url}",
-            )
-        except TooManyRedirects:
-            raise HTTPException(status_code=404, detail=f"Not found for url: {url}")
-        except ConnectionError:
-            raise HTTPException(status_code=500, detail=f"Connection error for url: {url}")
+            ) from e
+        except TooManyRedirects as e:
+            raise HTTPException(status_code=404, detail=f"Not found for url: {url}") from e
+        except ConnectionError as e:
+            raise HTTPException(status_code=500, detail=f"Connection error for url: {url}") from e
         except RetryError as e:
-            raise HTTPException(status_code=502, detail=f"Retries exhausted for url: {url}. {e}")
+            raise HTTPException(status_code=502, detail=f"Retries exhausted for url: {url}. {e}") from e
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Error for url: {url}. {e}")
+            raise HTTPException(status_code=500, detail=f"Error for url: {url}. {e}") from e
 
         if 400 <= response.status_code < 500:
             raise HTTPException(
@@ -227,7 +228,7 @@ class TransfermarktBase:
         if not self.get_text_by_xpath(xpath):
             raise HTTPException(status_code=404, detail=f"Invalid request (url: {self.URL})")
 
-    def get_list_by_xpath(self, xpath: str, remove_empty: Optional[bool] = True) -> Optional[list]:
+    def get_list_by_xpath(self, xpath: str, remove_empty: bool | None = True) -> list | None:
         """
         Extract a list of elements from the web page using the specified XPath expression.
 
@@ -251,11 +252,11 @@ class TransfermarktBase:
         self,
         xpath: str,
         pos: int = 0,
-        iloc: Optional[int] = None,
-        iloc_from: Optional[int] = None,
-        iloc_to: Optional[int] = None,
-        join_str: Optional[str] = None,
-    ) -> Optional[str]:
+        iloc: int | None = None,
+        iloc_from: int | None = None,
+        iloc_to: int | None = None,
+        join_str: str | None = None,
+    ) -> str | None:
         """
         Extract text content from the web page using the specified XPath expression.
 

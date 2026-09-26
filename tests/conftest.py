@@ -1,5 +1,15 @@
+from pathlib import Path
+
 import pytest
 from schema import Regex
+
+UNIT_DIR = Path(__file__).parent / "unit"
+
+
+def pytest_collection_modifyitems(items):
+    for item in items:
+        if not item.path.is_relative_to(UNIT_DIR):
+            item.add_marker(pytest.mark.live)
 
 
 @pytest.fixture

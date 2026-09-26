@@ -1,17 +1,15 @@
-from typing import Optional
-
 from app.schemas.base import AuditMixin, TransfermarktBaseModel
 
 
 class AchievementDetail(TransfermarktBaseModel):
-    id: Optional[str] = None
+    id: str | None = None
     name: str
 
 
 class AchievementDetails(TransfermarktBaseModel):
-    competition: Optional[AchievementDetail] = None
+    competition: AchievementDetail | None = None
     season: AchievementDetail
-    club: Optional[AchievementDetail] = None
+    club: AchievementDetail | None = None
 
 
 class PlayerAchievement(TransfermarktBaseModel):

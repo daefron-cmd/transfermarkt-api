@@ -1,5 +1,4 @@
 from datetime import date
-from typing import Optional
 
 from app.schemas.base import AuditMixin, TransfermarktBaseModel
 
@@ -8,9 +7,9 @@ class Injury(TransfermarktBaseModel):
     season: str
     injury: str
     from_date: date
-    until_date: Optional[date]
+    until_date: date | None
     days: int
-    games_missed: Optional[int]
+    games_missed: int | None
     games_missed_clubs: list[str]
 
 

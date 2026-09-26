@@ -1,5 +1,4 @@
 from datetime import date
-from typing import Optional
 
 from app.schemas.base import AuditMixin, TransfermarktBaseModel
 
@@ -16,11 +15,11 @@ class PlayerTransfer(TransfermarktBaseModel):
     date: date
     upcoming: bool
     season: str
-    market_value: Optional[int]
-    fee: Optional[int]
+    market_value: int | None
+    fee: int | None
 
 
 class PlayerTransfers(TransfermarktBaseModel, AuditMixin):
     id: str
     transfers: list[PlayerTransfer]
-    youth_clubs: Optional[list[str]]
+    youth_clubs: list[str] | None
