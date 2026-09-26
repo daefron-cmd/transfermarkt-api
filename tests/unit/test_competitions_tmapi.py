@@ -3,7 +3,6 @@
 import asyncio
 import copy
 import json
-from typing import Any
 
 import pytest
 
@@ -20,18 +19,9 @@ from app.services.games import (
     validate_game,
 )
 from app.tmapi import TMAPI_URL, batch_urls, parse_competition
-from tests.endpoints.cases import FIXTURES_DIR, FIXTURES_INDEX
+from tests.unit.tmapi_helpers import NoRequestClient, envelope, fixture_bytes
 
 URL = "https://example.test/fixtures"
-
-
-def fixture_bytes(url: str) -> bytes:
-    entry = next(e for e in json.loads(FIXTURES_INDEX.read_text()) if e["url"] == url)
-    return (FIXTURES_DIR / entry["file"]).read_bytes()
-
-
-def envelope(data: Any) -> bytes:
-    return json.dumps({"success": True, "message": "OK", "data": data}).encode()
 
 
 def lookups(ids: set[str]) -> list[tuple[str, bytes]]:
@@ -406,15 +396,6 @@ def test_fixtures_unexpected_shape_is_502():
         with pytest.raises(UpstreamError) as e:
             TransfermarktCompetitionFixtures.parse_games(envelope(data), competition_id="ES1")
         assert e.value.status_code == 502
-
-
-class NoRequestClient:
-    """A client that fails the test on any request."""
-
-    tmapi_attributes = None
-
-    async def get(self, url: str):
-        raise AssertionError(f"unexpected request {url}")
 
 
 def test_group_names_are_only_fetched_when_a_group_is_not_embedded():

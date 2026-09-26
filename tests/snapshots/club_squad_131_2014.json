@@ -1,0 +1,548 @@
+{
+  "body": {
+    "id": "131",
+    "isNationalTeam": false,
+    "name": "FC Barcelona",
+    "players": [
+      {
+        "age": 34,
+        "contractUntil": "2027-06-30",
+        "dateOfBirth": "1992-04-30",
+        "foot": "right",
+        "height": 187,
+        "id": "74857",
+        "isCaptain": false,
+        "marketValue": 3000000,
+        "name": "Marc ter Stegen",
+        "nationalities": [
+          "Germany"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 1,
+        "type": "historical"
+      },
+      {
+        "age": 43,
+        "contractUntil": null,
+        "dateOfBirth": "1983-04-13",
+        "foot": "right",
+        "height": 184,
+        "id": "40423",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Claudio Bravo",
+        "nationalities": [
+          "Chile",
+          "Spain"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 13,
+        "type": "historical"
+      },
+      {
+        "age": 37,
+        "contractUntil": null,
+        "dateOfBirth": "1989-01-03",
+        "foot": "right",
+        "height": 180,
+        "id": "65263",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Jordi Masip",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 25,
+        "type": "historical"
+      },
+      {
+        "age": 35,
+        "contractUntil": "2027-06-30",
+        "dateOfBirth": "1991-01-15",
+        "foot": "right",
+        "height": 184,
+        "id": "99922",
+        "isCaptain": false,
+        "marketValue": 900000,
+        "name": "Marc Bartra",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 15,
+        "type": "historical"
+      },
+      {
+        "age": 32,
+        "contractUntil": "2027-06-30",
+        "dateOfBirth": "1994-05-01",
+        "foot": "right",
+        "height": 182,
+        "id": "191987",
+        "isCaptain": false,
+        "marketValue": 200000,
+        "name": "Edgar Ié",
+        "nationalities": [
+          "Guinea-Bissau",
+          "Portugal"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 32,
+        "type": "historical"
+      },
+      {
+        "age": 39,
+        "contractUntil": null,
+        "dateOfBirth": "1987-02-02",
+        "foot": "right",
+        "height": 194,
+        "id": "18944",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Gerard Piqué",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 3,
+        "type": "historical"
+      },
+      {
+        "age": 40,
+        "contractUntil": null,
+        "dateOfBirth": "1985-11-14",
+        "foot": "left",
+        "height": 183,
+        "id": "15904",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Thomas Vermaelen",
+        "nationalities": [
+          "Belgium"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 23,
+        "type": "historical"
+      },
+      {
+        "age": 37,
+        "contractUntil": null,
+        "dateOfBirth": "1989-03-21",
+        "foot": "left",
+        "height": 170,
+        "id": "69751",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Jordi Alba",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Left-Back",
+        "shirtNumber": 18,
+        "type": "historical"
+      },
+      {
+        "age": 41,
+        "contractUntil": null,
+        "dateOfBirth": "1984-10-26",
+        "foot": "both",
+        "height": 172,
+        "id": "34495",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Adriano",
+        "nationalities": [
+          "Brazil",
+          "Spain"
+        ],
+        "position": "Left-Back",
+        "shirtNumber": 21,
+        "type": "historical"
+      },
+      {
+        "age": 42,
+        "contractUntil": null,
+        "dateOfBirth": "1983-10-29",
+        "foot": "left",
+        "height": 189,
+        "id": "5404",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Jérémy Mathieu",
+        "nationalities": [
+          "France"
+        ],
+        "position": "Left-Back",
+        "shirtNumber": 24,
+        "type": "historical"
+      },
+      {
+        "age": 35,
+        "contractUntil": null,
+        "dateOfBirth": "1991-04-14",
+        "foot": "right",
+        "height": 175,
+        "id": "68645",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Martín Montoya",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Right-Back",
+        "shirtNumber": 2,
+        "type": "historical"
+      },
+      {
+        "age": 36,
+        "contractUntil": null,
+        "dateOfBirth": "1990-08-06",
+        "foot": "right",
+        "height": 171,
+        "id": "58426",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Douglas",
+        "nationalities": [
+          "Brazil"
+        ],
+        "position": "Right-Back",
+        "shirtNumber": 16,
+        "type": "historical"
+      },
+      {
+        "age": 43,
+        "contractUntil": null,
+        "dateOfBirth": "1983-05-06",
+        "foot": "right",
+        "height": 172,
+        "id": "15951",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Dani Alves",
+        "nationalities": [
+          "Brazil",
+          "Spain"
+        ],
+        "position": "Right-Back",
+        "shirtNumber": 22,
+        "type": "historical"
+      },
+      {
+        "age": 31,
+        "contractUntil": "2027-06-30",
+        "dateOfBirth": "1994-12-18",
+        "foot": "left",
+        "height": 188,
+        "id": "268670",
+        "isCaptain": false,
+        "marketValue": 1200000,
+        "name": "Gerard Gumbau",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 35,
+        "type": "historical"
+      },
+      {
+        "age": 31,
+        "contractUntil": "2027-06-30",
+        "dateOfBirth": "1995-01-20",
+        "foot": "right",
+        "height": 181,
+        "id": "181112",
+        "isCaptain": false,
+        "marketValue": 300000,
+        "name": "Sergi Samper",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 26,
+        "type": "historical"
+      },
+      {
+        "age": 38,
+        "contractUntil": null,
+        "dateOfBirth": "1988-07-16",
+        "foot": "right",
+        "height": 189,
+        "id": "65230",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Sergio Busquets",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 5,
+        "type": "historical"
+      },
+      {
+        "age": 42,
+        "contractUntil": null,
+        "dateOfBirth": "1984-06-08",
+        "foot": "right",
+        "height": 174,
+        "id": "19981",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Javier Mascherano",
+        "nationalities": [
+          "Argentina",
+          "Italy"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 14,
+        "type": "historical"
+      },
+      {
+        "age": 32,
+        "contractUntil": "2026-06-30",
+        "dateOfBirth": "1994-07-28",
+        "foot": "right",
+        "height": 175,
+        "id": "228658",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Diawandou Diagne",
+        "nationalities": [
+          "Senegal"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 33,
+        "type": "historical"
+      },
+      {
+        "age": 34,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1992-02-07",
+        "foot": "right",
+        "height": 178,
+        "id": "85370",
+        "isCaptain": false,
+        "marketValue": 1200000,
+        "name": "Sergi Roberto",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 20,
+        "type": "historical"
+      },
+      {
+        "age": 38,
+        "contractUntil": null,
+        "dateOfBirth": "1988-03-10",
+        "foot": "right",
+        "height": 184,
+        "id": "32467",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Ivan Rakitic",
+        "nationalities": [
+          "Croatia",
+          "Switzerland"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 4,
+        "type": "historical"
+      },
+      {
+        "age": 46,
+        "contractUntil": null,
+        "dateOfBirth": "1980-01-25",
+        "foot": "right",
+        "height": 170,
+        "id": "7607",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Xavi",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 6,
+        "type": "historical"
+      },
+      {
+        "age": 42,
+        "contractUntil": null,
+        "dateOfBirth": "1984-05-11",
+        "foot": "both",
+        "height": 171,
+        "id": "7600",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Andrés Iniesta",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 8,
+        "type": "historical"
+      },
+      {
+        "age": 34,
+        "contractUntil": "2026-12-31",
+        "dateOfBirth": "1992-02-05",
+        "foot": "right",
+        "height": 175,
+        "id": "68290",
+        "isCaptain": false,
+        "marketValue": 8000000,
+        "name": "Neymar",
+        "nationalities": [
+          "Brazil"
+        ],
+        "position": "Attacking Midfield",
+        "shirtNumber": 11,
+        "type": "historical"
+      },
+      {
+        "age": 30,
+        "contractUntil": null,
+        "dateOfBirth": "1996-06-18",
+        "foot": "left",
+        "height": 169,
+        "id": "226074",
+        "isCaptain": false,
+        "marketValue": 400000,
+        "name": "Alen Halilovic",
+        "nationalities": [
+          "Croatia"
+        ],
+        "position": "Attacking Midfield",
+        "shirtNumber": 30,
+        "type": "historical"
+      },
+      {
+        "age": 33,
+        "contractUntil": null,
+        "dateOfBirth": "1993-02-12",
+        "foot": "left",
+        "height": 174,
+        "id": "129473",
+        "isCaptain": false,
+        "marketValue": null,
+        "name": "Rafinha",
+        "nationalities": [
+          "Brazil",
+          "Spain"
+        ],
+        "position": "Attacking Midfield",
+        "shirtNumber": 12,
+        "type": "historical"
+      },
+      {
+        "age": 39,
+        "contractUntil": "2028-12-31",
+        "dateOfBirth": "1987-06-24",
+        "foot": "left",
+        "height": 170,
+        "id": "28003",
+        "isCaptain": false,
+        "marketValue": 15000000,
+        "name": "Lionel Messi",
+        "nationalities": [
+          "Argentina",
+          "Spain"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 10,
+        "type": "historical"
+      },
+      {
+        "age": 30,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1996-01-25",
+        "foot": "right",
+        "height": 178,
+        "id": "204103",
+        "isCaptain": false,
+        "marketValue": 6000000,
+        "name": "Adama Traoré",
+        "nationalities": [
+          "Spain",
+          "Mali"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 27,
+        "type": "historical"
+      },
+      {
+        "age": 39,
+        "contractUntil": null,
+        "dateOfBirth": "1987-07-28",
+        "foot": "both",
+        "height": 167,
+        "id": "65278",
+        "isCaptain": false,
+        "marketValue": 1000000,
+        "name": "Pedro",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 7,
+        "type": "historical"
+      },
+      {
+        "age": 31,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1995-09-01",
+        "foot": "left",
+        "height": 177,
+        "id": "223725",
+        "isCaptain": false,
+        "marketValue": 800000,
+        "name": "Munir El Haddadi",
+        "nationalities": [
+          "Morocco",
+          "Spain"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 31,
+        "type": "historical"
+      },
+      {
+        "age": 39,
+        "contractUntil": "2026-12-31",
+        "dateOfBirth": "1987-01-24",
+        "foot": "right",
+        "height": 182,
+        "id": "44352",
+        "isCaptain": false,
+        "marketValue": 1500000,
+        "name": "Luis Suárez",
+        "nationalities": [
+          "Uruguay"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": 9,
+        "type": "historical"
+      },
+      {
+        "age": 31,
+        "contractUntil": "2027-06-30",
+        "dateOfBirth": "1995-07-09",
+        "foot": "right",
+        "height": 175,
+        "id": "199369",
+        "isCaptain": false,
+        "marketValue": 500000,
+        "name": "Sandro Ramírez",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": 29,
+        "type": "historical"
+      }
+    ],
+    "seasonId": "2014"
+  },
+  "status_code": 200
+}

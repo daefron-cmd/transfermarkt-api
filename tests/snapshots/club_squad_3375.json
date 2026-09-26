@@ -1,0 +1,456 @@
+{
+  "body": {
+    "id": "3375",
+    "isNationalTeam": true,
+    "name": "Spain",
+    "players": [
+      {
+        "age": 31,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1995-09-15",
+        "foot": "right",
+        "height": 186,
+        "id": "262749",
+        "isCaptain": false,
+        "marketValue": 30000000,
+        "name": "David Raya",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 1,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 29,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "1997-06-11",
+        "foot": "right",
+        "height": 190,
+        "id": "262396",
+        "isCaptain": false,
+        "marketValue": 22000000,
+        "name": "Unai Simón",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 23,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 28,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "1998-05-27",
+        "foot": "right",
+        "height": 191,
+        "id": "388516",
+        "isCaptain": false,
+        "marketValue": 10000000,
+        "name": "Josep Martínez",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": null,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 19,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "2007-01-22",
+        "foot": "right",
+        "height": 184,
+        "id": "962110",
+        "isCaptain": false,
+        "marketValue": 100000000,
+        "name": "Pau Cubarsí",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 22,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 21,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2005-04-14",
+        "foot": "both",
+        "height": 195,
+        "id": "890290",
+        "isCaptain": false,
+        "marketValue": 60000000,
+        "name": "Dean Huijsen",
+        "nationalities": [
+          "Spain",
+          "Netherlands"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": null,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 25,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2001-01-09",
+        "foot": "right",
+        "height": 180,
+        "id": "466794",
+        "isCaptain": false,
+        "marketValue": 40000000,
+        "name": "Eric García",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 4,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 23,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2003-06-20",
+        "foot": "right",
+        "height": 191,
+        "id": "844637",
+        "isCaptain": false,
+        "marketValue": 35000000,
+        "name": "Marc Pubill",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 2,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 32,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1994-05-27",
+        "foot": "left",
+        "height": 191,
+        "id": "176553",
+        "isCaptain": false,
+        "marketValue": 8000000,
+        "name": "Aymeric Laporte",
+        "nationalities": [
+          "Spain",
+          "France"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 14,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 28,
+        "contractUntil": "2032-06-30",
+        "dateOfBirth": "1998-07-22",
+        "foot": "left",
+        "height": 174,
+        "id": "284857",
+        "isCaptain": false,
+        "marketValue": 60000000,
+        "name": "Marc Cucurella",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Left-Back",
+        "shirtNumber": 24,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 31,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1995-09-20",
+        "foot": "left",
+        "height": 171,
+        "id": "193082",
+        "isCaptain": false,
+        "marketValue": 20000000,
+        "name": "Alejandro Grimaldo",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Left-Back",
+        "shirtNumber": 3,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 21,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "2004-09-28",
+        "foot": "right",
+        "height": 183,
+        "id": "946883",
+        "isCaptain": false,
+        "marketValue": 15000000,
+        "name": "Iván Fresneda",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Right-Back",
+        "shirtNumber": null,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 27,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1999-02-02",
+        "foot": "right",
+        "height": 181,
+        "id": "423440",
+        "isCaptain": false,
+        "marketValue": 75000000,
+        "name": "Martín Zubimendi",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 18,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 30,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1996-06-22",
+        "foot": "right",
+        "height": 190,
+        "id": "357565",
+        "isCaptain": true,
+        "marketValue": 55000000,
+        "name": "Rodri",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 16,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 23,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2002-11-25",
+        "foot": "right",
+        "height": 174,
+        "id": "683840",
+        "isCaptain": false,
+        "marketValue": 150000000,
+        "name": "Pedri",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 20,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 30,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1996-04-03",
+        "foot": "left",
+        "height": 188,
+        "id": "350219",
+        "isCaptain": false,
+        "marketValue": 30000000,
+        "name": "Fabián Ruiz",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 8,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 30,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1996-06-22",
+        "foot": "left",
+        "height": 188,
+        "id": "338424",
+        "isCaptain": false,
+        "marketValue": 25000000,
+        "name": "Mikel Merino",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 6,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 23,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2003-05-11",
+        "foot": "right",
+        "height": 176,
+        "id": "636703",
+        "isCaptain": false,
+        "marketValue": 100000000,
+        "name": "Fermín López",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Attacking Midfield",
+        "shirtNumber": null,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 28,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1998-05-07",
+        "foot": "right",
+        "height": 179,
+        "id": "293385",
+        "isCaptain": false,
+        "marketValue": 60000000,
+        "name": "Dani Olmo",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Attacking Midfield",
+        "shirtNumber": 10,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 25,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2001-07-20",
+        "foot": "right",
+        "height": 172,
+        "id": "548111",
+        "isCaptain": false,
+        "marketValue": 40000000,
+        "name": "Álex Baena",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Left Winger",
+        "shirtNumber": 15,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 24,
+        "contractUntil": "2035-06-30",
+        "dateOfBirth": "2002-07-12",
+        "foot": "right",
+        "height": 181,
+        "id": "709187",
+        "isCaptain": false,
+        "marketValue": 40000000,
+        "name": "Nico Williams",
+        "nationalities": [
+          "Spain",
+          "Ghana"
+        ],
+        "position": "Left Winger",
+        "shirtNumber": 17,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 23,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2002-10-20",
+        "foot": "right",
+        "height": 174,
+        "id": "568157",
+        "isCaptain": false,
+        "marketValue": 30000000,
+        "name": "Yéremy Pino",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Left Winger",
+        "shirtNumber": 11,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 23,
+        "contractUntil": "2032-06-30",
+        "dateOfBirth": "2003-07-13",
+        "foot": "right",
+        "height": 173,
+        "id": "935231",
+        "isCaptain": false,
+        "marketValue": 30000000,
+        "name": "Víctor Muñoz",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Left Winger",
+        "shirtNumber": 25,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 19,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2007-07-13",
+        "foot": "left",
+        "height": 183,
+        "id": "937958",
+        "isCaptain": false,
+        "marketValue": 220000000,
+        "name": "Lamine Yamal",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 19,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 26,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2000-02-29",
+        "foot": "right",
+        "height": 183,
+        "id": "398184",
+        "isCaptain": false,
+        "marketValue": 55000000,
+        "name": "Ferran Torres",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": 7,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 29,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1997-04-21",
+        "foot": "left",
+        "height": 181,
+        "id": "351478",
+        "isCaptain": false,
+        "marketValue": 25000000,
+        "name": "Mikel Oyarzabal",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": 21,
+        "type": "nationalTeam"
+      },
+      {
+        "age": 24,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2002-07-03",
+        "foot": "right",
+        "height": 186,
+        "id": "720518",
+        "isCaptain": false,
+        "marketValue": 10000000,
+        "name": "Roberto Fernández",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": null,
+        "type": "nationalTeam"
+      }
+    ],
+    "seasonId": null
+  },
+  "status_code": 200
+}

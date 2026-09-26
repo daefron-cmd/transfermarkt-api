@@ -1,0 +1,476 @@
+{
+  "body": {
+    "id": "131",
+    "isNationalTeam": false,
+    "name": "FC Barcelona",
+    "players": [
+      {
+        "age": 25,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2001-05-04",
+        "foot": "right",
+        "height": 193,
+        "id": "561613",
+        "isCaptain": false,
+        "marketValue": 45000000,
+        "name": "Joan García",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 1,
+        "type": "current"
+      },
+      {
+        "age": 31,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1995-01-09",
+        "foot": "right",
+        "height": 188,
+        "id": "205927",
+        "isCaptain": false,
+        "marketValue": 4000000,
+        "name": "Dominik Livakovic",
+        "nationalities": [
+          "Croatia"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 25,
+        "type": "current"
+      },
+      {
+        "age": 36,
+        "contractUntil": "2027-06-30",
+        "dateOfBirth": "1990-04-18",
+        "foot": "right",
+        "height": 195,
+        "id": "44058",
+        "isCaptain": false,
+        "marketValue": 800000,
+        "name": "Wojciech Szczesny",
+        "nationalities": [
+          "Poland"
+        ],
+        "position": "Goalkeeper",
+        "shirtNumber": 13,
+        "type": "current"
+      },
+      {
+        "age": 19,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "2007-01-22",
+        "foot": "right",
+        "height": 184,
+        "id": "962110",
+        "isCaptain": false,
+        "marketValue": 100000000,
+        "name": "Pau Cubarsí",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 5,
+        "type": "current"
+      },
+      {
+        "age": 25,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2001-01-09",
+        "foot": "right",
+        "height": 180,
+        "id": "466794",
+        "isCaptain": false,
+        "marketValue": 40000000,
+        "name": "Eric García",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 24,
+        "type": "current"
+      },
+      {
+        "age": 24,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "2002-02-26",
+        "foot": "left",
+        "height": 186,
+        "id": "705395",
+        "isCaptain": false,
+        "marketValue": 35000000,
+        "name": "Gerard Martín",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 18,
+        "type": "current"
+      },
+      {
+        "age": 30,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1996-04-10",
+        "foot": "right",
+        "height": 189,
+        "id": "196948",
+        "isCaptain": false,
+        "marketValue": 8000000,
+        "name": "Andreas Christensen",
+        "nationalities": [
+          "Denmark"
+        ],
+        "position": "Centre-Back",
+        "shirtNumber": 15,
+        "type": "current"
+      },
+      {
+        "age": 22,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "2003-10-18",
+        "foot": "left",
+        "height": 177,
+        "id": "636688",
+        "isCaptain": false,
+        "marketValue": 50000000,
+        "name": "Alejandro Balde",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Left-Back",
+        "shirtNumber": 3,
+        "type": "current"
+      },
+      {
+        "age": 27,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1998-11-12",
+        "foot": "right",
+        "height": 181,
+        "id": "411975",
+        "isCaptain": false,
+        "marketValue": 60000000,
+        "name": "Jules Koundé",
+        "nationalities": [
+          "France",
+          "Benin"
+        ],
+        "position": "Right-Back",
+        "shirtNumber": 23,
+        "type": "current"
+      },
+      {
+        "age": 32,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "1994-05-27",
+        "foot": "right",
+        "height": 182,
+        "id": "182712",
+        "isCaptain": false,
+        "marketValue": 8000000,
+        "name": "João Cancelo",
+        "nationalities": [
+          "Portugal"
+        ],
+        "position": "Right-Back",
+        "shirtNumber": 2,
+        "type": "current"
+      },
+      {
+        "age": 19,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "2007-05-21",
+        "foot": "right",
+        "height": 175,
+        "id": "1018912",
+        "isCaptain": false,
+        "marketValue": 5000000,
+        "name": "Xavi Espart",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Right-Back",
+        "shirtNumber": 12,
+        "type": "current"
+      },
+      {
+        "age": 30,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1996-06-22",
+        "foot": "right",
+        "height": 190,
+        "id": "357565",
+        "isCaptain": false,
+        "marketValue": 55000000,
+        "name": "Rodri",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Defensive Midfield",
+        "shirtNumber": 16,
+        "type": "current"
+      },
+      {
+        "age": 23,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2002-11-25",
+        "foot": "right",
+        "height": 174,
+        "id": "683840",
+        "isCaptain": false,
+        "marketValue": 150000000,
+        "name": "Pedri",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 8,
+        "type": "current"
+      },
+      {
+        "age": 29,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "1997-05-12",
+        "foot": "right",
+        "height": 181,
+        "id": "326330",
+        "isCaptain": false,
+        "marketValue": 35000000,
+        "name": "Frenkie de Jong",
+        "nationalities": [
+          "Netherlands"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 21,
+        "type": "current"
+      },
+      {
+        "age": 22,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2004-08-05",
+        "foot": "right",
+        "height": 173,
+        "id": "646740",
+        "isCaptain": false,
+        "marketValue": 30000000,
+        "name": "Gavi",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 6,
+        "type": "current"
+      },
+      {
+        "age": 19,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "2007-05-26",
+        "foot": "left",
+        "height": 193,
+        "id": "1018920",
+        "isCaptain": false,
+        "marketValue": 30000000,
+        "name": "Marc Bernal",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 22,
+        "type": "current"
+      },
+      {
+        "age": 20,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "2006-02-09",
+        "foot": "right",
+        "height": 180,
+        "id": "938154",
+        "isCaptain": false,
+        "marketValue": 2500000,
+        "name": "Brian Fariñas",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Central Midfield",
+        "shirtNumber": 4,
+        "type": "current"
+      },
+      {
+        "age": 23,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2003-05-11",
+        "foot": "right",
+        "height": 176,
+        "id": "636703",
+        "isCaptain": false,
+        "marketValue": 100000000,
+        "name": "Fermín López",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Attacking Midfield",
+        "shirtNumber": 7,
+        "type": "current"
+      },
+      {
+        "age": 28,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "1998-05-07",
+        "foot": "right",
+        "height": 179,
+        "id": "293385",
+        "isCaptain": false,
+        "marketValue": 60000000,
+        "name": "Dani Olmo",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Attacking Midfield",
+        "shirtNumber": 20,
+        "type": "current"
+      },
+      {
+        "age": 25,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2001-02-24",
+        "foot": "right",
+        "height": 183,
+        "id": "503733",
+        "isCaptain": false,
+        "marketValue": 80000000,
+        "name": "Anthony Gordon",
+        "nationalities": [
+          "England",
+          "Scotland"
+        ],
+        "position": "Left Winger",
+        "shirtNumber": 17,
+        "type": "current"
+      },
+      {
+        "age": 18,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2008-01-22",
+        "foot": "right",
+        "height": 185,
+        "id": "1105549",
+        "isCaptain": false,
+        "marketValue": 800000,
+        "name": "Jesse Bisiwu",
+        "nationalities": [
+          "Belgium",
+          "Ghana"
+        ],
+        "position": "Left Winger",
+        "shirtNumber": 27,
+        "type": "current"
+      },
+      {
+        "age": 19,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2007-07-13",
+        "foot": "left",
+        "height": 183,
+        "id": "937958",
+        "isCaptain": false,
+        "marketValue": 220000000,
+        "name": "Lamine Yamal",
+        "nationalities": [
+          "Spain"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 10,
+        "type": "current"
+      },
+      {
+        "age": 24,
+        "contractUntil": "2031-06-30",
+        "dateOfBirth": "2002-01-18",
+        "foot": "left",
+        "height": 180,
+        "id": "496094",
+        "isCaptain": false,
+        "marketValue": 40000000,
+        "name": "Karim Adeyemi",
+        "nationalities": [
+          "Germany",
+          "Nigeria"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 14,
+        "type": "current"
+      },
+      {
+        "age": 20,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "2005-11-15",
+        "foot": "left",
+        "height": 173,
+        "id": "792331",
+        "isCaptain": false,
+        "marketValue": 15000000,
+        "name": "Roony Bardghji",
+        "nationalities": [
+          "Sweden",
+          "Syria"
+        ],
+        "position": "Right Winger",
+        "shirtNumber": 19,
+        "type": "current"
+      },
+      {
+        "age": 29,
+        "contractUntil": "2028-06-30",
+        "dateOfBirth": "1996-12-14",
+        "foot": "left",
+        "height": 176,
+        "id": "411295",
+        "isCaptain": true,
+        "marketValue": 70000000,
+        "name": "Raphinha",
+        "nationalities": [
+          "Brazil",
+          "Italy"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": 11,
+        "type": "current"
+      },
+      {
+        "age": 29,
+        "contractUntil": "2029-06-30",
+        "dateOfBirth": "1997-04-03",
+        "foot": "right",
+        "height": 175,
+        "id": "363205",
+        "isCaptain": false,
+        "marketValue": 17000000,
+        "name": "Gabriel Jesus",
+        "nationalities": [
+          "Brazil"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": 9,
+        "type": "current"
+      },
+      {
+        "age": 18,
+        "contractUntil": "2030-06-30",
+        "dateOfBirth": "2008-01-01",
+        "foot": "both",
+        "height": 182,
+        "id": "1259085",
+        "isCaptain": false,
+        "marketValue": 1500000,
+        "name": "Hamza Abdelkarim",
+        "nationalities": [
+          "Egypt"
+        ],
+        "position": "Centre-Forward",
+        "shirtNumber": 29,
+        "type": "current"
+      }
+    ],
+    "seasonId": null
+  },
+  "status_code": 200
+}

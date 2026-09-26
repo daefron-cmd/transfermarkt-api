@@ -20,6 +20,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   shootout result `{home, away}`, or `null`), status, `attendance` and match report `url`.
 - Both are built from Transfermarkt's JSON API (`tmapi.transfermarkt.technology`), keep `null` values and return 404
   for an unknown competition.
+- `GET /clubs/{club_id}/fixtures`: a club's games and results in all competitions in a season (`season_id`, the
+  current season by default), sorted by date. Each game has the fields of a competition fixtures game plus `venue`
+  (`home` or `away`) and `result` (`W`, `D` or `L`; `null` until the game has finished).
+- `GET /clubs/{club_id}/squad`: a club's or national team's squad in a season (`season_id`, the current squad by
+  default), with `isNationalTeam` and, per player, `shirtNumber`, `isCaptain`, `position`, `dateOfBirth`, `age`,
+  `nationalities`, `height`, `foot`, `contractUntil`, `marketValue` and the squad entry `type`. Player details are
+  the player's current ones, also in a past season's squad.
+- Both club routes are built from Transfermarkt's JSON API, keep `null` values and return 404 for an unknown club.
 
 ## [4.0.0] - 2026-09-26
 

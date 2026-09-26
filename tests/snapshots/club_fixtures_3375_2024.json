@@ -1,0 +1,503 @@
+{
+  "body": {
+    "games": [
+      {
+        "attendance": 43267,
+        "awayClub": {
+          "id": "3816",
+          "name": "Colombia"
+        },
+        "awayGoals": 1,
+        "competitionId": "FS",
+        "competitionName": "International Friendlies",
+        "date": "2024-03-22T20:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 0,
+        "id": "4317768",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": "L",
+        "seasonId": "2023",
+        "seasonName": "23/24",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4317768",
+        "venue": "home"
+      },
+      {
+        "attendance": 65000,
+        "awayClub": {
+          "id": "3439",
+          "name": "Brazil"
+        },
+        "awayGoals": 3,
+        "competitionId": "FS",
+        "competitionName": "International Friendlies",
+        "date": "2024-03-26T20:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 3,
+        "id": "4319276",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 18,
+        "result": "D",
+        "seasonId": "2023",
+        "seasonName": "23/24",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4319276",
+        "venue": "home"
+      },
+      {
+        "attendance": 13000,
+        "awayClub": {
+          "id": "10533",
+          "name": "Andorra"
+        },
+        "awayGoals": 0,
+        "competitionId": "FS",
+        "competitionName": "International Friendlies",
+        "date": "2024-06-05T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 5,
+        "id": "4347242",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 9,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "23/24",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4347242",
+        "venue": "home"
+      },
+      {
+        "attendance": 18300,
+        "awayClub": {
+          "id": "5674",
+          "name": "Northern Ireland"
+        },
+        "awayGoals": 1,
+        "competitionId": "FS",
+        "competitionName": "International Friendlies",
+        "date": "2024-06-08T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 5,
+        "id": "4347262",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 10,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "23/24",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4347262",
+        "venue": "home"
+      },
+      {
+        "attendance": 68844,
+        "awayClub": {
+          "id": "3556",
+          "name": "Croatia"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-15T16:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 3,
+        "id": "4235809",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235809",
+        "venue": "home"
+      },
+      {
+        "attendance": 49528,
+        "awayClub": {
+          "id": "3376",
+          "name": "Italy"
+        },
+        "awayGoals": 0,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-20T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 1,
+        "id": "4235822",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235822",
+        "venue": "home"
+      },
+      {
+        "attendance": 46586,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-24T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3561",
+          "name": "Albania"
+        },
+        "homeGoals": 0,
+        "id": "4235834",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Group B",
+        "url": "/spielbericht/index/spielbericht/4235834",
+        "venue": "away"
+      },
+      {
+        "attendance": 42233,
+        "awayClub": {
+          "id": "3669",
+          "name": "Georgia"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-06-30T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 4,
+        "id": "4359330",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4359330",
+        "venue": "home"
+      },
+      {
+        "attendance": 54000,
+        "awayClub": {
+          "id": "3262",
+          "name": "Germany"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-05T16:00:00Z",
+        "endedAfter": "extra_time",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 2,
+        "id": "4359336",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Quarter-Finals",
+        "url": "/spielbericht/index/spielbericht/4359336",
+        "venue": "home"
+      },
+      {
+        "attendance": 62042,
+        "awayClub": {
+          "id": "3377",
+          "name": "France"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-09T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 2,
+        "id": "4359340",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Semi-Finals",
+        "url": "/spielbericht/index/spielbericht/4359340",
+        "venue": "home"
+      },
+      {
+        "attendance": 65600,
+        "awayClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "awayGoals": 1,
+        "competitionId": "EURO",
+        "competitionName": "UEFA Euro",
+        "date": "2024-07-14T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 2,
+        "id": "4359342",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 7,
+        "result": "W",
+        "seasonId": "2023",
+        "seasonName": "2024",
+        "shootout": null,
+        "stage": "Final",
+        "url": "/spielbericht/index/spielbericht/4359342",
+        "venue": "home"
+      },
+      {
+        "attendance": 29981,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": 0,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2024-09-05T18:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3438",
+          "name": "Serbia"
+        },
+        "homeGoals": 0,
+        "id": "4284267",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group 4",
+        "url": "/spielbericht/index/spielbericht/4284267",
+        "venue": "away"
+      },
+      {
+        "attendance": 26265,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": 4,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2024-09-08T18:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "homeGoals": 1,
+        "id": "4284264",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group 4",
+        "url": "/spielbericht/index/spielbericht/4284264",
+        "venue": "away"
+      },
+      {
+        "attendance": 29870,
+        "awayClub": {
+          "id": "3436",
+          "name": "Denmark"
+        },
+        "awayGoals": 0,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2024-10-12T18:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 1,
+        "id": "4284258",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group 4",
+        "url": "/spielbericht/index/spielbericht/4284258",
+        "venue": "home"
+      },
+      {
+        "attendance": 20345,
+        "awayClub": {
+          "id": "3438",
+          "name": "Serbia"
+        },
+        "awayGoals": 0,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2024-10-15T18:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 3,
+        "id": "4284260",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group 4",
+        "url": "/spielbericht/index/spielbericht/4284260",
+        "venue": "home"
+      },
+      {
+        "attendance": 36985,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": 2,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2024-11-15T19:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3436",
+          "name": "Denmark"
+        },
+        "homeGoals": 1,
+        "id": "4284261",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group 4",
+        "url": "/spielbericht/index/spielbericht/4284261",
+        "venue": "away"
+      },
+      {
+        "attendance": 21204,
+        "awayClub": {
+          "id": "3384",
+          "name": "Switzerland"
+        },
+        "awayGoals": 2,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2024-11-18T19:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": 3,
+        "id": "4284259",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group 4",
+        "url": "/spielbericht/index/spielbericht/4284259",
+        "venue": "home"
+      }
+    ],
+    "id": "3375",
+    "name": "Spain",
+    "seasonId": "2024"
+  },
+  "status_code": 200
+}

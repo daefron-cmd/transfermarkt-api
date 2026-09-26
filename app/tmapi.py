@@ -71,6 +71,18 @@ def parse_competition(url: str, content: bytes) -> tuple[str, int]:
     return data["name"].strip(), data["currentSeasonId"]
 
 
+def parse_club(url: str, content: bytes) -> tuple[str, bool]:
+    """
+    Return the name of a club and whether it is a national team from a /club/{id} response.
+
+    Raises:
+        UpstreamError: 404 if tmapi reports success=false, 502 if the response does not have the expected shape.
+    """
+    data = tmapi_data(url, content, failure_status=404)
+    check_fields(url, data, [("name", str), ("baseDetails.isNationalTeam", bool)], "club")
+    return data["name"].strip(), data["baseDetails"]["isNationalTeam"]
+
+
 def batch_urls(resource: str, ids: Iterable[str]) -> list[str]:
     """Build batch lookup URLs such as /clubs?ids[]=1&ids[]=2, with ids deduplicated, sorted and chunked."""
     unique = sorted(set(ids))

@@ -1,0 +1,6 @@
+{
+  "body": {
+    "detail": "Client Error. Not Found for url: https://tmapi.transfermarkt.technology/club/0"
+  },
+  "status_code": 404
+}

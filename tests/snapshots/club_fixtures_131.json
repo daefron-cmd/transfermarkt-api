@@ -1,0 +1,1344 @@
+{
+  "body": {
+    "games": [
+      {
+        "attendance": 30704,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-08-23T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "homeGoals": 0,
+        "id": "4909471",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909471",
+        "venue": "away"
+      },
+      {
+        "attendance": 59326,
+        "awayClub": {
+          "id": "621",
+          "name": "Athletic Bilbao"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-08-27T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 2,
+        "id": "4909445",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909445",
+        "venue": "home"
+      },
+      {
+        "attendance": 57768,
+        "awayClub": {
+          "id": "367",
+          "name": "Rayo Vallecano"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-08-31T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 5,
+        "id": "4909481",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909481",
+        "venue": "home"
+      },
+      {
+        "attendance": 47319,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-09-06T14:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1049",
+          "name": "Valencia CF"
+        },
+        "homeGoals": 0,
+        "id": "4909504",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909504",
+        "venue": "away"
+      },
+      {
+        "attendance": 45838,
+        "awayClub": {
+          "id": "234",
+          "name": "Feyenoord Rotterdam"
+        },
+        "awayGoals": 1,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2026-09-09T16:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 5,
+        "id": "5035886",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035886",
+        "venue": "home"
+      },
+      {
+        "attendance": 23630,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 4,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-09-13T14:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3368",
+          "name": "Levante UD"
+        },
+        "homeGoals": 2,
+        "id": "4909527",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909527",
+        "venue": "away"
+      },
+      {
+        "attendance": 50568,
+        "awayClub": {
+          "id": "630",
+          "name": "Racing Santander"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-09-16T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 7,
+        "id": "4909565",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909565",
+        "venue": "home"
+      },
+      {
+        "attendance": 41145,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 3,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-09-19T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "368",
+          "name": "Sevilla FC"
+        },
+        "homeGoals": 1,
+        "id": "4909615",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 7,
+        "result": "W",
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909615",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3709",
+          "name": "Getafe CF"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-10-10T16:30:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4909721",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 8,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909721",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2026-10-13T19:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "141",
+          "name": "Galatasaray"
+        },
+        "homeGoals": null,
+        "id": "5035959",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035959",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-10-17T16:30:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "150",
+          "name": "Real Betis Balompié"
+        },
+        "homeGoals": null,
+        "id": "4909728",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 9,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4909728",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2026-10-20T19:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "583",
+          "name": "Paris Saint-Germain"
+        },
+        "homeGoals": null,
+        "id": "5035864",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035864",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-10-25T20:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918419",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 10,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918419",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "1108",
+          "name": "Deportivo Alavés"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-11-01T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918429",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 11,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918429",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "405",
+          "name": "Aston Villa"
+        },
+        "awayGoals": null,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2026-11-03T20:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "5035885",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035885",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-11-08T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "13",
+          "name": "Atlético de Madrid"
+        },
+        "homeGoals": null,
+        "id": "4918435",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 12,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918435",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "1050",
+          "name": "Villarreal CF"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-11-22T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918447",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 13,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918447",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2026-11-25T17:45:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "63993",
+          "name": "Sabah FK"
+        },
+        "homeGoals": null,
+        "id": "5035995",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035995",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-11-29T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "897",
+          "name": "Deportivo A Coruña"
+        },
+        "homeGoals": null,
+        "id": "4918457",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 14,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918457",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "940",
+          "name": "Celta de Vigo"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-12-06T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918468",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 15,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918468",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "281",
+          "name": "Manchester City"
+        },
+        "awayGoals": null,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2026-12-08T20:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "5035884",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035884",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-12-13T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "1084",
+          "name": "Málaga CF"
+        },
+        "homeGoals": null,
+        "id": "4918481",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 16,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918481",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "681",
+          "name": "Real Sociedad"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2026-12-20T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918489",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 17,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918489",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-01-03T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "714",
+          "name": "RCD Espanyol Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918497",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 18,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918497",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-01-10T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "331",
+          "name": "CA Osasuna"
+        },
+        "homeGoals": null,
+        "id": "4918511",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 19,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918511",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "1531",
+          "name": "Elche CF"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-01-17T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918518",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 20,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918518",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2027-01-20T20:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "336",
+          "name": "Sporting CP"
+        },
+        "homeGoals": null,
+        "id": "5035900",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 7,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035900",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-01-24T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "1108",
+          "name": "Deportivo Alavés"
+        },
+        "homeGoals": null,
+        "id": "4918525",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 21,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918525",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "1047",
+          "name": "Como 1907"
+        },
+        "awayGoals": null,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2027-01-27T20:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "5035887",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 8,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/5035887",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "1049",
+          "name": "Valencia CF"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-01-31T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918538",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 22,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918538",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "13",
+          "name": "Atlético de Madrid"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-02-07T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918551",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 23,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918551",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-02-14T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "1050",
+          "name": "Villarreal CF"
+        },
+        "homeGoals": null,
+        "id": "4918564",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 24,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918564",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3368",
+          "name": "Levante UD"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-02-21T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918570",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 25,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918570",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-02-28T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "621",
+          "name": "Athletic Bilbao"
+        },
+        "homeGoals": null,
+        "id": "4918575",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 26,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918575",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "150",
+          "name": "Real Betis Balompié"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-03-07T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918590",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 27,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918590",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "897",
+          "name": "Deportivo A Coruña"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-03-14T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918599",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 28,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918599",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-03-21T13:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "367",
+          "name": "Rayo Vallecano"
+        },
+        "homeGoals": null,
+        "id": "4918610",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 29,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918610",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "368",
+          "name": "Sevilla FC"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-04-04T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918627",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 30,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918627",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-04-11T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "630",
+          "name": "Racing Santander"
+        },
+        "homeGoals": null,
+        "id": "4918638",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 31,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918638",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "714",
+          "name": "RCD Espanyol Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-04-18T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918648",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 32,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918648",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-04-21T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "940",
+          "name": "Celta de Vigo"
+        },
+        "homeGoals": null,
+        "id": "4918654",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 33,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918654",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "331",
+          "name": "CA Osasuna"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-05-02T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918668",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 34,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918668",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-05-09T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "homeGoals": null,
+        "id": "4918680",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 35,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918680",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-05-16T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "681",
+          "name": "Real Sociedad"
+        },
+        "homeGoals": null,
+        "id": "4918691",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 36,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918691",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "1084",
+          "name": "Málaga CF"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-05-23T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": null,
+        "id": "4918707",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 37,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918707",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": null,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2027-05-30T12:00:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "3709",
+          "name": "Getafe CF"
+        },
+        "homeGoals": null,
+        "id": "4918697",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": false,
+        "matchday": 38,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4918697",
+        "venue": "away"
+      }
+    ],
+    "id": "131",
+    "name": "FC Barcelona",
+    "seasonId": "2026"
+  },
+  "status_code": 200
+}

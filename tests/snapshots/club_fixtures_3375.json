@@ -1,0 +1,184 @@
+{
+  "body": {
+    "games": [
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": null,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2026-09-26T18:45:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "homeGoals": null,
+        "id": "4824834",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group 3",
+        "url": "/spielbericht/index/spielbericht/4824834",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3556",
+          "name": "Croatia"
+        },
+        "awayGoals": null,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2026-09-29T18:45:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": null,
+        "id": "4824833",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group 3",
+        "url": "/spielbericht/index/spielbericht/4824833",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3445",
+          "name": "Czechia"
+        },
+        "awayGoals": null,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2026-10-03T18:45:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": null,
+        "id": "4825111",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group 3",
+        "url": "/spielbericht/index/spielbericht/4825111",
+        "venue": "home"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": null,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2026-10-06T18:45:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "3556",
+          "name": "Croatia"
+        },
+        "homeGoals": null,
+        "id": "4825114",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group 3",
+        "url": "/spielbericht/index/spielbericht/4825114",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "awayGoals": null,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2026-11-12T19:45:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "3445",
+          "name": "Czechia"
+        },
+        "homeGoals": null,
+        "id": "4825130",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group 3",
+        "url": "/spielbericht/index/spielbericht/4825130",
+        "venue": "away"
+      },
+      {
+        "attendance": null,
+        "awayClub": {
+          "id": "3299",
+          "name": "England"
+        },
+        "awayGoals": null,
+        "competitionId": "UNLA",
+        "competitionName": "UEFA Nations League A",
+        "date": "2026-11-15T19:45:00Z",
+        "endedAfter": null,
+        "homeClub": {
+          "id": "3375",
+          "name": "Spain"
+        },
+        "homeGoals": null,
+        "id": "4825127",
+        "isFinished": false,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": null,
+        "seasonId": "2026",
+        "seasonName": "26/27",
+        "shootout": null,
+        "stage": "Group 3",
+        "url": "/spielbericht/index/spielbericht/4825127",
+        "venue": "home"
+      }
+    ],
+    "id": "3375",
+    "name": "Spain",
+    "seasonId": "2026"
+  },
+  "status_code": 200
+}

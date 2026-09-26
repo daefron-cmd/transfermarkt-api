@@ -2,9 +2,11 @@ from fastapi import APIRouter
 
 from app.api.deps import Client, ClubId, PageNumber, SearchQuery, SeasonId
 from app.schemas import clubs as schemas
+from app.services.clubs.fixtures import TransfermarktClubFixtures
 from app.services.clubs.players import TransfermarktClubPlayers
 from app.services.clubs.profile import TransfermarktClubProfile
 from app.services.clubs.search import TransfermarktClubSearch
+from app.services.clubs.squad import TransfermarktClubSquad
 
 router = APIRouter()
 
@@ -46,3 +48,31 @@ async def get_club_players(club_id: ClubId, client: Client, season_id: SeasonId 
     tfmkt = await TransfermarktClubPlayers.fetch(client, club_id=club_id, season_id=season_id)
     club_players = tfmkt.get_club_players()
     return club_players
+
+
+# seasonId, stage, goals, result and attendance can be null, so None values are kept in this response.
+@router.get(
+    "/{club_id}/fixtures",
+    response_model=schemas.ClubFixtures,
+    summary="Club fixtures",
+    description="Return a club's games and results across all competitions in a season (the current season by "
+    "default), built from Transfermarkt's JSON API.",
+)
+async def get_club_fixtures(club_id: ClubId, client: Client, season_id: SeasonId = None) -> dict:
+    tfmkt = await TransfermarktClubFixtures.fetch(client, club_id=club_id, season_id=season_id)
+    club_fixtures = tfmkt.get_club_fixtures()
+    return club_fixtures
+
+
+# seasonId and several player fields can be null, so None values are kept in this response.
+@router.get(
+    "/{club_id}/squad",
+    response_model=schemas.ClubSquadMembers,
+    summary="Club squad (JSON API)",
+    description="Return a club's or national team's squad in a season (the current squad by default), with each "
+    "player's shirt number, position, nationalities, contract and market value, built from Transfermarkt's JSON API.",
+)
+async def get_club_squad(club_id: ClubId, client: Client, season_id: SeasonId = None) -> dict:
+    tfmkt = await TransfermarktClubSquad.fetch(client, club_id=club_id, season_id=season_id)
+    club_squad = tfmkt.get_club_squad()
+    return club_squad

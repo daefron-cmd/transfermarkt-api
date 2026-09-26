@@ -1,0 +1,1750 @@
+{
+  "body": {
+    "games": [
+      {
+        "attendance": 46673,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-17T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1049",
+          "name": "Valencia CF"
+        },
+        "homeGoals": 1,
+        "id": "4361550",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361550",
+        "venue": "away"
+      },
+      {
+        "attendance": 46448,
+        "awayClub": {
+          "id": "621",
+          "name": "Athletic Bilbao"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-24T17:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 2,
+        "id": "4361561",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361561",
+        "venue": "home"
+      },
+      {
+        "attendance": 14031,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-27T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "367",
+          "name": "Rayo Vallecano"
+        },
+        "homeGoals": 1,
+        "id": "4361568",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4361568",
+        "venue": "away"
+      },
+      {
+        "attendance": 44359,
+        "awayClub": {
+          "id": "366",
+          "name": "Real Valladolid CF"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-08-31T15:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 7,
+        "id": "4364906",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4364906",
+        "venue": "home"
+      },
+      {
+        "attendance": 13891,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 4,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-09-15T14:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "12321",
+          "name": "Girona FC"
+        },
+        "homeGoals": 1,
+        "id": "4405324",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4405324",
+        "venue": "away"
+      },
+      {
+        "attendance": 13296,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 1,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2024-09-19T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "162",
+          "name": "AS Monaco"
+        },
+        "homeGoals": 2,
+        "id": "4445152",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445152",
+        "venue": "away"
+      },
+      {
+        "attendance": 22048,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-09-22T16:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1050",
+          "name": "Villarreal CF"
+        },
+        "homeGoals": 1,
+        "id": "4405334",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4405334",
+        "venue": "away"
+      },
+      {
+        "attendance": 44407,
+        "awayClub": {
+          "id": "3709",
+          "name": "Getafe CF"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-09-25T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 1,
+        "id": "4405339",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 7,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4405339",
+        "venue": "home"
+      },
+      {
+        "attendance": 22322,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-09-28T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "331",
+          "name": "CA Osasuna"
+        },
+        "homeGoals": 4,
+        "id": "4405353",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 8,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4405353",
+        "venue": "away"
+      },
+      {
+        "attendance": 45097,
+        "awayClub": {
+          "id": "452",
+          "name": "BSC Young Boys"
+        },
+        "awayGoals": 0,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2024-10-01T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 5,
+        "id": "4445066",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445066",
+        "venue": "home"
+      },
+      {
+        "attendance": 19468,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 3,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-10-06T14:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1108",
+          "name": "Deportivo Alavés"
+        },
+        "homeGoals": 0,
+        "id": "4405361",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 9,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4405361",
+        "venue": "away"
+      },
+      {
+        "attendance": 47848,
+        "awayClub": {
+          "id": "368",
+          "name": "Sevilla FC"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-10-20T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 5,
+        "id": "4405370",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 10,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4405370",
+        "venue": "home"
+      },
+      {
+        "attendance": 50312,
+        "awayClub": {
+          "id": "27",
+          "name": "Bayern Munich"
+        },
+        "awayGoals": 1,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2024-10-23T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 4,
+        "id": "4445064",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 3,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445064",
+        "venue": "home"
+      },
+      {
+        "attendance": 78192,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 4,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-10-26T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "homeGoals": 0,
+        "id": "4407518",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 11,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407518",
+        "venue": "away"
+      },
+      {
+        "attendance": 48843,
+        "awayClub": {
+          "id": "714",
+          "name": "RCD Espanyol Barcelona"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-11-03T15:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 3,
+        "id": "4407703",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 12,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407703",
+        "venue": "home"
+      },
+      {
+        "attendance": 48886,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2024-11-06T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "159",
+          "name": "Red Star Belgrade"
+        },
+        "homeGoals": 2,
+        "id": "4445124",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445124",
+        "venue": "away"
+      },
+      {
+        "attendance": 36194,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-11-10T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "681",
+          "name": "Real Sociedad"
+        },
+        "homeGoals": 1,
+        "id": "4407670",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 13,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407670",
+        "venue": "away"
+      },
+      {
+        "attendance": 24573,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-11-23T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "940",
+          "name": "Celta de Vigo"
+        },
+        "homeGoals": 2,
+        "id": "4407649",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 14,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407649",
+        "venue": "away"
+      },
+      {
+        "attendance": 46317,
+        "awayClub": {
+          "id": "3911",
+          "name": "Stade Brestois 29"
+        },
+        "awayGoals": 0,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2024-11-26T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 3,
+        "id": "4445067",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445067",
+        "venue": "home"
+      },
+      {
+        "attendance": 43921,
+        "awayClub": {
+          "id": "472",
+          "name": "UD Las Palmas"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-11-30T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 1,
+        "id": "4407654",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 15,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407654",
+        "venue": "home"
+      },
+      {
+        "attendance": 22352,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-12-03T18:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "237",
+          "name": "RCD Mallorca"
+        },
+        "homeGoals": 1,
+        "id": "4407720",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 19,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407720",
+        "venue": "away"
+      },
+      {
+        "attendance": 51749,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-12-07T15:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "150",
+          "name": "Real Betis Balompié"
+        },
+        "homeGoals": 2,
+        "id": "4407690",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 16,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407690",
+        "venue": "away"
+      },
+      {
+        "attendance": 81365,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 3,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2024-12-11T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "16",
+          "name": "Borussia Dortmund"
+        },
+        "homeGoals": 2,
+        "id": "4445056",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445056",
+        "venue": "away"
+      },
+      {
+        "attendance": 39523,
+        "awayClub": {
+          "id": "1244",
+          "name": "CD Leganés"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-12-15T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 0,
+        "id": "4407705",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 17,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407705",
+        "venue": "home"
+      },
+      {
+        "attendance": 46249,
+        "awayClub": {
+          "id": "13",
+          "name": "Atlético de Madrid"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2024-12-21T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 1,
+        "id": "4407681",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 18,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407681",
+        "venue": "home"
+      },
+      {
+        "attendance": 5500,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 4,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2025-01-04T18:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "16387",
+          "name": "UD Barbastro"
+        },
+        "homeGoals": 0,
+        "id": "4506875",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 4,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Third Round",
+        "url": "/spielbericht/index/spielbericht/4506875",
+        "venue": "away"
+      },
+      {
+        "attendance": 39000,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "SUC",
+        "competitionName": "Supercopa",
+        "date": "2025-01-08T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "621",
+          "name": "Athletic Bilbao"
+        },
+        "homeGoals": 0,
+        "id": "4527785",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 1,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Semi-Finals",
+        "url": "/spielbericht/index/spielbericht/4527785",
+        "venue": "away"
+      },
+      {
+        "attendance": 60000,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "SUC",
+        "competitionName": "Supercopa",
+        "date": "2025-01-12T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "homeGoals": 2,
+        "id": "4530083",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 2,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Final",
+        "url": "/spielbericht/index/spielbericht/4530083",
+        "venue": "away"
+      },
+      {
+        "attendance": 46019,
+        "awayClub": {
+          "id": "150",
+          "name": "Real Betis Balompié"
+        },
+        "awayGoals": 1,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2025-01-15T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 5,
+        "id": "4527518",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 5,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Round of 16",
+        "url": "/spielbericht/index/spielbericht/4527518",
+        "venue": "home"
+      },
+      {
+        "attendance": 15134,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-01-18T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "3709",
+          "name": "Getafe CF"
+        },
+        "homeGoals": 1,
+        "id": "4407729",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 20,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407729",
+        "venue": "away"
+      },
+      {
+        "attendance": 63225,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-01-21T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "294",
+          "name": "SL Benfica"
+        },
+        "homeGoals": 4,
+        "id": "4445085",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 7,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445085",
+        "venue": "away"
+      },
+      {
+        "attendance": 45312,
+        "awayClub": {
+          "id": "1049",
+          "name": "Valencia CF"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-01-26T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 7,
+        "id": "4407746",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 21,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407746",
+        "venue": "home"
+      },
+      {
+        "attendance": 42728,
+        "awayClub": {
+          "id": "800",
+          "name": "Atalanta BC"
+        },
+        "awayGoals": 2,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-01-29T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 2,
+        "id": "4445065",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 8,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Group Stage",
+        "url": "/spielbericht/index/spielbericht/4445065",
+        "venue": "home"
+      },
+      {
+        "attendance": 42900,
+        "awayClub": {
+          "id": "1108",
+          "name": "Deportivo Alavés"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-02-02T13:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 1,
+        "id": "4407783",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 22,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407783",
+        "venue": "home"
+      },
+      {
+        "attendance": 46806,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 5,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2025-02-06T20:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1049",
+          "name": "Valencia CF"
+        },
+        "homeGoals": 0,
+        "id": "4540704",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 6,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Quarter-Finals",
+        "url": "/spielbericht/index/spielbericht/4540704",
+        "venue": "away"
+      },
+      {
+        "attendance": 38592,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 4,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-02-09T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "368",
+          "name": "Sevilla FC"
+        },
+        "homeGoals": 1,
+        "id": "4407770",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 23,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407770",
+        "venue": "away"
+      },
+      {
+        "attendance": 45296,
+        "awayClub": {
+          "id": "367",
+          "name": "Rayo Vallecano"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-02-17T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 1,
+        "id": "4407755",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 24,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407755",
+        "venue": "home"
+      },
+      {
+        "attendance": 30746,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-02-22T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "472",
+          "name": "UD Las Palmas"
+        },
+        "homeGoals": 0,
+        "id": "4407539",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 25,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407539",
+        "venue": "away"
+      },
+      {
+        "attendance": 40915,
+        "awayClub": {
+          "id": "13",
+          "name": "Atlético de Madrid"
+        },
+        "awayGoals": 4,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2025-02-25T20:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 4,
+        "id": "4557606",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 7,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Semi-Finals 1st Leg",
+        "url": "/spielbericht/index/spielbericht/4557606",
+        "venue": "home"
+      },
+      {
+        "attendance": 46324,
+        "awayClub": {
+          "id": "681",
+          "name": "Real Sociedad"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-03-02T15:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 4,
+        "id": "4407734",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 26,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407734",
+        "venue": "home"
+      },
+      {
+        "attendance": 62437,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 1,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-03-05T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "294",
+          "name": "SL Benfica"
+        },
+        "homeGoals": 0,
+        "id": "4547632",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 11,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Last 16 1st Leg",
+        "url": "/spielbericht/index/spielbericht/4547632",
+        "venue": "away"
+      },
+      {
+        "attendance": 47111,
+        "awayClub": {
+          "id": "294",
+          "name": "SL Benfica"
+        },
+        "awayGoals": 1,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-03-11T17:45:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 3,
+        "id": "4547639",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 12,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Last 16 2nd Leg",
+        "url": "/spielbericht/index/spielbericht/4547639",
+        "venue": "home"
+      },
+      {
+        "attendance": 67602,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 4,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-03-16T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "13",
+          "name": "Atlético de Madrid"
+        },
+        "homeGoals": 2,
+        "id": "4407524",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 28,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407524",
+        "venue": "away"
+      },
+      {
+        "attendance": 42319,
+        "awayClub": {
+          "id": "331",
+          "name": "CA Osasuna"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-03-27T20:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 3,
+        "id": "4407785",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 27,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407785",
+        "venue": "home"
+      },
+      {
+        "attendance": 48258,
+        "awayClub": {
+          "id": "12321",
+          "name": "Girona FC"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-03-30T14:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 4,
+        "id": "4407555",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 29,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407555",
+        "venue": "home"
+      },
+      {
+        "attendance": 60739,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 1,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2025-04-02T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "13",
+          "name": "Atlético de Madrid"
+        },
+        "homeGoals": 0,
+        "id": "4557608",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 8,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Semi-Finals 2nd Leg",
+        "url": "/spielbericht/index/spielbericht/4557608",
+        "venue": "away"
+      },
+      {
+        "attendance": 47043,
+        "awayClub": {
+          "id": "150",
+          "name": "Real Betis Balompié"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-04-05T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 1,
+        "id": "4407544",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 30,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407544",
+        "venue": "home"
+      },
+      {
+        "attendance": 49760,
+        "awayClub": {
+          "id": "16",
+          "name": "Borussia Dortmund"
+        },
+        "awayGoals": 0,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-04-09T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 4,
+        "id": "4547645",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 13,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Quarter-Finals 1st Leg",
+        "url": "/spielbericht/index/spielbericht/4547645",
+        "venue": "home"
+      },
+      {
+        "attendance": 12530,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 1,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-04-12T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "1244",
+          "name": "CD Leganés"
+        },
+        "homeGoals": 0,
+        "id": "4407629",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 31,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407629",
+        "venue": "away"
+      },
+      {
+        "attendance": 81365,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 1,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-04-15T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "16",
+          "name": "Borussia Dortmund"
+        },
+        "homeGoals": 3,
+        "id": "4547649",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 14,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Quarter-Finals 2nd Leg",
+        "url": "/spielbericht/index/spielbericht/4547649",
+        "venue": "away"
+      },
+      {
+        "attendance": 48569,
+        "awayClub": {
+          "id": "940",
+          "name": "Celta de Vigo"
+        },
+        "awayGoals": 3,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-04-19T14:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 4,
+        "id": "4407634",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 32,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407634",
+        "venue": "home"
+      },
+      {
+        "attendance": 45602,
+        "awayClub": {
+          "id": "237",
+          "name": "RCD Mallorca"
+        },
+        "awayGoals": 0,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-04-22T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 1,
+        "id": "4407616",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 33,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407616",
+        "venue": "home"
+      },
+      {
+        "attendance": 65080,
+        "awayClub": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "awayGoals": 2,
+        "competitionId": "CDR",
+        "competitionName": "Copa del Rey",
+        "date": "2025-04-26T20:00:00Z",
+        "endedAfter": "extra_time",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 3,
+        "id": "4588078",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 9,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Final",
+        "url": "/spielbericht/index/spielbericht/4588078",
+        "venue": "home"
+      },
+      {
+        "attendance": 50314,
+        "awayClub": {
+          "id": "46",
+          "name": "Inter Milan"
+        },
+        "awayGoals": 3,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-04-30T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 3,
+        "id": "4547652",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 15,
+        "result": "D",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Semi-Finals 1st Leg",
+        "url": "/spielbericht/index/spielbericht/4547652",
+        "venue": "home"
+      },
+      {
+        "attendance": 23967,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-05-03T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "366",
+          "name": "Real Valladolid CF"
+        },
+        "homeGoals": 1,
+        "id": "4407609",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 34,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407609",
+        "venue": "away"
+      },
+      {
+        "attendance": 75504,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 3,
+        "competitionId": "CL",
+        "competitionName": "UEFA Champions League",
+        "date": "2025-05-06T19:00:00Z",
+        "endedAfter": "extra_time",
+        "homeClub": {
+          "id": "46",
+          "name": "Inter Milan"
+        },
+        "homeGoals": 4,
+        "id": "4547654",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 16,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": "Semi-Finals 2nd Leg",
+        "url": "/spielbericht/index/spielbericht/4547654",
+        "venue": "away"
+      },
+      {
+        "attendance": 50319,
+        "awayClub": {
+          "id": "418",
+          "name": "Real Madrid"
+        },
+        "awayGoals": 3,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-05-11T14:15:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 4,
+        "id": "4407595",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 35,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407595",
+        "venue": "home"
+      },
+      {
+        "attendance": 34283,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 2,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-05-15T19:30:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "714",
+          "name": "RCD Espanyol Barcelona"
+        },
+        "homeGoals": 0,
+        "id": "4407575",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 36,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407575",
+        "venue": "away"
+      },
+      {
+        "attendance": 49558,
+        "awayClub": {
+          "id": "1050",
+          "name": "Villarreal CF"
+        },
+        "awayGoals": 3,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-05-18T17:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "homeGoals": 2,
+        "id": "4407585",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 37,
+        "result": "L",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407585",
+        "venue": "home"
+      },
+      {
+        "attendance": 50231,
+        "awayClub": {
+          "id": "131",
+          "name": "FC Barcelona"
+        },
+        "awayGoals": 3,
+        "competitionId": "ES1",
+        "competitionName": "LaLiga",
+        "date": "2025-05-25T19:00:00Z",
+        "endedAfter": "regular",
+        "homeClub": {
+          "id": "621",
+          "name": "Athletic Bilbao"
+        },
+        "homeGoals": 0,
+        "id": "4407564",
+        "isFinished": true,
+        "isLive": false,
+        "isTimeDefined": true,
+        "matchday": 38,
+        "result": "W",
+        "seasonId": "2024",
+        "seasonName": "24/25",
+        "shootout": null,
+        "stage": null,
+        "url": "/spielbericht/index/spielbericht/4407564",
+        "venue": "away"
+      }
+    ],
+    "id": "131",
+    "name": "FC Barcelona",
+    "seasonId": "2024"
+  },
+  "status_code": 200
+}

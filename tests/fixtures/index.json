@@ -3,13 +3,92 @@
     "url": "https://tmapi.transfermarkt.technology/attributes",
     "file": "25a645861cf2bdee.json",
     "status": 200,
-    "recorded_at": "2026-09-26T11:57:14+00:00"
+    "recorded_at": "2026-09-26T13:10:59+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/0",
+    "status": 404,
+    "reason": "Client Error. Not Found",
+    "detail": "Client Error. Not Found for url: https://tmapi.transfermarkt.technology/club/0",
+    "recorded_at": "2026-09-26T13:11:03+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/131",
+    "file": "0de03f6784cfed55.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:00+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/131/fixtures",
+    "file": "0e84d93e5bab3e61.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:51+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/131/fixtures?season=2024",
+    "file": "cb60ea513723c909.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:52+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/131/squad",
+    "file": "c77f80361954043c.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:58+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/131/squad?season=1800",
+    "file": "07e49092926ddf8e.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:00+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/131/squad?season=2014",
+    "file": "b3ff46663d532e27.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:59+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/3375",
+    "file": "88d1cf7469996d3d.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:02+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/3375/fixtures",
+    "file": "bbbbecc837cedad9.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:54+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/3375/fixtures?season=2024",
+    "file": "471d4ae2ba268b3d.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:56+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/3375/squad",
+    "file": "b839f8f8020805bc.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:01+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/club/3375/squad?season=2024",
+    "file": "df0abb97c6e408b0.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:02+00:00"
   },
   {
     "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=10093&ids[]=1023&ids[]=10503&ids[]=11004&ids[]=11648&ids[]=11854&ids[]=1214&ids[]=12179&ids[]=1418&ids[]=1450&ids[]=189&ids[]=19309&ids[]=199&ids[]=2462&ids[]=26468&ids[]=288&ids[]=28999&ids[]=3277&ids[]=333&ids[]=3523&ids[]=3876&ids[]=42208&ids[]=43146&ids[]=609&ids[]=614&ids[]=6593&ids[]=6878&ids[]=861&ids[]=866&ids[]=928&ids[]=9855&ids[]=9875",
     "file": "8e1ba0dd07f22c4e.json",
     "status": 200,
     "recorded_at": "2026-09-26T12:56:04+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=1047&ids[]=1049&ids[]=1050&ids[]=1084&ids[]=1108&ids[]=13&ids[]=131&ids[]=141&ids[]=150&ids[]=1531&ids[]=234&ids[]=281&ids[]=331&ids[]=336&ids[]=3368&ids[]=367&ids[]=368&ids[]=3709&ids[]=405&ids[]=418&ids[]=583&ids[]=621&ids[]=630&ids[]=63993&ids[]=681&ids[]=714&ids[]=897&ids[]=940",
+    "file": "cb3d52dc9666df5c.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:51+00:00"
   },
   {
     "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=1047&ids[]=1050&ids[]=1082&ids[]=11&ids[]=12&ids[]=13&ids[]=131&ids[]=141&ids[]=150&ids[]=16&ids[]=2282&ids[]=234&ids[]=23826&ids[]=239&ids[]=2441&ids[]=27&ids[]=281&ids[]=31&ids[]=336&ids[]=36&ids[]=383&ids[]=405&ids[]=413&ids[]=418&ids[]=46&ids[]=501&ids[]=540&ids[]=583&ids[]=6195&ids[]=62&ids[]=63993&ids[]=660&ids[]=720&ids[]=79&ids[]=826&ids[]=985",
@@ -24,10 +103,22 @@
     "recorded_at": "2026-09-26T12:56:00+00:00"
   },
   {
+    "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=1049&ids[]=1050&ids[]=1108&ids[]=12321&ids[]=1244&ids[]=13&ids[]=131&ids[]=150&ids[]=159&ids[]=16&ids[]=162&ids[]=16387&ids[]=237&ids[]=27&ids[]=294&ids[]=331&ids[]=366&ids[]=367&ids[]=368&ids[]=3709&ids[]=3911&ids[]=418&ids[]=452&ids[]=46&ids[]=472&ids[]=621&ids[]=681&ids[]=714&ids[]=800&ids[]=940",
+    "file": "953e352a7ac3a967.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:53+00:00"
+  },
+  {
     "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=1049&ids[]=1050&ids[]=1108&ids[]=12321&ids[]=1244&ids[]=13&ids[]=131&ids[]=150&ids[]=237&ids[]=331&ids[]=366&ids[]=367&ids[]=368&ids[]=3709&ids[]=418&ids[]=472&ids[]=621&ids[]=681&ids[]=714&ids[]=940",
     "file": "c2dae11e9b5bb726.json",
     "status": 200,
     "recorded_at": "2026-09-26T12:56:10+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=10533&ids[]=3262&ids[]=3299&ids[]=3375&ids[]=3376&ids[]=3377&ids[]=3384&ids[]=3436&ids[]=3438&ids[]=3439&ids[]=3556&ids[]=3561&ids[]=3669&ids[]=3816&ids[]=5674",
+    "file": "3d0b59e466ab3ac3.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:56+00:00"
   },
   {
     "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=10831&ids[]=25250&ids[]=3377&ids[]=40468&ids[]=415&ids[]=53860&ids[]=9323&ids[]=9371&ids[]=9372",
@@ -64,6 +155,12 @@
     "file": "8761d460d31d8481.json",
     "status": 200,
     "recorded_at": "2026-09-26T13:03:12+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/clubs?ids[]=3299&ids[]=3375&ids[]=3445&ids[]=3556",
+    "file": "51982541b2d0631a.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:55+00:00"
   },
   {
     "url": "https://tmapi.transfermarkt.technology/competition/CDR",
@@ -175,10 +272,34 @@
     "recorded_at": "2026-09-26T11:57:15+00:00"
   },
   {
+    "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=CDR&ids[]=CL&ids[]=ES1&ids[]=SUC",
+    "file": "a0b6374645f66282.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:53+00:00"
+  },
+  {
     "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=CDR&ids[]=CL&ids[]=ES1&ids[]=SUC&ids[]=UNFI&ids[]=UNLA&ids[]=WMQ6",
     "file": "8d7ee1bb36476e47.json",
     "status": 200,
     "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=CL&ids[]=ES1",
+    "file": "c9d6a94f3e167ad0.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:52+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=EURO&ids[]=FS&ids[]=UNLA",
+    "file": "ba028ce6e0e36ee5.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:57+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/competitions?ids[]=UNLA",
+    "file": "62cba54046bf5eb9.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:55+00:00"
   },
   {
     "url": "https://tmapi.transfermarkt.technology/game/4359332",
@@ -228,6 +349,30 @@
     "file": "c0ad66f3f34addcb.json",
     "status": 200,
     "recorded_at": "2026-09-26T11:57:15+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/players?ids[]=1018912&ids[]=1018920&ids[]=1105549&ids[]=1259085&ids[]=182712&ids[]=196948&ids[]=205927&ids[]=293385&ids[]=326330&ids[]=357565&ids[]=363205&ids[]=411295&ids[]=411975&ids[]=44058&ids[]=466794&ids[]=496094&ids[]=503733&ids[]=561613&ids[]=636688&ids[]=636703&ids[]=646740&ids[]=683840&ids[]=705395&ids[]=792331&ids[]=937958&ids[]=938154&ids[]=962110",
+    "file": "0342c273875cd752.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:10:58+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/players?ids[]=128223&ids[]=176553&ids[]=193082&ids[]=212862&ids[]=261504&ids[]=262396&ids[]=262749&ids[]=278359&ids[]=282411&ids[]=284857&ids[]=293385&ids[]=331505&ids[]=338424&ids[]=350219&ids[]=351478&ids[]=351809&ids[]=357885&ids[]=398184&ids[]=423440&ids[]=455181&ids[]=524000&ids[]=548111&ids[]=553875&ids[]=568157&ids[]=636703&ids[]=646740&ids[]=683840&ids[]=709187&ids[]=775605&ids[]=85288&ids[]=890290&ids[]=937958&ids[]=962110&ids[]=991268",
+    "file": "05b6d3bddc5aab0c.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:02+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/players?ids[]=129473&ids[]=15904&ids[]=15951&ids[]=181112&ids[]=18944&ids[]=191987&ids[]=199369&ids[]=19981&ids[]=204103&ids[]=223725&ids[]=226074&ids[]=228658&ids[]=268670&ids[]=28003&ids[]=32467&ids[]=34495&ids[]=40423&ids[]=44352&ids[]=5404&ids[]=58426&ids[]=65230&ids[]=65263&ids[]=65278&ids[]=68290&ids[]=68645&ids[]=69751&ids[]=74857&ids[]=7600&ids[]=7607&ids[]=85370&ids[]=99922",
+    "file": "2d5b64fda2ae6871.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:00+00:00"
+  },
+  {
+    "url": "https://tmapi.transfermarkt.technology/players?ids[]=176553&ids[]=193082&ids[]=262396&ids[]=262749&ids[]=284857&ids[]=293385&ids[]=338424&ids[]=350219&ids[]=351478&ids[]=357565&ids[]=388516&ids[]=398184&ids[]=423440&ids[]=466794&ids[]=548111&ids[]=568157&ids[]=636703&ids[]=683840&ids[]=709187&ids[]=720518&ids[]=844637&ids[]=890290&ids[]=935231&ids[]=937958&ids[]=946883&ids[]=962110",
+    "file": "2110ea70e33a99d5.json",
+    "status": 200,
+    "recorded_at": "2026-09-26T13:11:01+00:00"
   },
   {
     "url": "https://www.transfermarkt.com/-/erfolge/spieler/28003",

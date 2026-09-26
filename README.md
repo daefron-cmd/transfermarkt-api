@@ -74,6 +74,8 @@ Every route is a `GET`; `/docs` has the full request and response schemas.
 | `/clubs/search/{club_name}`               | One page of clubs matching a name (`page_number`)                                |
 | `/clubs/{club_id}/profile`                | A club's profile: stadium, league, squad summary, market value                   |
 | `/clubs/{club_id}/players`                | A club's squad in a season (`season_id`)                                         |
+| `/clubs/{club_id}/fixtures`               | A club's games and results in all competitions in a season (`season_id`); tmapi  |
+| `/clubs/{club_id}/squad`                  | A club's or national team's squad in a season (`season_id`); tmapi               |
 | `/competitions/search/{competition_name}` | One page of competitions matching a name (`page_number`)                         |
 | `/competitions/{competition_id}/clubs`    | The clubs in a competition in a season (`season_id`)                             |
 | `/competitions/{competition_id}/table`    | A competition's league table, or one per group, in a season (`season_id`); tmapi |
@@ -139,14 +141,15 @@ retries) pass through, too many redirects become 404, and connection errors or t
 
 ### tmapi Data Source
 
-`/players/{player_id}/stats`, `/competitions/{competition_id}/table` and `/competitions/{competition_id}/fixtures`
-are built from `tmapi.transfermarkt.technology`, the JSON API behind the site's own web components (Transfermarkt no
-longer renders the detailed stats table in the page HTML).
+`/players/{player_id}/stats`, `/clubs/{club_id}/fixtures`, `/clubs/{club_id}/squad`,
+`/competitions/{competition_id}/table` and `/competitions/{competition_id}/fixtures` are built from
+`tmapi.transfermarkt.technology`, the JSON API behind the site's own web components (Transfermarkt no longer renders
+the detailed stats table in the page HTML).
 **tmapi is unofficial and undocumented**: it may change or disappear without notice. Its responses are
 validated (`app/tmapi.py`) and an unexpected shape returns 502 instead of wrong data. Requests go through
 the same `TransfermarktClient` (throttle, retries, disk cache); the `/attributes` table is fetched once per process.
-Club names (and the player stats' competition names) come from its batch lookups (`/clubs?ids[]=...`,
-`/competitions?ids[]=...`, sorted ids, 50 per request).
+Club names (and the player stats' and club fixtures' competition names, and the club squad's players) come from its
+batch lookups (`/clubs?ids[]=...`, `/competitions?ids[]=...`, `/players?ids[]=...`, sorted ids, 50 per request).
 
 #### Player stats
 
@@ -187,6 +190,28 @@ are used for `name` and, when `season_id` is omitted, `seasonId`.
   tmapi's fixtures score of a shootout game includes the shootout goals (1-1 and 5-3 on penalties is 6-4), so for
   each finished shootout game the game report (`/game/{id}`, one extra request per game) is fetched and the score
   after regular or extra time is taken from its last goal.
+
+`null` values are kept in these responses.
+
+#### Club fixtures and squad
+
+Both fetch the club (`/club/{id}`; an unknown club returns 404), whose name is used for `name`.
+
+- `/fixtures` (`/club/{id}/fixtures`) returns the club's `games` in all competitions (league, cups, European and
+  international competitions, friendlies), sorted by date and id. A game has the fields of a competition fixtures
+  game (see above; the competition names come from the `/competitions` lookup) plus `venue` (`home` or `away`) and
+  `result` (`W`, `D` or `L` from the club's point of view, tmapi's own value: after a shootout the shootout winner
+  has `W`; `null` until the game has finished). `seasonId` is the requested season or, when `season_id` is omitted,
+  the season shared by all returned games (`null` if they have none in common or there are none). For national teams
+  tmapi's season is a calendar year, so `?season_id=2024` holds Euro 2024 games whose own `seasonId` is `2023`.
+- `/squad` (`/club/{id}/squad`) returns `isNationalTeam`, `seasonId` (the requested season; `null` for the current
+  squad, whose season tmapi does not state) and `players` in tmapi's squad order (an empty list when tmapi has no
+  squad for the season). A player has `id`, `name`, `shirtNumber`, `isCaptain`, `position`, `dateOfBirth`, `age`,
+  `nationalities` (country names; one or two), `height` (centimetres), `foot`, `contractUntil`, `marketValue` (`null`
+  when tmapi has none or 0, as for retired players) and `type` (tmapi's squad entry type: `current`, `nationalTeam`,
+  `historical`, ...). The player details come from the `/players` lookup and are the player's current ones even in a
+  past season's squad: `age`, `position`, `contractUntil` and `marketValue` are today's, not the season's (the
+  `/clubs/{club_id}/players` HTML route shows a past squad's ages and market values at the time).
 
 `null` values are kept in these responses.
 
