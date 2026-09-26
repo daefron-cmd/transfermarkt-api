@@ -29,6 +29,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - An empty (or unparseable) upstream HTML page returns 502 naming the upstream URL instead of a 500
   `Internal server error`, and empty upstream bodies are no longer cached.
+- `GET /clubs/{club_id}/players`: a blank foot cell on a club's squad page is now `null` (omitted from the response,
+  like the other blank fields and like national team squads) instead of `""`.
+- `GET /clubs/search/{club_name}`: a results page whose columns do not line up (a result missing its country, squad
+  or market value) now fails with 502 naming the column counts instead of shifting values onto the following clubs
+  and dropping the last one.
 
 ## [4.0.1] - 2026-09-26
 

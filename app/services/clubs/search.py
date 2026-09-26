@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import ClassVar, Self
 from urllib.parse import quote
 
-from app.http import TransfermarktClient
+from app.http import TransfermarktClient, UpstreamError
 from app.services.base import TransfermarktBase, parse_html
 from app.utils.utils import extract_from_url
 from app.utils.xpath import Clubs
@@ -52,6 +52,9 @@ class TransfermarktClubSearch(TransfermarktBase):
             list: A list of dictionaries, where each dictionary contains information about a
                 football club found in the search results, including the club's unique identifier,
                 URL, name, country, squad size, and market value.
+
+        Raises:
+            UpstreamError: If the result columns do not have one value per club (the page layout changed).
         """
         clubs_names = self.get_list_by_xpath(Clubs.Search.NAMES)
         clubs_urls = self.get_list_by_xpath(Clubs.Search.URLS)
@@ -59,6 +62,16 @@ class TransfermarktClubSearch(TransfermarktBase):
         clubs_squads = self.get_list_by_xpath(Clubs.Search.SQUADS)
         clubs_market_values = self.get_list_by_xpath(Clubs.Search.MARKET_VALUES)
         clubs_ids = [extract_from_url(url) for url in clubs_urls]
+        columns = (clubs_ids, clubs_urls, clubs_names, clubs_countries, clubs_squads, clubs_market_values)
+        # The columns come from independent xpath queries; a length mismatch would shift values between clubs.
+        if len({len(column) for column in columns}) != 1:
+            raise UpstreamError(
+                502,
+                self.URL,
+                f"Unexpected search results page: {len(clubs_ids)} ids, {len(clubs_urls)} urls, "
+                f"{len(clubs_names)} names, {len(clubs_countries)} countries, {len(clubs_squads)} squads, "
+                f"{len(clubs_market_values)} market values",
+            )
 
         return [
             {
@@ -76,7 +89,7 @@ class TransfermarktClubSearch(TransfermarktBase):
                 clubs_countries,
                 clubs_squads,
                 clubs_market_values,
-                strict=False,
+                strict=True,
             )
         ]
 

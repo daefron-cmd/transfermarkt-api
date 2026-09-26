@@ -32,8 +32,9 @@ class ClubPlayer(TransfermarktBaseModel):
     international_goals: int | None = None
     debut: date | None = None
 
-    # The service joins xpath results into these strings, which gives "" when there is nothing to join.
-    @field_validator("joined_on", "signed_from", "status", mode="before")
+    # The service joins xpath results into these strings, which gives "" when there is nothing to join; a blank foot
+    # cell is "" too.
+    @field_validator("joined_on", "signed_from", "status", "foot", mode="before")
     def blank_to_none(cls, v: object) -> object:
         return None if isinstance(v, str) and not v.strip() else v
 

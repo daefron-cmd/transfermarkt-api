@@ -336,7 +336,7 @@ def test_club_players_misaligned_columns_raise(season, cell, field):
     td.getparent().remove(td)
     with pytest.raises(UpstreamError, match=field) as e:
         club_players("131", season, html=lxml.html.tostring(page), season_id=season)
-    assert e.value.status_code == 502
+    assert (e.value.status_code, e.value.url) == (502, url)
 
 
 def test_club_players_height_na_link_keeps_rows_aligned():
@@ -394,7 +394,7 @@ def test_club_players_unknown_layout_raises():
     link.text = "First game"
     with pytest.raises(UpstreamError, match="First game") as e:
         club_players("3375", None, html=lxml.html.tostring(page))
-    assert e.value.status_code == 502
+    assert (e.value.status_code, e.value.url) == (502, url)
 
 
 def test_club_players_national_team_missing_cell_raises():
@@ -402,9 +402,10 @@ def test_club_players_national_team_missing_cell_raises():
     page = lxml.html.document_fromstring(fixture_bytes(url))
     (td,) = page.xpath("(//div[@id='yw1']//table[@class='items']/tbody/tr)[3]/td[7]")
     td.getparent().remove(td)
-    with pytest.raises(UpstreamError, match="9 cells") as e:
+    with pytest.raises(UpstreamError) as e:
         club_players("3375", None, html=lxml.html.tostring(page))
-    assert e.value.status_code == 502
+    assert (e.value.status_code, e.value.url) == (502, url)
+    assert e.value.reason == "Squad row 3 has 9 cells for 10 columns and 1 player links"
 
 
 def competition_search(query: str, html: bytes | None = None) -> list[dict]:

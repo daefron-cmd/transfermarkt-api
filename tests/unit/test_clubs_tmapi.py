@@ -9,8 +9,12 @@ from app.http import UpstreamError
 from app.schemas.clubs import ClubFixtures, ClubSquadMembers
 from app.services.clubs.fixtures import TransfermarktClubFixtures
 from app.services.clubs.squad import TransfermarktClubSquad
+from app.services.games import URL_GAME
 from app.tmapi import TMAPI_URL, batch_urls, parse_club
-from tests.unit.tmapi_helpers import RecordingClient, envelope, fixture_bytes
+from tests.unit.tmapi_helpers import DoctoredClient, RecordingClient, envelope, fixture_bytes
+
+ATTRIBUTES_URL = f"{TMAPI_URL}/attributes"
+NOT_FOUND = b'{"success": false, "message": "Club not found"}'
 
 
 def club_url(club_id: str) -> str:
@@ -24,20 +28,34 @@ def fixtures_data(club_id: str, season_id: str | None = None) -> dict:
     return json.loads(fixture_bytes(TransfermarktClubFixtures.fixtures_url(club_id, season_id)))["data"]
 
 
+def fixtures_lookups(club_id: str, fixtures: bytes, season_id: str | None = None) -> dict:
+    """The recorded clubs and competitions lookups of the games in `fixtures`, as from_bytes arguments."""
+    games = TransfermarktClubFixtures.parse_games(fixtures, club_id=club_id, season_id=season_id)
+    club_ids = {game[side]["clubId"] for game in games for side in ("homeClub", "awayClub")}
+    competition_ids = {game["baseDetails"]["competitionId"] for game in games}
+    return {
+        "clubs": [(url, fixture_bytes(url)) for url in batch_urls("clubs", club_ids)],
+        "competitions": [(url, fixture_bytes(url)) for url in batch_urls("competitions", competition_ids)],
+    }
+
+
 def club_fixtures(
-    club_id: str, season_id: str | None = None, fixtures: bytes | None = None, data_season_id: str | None = None
+    club_id: str,
+    season_id: str | None = None,
+    fixtures: bytes | None = None,
+    data_season_id: str | None = None,
+    attributes: bytes | None = None,
+    games: list[tuple[str, bytes]] | None = None,
 ) -> dict:
     """The fixtures response built from recorded bytes (or `fixtures`, doctored data of `data_season_id`)."""
     if fixtures is None:
         fixtures = fixture_bytes(TransfermarktClubFixtures.fixtures_url(club_id, data_season_id or season_id))
-    games = TransfermarktClubFixtures.parse_games(fixtures, club_id=club_id, season_id=season_id)
-    club_ids = {game[side]["clubId"] for game in games for side in ("homeClub", "awayClub")}
-    competition_ids = {game["baseDetails"]["competitionId"] for game in games}
     tfmkt = TransfermarktClubFixtures.from_bytes(
         fixtures,
         club=fixture_bytes(club_url(club_id)),
-        clubs=[(url, fixture_bytes(url)) for url in batch_urls("clubs", club_ids)],
-        competitions=[(url, fixture_bytes(url)) for url in batch_urls("competitions", competition_ids)],
+        **fixtures_lookups(club_id, fixtures, season_id),
+        attributes=attributes,
+        games=games or (),
         club_id=club_id,
         season_id=season_id,
     )
@@ -115,15 +133,20 @@ def test_fixtures_unexpected_game_is_502(doctor, message):
     doctor(raw_game(data, "4588078"))
     with pytest.raises(UpstreamError) as e:
         TransfermarktClubFixtures.parse_games(envelope(data), club_id="131", season_id="2024")
-    assert e.value.status_code == 502
-    assert message in e.value.reason
+    assert (e.value.status_code, e.value.url) == (502, f"{TMAPI_URL}/club/131/fixtures?season=2024")
+    assert e.value.reason == f"Unexpected tmapi response: {message}"
 
 
 def test_fixtures_unexpected_shape_is_502():
-    for data in ({"games": {}}, {"fixtures": []}, []):
+    for content, reason in [
+        (envelope({"games": {}}), "Unexpected tmapi response: no games list"),
+        (envelope({"fixtures": []}), "Unexpected tmapi response: no games list"),
+        (envelope([]), "Unexpected tmapi response: no games list"),
+        (b"<html>", "Unexpected tmapi response: body is not JSON"),
+    ]:
         with pytest.raises(UpstreamError) as e:
-            TransfermarktClubFixtures.parse_games(envelope(data), club_id="131")
-        assert e.value.status_code == 502
+            TransfermarktClubFixtures.parse_games(content, club_id="131")
+        assert (e.value.status_code, e.value.url, e.value.reason) == (502, f"{TMAPI_URL}/club/131/fixtures", reason)
 
 
 def test_fixtures_season_id_is_the_requested_one():
@@ -143,6 +166,164 @@ def test_fixtures_season_id_is_none_when_games_disagree_or_there_are_none():
     assert club_fixtures("3375", data_season_id="2024")["seasonId"] is None
     response = club_fixtures("131", fixtures=envelope({"games": []}))
     assert (response["seasonId"], response["games"]) == (None, [])
+
+
+# Spain's 2024 fixtures have no shootout game and embed every stage, so both are doctored in: tmapi's score of a
+# shootout game includes the shootout goals, and the report served for it decides the score before the shootout.
+SHOOTOUT_REPORTS = {
+    # 6-4 after a 1-1 (the recorded report of England 1-1 Switzerland): 5-3 on penalties.
+    URL_GAME.format(game_id="4359336"): fixture_bytes(URL_GAME.format(game_id="4359338")),
+    # 3-0 after a 0-0 (the recorded report of Portugal 0-0 Slovenia, without GOAL actions): 3-0 on penalties.
+    URL_GAME.format(game_id="4359330"): fixture_bytes(URL_GAME.format(game_id="4359332")),
+}
+
+
+def doctored_spain_fixtures() -> bytes:
+    data = fixtures_data("3375", "2024")
+    raw_game(data, "4359336")["score"].update(home=6, away=4, additionType="after_shootout")
+    raw_game(data, "4359330")["score"].update(home=3, away=0, additionType="after_shootout")
+    del raw_game(data, "4235809")["baseDetails"]["competitionGroup"]  # group "B"
+    del raw_game(data, "4359340")["baseDetails"]["competitionGroup"]  # group "HF"
+    return envelope(data)
+
+
+def shootouts_and_stages(response: dict) -> dict:
+    return {
+        g["id"]: (g["homeGoals"], g["awayGoals"], g["endedAfter"], g["shootout"], g["stage"])
+        for g in response["games"]
+        if g["id"] in ("4359336", "4359330", "4235809", "4359340")
+    }
+
+
+SHOOTOUTS_AND_STAGES = {
+    "4359336": (1, 1, "shootout", {"home": 5, "away": 3}, "Quarter-Finals"),
+    "4359330": (0, 0, "shootout", {"home": 3, "away": 0}, "Round of 16"),
+    "4235809": (3, 0, "regular", None, "Group B"),
+    "4359340": (2, 1, "regular", None, "Semi-Finals"),
+}
+
+
+def test_fixtures_shootouts_and_stages_from_attributes():
+    response = club_fixtures(
+        "3375",
+        "2024",
+        fixtures=doctored_spain_fixtures(),
+        attributes=fixture_bytes(ATTRIBUTES_URL),
+        games=list(SHOOTOUT_REPORTS.items()),
+    )
+    assert shootouts_and_stages(response) == SHOOTOUTS_AND_STAGES
+
+
+def test_fixtures_stage_without_attributes_is_the_group_id():
+    response = club_fixtures("3375", "2024", fixtures=doctored_spain_fixtures(), games=list(SHOOTOUT_REPORTS.items()))
+    stages = {game_id: stage for game_id, (*_, stage) in shootouts_and_stages(response).items()}
+    assert stages == {"4359336": "Quarter-Finals", "4359330": "Round of 16", "4235809": "B", "4359340": "HF"}
+
+
+def test_fixtures_fetch_shootouts_and_stages():
+    fixtures_url = f"{TMAPI_URL}/club/3375/fixtures?season=2024"
+    client = DoctoredClient({fixtures_url: doctored_spain_fixtures(), **SHOOTOUT_REPORTS})
+    tfmkt = asyncio.run(TransfermarktClubFixtures.fetch(client, club_id="3375", season_id="2024"))  # type: ignore[arg-type]
+    assert client.urls[:2] == [club_url("3375"), fixtures_url]
+    # /attributes, then the game reports in tmapi's game order.
+    assert client.urls[-3:] == [ATTRIBUTES_URL, URL_GAME.format(game_id="4359330"), URL_GAME.format(game_id="4359336")]
+    response = ClubFixtures.model_validate(tfmkt.get_club_fixtures()).model_dump(by_alias=True)
+    assert shootouts_and_stages(response) == SHOOTOUTS_AND_STAGES
+
+
+SPAIN_LOOKUPS = fixtures_lookups("3375", doctored_spain_fixtures(), "2024")
+((SPAIN_CLUBS_URL, _),) = SPAIN_LOOKUPS["clubs"]
+((SPAIN_COMPETITIONS_URL, _),) = SPAIN_LOOKUPS["competitions"]
+
+
+@pytest.mark.parametrize(
+    ("overrides", "status", "url", "reason"),
+    [
+        pytest.param({"club": NOT_FOUND}, 404, club_url("3375"), "tmapi request failed (Club not found)", id="club"),
+        pytest.param(
+            {"fixtures": b"<html>"},
+            502,
+            f"{TMAPI_URL}/club/3375/fixtures?season=2024",
+            "Unexpected tmapi response: body is not JSON",
+            id="fixtures",
+        ),
+        pytest.param(
+            {"clubs": [(SPAIN_CLUBS_URL, envelope({}))]},
+            502,
+            SPAIN_CLUBS_URL,
+            "Unexpected tmapi response: lookup data is not a list of {id, name}",
+            id="clubs",
+        ),
+        pytest.param(
+            {"competitions": [(SPAIN_COMPETITIONS_URL, envelope({}))]},
+            502,
+            SPAIN_COMPETITIONS_URL,
+            "Unexpected tmapi response: lookup data is not a list of {id, name}",
+            id="competitions",
+        ),
+        pytest.param(
+            {"attributes": b"<html>"},
+            502,
+            ATTRIBUTES_URL,
+            "Unexpected tmapi response: body is not JSON",
+            id="attributes",
+        ),
+        pytest.param(
+            {"attributes": envelope({})},
+            502,
+            ATTRIBUTES_URL,
+            "Unexpected tmapi response: attributes.competitionGroups is not a list of {id, name, ...}",
+            id="attributes-groups",
+        ),
+        pytest.param(
+            {"games": [(URL_GAME.format(game_id="4359336"), envelope({"actions": {}}))]},
+            502,
+            URL_GAME.format(game_id="4359336"),
+            "Unexpected tmapi response: actions={} in game 4359336",
+            id="game-report",
+        ),
+    ],
+)
+def test_fixtures_from_bytes_error_names_the_response(overrides, status, url, reason):
+    kwargs = {
+        "fixtures": doctored_spain_fixtures(),
+        "club": fixture_bytes(club_url("3375")),
+        **SPAIN_LOOKUPS,
+        "attributes": fixture_bytes(ATTRIBUTES_URL),
+        "games": list(SHOOTOUT_REPORTS.items()),
+        **overrides,
+    }
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktClubFixtures.from_bytes(**kwargs, club_id="3375", season_id="2024")
+    assert (e.value.status_code, e.value.url, e.value.reason) == (status, url, reason)
+
+
+@pytest.mark.parametrize("service", [TransfermarktClubFixtures, TransfermarktClubSquad], ids=["fixtures", "squad"])
+def test_fetch_unknown_club_body_is_404_with_the_club_url(service):
+    client = DoctoredClient({club_url("131"): NOT_FOUND})
+    with pytest.raises(UpstreamError) as e:
+        asyncio.run(service.fetch(client, club_id="131", season_id="2024"))  # type: ignore[arg-type]
+    assert (e.value.status_code, e.value.url) == (404, club_url("131"))
+    assert e.value.reason == "tmapi request failed (Club not found)"
+
+
+@pytest.mark.parametrize(
+    ("service", "url"),
+    [
+        (TransfermarktClubFixtures, f"{TMAPI_URL}/club/131/fixtures?season=2024"),
+        (TransfermarktClubSquad, f"{TMAPI_URL}/club/131/squad?season=2024"),
+    ],
+    ids=["fixtures", "squad"],
+)
+def test_fetch_malformed_list_is_502_with_the_season_url(service, url):
+    client = DoctoredClient({url: b"<html>"})
+    with pytest.raises(UpstreamError) as e:
+        asyncio.run(service.fetch(client, club_id="131", season_id="2024"))  # type: ignore[arg-type]
+    assert (e.value.status_code, e.value.url, e.value.reason) == (
+        502,
+        url,
+        "Unexpected tmapi response: body is not JSON",
+    )
 
 
 def test_fixtures_requests():
@@ -337,45 +518,155 @@ def test_squad_country_missing_from_attributes_is_502():
 
     with pytest.raises(UpstreamError) as e:
         club_squad("131", players=doctored_players("131", doctor))
-    assert e.value.status_code == 502
-    assert "missing id 99999 of player 411295" in e.value.reason
+    assert (e.value.status_code, e.value.url) == (502, ATTRIBUTES_URL)
+    assert e.value.reason == "tmapi countries are missing id 99999 of player 411295"
+
+
+def test_squad_player_without_first_nationality_keeps_the_second():
+    def doctor(data: list) -> None:
+        raw_player(data, "937958")["nationalityDetails"]["nationalities"].update(
+            nationalityId=0, secondNationalityId=157
+        )
+
+    response = club_squad("131", players=doctored_players("131", doctor))
+    assert player_by_name(response, "Lamine Yamal")["nationalities"] == ["Spain"]
 
 
 def test_squad_player_missing_from_lookup_is_502():
     with pytest.raises(UpstreamError) as e:
         club_squad("131", players=doctored_players("131", lambda data: data.remove(raw_player(data, "937958"))))
-    assert e.value.status_code == 502
-    assert "missing ids ['937958']" in e.value.reason
+    assert (e.value.status_code, e.value.url) == (502, f"{TMAPI_URL}/players")
+    assert e.value.reason == "tmapi lookup is missing ids ['937958']"
 
 
 @pytest.mark.parametrize(
     ("doctor", "message"),
     [
-        (lambda d: raw_player(d, "937958")["lifeDates"].update(dateOfBirth="13/07/2007"), "dateOfBirth='13/07/2007'"),
-        (lambda d: raw_player(d, "937958")["attributes"].update(contractUntil=2031), "contractUntil=2031"),
-        (lambda d: raw_player(d, "937958")["attributes"].update(height="1,83"), "height='1,83' in player 937958"),
-        (lambda d: raw_player(d, "937958")["attributes"].update(position={}), "no attributes.position.name"),
-        (lambda d: raw_player(d, "937958")["marketValueDetails"].update(current={}), "no marketValueDetails"),
+        (
+            lambda d: raw_player(d, "937958")["lifeDates"].update(dateOfBirth="13/07/2007"),
+            "lifeDates.dateOfBirth='13/07/2007' in player 937958",
+        ),
+        (
+            lambda d: raw_player(d, "937958")["attributes"].update(contractUntil="30/06/2031"),
+            "attributes.contractUntil='30/06/2031' in player 937958",
+        ),
+        (
+            lambda d: raw_player(d, "937958")["attributes"].update(contractUntil=2031),
+            "attributes.contractUntil=2031 in player 937958",
+        ),
+        (
+            lambda d: raw_player(d, "937958")["attributes"].update(height="1,83"),
+            "attributes.height='1,83' in player 937958",
+        ),
+        (
+            lambda d: raw_player(d, "937958")["attributes"].update(position={}),
+            "no attributes.position.name in player 937958",
+        ),
+        (
+            lambda d: raw_player(d, "937958")["attributes"].update(preferredFoot={}),
+            "no attributes.preferredFoot.name in player 937958",
+        ),
+        (
+            lambda d: raw_player(d, "937958")["marketValueDetails"].update(current={}),
+            "no marketValueDetails.current.value in player 937958",
+        ),
         (
             lambda d: raw_player(d, "937958")["nationalityDetails"]["nationalities"].update(secondNationalityId=None),
-            "secondNationalityId=None in player 937958",
+            "nationalityDetails.nationalities.secondNationalityId=None in player 937958",
         ),
+        (lambda d: d.append("937958"), "no id in player None"),
     ],
 )
 def test_squad_unexpected_player_is_502(doctor, message):
+    lookups = doctored_players("131", doctor)
     with pytest.raises(UpstreamError) as e:
-        club_squad("131", players=doctored_players("131", doctor))
-    assert e.value.status_code == 502
-    assert message in e.value.reason
+        club_squad("131", players=lookups)
+    ((url, _),) = lookups
+    assert (e.value.status_code, e.value.url) == (502, url)
+    assert e.value.reason == f"Unexpected tmapi response: {message}"
+
+
+@pytest.mark.parametrize(
+    ("content", "reason"),
+    [
+        (envelope({}), "Unexpected tmapi response: players data is not a list"),
+        (b"<html>", "Unexpected tmapi response: body is not JSON"),
+    ],
+)
+def test_squad_unexpected_players_lookup_is_502(content, reason):
+    lookup_url = f"{TMAPI_URL}/players?ids[]=1"
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktClubSquad.parse_players([(lookup_url, content)], player_ids=set())
+    assert (e.value.status_code, e.value.url, e.value.reason) == (502, lookup_url, reason)
 
 
 def test_squad_unexpected_shape_is_502():
-    data = squad_data("131")
+    data = squad_data("131", "2014")
     data["squad"][0]["shirtNumber"] = "1"
-    for content in (envelope(data), envelope({"squad": {}}), envelope([])):
+    for content, reason in [
+        (envelope(data), "Unexpected tmapi response: shirtNumber='1' in squad entry 74857"),
+        (envelope({"squad": ["74857"]}), "Unexpected tmapi response: no playerId in squad entry None"),
+        (envelope({"squad": {}}), "Unexpected tmapi response: no squad list"),
+        (envelope([]), "Unexpected tmapi response: no squad list"),
+        (b"<html>", "Unexpected tmapi response: body is not JSON"),
+    ]:
         with pytest.raises(UpstreamError) as e:
-            TransfermarktClubSquad.parse_squad(content, club_id="131")
-        assert e.value.status_code == 502
+            TransfermarktClubSquad.parse_squad(content, club_id="131", season_id="2014")
+        assert (e.value.status_code, e.value.url, e.value.reason) == (
+            502,
+            f"{TMAPI_URL}/club/131/squad?season=2014",
+            reason,
+        )
+
+
+COUNTRIES_REASON = "Unexpected tmapi response: attributes.countries is not a list of {id, name}"
+
+
+@pytest.mark.parametrize(
+    ("attributes", "reason"),
+    [
+        (envelope([]), COUNTRIES_REASON),
+        (envelope({}), COUNTRIES_REASON),
+        (envelope({"countries": ["Spain"]}), COUNTRIES_REASON),
+        (envelope({"countries": [{"id": "157", "name": "Spain"}]}), COUNTRIES_REASON),
+        (envelope({"countries": [{"id": 157}]}), COUNTRIES_REASON),
+        (b"<html>", "Unexpected tmapi response: body is not JSON"),
+    ],
+)
+def test_squad_unexpected_attributes_is_502(attributes, reason):
+    with pytest.raises(UpstreamError) as e:
+        club_squad("131", attributes=attributes)
+    assert (e.value.status_code, e.value.url, e.value.reason) == (502, ATTRIBUTES_URL, reason)
+
+
+@pytest.mark.parametrize(
+    ("overrides", "status", "url", "reason"),
+    [
+        pytest.param({"club": NOT_FOUND}, 404, club_url("131"), "tmapi request failed (Club not found)", id="club"),
+        pytest.param(
+            {"squad": b"<html>"},
+            502,
+            f"{TMAPI_URL}/club/131/squad?season=2014",
+            "Unexpected tmapi response: body is not JSON",
+            id="squad",
+        ),
+    ],
+)
+def test_squad_from_bytes_error_names_the_response(overrides, status, url, reason):
+    kwargs = {
+        "squad": fixture_bytes(TransfermarktClubSquad.squad_url("131", "2014")),
+        "club": fixture_bytes(club_url("131")),
+    }
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktClubSquad.from_bytes(**{**kwargs, **overrides}, players=[], club_id="131", season_id="2014")
+    assert (e.value.status_code, e.value.url, e.value.reason) == (status, url, reason)
+
+
+def test_squad_empty_from_bytes_needs_no_attributes():
+    tfmkt = TransfermarktClubSquad.from_bytes(
+        envelope({"squad": []}), club=fixture_bytes(club_url("131")), players=[], club_id="131", season_id="1800"
+    )
+    assert (tfmkt.countries, tfmkt.get_club_squad()["players"]) == ({}, [])
 
 
 def test_squad_empty():
