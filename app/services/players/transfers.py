@@ -2,10 +2,8 @@ import json
 from dataclasses import dataclass, field
 from typing import ClassVar, Self
 
-import lxml.html
-
 from app.http import TransfermarktClient
-from app.services.base import TransfermarktBase
+from app.services.base import TransfermarktBase, parse_html
 from app.utils.utils import extract_from_url, safe_split
 from app.utils.xpath import Players
 
@@ -36,9 +34,10 @@ class TransfermarktPlayerTransfers(TransfermarktBase):
     @classmethod
     def from_bytes(cls, html: bytes, transfer_history: bytes | None = None, *, player_id: str) -> Self:
         """Build the service from an already fetched transfers page and, optionally, its transfer history JSON."""
+        url = cls.URL_TEMPLATE.format(player_id=player_id)
         return cls(
-            URL=cls.URL_TEMPLATE.format(player_id=player_id),
-            page=lxml.html.document_fromstring(html),
+            URL=url,
+            page=parse_html(url, html),
             player_id=player_id,
             transfer_history=json.loads(transfer_history) if transfer_history is not None else {},
         )

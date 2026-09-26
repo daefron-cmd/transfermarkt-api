@@ -2,10 +2,8 @@ import json
 from dataclasses import dataclass, field
 from typing import ClassVar, Self
 
-import lxml.html
-
 from app.http import TransfermarktClient
-from app.services.base import TransfermarktBase
+from app.services.base import TransfermarktBase, parse_html
 from app.utils.regex import REGEX_CHART_CLUB_ID
 from app.utils.utils import safe_regex, zip_lists_into_dict
 from app.utils.xpath import Players
@@ -37,9 +35,10 @@ class TransfermarktPlayerMarketValue(TransfermarktBase):
     @classmethod
     def from_bytes(cls, html: bytes, market_value_chart: bytes | None = None, *, player_id: str) -> Self:
         """Build the service from an already fetched market value page and, optionally, its chart JSON."""
+        url = cls.URL_TEMPLATE.format(player_id=player_id)
         return cls(
-            URL=cls.URL_TEMPLATE.format(player_id=player_id),
-            page=lxml.html.document_fromstring(html),
+            URL=url,
+            page=parse_html(url, html),
             player_id=player_id,
             market_value_chart=json.loads(market_value_chart) if market_value_chart is not None else {},
         )

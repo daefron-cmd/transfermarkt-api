@@ -155,3 +155,23 @@ def test_transport_error_retry_is_logged(tmp_path, sleeps, caplog):
 
     warnings = [r.getMessage() for r in caplog.records if r.name == "app.http" and r.levelno == logging.WARNING]
     assert warnings == [f"Retrying GET {URL} after attempt 1 (ConnectError: refused) in {sleeps[0]:.1f}s"]
+
+
+@pytest.mark.parametrize("body", [b"", b" \r\n"])
+def test_empty_body_is_returned_but_not_cached(tmp_path, body):
+    requests: list[str] = []
+
+    def handler(request: httpx2.Request) -> httpx2.Response:
+        requests.append(str(request.url))
+        return httpx2.Response(200, content=body)
+
+    async def run() -> tuple[list[bytes], bool]:
+        async with make_client(tmp_path, handler, CACHE_ENABLE=True) as client:
+            contents = [(await client.get(URL)).content for _ in range(2)]
+            assert client._cache is not None
+            return contents, URL in client._cache
+
+    contents, cached = asyncio.run(run())
+    assert contents == [body, body]
+    assert not cached
+    assert requests == [URL, URL]

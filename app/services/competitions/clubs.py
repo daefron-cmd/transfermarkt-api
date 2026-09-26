@@ -1,10 +1,8 @@
 from dataclasses import dataclass
 from typing import ClassVar, Self
 
-import lxml.html
-
 from app.http import TransfermarktClient
-from app.services.base import TransfermarktBase
+from app.services.base import TransfermarktBase, parse_html
 from app.utils.utils import extract_from_url
 from app.utils.xpath import Competitions
 
@@ -35,9 +33,10 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
     def from_bytes(cls, html: bytes, *, competition_id: str, season_id: str | None = None) -> Self:
         """Build the service from an already fetched competition page."""
         season = f"?saison_id={season_id}" if season_id else ""
+        url = cls.URL_TEMPLATE.format(competition_id=competition_id, season=season)
         return cls(
-            URL=cls.URL_TEMPLATE.format(competition_id=competition_id, season=season),
-            page=lxml.html.document_fromstring(html),
+            URL=url,
+            page=parse_html(url, html),
             competition_id=competition_id,
             season_id=season_id,
         )

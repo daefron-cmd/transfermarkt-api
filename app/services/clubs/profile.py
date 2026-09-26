@@ -1,10 +1,8 @@
 from dataclasses import dataclass
 from typing import ClassVar, Self
 
-import lxml.html
-
 from app.http import TransfermarktClient
-from app.services.base import TransfermarktBase
+from app.services.base import TransfermarktBase, parse_html
 from app.utils.regex import REGEX_BG_COLOR, REGEX_COUNTRY_ID, REGEX_MEMBERS_DATE
 from app.utils.utils import extract_from_url, remove_str, safe_regex, safe_split
 from app.utils.xpath import Clubs
@@ -32,9 +30,10 @@ class TransfermarktClubProfile(TransfermarktBase):
     @classmethod
     def from_bytes(cls, html: bytes, *, club_id: str) -> Self:
         """Build the service from an already fetched club profile page."""
+        url = cls.URL_TEMPLATE.format(club_id=club_id)
         return cls(
-            URL=cls.URL_TEMPLATE.format(club_id=club_id),
-            page=lxml.html.document_fromstring(html),
+            URL=url,
+            page=parse_html(url, html),
             club_id=club_id,
         )
 

@@ -1,11 +1,32 @@
 from dataclasses import dataclass, field
 from typing import Any
 
+import lxml.etree
 import lxml.html
 from fastapi import HTTPException
 
+from app.http import UpstreamError
 from app.utils.utils import trim
 from app.utils.xpath import Pagination
+
+
+def parse_html(url: str, content: bytes) -> lxml.html.HtmlElement:
+    """
+    Parse an upstream HTML page; every HTML service builds its page through this function.
+
+    Args:
+        url (str): The URL the page was fetched from (used in error details).
+        content (bytes): The raw response body.
+
+    Raises:
+        UpstreamError: 502 if the body is empty or whitespace-only, or if lxml cannot build a document from it.
+    """
+    if not content.strip():
+        raise UpstreamError(502, url, f"Empty upstream response ({len(content)} bytes)")
+    try:
+        return lxml.html.document_fromstring(content)
+    except lxml.etree.ParserError as e:
+        raise UpstreamError(502, url, "Unparseable upstream response") from e
 
 
 @dataclass

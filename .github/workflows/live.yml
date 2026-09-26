@@ -18,4 +18,23 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync --frozen
-      - run: uv run pytest tests/live -m live --force-enable-socket -q
+      # Diagnostics only: transfermarkt.com may answer GitHub-hosted runners with empty pages.
+      - name: Upstream reachability
+        continue-on-error: true
+        env:
+          UA: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+        run: |
+          for url in https://www.transfermarkt.com/lionel-messi/profil/spieler/28003 \
+                     https://tmapi.transfermarkt.technology/player/28003; do
+            echo "== $url"
+            curl -sS -A "$UA" -o /tmp/tm.html \
+              -w 'status=%{http_code} size=%{size_download} type=%{content_type} redirect=%{redirect_url}\n' \
+              "$url" || true
+            head -c 400 /tmp/tm.html || true
+            echo
+            rm -f /tmp/tm.html
+          done
+      - name: Live smoke tests
+        env:
+          LOG_LEVEL: DEBUG
+        run: uv run pytest tests/live -m live --force-enable-socket -q -rA --tb=short

@@ -198,7 +198,8 @@ class TransfermarktClient:
         if response.status_code >= 400:
             raise UpstreamError(response.status_code, url, f"Client Error. {response.reason_phrase}")
 
-        if self._cache is not None and response.is_success:
+        # An empty or whitespace-only body is never cached: it would otherwise be served for CACHE_TTL_SECONDS.
+        if self._cache is not None and response.is_success and response.content.strip():
             self._cache.set(url, response.content, expire=self._config.CACHE_TTL_SECONDS)
 
         return UpstreamResponse(url=url, status_code=response.status_code, content=response.content)

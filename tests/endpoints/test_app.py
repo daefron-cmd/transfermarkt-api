@@ -1,15 +1,18 @@
 """App-level behaviour: health, errors, logging, rate limiting, proxy headers, CORS and the OpenAPI schema."""
 
+import functools
 import importlib
 import logging
 from collections.abc import Iterator
 
+import httpx2
 import limits
 import pytest
 from fastapi.testclient import TestClient
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from app import __version__, main
+from app.http import TransfermarktClient
 from app.services.players.profile import TransfermarktPlayerProfile
 from app.settings import settings
 
@@ -21,6 +24,16 @@ def rate_limited(monkeypatch) -> Iterator[int]:
     main.limiter.reset()
     yield limits.parse(settings.RATE_LIMITING_FREQUENCY).amount
     main.limiter.reset()
+
+
+@pytest.fixture
+def empty_upstream(monkeypatch) -> Iterator[TestClient]:
+    """The app with an upstream that answers every request with 200 and an empty body."""
+    config = settings.model_copy(update={"CACHE_ENABLE": False, "OUTBOUND_MIN_INTERVAL_MS": 0})
+    transport = httpx2.MockTransport(lambda request: httpx2.Response(200, content=b""))
+    monkeypatch.setattr(main, "TransfermarktClient", functools.partial(TransfermarktClient, config, transport))
+    with TestClient(main.app, raise_server_exceptions=False) as test_client:
+        yield test_client
 
 
 @pytest.fixture
@@ -116,6 +129,25 @@ def test_unexpected_exception_is_a_generic_500(client, monkeypatch, caplog):
     assert len(errors) == 1
     assert "GET /players/28003/profile" in errors[0].getMessage()
     assert errors[0].exc_info[1].args == ("secret upstream internals",)
+
+
+def test_empty_html_page_is_a_502(empty_upstream):
+    response = empty_upstream.get("/players/28003/profile")
+
+    assert response.status_code == 502
+    assert response.json() == {
+        "detail": "Empty upstream response (0 bytes) for url: https://www.transfermarkt.com/-/profil/spieler/28003"
+    }
+
+
+def test_empty_tmapi_response_is_a_502(empty_upstream):
+    response = empty_upstream.get("/competitions/ES1/table")
+
+    assert response.status_code == 502
+    assert response.json() == {
+        "detail": "Unexpected tmapi response: body is not JSON for url: "
+        "https://tmapi.transfermarkt.technology/competition/ES1"
+    }
 
 
 def test_one_log_line_per_request(client, caplog):

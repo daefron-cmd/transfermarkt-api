@@ -107,7 +107,9 @@ A squad table with other columns returns 502 naming its headers.
 
 Every error response is JSON of the form `{"detail": "<message>"}`, except input validation errors (422), which keep
 FastAPI's format (`{"detail": [{"loc": ..., "msg": ..., "type": ...}]}`). An unexpected error is logged with its
-traceback and returned as 500 `{"detail": "Internal server error"}`; exceeding the inbound rate limit is a 429.
+traceback and returned as 500 `{"detail": "Internal server error"}`; exceeding the inbound rate limit is a 429. An
+empty or unparseable upstream page is a 502 whose `detail` names the upstream URL (`Empty upstream response (0 bytes)
+for url: ...`); an empty body is never cached.
 
 Inputs are validated before anything is requested from Transfermarkt (bad input is a 422, documented in `/docs`):
 
@@ -325,7 +327,10 @@ $ uv run pytest tests/live -m live --force-enable-socket -q
 ````
 
 The nightly GitHub Actions workflow `.github/workflows/live.yml` (`Live smoke`) runs it every day at 04:00 UTC and
-can be started by hand (`workflow_dispatch`).
+can be started by hand (`workflow_dispatch`). GitHub-hosted runners may be answered by transfermarkt.com with empty
+pages (the HTML-backed cases then fail with 502 while the tmapi-backed ones pass), so the workflow first prints an
+upstream reachability check (status, size, content type and the first bytes of a player page and a tmapi response)
+and runs the suite with `LOG_LEVEL=DEBUG` and `-rA`, which puts every upstream fetch and its status in the log.
 
 ### Changelog
 
