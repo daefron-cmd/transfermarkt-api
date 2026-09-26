@@ -1,0 +1,1 @@
+{"session_id":"s1","turn_id":"t1","transcript_path":null,"cwd":".","hook_event_name":"PostToolUse","model":"gpt-5.6-sol","permission_mode":"default","tool_name":"apply_patch","tool_use_id":"tool1","tool_input":{"command":"*** Begin Patch\n*** Update File: x.py\n@@\n-a = 1\n+a = 2\n*** End Patch"},"tool_response":{"output":"Done!"}}

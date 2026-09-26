@@ -162,3 +162,9 @@ cython_debug/
 
 # Vercel
 .vercel/
+
+# pawl quality stack: mutmut's generated tree, Pawl's coverage/guard output, macOS metadata.
+# .pawl-selftest.json is deliberately tracked.
+mutants/
+.mech/
+.DS_Store

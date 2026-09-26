@@ -80,7 +80,8 @@ def test_rate_limit_error_shape(client, rate_limited):
 
 def test_limiter_keys_on_forwarded_address_behind_trusted_proxy(unrecorded_urls, rate_limited):
     # Uvicorn's --proxy-headers wraps the app in this middleware; "*" stands for FORWARDED_ALLOW_IPS=*.
-    with TestClient(ProxyHeadersMiddleware(main.app, trusted_hosts="*")) as proxied:
+    # The ignore: uvicorn and starlette type the same ASGI Scope/Receive protocol with incompatible stubs.
+    with TestClient(ProxyHeadersMiddleware(main.app, trusted_hosts="*")) as proxied:  # pyright: ignore[reportArgumentType]
         for _ in range(rate_limited):
             assert proxied.get("/openapi.json", headers={"X-Forwarded-For": "203.0.113.1"}).status_code == 200
         blocked = proxied.get("/openapi.json", headers={"X-Forwarded-For": "203.0.113.1"})
@@ -92,7 +93,8 @@ def test_limiter_keys_on_forwarded_address_behind_trusted_proxy(unrecorded_urls,
 
 def test_limiter_ignores_forwarded_address_from_untrusted_proxy(unrecorded_urls, rate_limited):
     # The TestClient connects as "testclient", which is not in the trusted hosts, so X-Forwarded-For is ignored.
-    with TestClient(ProxyHeadersMiddleware(main.app, trusted_hosts="127.0.0.1")) as proxied:
+    # The ignore: uvicorn and starlette type the same ASGI Scope/Receive protocol with incompatible stubs.
+    with TestClient(ProxyHeadersMiddleware(main.app, trusted_hosts="127.0.0.1")) as proxied:  # pyright: ignore[reportArgumentType]
         for _ in range(rate_limited):
             assert proxied.get("/openapi.json", headers={"X-Forwarded-For": "203.0.113.1"}).status_code == 200
         other = proxied.get("/openapi.json", headers={"X-Forwarded-For": "203.0.113.2"})

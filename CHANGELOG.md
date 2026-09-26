@@ -12,6 +12,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - The nightly `Live smoke` workflow runs only the live smoke cases backed by `tmapi.transfermarkt.technology` (new
   pytest marker `tmapi`), since transfermarkt.com answers GitHub-hosted runners with HTTP 202 and an empty body. The
   full live suite remains a local run.
+- pyright (standard mode) replaces mypy as the type checker.
+- The pawl quality stack (`mech/`): a fail-closed commit gate (`.githooks/pre-commit`, `.githooks/pre-merge-commit`;
+  ruff, pyright, a Pawl compatibility-record check and the offline suite), armed per clone with
+  `git config core.hooksPath .githooks`; a push workflow (`push.yml`: the same checks on every pushed branch tip plus
+  coverage reachability and diff-scoped mutation testing against `MUTANTS.md`); and a monthly maintenance workflow
+  (`weekly.yml`: full mutation catalog, pip-audit, issue handoff). New dev dependencies: pyright, coverage,
+  hypothesis, mutmut and pytest-randomly (the suite now runs in random order); pytest-cov and mypy are removed.
+- `ci.yml` is reduced to the dependency audit and the Docker build; lint, type checking and tests run in `push.yml`.
+  Workflows install with `uv sync --locked`, which fails on a lockfile that no longer matches `pyproject.toml`.
+- ruff also selects the bandit security rules (`S`) and bans bare `# noqa` and blanket `# type: ignore`.
+- `HOST` (the bind address of `python -m app.main`) defaults to `127.0.0.1` instead of `0.0.0.0`. The Docker image is
+  unaffected: its `uvicorn` command binds `0.0.0.0` itself.
 
 ### Fixed
 

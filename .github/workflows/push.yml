@@ -1,0 +1,51 @@
+name: push
+on:
+  push:
+    # Branch pushes only. A bare `push:` also fires on tag pushes, so tagging
+    # a commit re-ran the whole gate against it a second time (run
+    # 30176227311, on the full-enforcement-2026-07-25 tag). The commit is
+    # already verified when its branch is pushed; the tag adds no new code.
+    #
+    # This MUST be `branches`, not `tags-ignore`. A push filter that names only
+    # tag patterns suppresses branch events as well: `tags-ignore: ['**']` was
+    # tried first (f023f1d) and no run was created for that very push. Naming
+    # `branches` keeps every branch and drops tags, because a push filter that
+    # names only branch patterns likewise never fires on tags.
+    branches: ['**']
+  workflow_dispatch: {}
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    steps:
+      # Diff-scoped mutation needs full history and an explicit default-branch
+      # ref: fetch-depth 0 alone does not guarantee origin/$DEFAULT_BRANCH on a
+      # non-default branch push.
+      # Checkout and upload-artifact stay on the EARLIEST major that declares
+      # `node24` in its own action.yml, not the latest release (2026-08-02).
+      # Their later-major features do not serve this workflow. setup-uv is the
+      # exception: v8 added immutable releases and secure tags, while v10 added
+      # safer cache defaults and manifest-retry hardening (reviewed 2026-09-01).
+      # setup-uv does not publish a floating v10 tag, so use an exact release.
+      # The uv executable version is pinned separately by [tool.uv] in
+      # pyproject.toml, which setup-uv reads automatically.
+      #
+      # Do NOT "bump one major" on upload-artifact: v5 is still node20. v6 is
+      # the first that is not, so v4 -> v5 looks like a fix and is not one.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - run: git fetch origin "$DEFAULT_BRANCH"
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      - uses: astral-sh/setup-uv@v10.0.1
+      - run: uv sync --locked
+      - run: uv run python -m mech.ci_push
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: coverage
+          path: .mech/coverage.json
+          if-no-files-found: ignore

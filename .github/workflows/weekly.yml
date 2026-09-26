@@ -1,0 +1,24 @@
+name: maintenance
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Full mutation plus dependency audit, monthly at 04:00 UTC. The file and
+    # Python entry-point keep their historical "weekly" names for deployment
+    # compatibility; cadence is deliberately lower for this solo repository.
+    - cron: '0 4 1 * *'
+jobs:
+  full:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      issues: write
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      # Checkout's earliest node24 major and setup-uv's exact hardened release
+      # — see the decision note in push.yml.
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v10.0.1
+      - run: uv sync --locked
+      - run: uv run python -m mech.ci_weekly

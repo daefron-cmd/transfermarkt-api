@@ -1,0 +1,63 @@
+"""Captured verbatim from a real `mutmut run` generated tree (mutmut 3.6.0,
+this repo, mech/paths.py, 2026-07-24) — the wire shape the REQ-B-4 fingerprint
+reads. Slice only: x__segments_match__mutmut_{orig,7,12,15,18}, no trampoline
+plumbing. `.py.txt` so ruff and pyright do not lint captured data. Re-slice
+mutants/mech/paths.py after any mutmut upgrade (REQ-B-1a).
+"""
+
+from fnmatch import fnmatchcase
+
+
+def x__segments_match__mutmut_orig(pattern: list[str], parts: list[str]) -> bool:
+    if not pattern:
+        return not parts
+    head, rest = pattern[0], pattern[1:]
+    if head == "**":
+        return any(_segments_match(rest, parts[i:]) for i in range(len(parts) + 1))
+    if not parts:
+        return False
+    return fnmatchcase(parts[0], head) and _segments_match(rest, parts[1:])
+
+
+def x__segments_match__mutmut_7(pattern: list[str], parts: list[str]) -> bool:
+    if not pattern:
+        return not parts
+    head, rest = pattern[0], pattern[1:]
+    if head == "XX**XX":
+        return any(_segments_match(rest, parts[i:]) for i in range(len(parts) + 1))
+    if not parts:
+        return False
+    return fnmatchcase(parts[0], head) and _segments_match(rest, parts[1:])
+
+
+def x__segments_match__mutmut_12(pattern: list[str], parts: list[str]) -> bool:
+    if not pattern:
+        return not parts
+    head, rest = pattern[0], pattern[1:]
+    if head == "**":
+        return any(_segments_match(rest, ) for i in range(len(parts) + 1))
+    if not parts:
+        return False
+    return fnmatchcase(parts[0], head) and _segments_match(rest, parts[1:])
+
+
+def x__segments_match__mutmut_15(pattern: list[str], parts: list[str]) -> bool:
+    if not pattern:
+        return not parts
+    head, rest = pattern[0], pattern[1:]
+    if head == "**":
+        return any(_segments_match(rest, parts[i:]) for i in range(len(parts) + 2))
+    if not parts:
+        return False
+    return fnmatchcase(parts[0], head) and _segments_match(rest, parts[1:])
+
+
+def x__segments_match__mutmut_18(pattern: list[str], parts: list[str]) -> bool:
+    if not pattern:
+        return not parts
+    head, rest = pattern[0], pattern[1:]
+    if head == "**":
+        return any(_segments_match(rest, parts[i:]) for i in range(len(parts) + 1))
+    if not parts:
+        return False
+    return fnmatchcase(parts[0], head) or _segments_match(rest, parts[1:])

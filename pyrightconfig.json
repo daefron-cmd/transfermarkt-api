@@ -1,0 +1,14 @@
+{
+  "typeCheckingMode": "standard",
+  "pythonVersion": "3.12",
+  "venvPath": ".",
+  "venv": ".venv",
+  "exclude": ["**/__pycache__", ".venv", "mutants", ".mech"],
+  "strict": [
+    "mech/baseline.py",
+    "mech/imports_analyzer.py",
+    "mech/source_inventory.py",
+    "mech/stoprun.py"
+  ],
+  "executionEnvironments": []
+}

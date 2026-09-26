@@ -3,7 +3,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
-    HOST: str = "0.0.0.0"
+    # Read only by `python -m app.main`; the Docker image passes --host 0.0.0.0 to uvicorn itself.
+    HOST: str = "127.0.0.1"
     PORT: int = 8000
     RELOAD: bool = False
     # Proxy addresses whose X-Forwarded-For header uvicorn trusts ("*" = any). The uvicorn CLI (Docker) reads the

@@ -1,6 +1,7 @@
 FROM python:3.13-slim AS builder
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+# This tag must match [tool.uv] required-version in pyproject.toml.
+COPY --from=ghcr.io/astral-sh/uv:0.12.7 /uv /uvx /bin/
 
 ENV UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \

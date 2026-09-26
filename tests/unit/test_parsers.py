@@ -462,6 +462,7 @@ def test_club_players_national_team_status():
 def test_club_players_unknown_club_is_404():
     # The unknown club's redirect target ("Most valuable clubs") has no h1 today; with one it must still be a 404.
     page = lxml.html.document_fromstring(fixture_bytes(CLUB_PLAYERS_URL.format(club_id="0", season="")))
+    assert page.body is not None
     page.body.insert(0, lxml.html.fragment_fromstring("<header><h1>Most valuable clubs</h1></header>"))
     with pytest.raises(HTTPException) as e:
         club_players("0", None, html=lxml.html.tostring(page))

@@ -21,10 +21,13 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "mypy>=2.3.1",
+    "coverage>=7.15.2",
+    "hypothesis>=6.167.1",
+    "mutmut>=3.7.0",
     "pip-audit>=2.10.1",
+    "pyright>=1.1.411",
     "pytest>=9.1.1",
-    "pytest-cov>=7.1.0",
+    "pytest-randomly>=4.1.0",
     "pytest-socket>=0.8.1",
     "ruff>=0.16.9",
     "types-lxml>=2026.2.16",
@@ -33,10 +36,16 @@ dev = [
 
 [tool.uv]
 package = false
+# setup-uv reads this when no workflow-level version is supplied, keeping local
+# and CI resolution on the same tested uv release.
+required-version = "==0.12.7"
 
 [tool.ruff]
 line-length = 120
 target-version = "py312"
+# ruff >=0.16 formats Python code blocks INSIDE Markdown. The README, CHANGELOG and docs are not source;
+# `extend-exclude`, not `exclude` — the latter replaces ruff's own defaults.
+extend-exclude = ["*.md"]
 
 [tool.ruff.lint]
 select = [
@@ -50,20 +59,24 @@ select = [
     "SIM",  # flake8-simplify
     "RUF",  # ruff-specific
     "FAST", # fastapi
+    "S",    # flake8-bandit (security)
+    "PGH003", # no blanket `# type: ignore`
+    "PGH004", # no bare `# noqa`
 ]
 
 [tool.ruff.lint.per-file-ignores]
 # Pydantic copies mutable field defaults per instance; RUF012 cannot see the BaseModel ancestry.
 "app/schemas/**" = ["RUF012"]
+# assert is the point of both product and Pawl test files
+"tests/**" = ["S101"]
+"mech/tests/**" = ["S101"]
+# mech/ is Pawl's, copied verbatim and synced upstream; hold it to Pawl's own rule set (E/F/W/I/UP/S/PGH),
+# not this repo's additions, so a fix here never forks upstream bytes. See DEVIATIONS.md.
+"mech/**" = ["B", "C4", "SIM", "RUF", "FAST"]
 
-[tool.mypy]
-python_version = "3.13"
-warn_unused_ignores = true
-check_untyped_defs = true
-
-[[tool.mypy.overrides]]
-module = ["diskcache", "diskcache.*"]
-ignore_missing_imports = true
+[tool.ruff.format]
+# Pawl formats mech/ at ruff's default width, not this repo's 120. See DEVIATIONS.md.
+exclude = ["mech/**"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -77,5 +90,24 @@ markers = [
     "tmapi: backed only by tmapi.transfermarkt.technology, which answers GitHub-hosted runners",
 ]
 
+[tool.mutmut]
+# The product source only, never "mech": Pawl's own survivors are judged upstream and that baseline does not travel.
+source_paths = ["app"]
+pytest_add_cli_args_test_selection = ["tests/"]
+# Push CI treats dependency/config changes as full mutation inputs, so stale cached verdicts must be discarded.
+on_dependency_change = "rerun"
+
 [tool.coverage.run]
+branch = true
 source = ["app"]
+omit = ["tests/*", "mech/tests/*"]
+# Reachability check only — no fail_under threshold, by design.
+
+[tool.mech]
+# Commit-gate pyright scope: "whole" | "staged_plus_dependents".
+# Flip when a measured cold-cache whole-project run exceeds 10 s — measure first, don't flip on a hunch.
+pyright_scope = "whole"
+# Tracked proof that Pawl's suite passed against this deployment's current compatibility inputs.
+pawl_selftest_record = ".pawl-selftest.json"
+# Stop hook declined; see DEVIATIONS.md.
+stop_hook = false

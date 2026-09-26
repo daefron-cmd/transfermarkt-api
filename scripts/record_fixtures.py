@@ -29,7 +29,7 @@ from tests.endpoints.cases import CASES, FIXTURES_DIR, FIXTURES_INDEX
 
 
 def fixture_name(url: str, body: bytes) -> str:
-    digest = hashlib.sha1(url.encode()).hexdigest()[:16]
+    digest = hashlib.sha1(url.encode(), usedforsecurity=False).hexdigest()[:16]
     try:
         json.loads(body)
     except ValueError:

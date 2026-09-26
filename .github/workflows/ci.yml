@@ -14,37 +14,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.2.0
-        with:
-          enable-cache: true
-      - run: uv sync --frozen
-      - run: uv run ruff check .
-      - run: uv run ruff format --check .
-
-  typecheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.2.0
-        with:
-          enable-cache: true
-      - run: uv sync --frozen
-      - run: uv run mypy app
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.2.0
-        with:
-          enable-cache: true
-      - run: uv sync --frozen
-      - run: uv run pytest -m "not live" -q
-
   audit:
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +21,7 @@ jobs:
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           enable-cache: true
-      - run: uv sync --frozen
+      - run: uv sync --locked
       - run: uv export --frozen --no-dev --no-emit-project --no-hashes -o requirements-audit.txt
       # PYSEC-2026-2447 (CVE-2025-69872, GHSA-w8v5-vhqr-4h9v): diskcache <=5.6.3 unpickles cache
       # entries, so write access to CACHE_DIR allows code execution. No fixed release exists yet;

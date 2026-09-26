@@ -168,11 +168,13 @@ class TransfermarktClient:
         url = str(httpx2.URL(url))
 
         if self._cache is not None:
+            # diskcache is untyped; only bytes are ever stored, so anything else is treated as a miss.
             cached = self._cache.get(url)
-            if cached is not None:
+            if isinstance(cached, bytes):
                 logger.debug("GET %s cache=hit", url)
                 return UpstreamResponse(url=url, status_code=200, content=cached)
 
+        response: httpx2.Response | None = None
         try:
             async for attempt in AsyncRetrying(
                 retry=retry_if_exception_type((_TransientStatusError, *_TRANSIENT_TRANSPORT_ERRORS)),
@@ -194,6 +196,10 @@ class TransfermarktClient:
         except httpx2.HTTPError as e:
             raise UpstreamError(500, url, f"Error. {e}") from e
 
+        # AsyncRetrying always makes one attempt and re-raises the last failure, so only a broken contract gets here.
+        if response is None:
+            raise UpstreamError(500, url, "Error. No upstream attempt was made")
+
         # Every 5xx is retryable, so a status that reaches this point without raising is below 500.
         if response.status_code >= 400:
             raise UpstreamError(response.status_code, url, f"Client Error. {response.reason_phrase}")
@@ -207,7 +213,9 @@ class TransfermarktClient:
     async def _send(self, url: str, attempt_number: int) -> httpx2.Response:
         async with self._semaphore:
             await self._throttle.wait()
-            response = await self._http.get(url, headers={"User-Agent": random.choice(USER_AGENTS)})
+            # Picking a User-Agent carries no security property, so a non-cryptographic PRNG is fine.
+            user_agent = random.choice(USER_AGENTS)  # noqa: S311
+            response = await self._http.get(url, headers={"User-Agent": user_agent})
         logger.debug("GET %s cache=miss status=%d attempt=%d", url, response.status_code, attempt_number)
         if _is_retryable_status(response.status_code):
             raise _TransientStatusError(

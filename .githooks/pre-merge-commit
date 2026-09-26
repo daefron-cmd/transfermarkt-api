@@ -1,0 +1,30 @@
+#!/bin/sh
+# Commit gate for merge commits (spec REQ-CG-1). Human-only escape hatch:
+# git merge --no-verify (spec §8).
+#
+# git does NOT run pre-commit when a merge commits automatically — it runs this
+# hook instead, and shipping only pre-commit left every clean auto-merge
+# ungated. A CONFLICTED merge was always covered, because resolving one ends in
+# a manual `git commit`; it is the clean merge that slipped through, which is
+# precisely where a semantic conflict lives (both sides fine on their own, the
+# combination broken). Body kept identical to pre-commit on purpose:
+# mech.validation asserts every hook in GATE_HOOKS invokes the gate, so the two
+# cannot drift apart silently.
+# Capture before changing directory. `cd "$(...)" || exit 1` looks like a
+# guard and is not one: a failed substitution yields the empty string, and
+# `cd ""` returns 0 in /bin/sh, so the gate would have run from wherever git
+# happened to leave us. Assigning first propagates rev-parse's exit status.
+top=$(git rev-parse --show-toplevel) || exit 1
+cd "$top" || exit 1
+# A GUI git client (Tower, GitHub Desktop, Fork, SourceTree, VS Code or the
+# JetBrains VCS panel) launched from the desktop runs hooks with the login
+# PATH, not your shell profile's, and uv usually is not on it. Without this the
+# only output is `exec: uv: not found`, which reads as a broken repo rather
+# than as unset PATH. The commit is blocked either way — this only says why.
+command -v uv >/dev/null 2>&1 || {
+    echo "pawl: 'uv' is not on PATH, so the commit gate never ran." >&2
+    echo "  Hooks from a desktop git client do not see your shell PATH." >&2
+    echo "  Fix the client's PATH, or commit from a terminal." >&2
+    exit 1
+}
+exec uv run python -m mech.commit_gate

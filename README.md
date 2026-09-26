@@ -270,7 +270,7 @@ matched the fixture lists' flags on every game checked, but a live game has only
 
 | Variable                   | Description                                                                                            | Default        |
 |----------------------------|--------------------------------------------------------------------------------------------------------|----------------|
-| `HOST`                     | Bind address used by `python -m app.main`                                                              | `0.0.0.0`      |
+| `HOST`                     | Bind address used by `python -m app.main` (the Docker image always binds `0.0.0.0`)                    | `127.0.0.1`    |
 | `PORT`                     | Port used by `python -m app.main`                                                                      | `8000`         |
 | `RELOAD`                   | Enable uvicorn auto-reload when running `python -m app.main`                                           | `false`        |
 | `LOG_LEVEL`                | Log level of the app's logs (`DEBUG`, `INFO`, `WARNING`, ...)                                          | `INFO`         |
@@ -293,9 +293,27 @@ matched the fixture lists' flags on every game checked, but a live game has only
 
 ````bash
 $ uv run ruff check . && uv run ruff format --check .
-$ uv run mypy app
+$ uv run pyright
 $ uv run pytest -q               # offline suite: unit tests + fixture-backed endpoint snapshots
 ````
+
+#### Quality gates
+
+The repo carries the pawl quality stack (`mech/`). A pre-commit gate
+(`.githooks/pre-commit` and `.githooks/pre-merge-commit`) runs ruff, pyright, a Pawl compatibility-record check and
+the offline suite, and blocks the commit on any failure. Git hook paths are local config, so each clone is unarmed
+until it runs:
+
+````bash
+$ git config core.hooksPath .githooks
+$ uv run python -m mech.validation   # exit 0 once armed
+````
+
+On GitHub, `.github/workflows/push.yml` re-runs the same checks on every pushed branch tip and adds coverage
+reachability and diff-scoped mutation testing (`MUTANTS.md` is the accepted-survivor baseline);
+`.github/workflows/weekly.yml` runs the full mutation catalog, pip-audit and an issue handoff on the first day of each
+month. `.github/workflows/ci.yml` keeps the dependency audit and the Docker build. Conventions for working under the
+gate are in [CLAUDE.md](CLAUDE.md); departures from stock pawl are recorded in [DEVIATIONS.md](DEVIATIONS.md).
 
 #### Tests and fixtures
 

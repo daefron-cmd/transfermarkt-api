@@ -1,0 +1,7 @@
+    mech.verdict.x_finding__mutmut_1: killed
+    mech.verdict.x_finding__mutmut_2: killed
+    mech.verdict.x_finding__mutmut_3: killed
+    mech.verdict.x_finding__mutmut_4: killed
+    mech.imports_analyzer.x__module_name__mutmut_1: not checked
+    mech.imports_analyzer.x__module_name__mutmut_2: not checked
+    mech.imports_analyzer.x__module_name__mutmut_3: not checked
