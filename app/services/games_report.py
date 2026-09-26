@@ -77,7 +77,6 @@ class TransfermarktGame:
       homeGoals/awayGoals are subtracted); a coach sanction has no player (tmapi gives only a coachId).
 
     Args:
-        game_id (str): The unique identifier of the game.
         game (dict): The validated report data, with the derived isLive and isFinished.
         club_names, player_names, coach_names, referee_names (dict): Id to name.
         stadium (dict | None): The stadium's {id, name, city}, or None.
@@ -86,7 +85,6 @@ class TransfermarktGame:
         shootout_scores (dict): The game id to its (home, away) shootout result, for a finished shootout game.
     """
 
-    game_id: str
     game: dict
     club_names: dict[str, str]
     player_names: dict[str, str]
@@ -223,7 +221,6 @@ class TransfermarktGame:
             else:
                 stadium = cls.parse_stadium(response.content, stadium_id=stadium_id)
         return cls(
-            game_id=game_id,
             game=game,
             club_names=club_names,
             player_names=player_names,

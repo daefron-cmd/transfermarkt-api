@@ -93,58 +93,6 @@ markers = [
 [tool.mutmut]
 # The product source only, never "mech": Pawl's own survivors are judged upstream and that baseline does not travel.
 source_paths = ["app"]
-# Burndown ratchet: push CI mutates only the modules whose survivors are classified in MUTANTS.md.
-# Grow it per burned-down module; delete it when it covers app/. See DEVIATIONS.md.
-only_mutate = [
-    "app/api/api.py",
-    "app/api/deps.py",
-    "app/api/endpoints/clubs.py",
-    "app/api/endpoints/competitions.py",
-    "app/api/endpoints/players.py",
-    "app/http.py",
-    "app/main.py",
-    "app/schemas/base.py",
-    "app/schemas/clubs/fixtures.py",
-    "app/schemas/clubs/players.py",
-    "app/schemas/clubs/profile.py",
-    "app/schemas/clubs/search.py",
-    "app/schemas/clubs/squad.py",
-    "app/schemas/competitions/clubs.py",
-    "app/schemas/competitions/fixtures.py",
-    "app/schemas/competitions/search.py",
-    "app/schemas/competitions/table.py",
-    "app/schemas/players/achievements.py",
-    "app/schemas/players/injuries.py",
-    "app/schemas/players/jersey_numbers.py",
-    "app/schemas/players/market_value.py",
-    "app/schemas/players/profile.py",
-    "app/schemas/players/search.py",
-    "app/schemas/players/stats.py",
-    "app/schemas/players/transfers.py",
-    "app/services/base.py",
-    "app/services/clubs/fixtures.py",
-    "app/services/clubs/players.py",
-    "app/services/clubs/profile.py",
-    "app/services/clubs/search.py",
-    "app/services/clubs/squad.py",
-    "app/services/competitions/clubs.py",
-    "app/services/competitions/fixtures.py",
-    "app/services/competitions/search.py",
-    "app/services/competitions/table.py",
-    "app/services/games.py",
-    "app/services/players/achievements.py",
-    "app/services/players/injuries.py",
-    "app/services/players/jersey_numbers.py",
-    "app/services/players/market_value.py",
-    "app/services/players/profile.py",
-    "app/services/players/search.py",
-    "app/services/players/stats.py",
-    "app/services/players/transfers.py",
-    "app/tmapi.py",
-    "app/utils/regex.py",
-    "app/utils/utils.py",
-    "app/utils/xpath.py",
-]
 pytest_add_cli_args_test_selection = ["tests/"]
 # Push CI treats dependency/config changes as full mutation inputs, so stale cached verdicts must be discarded.
 on_dependency_change = "rerun"

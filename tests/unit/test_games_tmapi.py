@@ -301,3 +301,212 @@ def test_report_player_missing_from_lookup_is_502():
         game_report("4359338", doctor, {url: fixture_bytes(f"{TMAPI_URL}/players?ids[]=95810")})
     assert e.value.status_code == 502
     assert "missing ids ['999999999']" in e.value.reason
+
+
+def raise_report_error(doctor: Callable[[dict], None], game_id: str = "4359338") -> UpstreamError:
+    data = report_data(game_id)
+    doctor(data)
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktGame.parse_report(envelope(data), game_id=game_id)
+    return e.value
+
+
+def test_report_body_not_json_is_502_for_the_game_url():
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktGame.parse_report(b"<html>", game_id="4359338")
+    assert (e.value.status_code, e.value.url, e.value.reason) == (
+        502,
+        URL_GAME.format(game_id="4359338"),
+        "Unexpected tmapi response: body is not JSON",
+    )
+
+
+def first_home_player(data: dict) -> dict:
+    return data["homeClub"]["lineup"]["players"][0]
+
+
+def goal_at_80(data: dict) -> dict:
+    return action_at(data, "GOAL", 80)
+
+
+@pytest.mark.parametrize(
+    ("doctor", "reason"),
+    [
+        (lambda d: d["baseDetails"]["competition"].pop("name"), "no baseDetails.competition.name in game 4359338"),
+        (lambda d: d["score"]["details"].update(gameEndType=1), "score.details.gameEndType=1 in game 4359338"),
+        (
+            lambda d: d["baseDetails"]["date"].update(dateTimeUTC="soon"),
+            "baseDetails.date.dateTimeUTC='soon' in game 4359338",
+        ),
+        (
+            lambda d: d["baseDetails"].update(tournamentStageLabel=3),
+            "baseDetails.tournamentStageLabel=3 in game 4359338",
+        ),
+        (lambda d: d.update(playerIds=["1", 2]), "playerIds or headCoachIds in game 4359338"),
+        (lambda d: d["awayClub"]["lineup"].update(substitutes={}), "lineup.substitutes={} in game 4359338 awayClub"),
+        (
+            lambda d: first_home_player(d).update(isCaptain=None),
+            "isCaptain=None in game 4359338 homeClub player 130164",
+        ),
+        (
+            lambda d: d["homeClub"]["lineup"]["players"].insert(0, "Pickford"),
+            "no id in game 4359338 homeClub player None",
+        ),
+        (
+            lambda d: first_home_player(d).update(position={}),
+            "no position.name in game 4359338 homeClub player 130164",
+        ),
+        (lambda d: d["homeClub"].update(tactic={}), "no tactic.tactic in game 4359338 homeClub"),
+        (lambda d: d["awayClub"].update(clubStatistics=[]), "clubStatistics=[] in game 4359338 awayClub"),
+        (lambda d: d["actions"].append({}), "no type in game 4359338 action"),
+        (lambda d: goal_at_80(d)["score"].update(home="1"), "score.home='1' in game 4359338 GOAL action"),
+        (lambda d: goal_at_80(d).update(activePlayerId=1), "activePlayerId=1 in game 4359338 GOAL action"),
+        (lambda d: goal_at_80(d).update(passivePlayerId=2), "passivePlayerId=2 in game 4359338 GOAL action"),
+        # The type check names clubId before the player ids; the membership check alone would name activePlayerId.
+        (lambda d: goal_at_80(d).update(clubId=1, activePlayerId=2), "clubId=1 in game 4359338 GOAL action"),
+        (lambda d: goal_at_80(d).update(clubId="1"), "clubId='1' in game 4359338 GOAL action"),
+    ],
+)
+def test_report_unexpected_shape_detail(doctor, reason):
+    error = raise_report_error(doctor)
+    assert (error.status_code, error.url, error.reason) == (
+        502,
+        URL_GAME.format(game_id="4359338"),
+        f"Unexpected tmapi response: {reason}",
+    )
+
+
+def test_report_placeholder_actions_are_not_checked():
+    def doctor(data: dict) -> None:
+        data["actions"] = [{"type": "PLACEHOLDER"} if a["type"] == "PLACEHOLDER" else a for a in data["actions"]]
+
+    data = report_data("4359338")
+    doctor(data)
+    game = TransfermarktGame.parse_report(envelope(data), game_id="4359338")
+    assert [a for a in game["actions"] if a["type"] == "PLACEHOLDER"] == [{"type": "PLACEHOLDER"}] * 9
+    assert len(game_report("4359338", doctor)[0]["events"]) == 25
+
+
+def test_report_action_without_club_has_no_club():
+    def doctor(data: dict) -> None:
+        del goal_at_80(data)["clubId"]
+
+    events = game_report("4359338", doctor)[0]["events"]
+    goals = [(e["minute"], e["club"]) for e in events if e["type"] == "goal"]
+    assert goals == [(75, {"id": "3384", "name": "Switzerland"}), (80, None)]
+
+
+def test_report_fetch_error_names_the_game():
+    with pytest.raises(UpstreamError) as e:
+        game_report("4359338", lambda d: d.update(playerIds=[1]))
+    assert (e.value.url, e.value.reason) == (
+        URL_GAME.format(game_id="4359338"),
+        "Unexpected tmapi response: playerIds or headCoachIds in game 4359338",
+    )
+
+
+def test_report_implausible_shootout_is_502_for_the_game_url():
+    def doctor(data: dict) -> None:
+        data["score"].update(home=1, away=1)
+
+    with pytest.raises(UpstreamError) as e:
+        game_report("4359338", doctor)
+    assert (e.value.status_code, e.value.url, e.value.reason) == (
+        502,
+        URL_GAME.format(game_id="4359338"),
+        "Unexpected tmapi response: shootout score 0-0 in game 4359338",
+    )
+
+
+def test_report_player_lookup_covers_lineups_and_actions():
+    # With no playerIds, the looked-up ids are the lineups', the substitutes' and the actions' players.
+    data = report_data("4909471")
+    goal = next(a for a in data["actions"] if a["type"] == "GOAL")
+    ids = {"999"}
+    for key in ("homeClub", "awayClub"):
+        ids |= {p["id"] for p in data[key]["lineup"]["players"] + data[key]["lineup"]["substitutes"]}
+    ids |= {a[k] for a in data["actions"] for k in ("activePlayerId", "passivePlayerId") if k in a and a is not goal}
+    ids |= {goal["passivePlayerId"]} if "passivePlayerId" in goal else set()
+
+    def doctor(d: dict) -> None:
+        d["playerIds"] = []
+        next(a for a in d["actions"] if a["type"] == "GOAL")["activePlayerId"] = "999"
+
+    names = envelope([{"id": id_, "name": f"Player {id_}"} for id_ in ids])
+    urls = batch_urls("players", ids)
+    response, client = game_report("4909471", doctor, dict.fromkeys(urls, names))
+    assert [url for url in client.urls if "/players?" in url] == urls
+    home = response["home"]
+    assert (home["lineup"][0]["name"], home["substitutes"][0]["name"]) == (
+        f"Player {home['lineup'][0]['id']}",
+        f"Player {home['substitutes'][0]['id']}",
+    )
+    assert {"id": "999", "name": "Player 999"} in [e["player"] for e in response["events"]]
+
+
+def test_report_stage_from_attributes_without_embedded_group():
+    def doctor(data: dict) -> None:
+        del data["baseDetails"]["competitionGroup"]
+        data["baseDetails"]["competitionGroupId"] = "1"
+
+    assert game_report("4359338", doctor)[0]["stage"] == "Group 1"
+
+
+def attributes_data() -> dict:
+    return json.loads(fixture_bytes(f"{TMAPI_URL}/attributes"))["data"]
+
+
+def test_report_malformed_competition_groups_is_502():
+    attributes = attributes_data()
+    attributes["competitionGroups"] = {}
+    with pytest.raises(UpstreamError) as e:
+        game_report("4359338", overrides={f"{TMAPI_URL}/attributes": envelope(attributes)})
+    assert (e.value.status_code, e.value.url, e.value.reason) == (
+        502,
+        f"{TMAPI_URL}/attributes",
+        "Unexpected tmapi response: attributes.competitionGroups is not a list of {id, name, ...}",
+    )
+
+
+@pytest.mark.parametrize(
+    "attributes",
+    [
+        [],
+        {},
+        {"actions": {}},
+        {"actions": [{"id": 1, "action": "Goal"}, "Assist"]},
+        {"actions": [{"id": 1, "action": "Goal"}, {"id": "2", "action": "Assist"}]},
+        {"actions": [{"id": 1, "action": "Goal"}, {"id": 2, "action": None}]},
+    ],
+)
+def test_attribute_names_unexpected_shape_is_502(attributes):
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktGame.attribute_names(attributes, "actions", "action")
+    assert (e.value.status_code, e.value.url, e.value.reason) == (
+        502,
+        f"{TMAPI_URL}/attributes",
+        "Unexpected tmapi response: attributes.actions is not a list of {id, action}",
+    )
+
+
+def test_attribute_names():
+    attributes = {"reasons": [{"id": 1, "reason": "Pass"}, {"id": 2, "reason": "Corner", "type": "GOAL"}]}
+    assert TransfermarktGame.attribute_names(attributes, "reasons", "reason") == {1: "Pass", 2: "Corner"}
+
+
+def test_stadium_without_city():
+    content = envelope({"name": " Anfield ", "location": {"city": None}})
+    assert TransfermarktGame.parse_stadium(content, stadium_id="35") == {"id": "35", "name": "Anfield", "city": None}
+
+
+@pytest.mark.parametrize(
+    ("content", "reason"),
+    [
+        (b"<html>", "Unexpected tmapi response: body is not JSON"),
+        (envelope({"location": {"city": "Liverpool"}}), "Unexpected tmapi response: no name in stadium 35"),
+    ],
+)
+def test_stadium_unexpected_shape_is_502(content, reason):
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktGame.parse_stadium(content, stadium_id="35")
+    assert (e.value.status_code, e.value.url, e.value.reason) == (502, f"{TMAPI_URL}/stadium/35", reason)
