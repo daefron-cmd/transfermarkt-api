@@ -96,11 +96,9 @@ class TransfermarktBase:
 
         if isinstance(iloc_from, int) and isinstance(iloc_to, int):
             element = element[iloc_from:iloc_to]
-
-        if isinstance(iloc_to, int):
+        elif isinstance(iloc_to, int):
             element = element[:iloc_to]
-
-        if isinstance(iloc_from, int):
+        elif isinstance(iloc_from, int):
             element = element[iloc_from:]
 
         if isinstance(join_str, str):

@@ -25,14 +25,14 @@
     "id": "27",
     "image": "https://img.a.transfermarkt.technology/wappen/big/27.png",
     "league": {
-      "countryId": "4",
+      "countryId": "40",
       "countryName": "Germany",
       "id": "L1",
       "name": "Bundesliga",
       "tier": "First Tier"
     },
     "legalForm": "AG",
-    "members": 432,
+    "members": 432500,
     "membersDate": "2025-11-02",
     "name": "Bayern Munich",
     "officialName": "FC Bayern München",

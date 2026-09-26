@@ -1,5 +1,6 @@
 {
   "body": {
+    "age": 39,
     "agent": {
       "name": "Relatives"
     },
@@ -13,6 +14,7 @@
       "joined": "2023-07-15",
       "name": "Miami"
     },
+    "dateOfBirth": "1987-06-24",
     "description": "Lionel Messi, 39, from Argentina ➤ Inter Miami CF, since 2023 ➤ Right Winger ➤ Market value: €15.00m ➤ * 24/06/1987 in Rosario, Argentina",
     "foot": "left",
     "height": 170,

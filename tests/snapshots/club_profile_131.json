@@ -26,13 +26,13 @@
     "id": "131",
     "image": "https://img.a.transfermarkt.technology/wappen/big/131.png",
     "league": {
-      "countryId": "1",
+      "countryId": "157",
       "countryName": "Spain",
       "id": "ES1",
       "name": "LaLiga",
       "tier": "First Tier"
     },
-    "members": 170,
+    "members": 170000,
     "membersDate": "2022-01-01",
     "name": "FC Barcelona",
     "officialName": "Futbol Club Barcelona",

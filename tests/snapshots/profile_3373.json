@@ -1,5 +1,6 @@
 {
   "body": {
+    "age": 46,
     "agent": {},
     "citizenship": [
       "Brazil",
@@ -7,9 +8,10 @@
     ],
     "club": {
       "id": "1105",
-      "joined": "2026-01-07",
+      "joined": "2026-07-01",
       "name": "Ravenna"
     },
+    "dateOfBirth": "1980-03-21",
     "description": "Ronaldinho, 46, from Brazil ➤ Ravenna FC, since 2026 ➤ Attacking Midfield ➤ Market value: - ➤ * 21/03/1980 in Porto Alegre, Brazil",
     "foot": "right",
     "fullName": "Ronaldo de Assis Moreira",

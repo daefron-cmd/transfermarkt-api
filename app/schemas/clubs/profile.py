@@ -7,7 +7,7 @@ class ClubSquad(TransfermarktBaseModel):
     size: int
     average_age: float
     foreigners: int
-    national_team_players: int
+    national_team_players: int | None = None
 
 
 class ClubLeague(TransfermarktBaseModel):
@@ -36,12 +36,12 @@ class ClubProfile(TransfermarktBaseModel):
     members_date: date | None = None
     other_sports: list[str] | None = None
     colors: list[str] | None = []
-    stadium_name: str
-    stadium_seats: int
-    current_transfer_record: int
+    stadium_name: str | None = None
+    stadium_seats: int | None = None
+    current_transfer_record: int | None = None
     current_market_value: int | None = None
     confederation: str | None = None
-    fifa_world_ranking: str | None = None
+    fifa_world_ranking: int | None = None
     squad: ClubSquad
     league: ClubLeague
     historical_crests: list[str] | None = []

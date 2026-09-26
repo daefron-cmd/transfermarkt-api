@@ -1,9 +1,9 @@
-import re
-from datetime import datetime
+from datetime import date, datetime
 
-from dateutil import parser
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from pydantic.alias_generators import to_camel
+
+from app.utils.utils import parse_date, parse_int
 
 
 class AuditMixin(BaseModel):
@@ -28,11 +28,8 @@ class TransfermarktBaseModel(BaseModel):
         mode="before",
         check_fields=False,
     )
-    def parse_str_to_date(cls, v: str):
-        try:
-            return parser.parse(v).date() if v else None
-        except parser.ParserError:
-            return None
+    def parse_str_to_date(cls, v: str | date | None) -> date | None:
+        return parse_date(v)
 
     @field_validator(
         "current_market_value",
@@ -53,29 +50,8 @@ class TransfermarktBaseModel(BaseModel):
         mode="before",
         check_fields=False,
     )
-    def parse_str_to_int(cls, v: str) -> int | None:
-        if not v or not any(char.isdigit() for char in v):
-            return None
-
-        # Clean up HTML tags if present
-        if "<" in str(v):
-            matches = re.findall(r"€([\d,.]+[kmb]?)", v.lower())
-            if not matches:
-                return None
-            value_str = matches[0]
-        else:
-            value_str = v.lower().replace("€", "").replace("+", "").replace("'", "").strip()
-
-        if "k" in value_str:
-            return int(float(value_str.replace("k", "")) * 1_000)
-        elif "m" in value_str:
-            return int(float(value_str.replace("m", "")) * 1_000_000)
-        elif "bn" in value_str:
-            return int(float(value_str.replace("bn", "")) * 1_000_000_000)
-        elif "b" in value_str:
-            return int(float(value_str.replace("b", "")) * 1_000_000_000)
-        else:
-            return int(float(value_str))
+    def parse_str_to_int(cls, v: str | int | None) -> int | None:
+        return parse_int(v)
 
     @field_validator("height", mode="before", check_fields=False)
     def parse_height(cls, v: str) -> int | None:

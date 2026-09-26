@@ -1,5 +1,6 @@
 {
   "body": {
+    "age": 41,
     "agent": {
       "name": "Gestifute",
       "url": "/gestifute/beraterfirma/berater/413"
@@ -13,6 +14,7 @@
       "joined": "2023-01-01",
       "name": "Al-Nassr"
     },
+    "dateOfBirth": "1985-02-05",
     "description": "Cristiano Ronaldo, 41, from Portugal ➤ Al-Nassr FC, since 2022 ➤ Centre-Forward ➤ Market value: €10.00m ➤ * 05/02/1985 in Funchal, Portugal",
     "foot": "right",
     "fullName": "Cristiano Ronaldo dos Santos Aveiro",

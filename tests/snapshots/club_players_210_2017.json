@@ -22,7 +22,7 @@
       {
         "age": 29,
         "currentClub": "Alanyaspor",
-        "dateOfBirth": "1987-12-01",
+        "dateOfBirth": "1987-01-12",
         "foot": "left",
         "height": 187,
         "id": "67886",
@@ -39,7 +39,7 @@
       {
         "age": 29,
         "currentClub": "Without Club",
-        "dateOfBirth": "1987-05-03",
+        "dateOfBirth": "1987-03-05",
         "foot": "right",
         "height": 192,
         "id": "95747",
@@ -73,7 +73,7 @@
       {
         "age": 17,
         "currentClub": "Sport Club do Recife",
-        "dateOfBirth": "1999-01-04",
+        "dateOfBirth": "1999-04-01",
         "foot": "right",
         "height": 190,
         "id": "555016",
@@ -157,11 +157,11 @@
       {
         "age": 31,
         "currentClub": "Retired",
-        "dateOfBirth": "1985-12-04",
+        "dateOfBirth": "1985-04-12",
         "foot": "right",
         "height": 186,
         "id": "68679",
-        "joinedOn": "2017-08-03",
+        "joinedOn": "2017-03-08",
         "marketValue": 1250000,
         "name": "Bruno Rodrigo",
         "nationality": [
@@ -177,7 +177,7 @@
         "foot": "right",
         "height": 184,
         "id": "80499",
-        "joinedOn": "2018-05-01",
+        "joinedOn": "2018-01-05",
         "marketValue": 1000000,
         "name": "Paulo Miranda",
         "nationality": [
@@ -193,7 +193,7 @@
         "foot": "right",
         "height": 190,
         "id": "292152",
-        "joinedOn": "2013-01-10",
+        "joinedOn": "2013-10-01",
         "marketValue": 500000,
         "name": "Rafael Thyere",
         "nationality": [
@@ -226,7 +226,7 @@
         "foot": "right",
         "height": 188,
         "id": "445101",
-        "joinedOn": "2019-10-08",
+        "joinedOn": "2019-08-10",
         "marketValue": 100000,
         "name": "Rodrigues",
         "nationality": [
@@ -238,7 +238,7 @@
       {
         "age": 21,
         "currentClub": "Vila Nova Futebol Clube (GO)",
-        "dateOfBirth": "1995-02-03",
+        "dateOfBirth": "1995-03-02",
         "foot": "right",
         "height": 186,
         "id": "539183",
@@ -252,11 +252,11 @@
       {
         "age": 17,
         "currentClub": "Clube Atlético Mineiro",
-        "dateOfBirth": "1999-07-06",
+        "dateOfBirth": "1999-06-07",
         "foot": "right",
         "height": 187,
         "id": "555015",
-        "joinedOn": "2021-12-08",
+        "joinedOn": "2021-08-12",
         "name": "Ruan",
         "nationality": [
           "Brazil"
@@ -282,7 +282,7 @@
       {
         "age": 20,
         "currentClub": "Suwon FC",
-        "dateOfBirth": "1996-03-02",
+        "dateOfBirth": "1996-02-03",
         "foot": "left",
         "height": 187,
         "id": "555634",
@@ -310,7 +310,7 @@
       {
         "age": 29,
         "currentClub": "Retired",
-        "dateOfBirth": "1987-11-03",
+        "dateOfBirth": "1987-03-11",
         "foot": "left",
         "height": 179,
         "id": "182216",
@@ -326,11 +326,11 @@
       {
         "age": 21,
         "currentClub": "Clube Atlético Linense (SP)",
-        "dateOfBirth": "1995-06-03",
+        "dateOfBirth": "1995-03-06",
         "foot": "left",
         "height": 174,
         "id": "322781",
-        "joinedOn": "2013-01-07",
+        "joinedOn": "2013-07-01",
         "marketValue": 500000,
         "name": "Breno Lorran",
         "nationality": [
@@ -342,7 +342,7 @@
       {
         "age": 19,
         "currentClub": "Red Bull Bragantino",
-        "dateOfBirth": "1997-06-07",
+        "dateOfBirth": "1997-07-06",
         "foot": "left",
         "height": 176,
         "id": "406676",
@@ -380,7 +380,7 @@
         "foot": "right",
         "height": 177,
         "id": "75083",
-        "joinedOn": "2022-01-04",
+        "joinedOn": "2022-04-01",
         "marketValue": 1500000,
         "name": "Edílson",
         "nationality": [
@@ -454,7 +454,7 @@
       {
         "age": 21,
         "currentClub": "Fortaleza Esporte Clube",
-        "dateOfBirth": "1995-07-09",
+        "dateOfBirth": "1995-09-07",
         "foot": "right",
         "height": 187,
         "id": "366948",
@@ -517,7 +517,7 @@
       {
         "age": 20,
         "currentClub": "Santos FC",
-        "dateOfBirth": "1996-12-08",
+        "dateOfBirth": "1996-08-12",
         "foot": "right",
         "height": 172,
         "id": "362842",
@@ -563,7 +563,7 @@
       {
         "age": 19,
         "currentClub": "Without Club",
-        "dateOfBirth": "1997-02-01",
+        "dateOfBirth": "1997-01-02",
         "foot": "right",
         "height": 185,
         "id": "643282",
@@ -710,7 +710,7 @@
         "foot": "N/A",
         "height": 181,
         "id": "54183",
-        "joinedOn": "2018-08-02",
+        "joinedOn": "2018-02-08",
         "marketValue": 2500000,
         "name": "Maicosuel",
         "nationality": [
@@ -738,11 +738,11 @@
       {
         "age": 18,
         "currentClub": "Bursaspor",
-        "dateOfBirth": "1998-07-11",
+        "dateOfBirth": "1998-11-07",
         "foot": "left",
         "height": 175,
         "id": "351738",
-        "joinedOn": "2015-01-02",
+        "joinedOn": "2015-02-01",
         "marketValue": 750000,
         "name": "Lincoln",
         "nationality": [
@@ -754,7 +754,7 @@
       {
         "age": 20,
         "currentClub": "Santos FC",
-        "dateOfBirth": "1996-11-06",
+        "dateOfBirth": "1996-06-11",
         "foot": "right",
         "height": 184,
         "id": "387611",
@@ -769,11 +769,11 @@
       {
         "age": 21,
         "currentClub": "Santos FC",
-        "dateOfBirth": "1995-12-05",
+        "dateOfBirth": "1995-05-12",
         "foot": "right",
         "height": 187,
         "id": "392487",
-        "joinedOn": "2019-01-07",
+        "joinedOn": "2019-07-01",
         "marketValue": 100000,
         "name": "Thaciano",
         "nationality": [
@@ -804,7 +804,7 @@
         "foot": "left",
         "height": 174,
         "id": "561214",
-        "joinedOn": "2019-03-01",
+        "joinedOn": "2019-01-03",
         "name": "Thonny Anderson",
         "nationality": [
           "Brazil"
@@ -815,7 +815,7 @@
       {
         "age": 18,
         "currentClub": "Brasiliense FC (DF)",
-        "dateOfBirth": "1998-07-05",
+        "dateOfBirth": "1998-05-07",
         "foot": "right",
         "height": 171,
         "id": "351903",
@@ -866,7 +866,7 @@
         "foot": "left",
         "height": 169,
         "id": "76902",
-        "joinedOn": "2014-10-07",
+        "joinedOn": "2014-07-10",
         "marketValue": 1250000,
         "name": "Fernandinho",
         "nationality": [
@@ -925,7 +925,7 @@
       {
         "age": 20,
         "currentClub": "PERSIS Solo",
-        "dateOfBirth": "1996-03-12",
+        "dateOfBirth": "1996-12-03",
         "foot": "left",
         "height": 183,
         "id": "553470",
@@ -943,7 +943,7 @@
         "foot": "right",
         "height": 189,
         "id": "520662",
-        "joinedOn": "2017-01-05",
+        "joinedOn": "2017-05-01",
         "name": "Pepê",
         "nationality": [
           "Brazil",
@@ -971,7 +971,7 @@
       {
         "age": 30,
         "currentClub": "Without Club",
-        "dateOfBirth": "1986-08-04",
+        "dateOfBirth": "1986-04-08",
         "foot": "right",
         "height": 177,
         "id": "195004",

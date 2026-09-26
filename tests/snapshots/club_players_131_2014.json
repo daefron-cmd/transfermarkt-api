@@ -9,7 +9,7 @@
         "foot": "right",
         "height": 187,
         "id": "74857",
-        "joinedOn": "2014-01-07",
+        "joinedOn": "2014-07-01",
         "marketValue": 15000000,
         "name": "Marc ter Stegen",
         "nationality": [
@@ -25,7 +25,7 @@
         "foot": "right",
         "height": 184,
         "id": "40423",
-        "joinedOn": "2014-01-07",
+        "joinedOn": "2014-07-01",
         "marketValue": 12000000,
         "name": "Claudio Bravo",
         "nationality": [
@@ -38,11 +38,11 @@
       {
         "age": 26,
         "currentClub": "Retired",
-        "dateOfBirth": "1989-03-01",
+        "dateOfBirth": "1989-01-03",
         "foot": "right",
         "height": 180,
         "id": "65263",
-        "joinedOn": "2014-01-07",
+        "joinedOn": "2014-07-01",
         "marketValue": 1500000,
         "name": "Jordi Masip",
         "nationality": [
@@ -58,7 +58,7 @@
         "foot": "right",
         "height": 194,
         "id": "18944",
-        "joinedOn": "2008-01-07",
+        "joinedOn": "2008-07-01",
         "marketValue": 35000000,
         "name": "Gerard Piqué",
         "nationality": [
@@ -74,7 +74,7 @@
         "foot": "right",
         "height": 184,
         "id": "99922",
-        "joinedOn": "2012-01-07",
+        "joinedOn": "2012-07-01",
         "marketValue": 12000000,
         "name": "Marc Bartra",
         "nationality": [
@@ -91,7 +91,7 @@
         "foot": "left",
         "height": 183,
         "id": "15904",
-        "joinedOn": "2014-09-08",
+        "joinedOn": "2014-08-09",
         "marketValue": 6000000,
         "name": "Thomas Vermaelen",
         "nationality": [
@@ -103,7 +103,7 @@
       {
         "age": 21,
         "currentClub": "CD Feirense",
-        "dateOfBirth": "1994-01-05",
+        "dateOfBirth": "1994-05-01",
         "foot": "right",
         "height": 182,
         "id": "191987",
@@ -123,7 +123,7 @@
         "foot": "left",
         "height": 170,
         "id": "69751",
-        "joinedOn": "2012-01-07",
+        "joinedOn": "2012-07-01",
         "marketValue": 25000000,
         "name": "Jordi Alba",
         "nationality": [
@@ -172,7 +172,7 @@
         "foot": "right",
         "height": 175,
         "id": "68645",
-        "joinedOn": "2012-01-07",
+        "joinedOn": "2012-07-01",
         "marketValue": 10000000,
         "name": "Martín Montoya",
         "nationality": [
@@ -184,11 +184,11 @@
       {
         "age": 32,
         "currentClub": "Retired",
-        "dateOfBirth": "1983-06-05",
+        "dateOfBirth": "1983-05-06",
         "foot": "right",
         "height": 172,
         "id": "15951",
-        "joinedOn": "2021-12-11",
+        "joinedOn": "2021-11-12",
         "marketValue": 10000000,
         "name": "Dani Alves",
         "nationality": [
@@ -201,7 +201,7 @@
       {
         "age": 24,
         "currentClub": "Retired",
-        "dateOfBirth": "1990-06-08",
+        "dateOfBirth": "1990-08-06",
         "foot": "right",
         "height": 171,
         "id": "58426",
@@ -221,7 +221,7 @@
         "foot": "right",
         "height": 189,
         "id": "65230",
-        "joinedOn": "2008-01-07",
+        "joinedOn": "2008-07-01",
         "marketValue": 35000000,
         "name": "Sergio Busquets",
         "nationality": [
@@ -233,7 +233,7 @@
       {
         "age": 31,
         "currentClub": "Retired",
-        "dateOfBirth": "1984-08-06",
+        "dateOfBirth": "1984-06-08",
         "foot": "right",
         "height": 174,
         "id": "19981",
@@ -254,7 +254,7 @@
         "foot": "right",
         "height": 181,
         "id": "181112",
-        "joinedOn": "2016-01-07",
+        "joinedOn": "2016-07-01",
         "marketValue": 5000000,
         "name": "Sergi Samper",
         "nationality": [
@@ -296,11 +296,11 @@
       {
         "age": 31,
         "currentClub": "Retired",
-        "dateOfBirth": "1984-11-05",
+        "dateOfBirth": "1984-05-11",
         "foot": "both",
         "height": 171,
         "id": "7600",
-        "joinedOn": "2002-01-07",
+        "joinedOn": "2002-07-01",
         "marketValue": 35000000,
         "name": "Andrés Iniesta",
         "nationality": [
@@ -312,11 +312,11 @@
       {
         "age": 27,
         "currentClub": "Retired",
-        "dateOfBirth": "1988-10-03",
+        "dateOfBirth": "1988-03-10",
         "foot": "right",
         "height": 184,
         "id": "32467",
-        "joinedOn": "2014-01-07",
+        "joinedOn": "2014-07-01",
         "marketValue": 30000000,
         "name": "Ivan Rakitic",
         "nationality": [
@@ -329,11 +329,11 @@
       {
         "age": 23,
         "currentClub": "Los Angeles Galaxy",
-        "dateOfBirth": "1992-07-02",
+        "dateOfBirth": "1992-02-07",
         "foot": "right",
         "height": 178,
         "id": "85370",
-        "joinedOn": "2013-01-07",
+        "joinedOn": "2013-07-01",
         "marketValue": 8000000,
         "name": "Sergi Roberto",
         "nationality": [
@@ -349,7 +349,7 @@
         "foot": "right",
         "height": 170,
         "id": "7607",
-        "joinedOn": "1998-01-07",
+        "joinedOn": "1998-07-01",
         "marketValue": 5000000,
         "name": "Xavi",
         "nationality": [
@@ -361,11 +361,11 @@
       {
         "age": 23,
         "currentClub": "Santos FC",
-        "dateOfBirth": "1992-05-02",
+        "dateOfBirth": "1992-02-05",
         "foot": "right",
         "height": 175,
         "id": "68290",
-        "joinedOn": "2013-01-07",
+        "joinedOn": "2013-07-01",
         "marketValue": 80000000,
         "name": "Neymar",
         "nationality": [
@@ -378,11 +378,11 @@
       {
         "age": 22,
         "currentClub": "Retired",
-        "dateOfBirth": "1993-12-02",
+        "dateOfBirth": "1993-02-12",
         "foot": "left",
         "height": 174,
         "id": "129473",
-        "joinedOn": "2013-01-07",
+        "joinedOn": "2013-07-01",
         "marketValue": 12000000,
         "name": "Rafinha",
         "nationality": [
@@ -399,7 +399,7 @@
         "foot": "left",
         "height": 169,
         "id": "226074",
-        "joinedOn": "2015-01-07",
+        "joinedOn": "2015-07-01",
         "marketValue": 5000000,
         "name": "Alen Halilovic",
         "nationality": [
@@ -415,7 +415,7 @@
         "foot": "left",
         "height": 170,
         "id": "28003",
-        "joinedOn": "2005-01-07",
+        "joinedOn": "2005-07-01",
         "marketValue": 120000000,
         "name": "Lionel Messi",
         "nationality": [
@@ -444,11 +444,11 @@
       {
         "age": 19,
         "currentClub": "Albacete Balompié",
-        "dateOfBirth": "1995-01-09",
+        "dateOfBirth": "1995-09-01",
         "foot": "left",
         "height": 177,
         "id": "223725",
-        "joinedOn": "2015-01-07",
+        "joinedOn": "2015-07-01",
         "marketValue": 10000000,
         "name": "Munir El Haddadi",
         "nationality": [
@@ -483,7 +483,7 @@
         "foot": "right",
         "height": 182,
         "id": "44352",
-        "joinedOn": "2014-11-07",
+        "joinedOn": "2014-07-11",
         "marketValue": 60000000,
         "name": "Luis Suárez",
         "nationality": [
@@ -495,11 +495,11 @@
       {
         "age": 19,
         "currentClub": "UD Las Palmas",
-        "dateOfBirth": "1995-09-07",
+        "dateOfBirth": "1995-07-09",
         "foot": "right",
         "height": 175,
         "id": "199369",
-        "joinedOn": "2015-01-07",
+        "joinedOn": "2015-07-01",
         "marketValue": 5000000,
         "name": "Sandro Ramírez",
         "nationality": [

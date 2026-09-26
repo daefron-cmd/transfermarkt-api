@@ -1,5 +1,6 @@
 {
   "body": {
+    "age": 34,
     "agent": {
       "name": "Relatives"
     },
@@ -12,6 +13,7 @@
       "joined": "2025-01-31",
       "name": "Santos"
     },
+    "dateOfBirth": "1992-02-05",
     "description": "Neymar, 34, from Brazil ➤ Santos FC, since 2024 ➤ Attacking Midfield ➤ Market value: €8.00m ➤ * 05/02/1992 in Mogi das Cruzes, Brazil",
     "foot": "right",
     "fullName": "Neymar da Silva Santos Júnior",

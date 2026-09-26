@@ -4,7 +4,7 @@
     "injuries": [
       {
         "days": 33,
-        "fromDate": "2026-01-03",
+        "fromDate": "2026-03-01",
         "gamesMissed": 4,
         "gamesMissedClubs": [
           "18544",
@@ -12,11 +12,11 @@
         ],
         "injury": "Hamstring injury",
         "season": "25/26",
-        "untilDate": "2026-02-04"
+        "untilDate": "2026-04-02"
       },
       {
         "days": 9,
-        "fromDate": "2025-11-05",
+        "fromDate": "2025-05-11",
         "gamesMissed": 2,
         "gamesMissedClubs": [
           "18544"
@@ -50,11 +50,11 @@
         "gamesMissedClubs": [],
         "injury": "unknown injury",
         "season": "23/24",
-        "untilDate": "2024-11-02"
+        "untilDate": "2024-02-11"
       },
       {
         "days": 10,
-        "fromDate": "2022-09-11",
+        "fromDate": "2022-11-09",
         "gamesMissed": 3,
         "gamesMissedClubs": [
           "985",
@@ -66,7 +66,7 @@
       },
       {
         "days": 5,
-        "fromDate": "2022-09-06",
+        "fromDate": "2022-06-09",
         "gamesMissed": 1,
         "gamesMissedClubs": [
           "3300"
@@ -84,11 +84,11 @@
         ],
         "injury": "Hip flexor problems",
         "season": "21/22",
-        "untilDate": "2022-07-03"
+        "untilDate": "2022-03-07"
       },
       {
         "days": 8,
-        "fromDate": "2022-10-01",
+        "fromDate": "2022-01-10",
         "gamesMissed": 2,
         "gamesMissedClubs": [
           "985"
@@ -121,7 +121,7 @@
       },
       {
         "days": 18,
-        "fromDate": "2020-12-10",
+        "fromDate": "2020-10-12",
         "gamesMissed": 5,
         "gamesMissedClubs": [
           "506",
@@ -151,11 +151,11 @@
         ],
         "injury": "Hamstring injury",
         "season": "18/19",
-        "untilDate": "2019-08-04"
+        "untilDate": "2019-04-08"
       },
       {
         "days": 8,
-        "fromDate": "2018-07-05",
+        "fromDate": "2018-05-07",
         "gamesMissed": 2,
         "gamesMissedClubs": [
           "418"

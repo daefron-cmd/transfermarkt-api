@@ -1,4 +1,42 @@
 {
-  "body": "Internal Server Error",
-  "status_code": 500
+  "body": {
+    "addressLine1": "1366 Viamonte Street",
+    "addressLine2": "C1053ACB Buenos Aires",
+    "addressLine3": "Argentina",
+    "colors": [
+      "#6CACE4",
+      "#FFFFFF",
+      "#6CACE4"
+    ],
+    "confederation": "South American Football Confederation",
+    "currentMarketValue": 959500000,
+    "fax": "+54 11 43754410",
+    "fifaWorldRanking": 2,
+    "foundedOn": "1893-02-21",
+    "historicalCrests": [
+      "https://img.a.transfermarkt.technology/wappen/medium/3437_1671491764.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/3437_1671492138.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/3437_1706702629.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/3437_1706702651.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/3437_1706703271.png",
+      "https://img.a.transfermarkt.technology/wappen/medium/3437_1706703280.png"
+    ],
+    "id": "3437",
+    "image": "https://img.a.transfermarkt.technology/wappen/big/3437.png",
+    "league": {
+      "id": "FS",
+      "name": "International Friendlies"
+    },
+    "name": "Argentina",
+    "officialName": "Asociación del Fútbol Argentino",
+    "squad": {
+      "averageAge": 27.5,
+      "foreigners": 28,
+      "size": 29
+    },
+    "tel": "+54 11 43719400",
+    "url": "/argentinien/startseite/verein/3437",
+    "website": "www.afa.org.ar"
+  },
+  "status_code": 200
 }
