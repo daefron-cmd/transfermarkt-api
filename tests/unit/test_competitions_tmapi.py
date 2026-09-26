@@ -12,6 +12,7 @@ from app.services.competitions.fixtures import TransfermarktCompetitionFixtures
 from app.services.competitions.table import TransfermarktCompetitionTable
 from app.services.games import (
     URL_GAME,
+    competition_group_names,
     fetch_group_names,
     fetch_shootout_scores,
     parse_game,
@@ -307,6 +308,7 @@ def test_shootout_regular_score_tie_on_minute_takes_the_higher_total():
     goals = [a for a in report["actions"] if a["type"] == "GOAL"]
     goals[0]["minute"] = goals[1]["minute"] = 90
     goals[1]["addedTime"] = goals[0]["addedTime"]
+    goals[1]["score"] = {"home": 1, "away": 0}  # a lower total than 1-1 but a higher home-minus-away difference
     assert shootout_score("4359338", report) == (5, 3)
     report["actions"].reverse()
     assert shootout_score("4359338", report) == (5, 3)
@@ -332,6 +334,7 @@ def test_shootout_regular_score_without_goal_actions_is_0_0():
             {},
             "no score.home in game 4359338 GOAL action",
         ),
+        (lambda r: None, {"home": None}, "score.home=None in game 4359338"),
         (lambda r: None, {"home": 0}, "shootout score -1-3 in game 4359338"),
         (lambda r: None, {"home": 1, "away": 1}, "shootout score 0-0 in game 4359338"),
     ],
@@ -343,6 +346,13 @@ def test_shootout_unexpected_shape_is_502(doctor, score, message):
         shootout_score("4359338", report, **score)
     assert e.value.status_code == 502
     assert message in e.value.reason
+    assert e.value.url == URL_GAME.format(game_id="4359338")
+
+
+@pytest.mark.parametrize("score", [{"home": 1, "away": 2}, {"home": 2, "away": 1}])
+def test_shootout_with_one_goal_and_a_side_without_goals_is_plausible(score):
+    # The last GOAL action is 1-1, so the shootout is 0-1 or 1-0: the lowest result the check accepts.
+    assert shootout_score("4359338", **score) == (score["home"] - 1, score["away"] - 1)
 
 
 def test_game_ended_after_passes_unknown_addition_type_through():
@@ -389,6 +399,19 @@ def test_game_unexpected_shape_is_502(doctor, message):
         TransfermarktCompetitionFixtures.parse_games(envelope(data), competition_id="EURO", season_id="2023")
     assert e.value.status_code == 502
     assert message in e.value.reason
+    assert e.value.url == TransfermarktCompetitionFixtures.fixtures_url("EURO", "2023")
+
+
+def test_game_that_is_not_an_object_is_502():
+    url = TransfermarktCompetitionFixtures.fixtures_url("ES1", None)
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktCompetitionFixtures.parse_games(
+            envelope({"fixtures": [{"games": ["4359338"]}]}), competition_id="ES1"
+        )
+    assert (e.value.status_code, e.value.detail) == (
+        502,
+        f"Unexpected tmapi response: no id in game None for url: {url}",
+    )
 
 
 def test_fixtures_unexpected_shape_is_502():
@@ -406,6 +429,36 @@ def test_group_names_are_only_fetched_when_a_group_is_not_embedded():
     client = NoRequestClient()
     client.tmapi_attributes = json.loads(fixture_bytes(f"{TMAPI_URL}/attributes"))["data"]
     assert asyncio.run(fetch_group_names(client, games))["A"] == "Group A"  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize(
+    "attributes",
+    [
+        [],
+        {},
+        {"competitionGroups": {}},
+        {"competitionGroups": [{"id": "A", "name": "Group A"}, {"id": "B"}]},
+        {"competitionGroups": [{"id": "A", "name": "Group A"}, {"name": "Group B"}]},
+        {"competitionGroups": [{"id": "A", "name": "Group A"}, "B"]},
+    ],
+)
+def test_competition_group_names_rejects_anything_but_a_list_of_id_and_name(attributes):
+    with pytest.raises(UpstreamError) as e:
+        competition_group_names(URL, attributes)
+    assert (e.value.status_code, e.value.detail) == (
+        502,
+        f"Unexpected tmapi response: attributes.competitionGroups is not a list of {{id, name, ...}} for url: {URL}",
+    )
+
+
+def test_group_names_error_names_the_attributes_url():
+    games = [g for r in fixtures_data("EURO", "2023")["fixtures"] for g in r["games"]]
+    del games[0]["baseDetails"]["competitionGroup"]
+    client = NoRequestClient()
+    client.tmapi_attributes = {"competitionGroups": None}
+    with pytest.raises(UpstreamError) as e:
+        asyncio.run(fetch_group_names(client, games))  # type: ignore[arg-type]
+    assert e.value.url == f"{TMAPI_URL}/attributes"
 
 
 class FixtureClient:
@@ -433,3 +486,14 @@ def test_game_reports_are_only_fetched_for_finished_shootout_games():
 
     league = [g for r in fixtures_data("ES1", "2024")["fixtures"] for g in r["games"]]
     assert asyncio.run(fetch_shootout_scores(NoRequestClient(), league)) == {}  # type: ignore[arg-type]
+
+
+def test_game_report_error_names_the_report_url():
+    class BrokenReportClient:
+        async def get(self, url: str) -> UpstreamResponse:
+            return UpstreamResponse(url=url, status_code=200, content=b"[]")
+
+    games = [g for r in fixtures_data("EURO", "2023")["fixtures"] for g in r["games"]]
+    with pytest.raises(UpstreamError) as e:
+        asyncio.run(fetch_shootout_scores(BrokenReportClient(), games))  # type: ignore[arg-type]
+    assert e.value.detail == f"Unexpected tmapi response: no success flag for url: {URL_GAME.format(game_id='4359332')}"

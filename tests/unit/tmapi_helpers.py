@@ -19,7 +19,7 @@ def envelope(data: Any) -> bytes:
 class NoRequestClient:
     """A client that fails the test on any request."""
 
-    tmapi_attributes = None
+    tmapi_attributes: dict[str, Any] | None = None
 
     async def get(self, url: str):
         raise AssertionError(f"unexpected request {url}")

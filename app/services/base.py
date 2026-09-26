@@ -80,7 +80,6 @@ class TransfermarktBase:
         self,
         xpath: str,
         pos: int = 0,
-        iloc: int | None = None,
         iloc_from: int | None = None,
         iloc_to: int | None = None,
         join_str: str | None = None,
@@ -92,7 +91,6 @@ class TransfermarktBase:
             xpath (str): The XPath expression to query elements on the page.
             pos (int, optional): Index of the element to extract if multiple elements match the
                 XPath. Default is 0.
-            iloc (int, optional): Extract a single element by index, used as an alternative to 'pos'.
             iloc_from (int, optional): Extract a range of elements starting from the specified
                 index (inclusive).
             iloc_to (int, optional): Extract a range of elements up to the specified
@@ -111,9 +109,6 @@ class TransfermarktBase:
 
         if isinstance(element, list):
             element = [trim(e) for e in element if trim(e)]
-
-        if isinstance(iloc, int):
-            element = element[iloc]
 
         if isinstance(iloc_from, int) and isinstance(iloc_to, int):
             element = element[iloc_from:iloc_to]
