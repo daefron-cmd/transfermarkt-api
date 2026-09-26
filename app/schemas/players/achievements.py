@@ -3,7 +3,7 @@ from app.schemas.base import AuditMixin, TransfermarktBaseModel
 
 class AchievementDetail(TransfermarktBaseModel):
     id: str | None = None
-    name: str
+    name: str | None = None
 
 
 class AchievementDetails(TransfermarktBaseModel):

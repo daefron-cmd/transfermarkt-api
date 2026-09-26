@@ -8,6 +8,7 @@ import pytest
 from fastapi import HTTPException
 
 from app.http import UpstreamError, UpstreamResponse
+from app.schemas.players.achievements import PlayerAchievements
 from app.services.players.achievements import TransfermarktPlayerAchievements
 from app.services.players.injuries import TransfermarktPlayerInjuries
 from app.services.players.jersey_numbers import TransfermarktPlayerJerseyNumbers
@@ -191,6 +192,39 @@ def test_achievements_keep_names_without_ids_and_titles_without_a_count():
                 {"season": {"id": None, "name": "2012"}},
             ],
         },
+    ]
+
+
+UNNAMED_LINKS_PAGE = """
+<html><head><link rel="canonical" href="https://www.transfermarkt.com/x/erfolge/spieler/1"></head><body>
+<div class="box"><h2>2x Champion</h2><table class="auflistung">
+  <tr>
+    <td class="erfolg_table_saison">20/21</td>
+    <td><a href="/laliga/startseite/wettbewerb/ES1/saison_id/2020"></a></td>
+  </tr>
+  <tr>
+    <td class="erfolg_table_saison">21/22</td>
+    <td><a href="/fc-barcelona/startseite/verein/131/saison_id/2021" title="">FCB</a></td>
+  </tr>
+</table></div>
+</body></html>
+"""
+
+
+def test_achievements_keep_ids_without_names_and_omit_the_name():
+    # A competition link with no text and a club link with an empty title still identify the entry; the name is null.
+    raw = TransfermarktPlayerAchievements.from_bytes(
+        UNNAMED_LINKS_PAGE.encode(), player_id="1"
+    ).get_player_achievements()
+    assert raw["achievements"][0]["details"] == [
+        {"season": {"id": "2020", "name": "20/21"}, "competition": {"id": "ES1", "name": None}},
+        {"season": {"id": "2021", "name": "21/22"}, "club": {"id": "131", "name": None}},
+    ]
+    # Serialised as the endpoint does (response_model_exclude_none), the missing name is left out.
+    response = PlayerAchievements.model_validate(raw).model_dump(mode="json", by_alias=True, exclude_none=True)
+    assert response["achievements"][0]["details"] == [
+        {"season": {"id": "2020", "name": "20/21"}, "competition": {"id": "ES1"}},
+        {"season": {"id": "2021", "name": "21/22"}, "club": {"id": "131"}},
     ]
 
 

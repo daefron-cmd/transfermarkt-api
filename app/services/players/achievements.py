@@ -79,7 +79,7 @@ class TransfermarktPlayerAchievements(TransfermarktBase):
                 if club_id or club_name:
                     achievement_detail["club"] = {
                         "id": club_id,
-                        "name": club_name,
+                        "name": club_name or None,
                     }
 
                 if competition_id or competition_name:

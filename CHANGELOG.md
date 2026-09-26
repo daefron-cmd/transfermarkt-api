@@ -40,6 +40,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   the title; a tab or several spaces no longer leave the count in the title or a leading space before it.
 - `GET /competitions/{competition_id}/clubs`: a page whose club links and club names do not line up now fails with 502
   naming the counts instead of pairing names with the wrong clubs (and dropping the last one).
+- `GET /players/{player_id}/achievements`: a competition link with an id but no text no longer fails the request with
+  a 500 `Internal server error`; the competition keeps its `id` and its `name` is omitted. A club link with an id but
+  an empty title likewise omits `name` instead of reporting `""`.
 
 ## [4.0.1] - 2026-09-26
 
