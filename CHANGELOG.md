@@ -34,6 +34,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `GET /clubs/search/{club_name}`: a results page whose columns do not line up (a result missing its country, squad
   or market value) now fails with 502 naming the column counts instead of shifting values onto the following clubs
   and dropping the last one.
+- `GET /players/{player_id}/jersey_numbers`: a page whose season, club and number columns differ in length now fails
+  with 502 naming the column counts instead of silently pairing numbers with the wrong seasons or clubs.
+- `GET /players/{player_id}/achievements`: an achievement title tolerates any whitespace between its `Nx` count and
+  the title; a tab or several spaces no longer leave the count in the title or a leading space before it.
+- `GET /competitions/{competition_id}/clubs`: a page whose club links and club names do not line up now fails with 502
+  naming the counts instead of pairing names with the wrong clubs (and dropping the last one).
 
 ## [4.0.1] - 2026-09-26
 

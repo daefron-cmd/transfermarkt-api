@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import ClassVar, Self
 
-from app.http import TransfermarktClient
+from app.http import TransfermarktClient, UpstreamError
 from app.services.base import TransfermarktBase, parse_html
 from app.utils.utils import extract_from_url
 from app.utils.xpath import Competitions
@@ -14,14 +14,12 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
 
     Args:
         competition_id (str): The unique identifier of the competition.
-        season_id (str): The season identifier. If not provided, it will be extracted from the URL.
 
     Attributes:
         URL_TEMPLATE (str): The URL template for the competition's page on Transfermarkt.
     """
 
     competition_id: str
-    season_id: str | None = None
     # {season} is "?saison_id=<id>", or empty for the current season.
     URL_TEMPLATE: ClassVar[str] = "https://www.transfermarkt.com/-/startseite/wettbewerb/{competition_id}/plus/{season}"
 
@@ -38,7 +36,6 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
             URL=url,
             page=parse_html(url, html),
             competition_id=competition_id,
-            season_id=season_id,
         )
 
     @classmethod
@@ -56,12 +53,17 @@ class TransfermarktCompetitionClubs(TransfermarktBase):
         Returns:
             list: A list of dictionaries, where each dictionary contains information about a
                 football club in the competition, including the club's unique identifier and name.
+
+        Raises:
+            UpstreamError: If the club links and names do not have the same length (the page layout changed).
         """
         urls = self.get_list_by_xpath(Competitions.Clubs.URLS)
         names = self.get_list_by_xpath(Competitions.Clubs.NAMES)
         ids = [extract_from_url(url) for url in urls]
+        if len(ids) != len(names):
+            raise UpstreamError(502, self.URL, f"Unexpected competition clubs page: {len(ids)} ids, {len(names)} names")
 
-        return [{"id": idx, "name": name} for idx, name in zip(ids, names, strict=False)]
+        return [{"id": idx, "name": name} for idx, name in zip(ids, names, strict=True)]
 
     def get_competition_clubs(self) -> dict:
         """

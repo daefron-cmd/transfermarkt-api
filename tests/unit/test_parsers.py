@@ -449,9 +449,10 @@ def test_competition_search_missing_cell_raises():
     page = lxml.html.document_fromstring(fixture_bytes(url))
     (td,) = page.xpath("//a[contains(@href, '/wettbewerb/RU1')]/ancestor::tr[1]/td[@class='rechts']")
     td.getparent().remove(td)
-    with pytest.raises(UpstreamError, match="row 3") as e:
+    with pytest.raises(UpstreamError) as e:
         competition_search("premier", html=lxml.html.tostring(page))
-    assert e.value.status_code == 502
+    assert (e.value.status_code, e.value.url) == (502, url)
+    assert e.value.reason == "Competition search row 3 has 7 cells for 8 columns and 1 competition links"
 
 
 def test_club_players_national_team_status():

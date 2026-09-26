@@ -22,7 +22,7 @@ from app.services.games import (
     validate_game,
 )
 from app.tmapi import TMAPI_URL, batch_urls, parse_competition
-from tests.unit.tmapi_helpers import NoRequestClient, envelope, fixture_bytes
+from tests.unit.tmapi_helpers import DoctoredClient, NoRequestClient, envelope, fixture_bytes
 
 URL = "https://example.test/fixtures"
 
@@ -197,10 +197,56 @@ def test_competition_unexpected_shape_is_502():
     assert e.value.status_code == 502
 
 
-def test_table_failure_envelope_is_502():
+@pytest.mark.parametrize(
+    ("body", "reason"),
+    [
+        (b'{"success":false,"message":"x"}', "tmapi request failed (x)"),
+        (envelope([]), "Unexpected tmapi response: no tables list"),
+        (envelope({"tables": [{"meta": {"name": "A"}, "clubs": []}, {"meta": {"name": "B"}}]}), "no clubs in table 1"),
+        (envelope({"tables": [{"meta": {"name": "A"}, "clubs": ["131"]}]}), "no clubId in table 'A' club None"),
+    ],
+)
+def test_table_error_details_name_the_table_url(body, reason):
     with pytest.raises(UpstreamError) as e:
-        TransfermarktCompetitionTable.parse_tables(b'{"success":false,"message":"x"}', competition_id="ES1")
-    assert e.value.status_code == 502
+        TransfermarktCompetitionTable.parse_tables(body, competition_id="ES1", season_id="2024")
+    assert (e.value.status_code, e.value.url) == (502, TransfermarktCompetitionTable.table_url("ES1", "2024"))
+    assert e.value.reason.endswith(reason)
+
+
+def table_from_bytes(**overrides: bytes) -> TransfermarktCompetitionTable:
+    """Build the ES1 2024 table service from the recorded responses, with the named bodies replaced."""
+    ((clubs_url, clubs_body),) = lookups(TransfermarktCompetitionTable.club_ids(table_data("ES1", "2024")["tables"]))
+    return TransfermarktCompetitionTable.from_bytes(
+        overrides.get("table", table_bytes("ES1", "2024")),
+        competition=overrides.get("competition", fixture_bytes(f"{TMAPI_URL}/competition/ES1")),
+        clubs=[(clubs_url, overrides.get("clubs", clubs_body))],
+        competition_id="ES1",
+        season_id="2024",
+    )
+
+
+@pytest.mark.parametrize(
+    ("broken", "url"),
+    [
+        ("competition", f"{TMAPI_URL}/competition/ES1"),
+        ("table", TransfermarktCompetitionTable.table_url("ES1", "2024")),
+        ("clubs", batch_urls("clubs", TransfermarktCompetitionTable.club_ids(table_data("ES1", "2024")["tables"]))[0]),
+    ],
+)
+def test_table_from_bytes_errors_name_the_response_url(broken, url):
+    with pytest.raises(UpstreamError) as e:
+        table_from_bytes(**{broken: b"[]"})
+    assert (e.value.status_code, e.value.url) == (502, url)
+    assert e.value.reason == "Unexpected tmapi response: no success flag"
+
+
+def test_table_fetch_error_names_the_table_url_of_the_season():
+    url = TransfermarktCompetitionTable.table_url("ES1", "2024")
+    client = DoctoredClient({url: b"[]"})
+    with pytest.raises(UpstreamError) as e:
+        asyncio.run(TransfermarktCompetitionTable.fetch(client, competition_id="ES1", season_id="2024"))  # type: ignore[arg-type]
+    assert (e.value.status_code, e.value.url) == (502, url)
+    assert client.urls == [f"{TMAPI_URL}/competition/ES1", url]
 
 
 # Fixtures and games
@@ -440,11 +486,128 @@ def test_game_that_is_not_an_object_is_502():
     )
 
 
-def test_fixtures_unexpected_shape_is_502():
-    for data in ({"fixtures": {}}, {"fixtures": [{"gameDay": 1}]}, []):
-        with pytest.raises(UpstreamError) as e:
-            TransfermarktCompetitionFixtures.parse_games(envelope(data), competition_id="ES1")
-        assert e.value.status_code == 502
+@pytest.mark.parametrize(
+    ("body", "reason"),
+    [
+        (b"[]", "Unexpected tmapi response: no success flag"),
+        (envelope([]), "Unexpected tmapi response: no fixtures list"),
+        (envelope({"fixtures": {}}), "Unexpected tmapi response: no fixtures list"),
+        (
+            envelope({"fixtures": [{"games": []}, {"gameDay": 2}]}),
+            "Unexpected tmapi response: no games list in fixtures[1]",
+        ),
+        (envelope({"fixtures": [{"games": []}, "round"]}), "Unexpected tmapi response: no games list in fixtures[1]"),
+    ],
+)
+def test_fixtures_unexpected_shape_is_502(body, reason):
+    with pytest.raises(UpstreamError) as e:
+        TransfermarktCompetitionFixtures.parse_games(body, competition_id="EURO", season_id="2023")
+    assert (e.value.status_code, e.value.url) == (502, TransfermarktCompetitionFixtures.fixtures_url("EURO", "2023"))
+    assert e.value.reason == reason
+
+
+EURO_SHOOTOUT_REPORT = URL_GAME.format(game_id="4359338")
+
+
+def raw_games(competition_id: str, season_id: str | None = None) -> list[dict]:
+    return [g for r in fixtures_data(competition_id, season_id)["fixtures"] for g in r["games"]]
+
+
+def fixtures_from_bytes(**overrides: bytes) -> TransfermarktCompetitionFixtures:
+    """Build the EURO 2023 fixtures service from the recorded responses, with the named bodies replaced."""
+    ((clubs_url, clubs_body),) = lookups(TransfermarktCompetitionFixtures.club_ids(raw_games("EURO", "2023")))
+    fixtures_url = TransfermarktCompetitionFixtures.fixtures_url("EURO", "2023")
+    return TransfermarktCompetitionFixtures.from_bytes(
+        overrides.get("fixtures", fixture_bytes(fixtures_url)),
+        competition=overrides.get("competition", fixture_bytes(f"{TMAPI_URL}/competition/EURO")),
+        clubs=[(clubs_url, overrides.get("clubs", clubs_body))],
+        attributes=overrides.get("attributes"),
+        games=[
+            (url, overrides.get("report", fixture_bytes(url)) if url == EURO_SHOOTOUT_REPORT else fixture_bytes(url))
+            for url in (URL_GAME.format(game_id=i) for i in ("4359332", "4359337", "4359338"))
+        ],
+        competition_id="EURO",
+        season_id="2023",
+    )
+
+
+@pytest.mark.parametrize(
+    ("broken", "body", "url", "reason"),
+    [
+        ("competition", b"[]", f"{TMAPI_URL}/competition/EURO", "Unexpected tmapi response: no success flag"),
+        ("attributes", b"[]", f"{TMAPI_URL}/attributes", "Unexpected tmapi response: no success flag"),
+        (
+            "attributes",
+            envelope({}),
+            f"{TMAPI_URL}/attributes",
+            "Unexpected tmapi response: attributes.competitionGroups is not a list of {id, name, ...}",
+        ),
+        (
+            "fixtures",
+            b"[]",
+            TransfermarktCompetitionFixtures.fixtures_url("EURO", "2023"),
+            "Unexpected tmapi response: no success flag",
+        ),
+        (
+            "clubs",
+            b"[]",
+            batch_urls("clubs", TransfermarktCompetitionFixtures.club_ids(raw_games("EURO", "2023")))[0],
+            "Unexpected tmapi response: no success flag",
+        ),
+        ("report", b"[]", EURO_SHOOTOUT_REPORT, "Unexpected tmapi response: no success flag"),
+    ],
+)
+def test_fixtures_from_bytes_errors_name_the_response_url(broken, body, url, reason):
+    with pytest.raises(UpstreamError) as e:
+        fixtures_from_bytes(**{broken: body})
+    assert (e.value.status_code, e.value.url) == (502, url)
+    assert e.value.reason == reason
+
+
+def test_fixtures_from_bytes_without_attributes_keeps_the_group_id_as_stage():
+    data = fixtures_data("EURO", "2023")
+    del raw_game(data, "4235807")["baseDetails"]["competitionGroup"]
+    games = fixtures_from_bytes(fixtures=envelope(data)).get_competition_fixtures()["games"]
+    assert game_by_id(games, "4235807")["stage"] == "A"
+    assert game_by_id(games, "4235808")["stage"] == "Group A"
+
+
+def test_fixtures_season_defaults_to_the_current_season():
+    tfmkt = TransfermarktCompetitionFixtures.from_bytes(
+        fixture_bytes(TransfermarktCompetitionFixtures.fixtures_url("CDR", None)),
+        competition=fixture_bytes(f"{TMAPI_URL}/competition/CDR"),
+        clubs=lookups(TransfermarktCompetitionFixtures.club_ids(raw_games("CDR"))),
+        competition_id="CDR",
+    )
+    assert tfmkt.get_competition_fixtures()["seasonId"] == "2026"
+
+
+@pytest.mark.parametrize(
+    ("broken", "url"),
+    [
+        (f"{TMAPI_URL}/competition/EURO", f"{TMAPI_URL}/competition/EURO"),
+        (
+            TransfermarktCompetitionFixtures.fixtures_url("EURO", "2023"),
+            TransfermarktCompetitionFixtures.fixtures_url("EURO", "2023"),
+        ),
+    ],
+)
+def test_fixtures_fetch_errors_name_the_response_url(broken, url):
+    client = DoctoredClient({broken: b"[]"})
+    with pytest.raises(UpstreamError) as e:
+        asyncio.run(TransfermarktCompetitionFixtures.fetch(client, competition_id="EURO", season_id="2023"))  # type: ignore[arg-type]
+    assert (e.value.status_code, e.value.url) == (502, url)
+
+
+def test_fixtures_fetch_takes_a_missing_group_name_from_the_attributes():
+    fixtures_url = TransfermarktCompetitionFixtures.fixtures_url("EURO", "2023")
+    data = fixtures_data("EURO", "2023")
+    del raw_game(data, "4235807")["baseDetails"]["competitionGroup"]
+    client = DoctoredClient({fixtures_url: envelope(data)})
+    tfmkt = asyncio.run(TransfermarktCompetitionFixtures.fetch(client, competition_id="EURO", season_id="2023"))  # type: ignore[arg-type]
+    games = tfmkt.get_competition_fixtures()["games"]
+    assert game_by_id(games, "4235807")["stage"] == "Group A"
+    assert f"{TMAPI_URL}/attributes" in client.urls
 
 
 def test_group_names_are_only_fetched_when_a_group_is_not_embedded():
