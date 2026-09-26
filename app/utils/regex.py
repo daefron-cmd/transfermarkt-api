@@ -4,3 +4,5 @@ REGEX_BG_COLOR: str = r"background-color:(?P<color>.+);"
 REGEX_CHART_CLUB_ID: str = r"(?P<club_id>\d+)"
 REGEX_COUNTRY_ID: str = r"(?P<id>\d+)\.png"
 REGEX_DOB_AGE: str = r"^(?P<dob>[^(]+?)\s*\((?P<age>\d+)\)"
+# The label before a fee ("Ablöse €20.00m"): everything before the first character an amount can start with.
+REGEX_FEE_LABEL: str = r"^[^\d€$£?-]+"

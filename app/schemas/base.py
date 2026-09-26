@@ -40,6 +40,7 @@ class TransfermarktBaseModel(BaseModel):
         "total_market_value",
         "age",
         "fee",
+        "signed_from_fee",
         "games_missed",
         mode="before",
         check_fields=False,

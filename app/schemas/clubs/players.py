@@ -16,18 +16,19 @@ class ClubPlayer(TransfermarktBaseModel):
     height: int | None = None
     foot: str | None = None
     joined_on: date | None = None
-    joined: str | None = None
     signed_from: str | None = None
+    signed_from_fee: int | None = None
     contract: date | None = None
     market_value: int | None = None
     status: str | None = None
 
     # The service joins xpath results into these strings, which gives "" when there is nothing to join.
-    @field_validator("joined_on", "joined", "signed_from", "status", mode="before")
+    @field_validator("joined_on", "signed_from", "status", mode="before")
     def blank_to_none(cls, v: object) -> object:
         return None if isinstance(v, str) and not v.strip() else v
 
 
 class ClubPlayers(TransfermarktBaseModel, AuditMixin):
     id: str
+    season_id: str
     players: list[ClubPlayer]

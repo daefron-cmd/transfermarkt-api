@@ -16,7 +16,8 @@
           "Germany"
         ],
         "position": "Goalkeeper",
-        "signedFrom": "Borussia Mönchengladbach"
+        "signedFrom": "Borussia Mönchengladbach",
+        "signedFromFee": 12000000
       },
       {
         "age": 32,
@@ -33,7 +34,8 @@
           "Spain"
         ],
         "position": "Goalkeeper",
-        "signedFrom": "Real Sociedad"
+        "signedFrom": "Real Sociedad",
+        "signedFromFee": 12000000
       },
       {
         "age": 26,
@@ -65,7 +67,8 @@
           "Spain"
         ],
         "position": "Centre-Back",
-        "signedFrom": "Manchester United"
+        "signedFrom": "Manchester United",
+        "signedFromFee": 5000000
       },
       {
         "age": 24,
@@ -98,7 +101,8 @@
           "Belgium"
         ],
         "position": "Centre-Back",
-        "signedFrom": "Arsenal FC"
+        "signedFrom": "Arsenal FC",
+        "signedFromFee": 19000000
       },
       {
         "age": 21,
@@ -129,7 +133,8 @@
           "Spain"
         ],
         "position": "Left-Back",
-        "signedFrom": "Valencia CF"
+        "signedFrom": "Valencia CF",
+        "signedFromFee": 14000000
       },
       {
         "age": 31,
@@ -145,7 +150,8 @@
           "France"
         ],
         "position": "Left-Back",
-        "signedFrom": "Valencia CF"
+        "signedFrom": "Valencia CF",
+        "signedFromFee": 20000000
       },
       {
         "age": 30,
@@ -162,7 +168,8 @@
           "Spain"
         ],
         "position": "Left-Back",
-        "signedFrom": "Sevilla FC"
+        "signedFrom": "Sevilla FC",
+        "signedFromFee": 9500000
       },
       {
         "age": 24,
@@ -211,7 +218,8 @@
           "Brazil"
         ],
         "position": "Right-Back",
-        "signedFrom": "São Paulo Futebol Clube"
+        "signedFrom": "São Paulo Futebol Clube",
+        "signedFromFee": 4000000
       },
       {
         "age": 26,
@@ -244,7 +252,8 @@
           "Italy"
         ],
         "position": "Defensive Midfield",
-        "signedFrom": ": Ablöse €20.00m"
+        "signedFrom": "Liverpool FC",
+        "signedFromFee": 20000000
       },
       {
         "age": 20,
@@ -321,7 +330,8 @@
           "Switzerland"
         ],
         "position": "Central Midfield",
-        "signedFrom": "Sevilla FC"
+        "signedFrom": "Sevilla FC",
+        "signedFromFee": 18000000
       },
       {
         "age": 23,
@@ -353,7 +363,7 @@
           "Spain"
         ],
         "position": "Central Midfield",
-        "signedFrom": ": Ablöse -"
+        "signedFrom": "FC Barcelona B"
       },
       {
         "age": 23,
@@ -370,6 +380,7 @@
         ],
         "position": "Attacking Midfield",
         "signedFrom": "Santos FC",
+        "signedFromFee": 88000000,
         "status": "Hamstring injury - Return unknown"
       },
       {
@@ -487,7 +498,8 @@
           "Uruguay"
         ],
         "position": "Centre-Forward",
-        "signedFrom": ": Ablöse €81.72m"
+        "signedFrom": "Liverpool FC",
+        "signedFromFee": 81720000
       },
       {
         "age": 19,
@@ -505,7 +517,8 @@
         "position": "Centre-Forward",
         "signedFrom": "FC Barcelona B"
       }
-    ]
+    ],
+    "seasonId": "2014"
   },
   "status_code": 200
 }

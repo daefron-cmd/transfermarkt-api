@@ -141,7 +141,9 @@ class Clubs:
     class Players:
         PAST_FLAG = "//div[@id='yw1']//thead//text()"
         CLUB_NAME = "//header//h1//text()"
-        CLUB_URL = "//li[@id='overview']//@href"
+        # The active "Detailed" squad tab links to the page's own season: .../kader/verein/<id>/saison_id/<year>/plus/1
+        SEASON_URL = "//a[contains(@class, 'tm-tab__active--parent')]/@href"
+        ROWS = "//div[@id='yw1']//table[@class='items']/tbody/tr"
         PAGE_NATIONALITIES = "//td[img[@class='flaggenrahmen']]"
         PAGE_INFOS = "//td[@class='posrela']"
         NAMES = "//td[@class='posrela']//a//text()"
@@ -149,8 +151,10 @@ class Clubs:
         POSITIONS = "//td[@class='posrela']//tr[2]//text()"
         DOB_AGE = "//div[@id='yw1']//td[3]//text()"
         NATIONALITIES = ".//img//@title"
-        JOINED = ".//span/node()/@title"
-        SIGNED_FROM = ".//a//img//@title"
+        # The crest's title is sometimes the fee label (": Ablöse €20.00m"); its alt is the club name.
+        SIGNED_FROM = ".//img/@alt"
+        # "<club>: Ablöse <fee>"
+        SIGNED_FROM_TITLE = ".//a/@title"
         MARKET_VALUES = "//td[@class='rechts hauptlink']//text()"
         STATUSES = ".//td[@class='hauptlink']//span//@title"
         JOINED_ON = ".//text()"
@@ -166,7 +170,7 @@ class Clubs:
             PAGE_SIGNED_FROM = "//div[@id='yw1']//td[9]"
             PAGE_JOINED_ON = "//div[@id='yw1']//td[8]"
             CURRENT_CLUB = "//div[@id='yw1']//td[5]//img//@title"
-            HEIGHTS = "//div[@id='yw1']//td[6]/text()"
+            HEIGHTS = "//div[@id='yw1']//td[6]//text()"
             FOOTS = "//div[@id='yw1']//td[7]//text()"
 
 

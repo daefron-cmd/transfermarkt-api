@@ -1,11 +1,12 @@
+import re
 from dataclasses import dataclass, field
 from typing import ClassVar, Self
 
 import lxml.html
 
-from app.http import TransfermarktClient
+from app.http import TransfermarktClient, UpstreamError
 from app.services.base import TransfermarktBase
-from app.utils.regex import REGEX_DOB
+from app.utils.regex import REGEX_DOB, REGEX_FEE_LABEL
 from app.utils.utils import extract_from_url, safe_regex
 from app.utils.xpath import Clubs
 
@@ -57,7 +58,7 @@ class TransfermarktClubPlayers(TransfermarktBase):
     def __update_season_id(self):
         """Update the season ID if it's not provided by extracting it from the website."""
         if self.season_id is None:
-            self.season_id = extract_from_url(self.get_text_by_xpath(Clubs.Players.CLUB_URL), "season_id")
+            self.season_id = extract_from_url(self.get_text_by_xpath(Clubs.Players.SEASON_URL), "season_id")
 
     def __update_past_flag(self) -> None:
         """Check if the season is the current or if it's a past one and update the flag accordingly."""
@@ -69,6 +70,9 @@ class TransfermarktClubPlayers(TransfermarktBase):
 
         Returns:
             list[dict]: A list of player information dictionaries.
+
+        Raises:
+            UpstreamError: If a column does not have one value per player row (the page layout changed).
         """
         page_nationalities = self.page.xpath(Clubs.Players.PAGE_NATIONALITIES)
         page_players_infos = self.page.xpath(Clubs.Players.PAGE_INFOS)
@@ -99,51 +103,44 @@ class TransfermarktClubPlayers(TransfermarktBase):
             remove_empty=False,
         )
         players_joined_on = ["; ".join(e.xpath(Clubs.Players.JOINED_ON)) for e in page_players_joined_on]
-        players_joined = ["; ".join(e.xpath(Clubs.Players.JOINED)) for e in page_players_infos]
-        players_signed_from = ["; ".join(e.xpath(Clubs.Players.SIGNED_FROM)) for e in page_players_signed_from]
+        signed_from_titles = [(e.xpath(Clubs.Players.SIGNED_FROM_TITLE) or [""])[0] for e in page_players_signed_from]
+        players_signed_from = [
+            "; ".join(e.xpath(Clubs.Players.SIGNED_FROM)) or title.rsplit(": ", 1)[0]
+            for e, title in zip(page_players_signed_from, signed_from_titles, strict=True)
+        ]
+        players_signed_from_fees = [
+            re.sub(REGEX_FEE_LABEL, "", title.rsplit(": ", 1)[1]) if ": " in title else None
+            for title in signed_from_titles
+        ]
         players_contracts = (
             [None] * len(players_ids) if self.past else self.get_list_by_xpath(Clubs.Players.Present.CONTRACTS)
         )
         players_marketvalues = self.get_list_by_xpath(Clubs.Players.MARKET_VALUES)
         players_statuses = ["; ".join(e.xpath(Clubs.Players.STATUSES)) for e in page_players_infos if e is not None]
 
-        return [
-            {
-                "id": idx,
-                "name": name,
-                "position": position,
-                "dateOfBirth": dob,
-                "age": age,
-                "nationality": nationality,
-                "currentClub": current_club,
-                "height": height,
-                "foot": foot,
-                "joinedOn": joined_on,
-                "joined": joined,
-                "signedFrom": signed_from,
-                "contract": contract,
-                "marketValue": market_value,
-                "status": status,
-            }
-            for idx, name, position, dob, age, nationality, current_club, height, foot, joined_on, joined, signed_from, contract, market_value, status in zip(  # noqa: E501
-                players_ids,
-                players_names,
-                players_positions,
-                players_dobs,
-                players_ages,
-                players_nationalities,
-                players_current_club,
-                players_heights,
-                players_foots,
-                players_joined_on,
-                players_joined,
-                players_signed_from,
-                players_contracts,
-                players_marketvalues,
-                players_statuses,
-                strict=False,
-            )
-        ]
+        columns = {
+            "id": players_ids,
+            "name": players_names,
+            "position": players_positions,
+            "dateOfBirth": players_dobs,
+            "age": players_ages,
+            "nationality": players_nationalities,
+            "currentClub": players_current_club,
+            "height": players_heights,
+            "foot": players_foots,
+            "joinedOn": players_joined_on,
+            "signedFrom": players_signed_from,
+            "signedFromFee": players_signed_from_fees,
+            "contract": players_contracts,
+            "marketValue": players_marketvalues,
+            "status": players_statuses,
+        }
+        # The columns come from independent xpath queries; a length mismatch would shift values between players.
+        rows = len(self.page.xpath(Clubs.Players.ROWS))
+        for name, values in columns.items():
+            if len(values) != rows:
+                raise UpstreamError(502, self.URL, f"Squad column {name!r} has {len(values)} values for {rows} rows")
+        return [dict(zip(columns, values, strict=True)) for values in zip(*columns.values(), strict=True)]
 
     def get_club_players(self) -> dict:
         """
@@ -154,6 +151,7 @@ class TransfermarktClubPlayers(TransfermarktBase):
                   the data was last updated.
         """
         self.response["id"] = self.club_id
+        self.response["seasonId"] = self.season_id
         self.response["players"] = self.__parse_club_players()
 
         return self.response

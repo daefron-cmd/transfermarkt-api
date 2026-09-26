@@ -3,6 +3,7 @@
 import json
 from datetime import date
 
+import lxml.html
 import pytest
 from fastapi import HTTPException
 
@@ -238,6 +239,106 @@ def test_club_players_blank_strings_are_omitted(club_id, season_id, url):
     for i in no_status:
         assert "status" not in players[i]
     for player in players:
-        for key in ("joined", "joinedOn", "signedFrom", "status"):
+        for key in ("joinedOn", "signedFrom", "status"):
             assert player.get(key) != "", (player["id"], key)
     assert any("status" in p for p in players)
+
+
+CLUB_PLAYERS_URL = TransfermarktClubPlayers.URL_TEMPLATE
+
+
+def club_players(
+    club_id: str, fixture_season: str | None, *, season_id: str | None = None, html: bytes | None = None
+) -> dict:
+    """Parse the recorded squad page of fixture_season (or the given html), passing season_id to the service."""
+    if html is None:
+        season = f"/saison_id/{fixture_season}" if fixture_season else ""
+        html = fixture_bytes(CLUB_PLAYERS_URL.format(club_id=club_id, season=season))
+    return TransfermarktClubPlayers.from_bytes(html, club_id=club_id, season_id=season_id).get_club_players()
+
+
+def players_by_name(raw: dict) -> dict:
+    return {p.name: p for p in ClubPlayers.model_validate(raw).players}
+
+
+def test_club_players_signed_from_and_fee():
+    # Mascherano, Xavi and Suárez have a fee label (": Ablöse …") as crest title; Rakitic's crest title is the club.
+    players = players_by_name(club_players("131", "2014", season_id="2014"))
+    signed = {name: (players[name].signed_from, players[name].signed_from_fee) for name in players}
+    assert signed["Javier Mascherano"] == ("Liverpool FC", 20_000_000)
+    assert signed["Xavi"] == ("FC Barcelona B", None)
+    assert signed["Luis Suárez"] == ("Liverpool FC", 81_720_000)
+    assert signed["Ivan Rakitic"] == ("Sevilla FC", 18_000_000)
+    assert signed["Adama Traoré"] == ("Wolverhampton Wanderers", None)  # "Ablöse ?"
+    assert signed["Edgar Ié"] == (None, None)  # empty cell
+
+
+def test_club_players_signed_from_falls_back_to_link_title():
+    url = CLUB_PLAYERS_URL.format(club_id="131", season="/saison_id/2014")
+    page = lxml.html.document_fromstring(fixture_bytes(url))
+    (img,) = page.xpath("//a[@title='Liverpool FC: Ablöse €20.00m']/img")
+    del img.attrib["alt"]
+    players = players_by_name(club_players("131", "2014", html=lxml.html.tostring(page), season_id="2014"))
+    assert players["Javier Mascherano"].signed_from == "Liverpool FC"
+    assert players["Javier Mascherano"].signed_from_fee == 20_000_000
+
+
+@pytest.mark.parametrize("label", ["Fee", "Transfer fee"])
+def test_club_players_signed_from_fee_ignores_the_label(label):
+    url = CLUB_PLAYERS_URL.format(club_id="131", season="/saison_id/2014")
+    page = lxml.html.document_fromstring(fixture_bytes(url))
+    (link,) = page.xpath("//a[@title='Liverpool FC: Ablöse €20.00m']")
+    link.set("title", f"Liverpool FC: {label} €20.00m")
+    players = players_by_name(club_players("131", "2014", html=lxml.html.tostring(page), season_id="2014"))
+    assert players["Javier Mascherano"].signed_from == "Liverpool FC"
+    assert players["Javier Mascherano"].signed_from_fee == 20_000_000
+
+
+def test_club_players_current_season_signed_from_fee():
+    players = players_by_name(club_players("131", None))
+    assert (players["Frenkie de Jong"].signed_from, players["Frenkie de Jong"].signed_from_fee) == (
+        "Ajax Amsterdam",
+        86_000_000,
+    )
+    assert players["Wojciech Szczesny"].signed_from == "Career break"
+
+
+def test_club_players_have_no_joined_field():
+    for club_id, season_id in [("131", None), ("131", "2014"), ("210", "2017")]:
+        raw = club_players(club_id, season_id, season_id=season_id)
+        assert all("joined" not in p for p in raw["players"])
+
+
+@pytest.mark.parametrize(
+    ("season_id", "fixture_season", "expected"),
+    [(None, None, "2026"), (None, "2014", "2014"), ("2014", "2014", "2014")],
+)
+def test_club_players_season_id(season_id, fixture_season, expected):
+    raw = club_players("131", fixture_season, season_id=season_id)
+    assert ClubPlayers.model_validate(raw).season_id == expected
+    assert raw["seasonId"] == expected
+
+
+@pytest.mark.parametrize(
+    ("season", "cell", "field"),
+    [
+        (None, "td[@class='rechts hauptlink']", "marketValue"),
+        ("2014", "td[@class='zentriert'][img[@class='flaggenrahmen']]", "nationality"),
+    ],
+)
+def test_club_players_misaligned_columns_raise(season, cell, field):
+    url = CLUB_PLAYERS_URL.format(club_id="131", season=f"/saison_id/{season}" if season else "")
+    page = lxml.html.document_fromstring(fixture_bytes(url))
+    (td,) = page.xpath(f"(//div[@id='yw1']//table[@class='items']/tbody/tr)[3]/{cell}")
+    td.getparent().remove(td)
+    with pytest.raises(UpstreamError, match=field) as e:
+        club_players("131", season, html=lxml.html.tostring(page), season_id=season)
+    assert e.value.status_code == 502
+
+
+def test_club_players_height_na_link_keeps_rows_aligned():
+    # Cícero, Maicon and Maicosuel have "<a>N/A</a>" as height; the players after them keep their own heights.
+    players = players_by_name(club_players("210", "2017", season_id="2017"))
+    assert len(players) == 66
+    heights = [players[name].height for name in ("Cícero", "Maicon", "Luan", "Maicosuel", "Jael")]
+    assert heights == [None, None, 180, None, 186]

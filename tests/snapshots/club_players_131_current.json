@@ -17,6 +17,7 @@
         ],
         "position": "Goalkeeper",
         "signedFrom": "RCD Espanyol Barcelona",
+        "signedFromFee": 25000000,
         "status": "Knee problems - Return expected on 11/10/2026"
       },
       {
@@ -33,7 +34,8 @@
           "Croatia"
         ],
         "position": "Goalkeeper",
-        "signedFrom": "Fenerbahce"
+        "signedFrom": "Fenerbahce",
+        "signedFromFee": 2000000
       },
       {
         "age": 36,
@@ -48,7 +50,8 @@
         "nationality": [
           "Poland"
         ],
-        "position": "Goalkeeper"
+        "position": "Goalkeeper",
+        "signedFrom": "Career break"
       },
       {
         "age": 19,
@@ -112,7 +115,7 @@
           "Denmark"
         ],
         "position": "Centre-Back",
-        "signedFrom": ": Ablöse free transfer",
+        "signedFrom": "Chelsea FC",
         "status": "Muscle injury - Return unknown"
       },
       {
@@ -146,7 +149,8 @@
           "Benin"
         ],
         "position": "Right-Back",
-        "signedFrom": "Sevilla FC"
+        "signedFrom": "Sevilla FC",
+        "signedFromFee": 50000000
       },
       {
         "age": 32,
@@ -194,7 +198,8 @@
           "Spain"
         ],
         "position": "Defensive Midfield",
-        "signedFrom": "Manchester City"
+        "signedFrom": "Manchester City",
+        "signedFromFee": 60000000
       },
       {
         "age": 23,
@@ -210,7 +215,8 @@
           "Spain"
         ],
         "position": "Central Midfield",
-        "signedFrom": "UD Las Palmas"
+        "signedFrom": "UD Las Palmas",
+        "signedFromFee": 23000000
       },
       {
         "age": 29,
@@ -226,7 +232,8 @@
           "Netherlands"
         ],
         "position": "Central Midfield",
-        "signedFrom": ": Ablöse €86.00m",
+        "signedFrom": "Ajax Amsterdam",
+        "signedFromFee": 86000000,
         "status": "Knee medial ligament tear - Return expected on 30/11/2026"
       },
       {
@@ -307,7 +314,8 @@
           "Spain"
         ],
         "position": "Attacking Midfield",
-        "signedFrom": "RB Leipzig"
+        "signedFrom": "RB Leipzig",
+        "signedFromFee": 61000000
       },
       {
         "age": 25,
@@ -324,7 +332,8 @@
           "Scotland"
         ],
         "position": "Left Winger",
-        "signedFrom": "Newcastle United"
+        "signedFrom": "Newcastle United",
+        "signedFromFee": 80000000
       },
       {
         "age": 18,
@@ -342,6 +351,7 @@
         ],
         "position": "Left Winger",
         "signedFrom": "Club NXT",
+        "signedFromFee": 8500000,
         "status": "Called up to national team – Segunda Federación - Grupo II – until 07/10/2026"
       },
       {
@@ -375,7 +385,8 @@
           "Nigeria"
         ],
         "position": "Right Winger",
-        "signedFrom": "Borussia Dortmund"
+        "signedFrom": "Borussia Dortmund",
+        "signedFromFee": 22000000
       },
       {
         "age": 20,
@@ -393,6 +404,7 @@
         ],
         "position": "Right Winger",
         "signedFrom": "FC Copenhagen",
+        "signedFromFee": 2500000,
         "status": "No eligibility – UEFA Champions League – until 28/01/2027; Cruciate ligament tear - Return expected on 10/05/2027"
       },
       {
@@ -411,6 +423,7 @@
         ],
         "position": "Centre-Forward",
         "signedFrom": "Leeds United",
+        "signedFromFee": 58000000,
         "status": "Team captain"
       },
       {
@@ -427,7 +440,8 @@
           "Brazil"
         ],
         "position": "Centre-Forward",
-        "signedFrom": "Arsenal FC"
+        "signedFrom": "Arsenal FC",
+        "signedFromFee": 10000000
       },
       {
         "age": 18,
@@ -443,9 +457,11 @@
           "Egypt"
         ],
         "position": "Centre-Forward",
-        "signedFrom": "Al Ahly FC"
+        "signedFrom": "Al Ahly FC",
+        "signedFromFee": 1500000
       }
-    ]
+    ],
+    "seasonId": "2026"
   },
   "status_code": 200
 }
